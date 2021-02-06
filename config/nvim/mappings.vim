@@ -13,4 +13,15 @@ map <C-n> :NERDTreeToggle<CR>
 
 nmap <C-_> <Plug>NERDCommenterToggle " Ctrl+/ will toggle comment
 
-nnoremap <c-p> :GitFiles<cr>
+fun! FzfOmniFiles()
+  let is_git = system('git status')
+  if v:shell_error
+    :Files
+  else
+    :GitFiles
+  endif
+endfun
+
+" FZF mapping
+nnoremap <C-p> :call FzfOmniFiles()<CR>
+nnoremap <c-b> :Buffers<cr>
