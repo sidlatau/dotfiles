@@ -1,0 +1,6 @@
+{
+  "coc.preferences.formatOnSaveFiletypes": [
+    "dart"
+  ],
+  "flutter.openDevLogSplitCommand": "botright 10split"
+}
