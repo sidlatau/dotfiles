@@ -1,4 +1,5 @@
-
+set title
+set titlestring=%t
 " Colors
 " ---------------------------------------------------------------------------
 syntax enable
@@ -6,6 +7,9 @@ set background=dark
 colorscheme gruvbox-material
 let g:gruvbox_material_diagnostic_line_highlight = 1
 let g:airline_theme = 'gruvbox_material'
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#tab_nr_type = 2
 " ---------------------------------------------------------------------------
 
 
@@ -52,17 +56,8 @@ set showmatch
 " http://vim.wikia.com/wiki/Searching
 set hlsearch incsearch ignorecase smartcase
 
-" As opposed to `wrap`
-"set nowrap
-
-" http://vim.wikia.com/wiki/Set_working_directory_to_the_current_file
-set autochdir
-
 " open new buffers without saving current modifications (buffer remains open)
 set hidden
-
-" http://stackoverflow.com/questions/9511253/how-to-effectively-use-vim-wildmenu
-set wildmenu wildmode=list:longest,full
 
 set laststatus=2              " StatusLine always visible
 
@@ -79,8 +74,6 @@ set colorcolumn=+1
 set cursorline
 " Normal mode
 highlight CursorLine ctermbg=None
-" autocmd InsertEnter * highlight  CursorLine ctermbg=17 ctermfg=None
-" autocmd InsertLeave * highlight  CursorLine ctermbg=None ctermfg=None  
 set mouse=a                     " enable mouse support
 set updatetime=100              " when to execute CursorHold
 set noshowmode                  " don't display insert/normal/visual mode, we have a status line for that

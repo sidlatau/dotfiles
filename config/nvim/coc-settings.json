@@ -1,6 +1,7 @@
 {
-  "coc.preferences.formatOnSaveFiletypes": [
-    "dart"
-  ],
-  "flutter.openDevLogSplitCommand": "botright 10split"
+  "flutter.openDevLogSplitCommand": "botright 10split",
+  "codeLens.enable": true,
+  "suggest.echodocSupport": true,
+  "diagnostic.virtualText": true,
+  "suggest.languageSourcePriority": 99
 }

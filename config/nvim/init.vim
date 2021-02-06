@@ -14,18 +14,21 @@ if !exists('g:vscode')
   Plug 'sainnhe/gruvbox-material'
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
+
   Plug 'preservim/nerdtree'
+
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
   Plug 'preservim/nerdcommenter'
-  Plug 'natebosch/vim-lsc'
-  Plug 'natebosch/vim-lsc-dart'
-
 endif
 
 call plug#end()
 
 if !exists('g:vscode')
+  " dart-vim-plugin
+  let dart_format_on_save = 1
+  let dart_style_guide = 2
+
   source ~/.config/nvim/settings.vim
   source ~/.config/nvim/mappings.vim
   source ~/.config/nvim/coc.vim
