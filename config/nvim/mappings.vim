@@ -1,5 +1,3 @@
-" ---------------------------------------------------------------------------
-
 " Quicker window movement
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k

@@ -46,9 +46,7 @@ set expandtab tabstop=2 shiftwidth=2 softtabstop=2
 " Indent new line the same as the preceding line
 set autoindent
 
-" make scrolling and painting fast
-" ttyfast kept for vim compatibility but not needed for nvim
-set ttyfast lazyredraw
+set lazyredraw                      " redraw after executing macro
 
 " highlight matching parens, braces, brackets, etc
 set showmatch
@@ -84,4 +82,6 @@ set shortmess+=c
 
 set signcolumn=number
 
-
+let NERDTreeAutoDeleteBuffer = 1
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
