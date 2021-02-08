@@ -70,8 +70,6 @@ set colorcolumn=+1
 " CursorLine - sometimes autocmds are not performant; turn off if so
 " http://vim.wikia.com/wiki/Highlight_current_line
 set cursorline
-" Normal mode
-highlight CursorLine ctermbg=None
 set mouse=a                     " enable mouse support
 set updatetime=100              " when to execute CursorHold
 set noshowmode                  " don't display insert/normal/visual mode, we have a status line for that
