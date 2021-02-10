@@ -22,21 +22,24 @@ set autoread
 au FocusGained,BufEnter * :silent! !
 
 set encoding=utf-8
-set visualbell    " errors flash screen rather than emit beep
+set noerrorbells    
 set backspace=2   " Backspace deletes like most programs in insert mode
-set showcmd       " display incomplete commands
-set modelines=0   " Disable modelines as a security precaution
 set nobackup      " don't create `filename~` backups
 set autowrite     " Automatically :write before running commands
 set noswapfile    " don't create temp files 
+set undodir=~/.vim/undodir
+set undofile
+
+
+" http://vim.wikia.com/wiki/Searching
+set nohlsearch incsearch ignorecase smartcase
 
 " line numbers and distances
 set relativenumber 
 set number 
-set numberwidth=5
 
 " number of lines offset when jumping
-set scrolloff=2
+set scrolloff=8
 
 " Tab key enters 2 spaces
 " To enter a TAB character when `expandtab` is in effect,
@@ -51,13 +54,8 @@ set lazyredraw                      " redraw after executing macro
 " highlight matching parens, braces, brackets, etc
 set showmatch
 
-" http://vim.wikia.com/wiki/Searching
-set hlsearch incsearch ignorecase smartcase
-
 " open new buffers without saving current modifications (buffer remains open)
 set hidden
-
-set laststatus=2              " StatusLine always visible
 
 " Use system clipboard
 " http://vim.wikia.com/wiki/Accessing_the_system_clipboard
@@ -78,7 +76,7 @@ let g:NERDSpaceDelims = 1       " Add spaces after comment delimiters by default
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
 
-set signcolumn=number
+set signcolumn=yes
 
 let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeMinimalUI = 1
