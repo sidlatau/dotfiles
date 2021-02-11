@@ -81,3 +81,6 @@ set signcolumn=yes
 let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
+
+let $FZF_DEFAULT_OPTS = '--reverse'
+let mapleader=" "
