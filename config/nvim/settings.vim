@@ -78,9 +78,10 @@ set shortmess+=c
 
 set signcolumn=yes
 
-let NERDTreeAutoDeleteBuffer = 1
-let NERDTreeMinimalUI = 1
-let NERDTreeDirArrows = 1
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_browse_split = 4
+let g:netrw_altv = 1
+let g:netrw_winsize = 25
 
 let $FZF_DEFAULT_OPTS = '--reverse'
-let mapleader=" "
