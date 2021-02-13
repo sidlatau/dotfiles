@@ -19,6 +19,7 @@ if !exists('g:vscode')
   Plug 'preservim/nerdcommenter'
   Plug 'tpope/vim-fugitive'
   Plug 'mbbill/undotree'
+  Plug 'airblade/vim-gitgutter'
 
 endif
 

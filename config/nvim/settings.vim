@@ -84,4 +84,8 @@ let g:netrw_browse_split = 4
 let g:netrw_altv = 1
 let g:netrw_winsize = 25
 
-let $FZF_DEFAULT_OPTS = '--reverse'
+let $FZF_DEFAULT_OPTS = '--reverse --keep-right'
+
+highlight! link TermCursor Cursor
+highlight! TermCursorNC guibg=red guifg=white ctermbg=1 ctermfg=15
+
