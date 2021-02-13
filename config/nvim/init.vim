@@ -20,7 +20,8 @@ if !exists('g:vscode')
   Plug 'tpope/vim-fugitive'
   Plug 'mbbill/undotree'
   Plug 'airblade/vim-gitgutter'
-
+  Plug 'SirVer/ultisnips'
+  Plug 'natebosch/dartlang-snippets'
 endif
 
 call plug#end()
