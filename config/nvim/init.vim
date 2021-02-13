@@ -18,6 +18,8 @@ if !exists('g:vscode')
   Plug 'junegunn/fzf.vim'
   Plug 'preservim/nerdcommenter'
   Plug 'tpope/vim-fugitive'
+  Plug 'mbbill/undotree'
+
 endif
 
 call plug#end()
