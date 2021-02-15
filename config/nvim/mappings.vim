@@ -17,7 +17,9 @@ endfun
 
 " FZF mapping
 nnoremap <C-p> :call FzfOmniFiles()<CR>
+nnoremap <leader>p :call FzfOmniFiles()<CR>
 nnoremap <c-b> :Buffers<cr>
 
-" Exit terminal mode
-:tnoremap <Esc> <C-\><C-n>
+" Exit terminal mode 
+tnoremap <expr> <Esc> (&filetype == "fzf") ? "<Esc>" : "<c-\><c-n>"
+
