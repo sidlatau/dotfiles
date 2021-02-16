@@ -1,8 +1,4 @@
 {
-  "codeLens.enable": true,
-  "suggest.echodocSupport": true,
-  "diagnostic.virtualText": true,
-  "suggest.languageSourcePriority": 99,
   "explorer.width": 30,
   "explorer.icon.enableVimDevicons": true,
   "explorer.buffer.root.template": "[icon & 1] OPEN EDITORS",

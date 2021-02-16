@@ -23,3 +23,7 @@ nnoremap <c-b> :Buffers<cr>
 " Exit terminal mode 
 tnoremap <expr> <Esc> (&filetype == "fzf") ? "<Esc>" : "<c-\><c-n>"
 
+" Save shortcut
+nnoremap <silent><c-s> :update<cr>
+vnoremap <silent> <C-S> <C-C>:update<CR>
+inoremap <silent><c-s> <c-o>:update<cr>
