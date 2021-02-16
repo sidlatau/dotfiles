@@ -16,7 +16,7 @@ fun! FzfOmniFiles()
 endfun
 
 " FZF mapping
-nnoremap <C-p> :call FzfOmniFiles()<CR>
+nnoremap <silent><C-p> :call FzfOmniFiles()<CR>
 nnoremap <leader>p :call FzfOmniFiles()<CR>
 nnoremap <c-b> :Buffers<cr>
 
