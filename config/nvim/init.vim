@@ -23,6 +23,7 @@ if !exists('g:vscode')
   Plug 'SirVer/ultisnips'
   Plug 'natebosch/dartlang-snippets'
   Plug 'ryanoasis/vim-devicons'
+  Plug 'puremourning/vimspector'
 endif
 
 call plug#end()

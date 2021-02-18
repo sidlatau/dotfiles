@@ -32,3 +32,7 @@ if bufwinnr(1)
   nmap + <C-W>>
   nmap - <C-W><
 endif
+
+" Debugger remaps
+nnoremap <leader>de :call vimspector#Reset()<CR>
+let g:vimspector_enable_mappings = 'VISUAL_STUDIO'
