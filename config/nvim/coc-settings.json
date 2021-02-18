@@ -4,5 +4,6 @@
   "explorer.file.root.template": "[icon & 1] PROJECT ([root])",
   "explorer.keyMappings.global": {
     "<cr>": ["expandable?", ["expanded?", "collapse", "expand"], "open"]
-  }
+  },
+  "explorer.file.showHiddenFiles": true
 }
