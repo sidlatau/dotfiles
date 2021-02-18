@@ -24,6 +24,7 @@ if !exists('g:vscode')
   Plug 'natebosch/dartlang-snippets'
   Plug 'ryanoasis/vim-devicons'
   Plug 'puremourning/vimspector'
+  Plug 'szw/vim-maximizer'
 endif
 
 call plug#end()
