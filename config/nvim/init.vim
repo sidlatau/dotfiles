@@ -25,6 +25,7 @@ if !exists('g:vscode')
   Plug 'ryanoasis/vim-devicons'
   Plug 'puremourning/vimspector'
   Plug 'szw/vim-maximizer'
+  Plug 'tpope/vim-obsession'
 endif
 
 call plug#end()
