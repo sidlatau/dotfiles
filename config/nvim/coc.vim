@@ -54,7 +54,9 @@ nmap <leader>rn <Plug>(coc-rename)
 xmap <leader>a  <Plug>(coc-codeaction-selected)
 nmap <leader>a  <Plug>(coc-codeaction-selected)
 nmap <leader>fe :<C-u>CocCommand flutter.emulators<cr>
-nmap <leader>fr :<C-u>CocCommand flutter.run<cr>
+nmap <leader>fa :<C-u>CocCommand flutter.run<cr>
+nmap <leader>fr :<C-u>CocCommand flutter.dev.hotRestart<cr>
+nmap <leader>fl :<C-u>CocCommand flutter.dev.openDevLog<cr>
 
 " Remap keys for applying codeAction to the current buffer.
 nmap <leader>ac  <Plug>(coc-codeaction)

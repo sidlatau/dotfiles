@@ -26,6 +26,7 @@ if !exists('g:vscode')
   Plug 'puremourning/vimspector'
   Plug 'szw/vim-maximizer'
   Plug 'tpope/vim-obsession'
+  Plug 'jiangmiao/auto-pairs'
 endif
 
 call plug#end()
@@ -49,6 +50,7 @@ if exists('g:vscode')
   nnoremap <leader>o <Cmd>call VSCodeNotify('dart-import.fix')<CR>
   nnoremap <leader>t <Cmd>call VSCodeNotify('dart.goToTestOrImplementationFile')<CR>
   nnoremap <leader>r <Cmd>call VSCodeNotify('dart.debugTestAtCursor')<CR>
+  nnoremap <leader>fr <Cmd>call VSCodeNotify('flutter.hotRestart')<CR>
 endif
 
 " https://github.com/nvim-treesitter/nvim-treesitter-textobjects

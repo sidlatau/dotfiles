@@ -89,3 +89,5 @@ let $FZF_DEFAULT_OPTS = '--reverse --keep-right'
 highlight! link TermCursor Cursor
 highlight! TermCursorNC guibg=red guifg=white ctermbg=1 ctermfg=15
 
+set exrc
+set secure

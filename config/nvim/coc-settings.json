@@ -1,4 +1,7 @@
 {
+  "diagnostic.errorSign": "✘",
+  "diagnostic.warningSign": "",
+  "diagnostic.infoSign": "",
   "explorer.icon.enableVimDevicons": true,
   "explorer.buffer.root.template": "[icon & 1] OPEN EDITORS",
   "explorer.file.root.template": "[icon & 1] PROJECT ([root])",

@@ -36,3 +36,8 @@ endif
 " Debugger remaps
 nnoremap <leader>de :call vimspector#Reset()<CR>
 let g:vimspector_enable_mappings = 'VISUAL_STUDIO'
+
+" Fugitive
+nnoremap <Leader>gs :Gstatus<cr>
+
+nnoremap <silent> <Leader>s :Rg<CR>
