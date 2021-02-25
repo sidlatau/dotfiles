@@ -17,7 +17,8 @@ endfun
 
 " FZF mapping
 nnoremap <silent><C-p> :call FzfOmniFiles()<CR>
-nnoremap <leader>p :call FzfOmniFiles()<CR>
+nnoremap <leader>p :FZFMru<cr>
+let g:fzf_mru_relative = 1
 nnoremap <c-b> :Buffers<cr>
 
 " Exit terminal mode 
