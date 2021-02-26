@@ -21,6 +21,9 @@ nnoremap <leader>p :FZFMru<cr>
 let g:fzf_mru_relative = 1
 nnoremap <c-b> :Buffers<cr>
 
+" stsewd/fzf-checkout.vim 
+nnoremap <leader>gb :GBranches<cr>
+
 " Exit terminal mode 
 tnoremap <expr> <Esc> (&filetype == "fzf") ? "<Esc>" : "<c-\><c-n>"
 
