@@ -60,6 +60,7 @@ nmap <leader>fl :<C-u>CocCommand flutter.dev.openDevLog<cr>
 
 " Remap keys for applying codeAction to the current buffer.
 nmap <leader>ac  <Plug>(coc-codeaction)
+nmap <leader>o  <Plug>(coc-codeaction-cursor)
 " Apply AutoFix to problem on the current line.
 nmap <leader>qf  <Plug>(coc-fix-current)
 
