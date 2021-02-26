@@ -25,9 +25,9 @@ nnoremap <c-b> :Buffers<cr>
 tnoremap <expr> <Esc> (&filetype == "fzf") ? "<Esc>" : "<c-\><c-n>"
 
 " Save shortcut
-nnoremap <c-s> :update<cr>
-vnoremap <C-S> <C-C>:update<CR>
-inoremap <c-s> <c-o>:update<cr>
+nnoremap <c-s> :write<cr>
+vnoremap <C-S> <C-C>:write<CR>
+inoremap <c-s> <c-o>:write<cr>
 
 if bufwinnr(1)
   nmap + <C-W>>
