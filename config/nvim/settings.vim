@@ -4,12 +4,12 @@ set titlestring=%t
 " ---------------------------------------------------------------------------
 syntax enable
 set background=dark
-colorscheme gruvbox-material
 let g:gruvbox_material_diagnostic_line_highlight = 1
 let g:airline_theme = 'gruvbox_material'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#tab_nr_type = 2
+colorscheme gruvbox-material
 " ---------------------------------------------------------------------------
 
 
