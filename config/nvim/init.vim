@@ -29,6 +29,8 @@ if !exists('g:vscode')
   Plug 'szw/vim-maximizer'
   Plug 'tpope/vim-obsession'
   Plug 'jiangmiao/auto-pairs'
+  Plug 'mhinz/vim-startify'
+  Plug 'mhinz/vim-sayonara', { 'on': 'Sayonara' }
 endif
 
 call plug#end()

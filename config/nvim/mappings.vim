@@ -4,8 +4,6 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
-nmap <C-_> <Plug>NERDCommenterToggle " Ctrl+/ will toggle comment
-
 fun! FzfOmniFiles()
   let is_git = system('git status')
   if v:shell_error
@@ -30,7 +28,7 @@ tnoremap <expr> <Esc> (&filetype == "fzf") ? "<Esc>" : "<c-\><c-n>"
 " Save shortcut
 nnoremap <c-s> :write<cr>
 vnoremap <C-S> <C-C>:write<CR>
-inoremap <c-s> <c-o>:write<cr>
+inoremap <c-s> <c-o>:write<cr><esc>
 
 if bufwinnr(1)
   nmap + <C-W>>
@@ -45,3 +43,6 @@ let g:vimspector_enable_mappings = 'VISUAL_STUDIO'
 nnoremap <Leader>gs :Gstatus<cr>
 
 nnoremap <silent> <Leader>s :Rg<CR>
+
+" Close window
+nnoremap <leader>qq :Sayonara!<cr>

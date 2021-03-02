@@ -72,6 +72,7 @@ set mouse=a                     " enable mouse support
 set updatetime=100              " when to execute CursorHold
 set noshowmode                  " don't display insert/normal/visual mode, we have a status line for that
 let g:NERDSpaceDelims = 1       " Add spaces after comment delimiters by default
+let g:NERDDefaultAlign = 'left'
 
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
