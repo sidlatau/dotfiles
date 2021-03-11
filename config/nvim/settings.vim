@@ -92,3 +92,7 @@ highlight! TermCursorNC guibg=red guifg=white ctermbg=1 ctermfg=15
 
 set exrc
 set secure
+
+" vim-test
+let test#dart#fluttertest#executable= 'fvm flutter test'
+let test#strategy= 'dispatch'

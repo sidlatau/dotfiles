@@ -31,6 +31,8 @@ if !exists('g:vscode')
   Plug 'jiangmiao/auto-pairs'
   Plug 'mhinz/vim-startify'
   Plug 'mhinz/vim-sayonara', { 'on': 'Sayonara' }
+  Plug 'tpope/vim-dispatch'
+  Plug 'vim-test/vim-test'
 endif
 
 call plug#end()

@@ -46,3 +46,10 @@ nnoremap <silent> <Leader>s :Rg<CR>
 
 " Close window
 nnoremap <leader>qq :Sayonara!<cr>
+
+" vim-test
+nmap <silent><leader>tn :TestNearest<CR>
+nmap <silent><leader>tf :TestFile<CR>
+nmap <silent><leader>ts :TestSuite<CR>
+nmap <silent><leader>tl :TestLast<CR>
+nmap <silent><leader>tv :TestVisit<CR>
