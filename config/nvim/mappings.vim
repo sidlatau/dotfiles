@@ -53,3 +53,6 @@ nmap <silent><leader>tf :TestFile<CR>
 nmap <silent><leader>ts :TestSuite<CR>
 nmap <silent><leader>tl :TestLast<CR>
 nmap <silent><leader>tv :TestVisit<CR>
+
+" Search current word
+nnoremap <silent><Leader>fw :Rg <C-R><C-W><CR>
