@@ -27,7 +27,6 @@ set backspace=2   " Backspace deletes like most programs in insert mode
 set nobackup      " don't create `filename~` backups
 set autowrite     " Automatically :write before running commands
 set noswapfile    " don't create temp files 
-set undodir=~/.vim/undodir
 set undofile
 
 

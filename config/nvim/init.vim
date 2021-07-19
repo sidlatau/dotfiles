@@ -20,7 +20,6 @@ if !exists('g:vscode')
   Plug 'pbogut/fzf-mru.vim'
   Plug 'preservim/nerdcommenter'
   Plug 'tpope/vim-fugitive'
-  Plug 'mbbill/undotree'
   Plug 'airblade/vim-gitgutter'
   Plug 'SirVer/ultisnips'
   Plug 'natebosch/dartlang-snippets'
