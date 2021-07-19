@@ -32,6 +32,9 @@ if !exists('g:vscode')
   Plug 'mhinz/vim-sayonara', { 'on': 'Sayonara' }
   Plug 'tpope/vim-dispatch'
   Plug 'vim-test/vim-test'
+  Plug 'nvim-lua/popup.nvim'
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'nvim-telescope/telescope.nvim'
 endif
 
 call plug#end()
