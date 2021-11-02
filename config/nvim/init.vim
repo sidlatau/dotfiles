@@ -48,6 +48,7 @@ if !exists('g:vscode')
   source ~/.config/nvim/coc.vim
 endif
 
+map <Space> <Leader>
 
 :set timeout timeoutlen=3000 ttimeoutlen=100
 let g:camelcasemotion_key = '<leader>'
