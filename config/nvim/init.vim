@@ -33,6 +33,7 @@ if !exists('g:vscode')
   Plug 'nvim-lua/popup.nvim'
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim'
+  Plug 'kdheepak/lazygit.nvim'
 endif
 
 call plug#end()
@@ -56,6 +57,7 @@ if exists('g:vscode')
   nnoremap <leader>t <Cmd>call VSCodeNotify('dart.goToTestOrImplementationFile')<CR>
   nnoremap <leader>r <Cmd>call VSCodeNotify('dart.debugTestAtCursor')<CR>
   nnoremap <leader>fr <Cmd>call VSCodeNotify('flutter.hotRestart')<CR>
+  nnoremap gr <Cmd>call VSCodeNotify('references-view.findReferences')<CR>
 endif
 
 "TODO: maybe use https://github.com/nvim-treesitter/nvim-treesitter-textobjects
