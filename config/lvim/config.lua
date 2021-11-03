@@ -54,7 +54,7 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 
 -- TODO: User Config for predefined plugins
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
-lvim.builtin.dashboard.active = true
+lvim.builtin.dashboard.active = false
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.show_icons.git = 0
@@ -134,6 +134,25 @@ lvim.builtin.dap.active = true
 
 lvim.plugins = {
   {
+    "tpope/vim-surround",
+  },
+  {
+    "bkad/camelcasemotion"
+  },
+  {
+    "tpope/vim-unimpaired"
+  },
+  {
+    "tpope/vim-obsession"
+  },
+  {
+    "ThePrimeagen/harpoon",
+    requires = "nvim-lua/plenary.nvim",
+  },
+  {
+    "mhinz/vim-startify"
+  },
+  {
     "akinsho/flutter-tools.nvim",
     requires = "nvim-lua/plenary.nvim",
     config = function()
@@ -162,5 +181,30 @@ lvim.plugins = {
   },
 }
 
-lvim.builtin.which_key.mappings["F"] = { "<cmd>Telescope flutter commands<CR>", "Flutter" }
+lvim.builtin.which_key.mappings["F"] = {
+  name = "+Flutter",
+  f = "<cmd>Telescope flutter commands<CR>",
+  e = "<cmd>FlutterEmulators<CR>",
+  r = "<cmd>FlutterRestart<CR>",
+}
+
+-- Harpoon
+lvim.builtin.which_key.mappings["h"] = {
+  name = "+Harpoon",
+  a = { ":lua require(\"harpoon.mark\").add_file()<CR>", "Add" },
+  h = { ":lua require(\"harpoon.ui\").toggle_quick_menu()<CR>", "Edit" },
+  q = { ":lua require(\"harpoon.ui\").nav_file(1)<CR>", "Nav 1" },
+  w = { ":lua require(\"harpoon.ui\").nav_file(2)<CR>", "Nav 2" },
+  e = { ":lua require(\"harpoon.ui\").nav_file(3)<CR>", "Nav 3" },
+  r = { ":lua require(\"harpoon.ui\").nav_file(4)<CR>", "Nav 4" },
+}
+
+lvim.builtin.which_key.on_config_done = function (wk)
+   -- Harpoon quickmenu is closed when which key popup is opened
+   -- So disabling which_key for d and y keys
+   local ignore_key =  "which_key_ignore"
+   wk.register(ignore_key, { mode="n", prefix="d" })
+   wk.register(ignore_key, { mode="n", prefix="y" })
+end
+
 
