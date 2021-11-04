@@ -219,4 +219,4 @@ lvim.builtin.which_key.on_config_done = function (wk)
 end
 
 
-lvim.builtin.lualine.sections = {lualine_c = {"os.date('%a')", 'data', "require'lsp-status'.status()"}}
+lvim.builtin.lualine.sections = {lualine_z = {"require'lsp-status'.status()"}}
