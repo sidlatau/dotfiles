@@ -129,7 +129,10 @@ lvim.builtin.treesitter.highlight.enabled = true
 -- lvim.autocommands.custom_groups = {
 --   { "BufWinEnter", "*.lua", "setlocal ts=8 sw=8" },
 -- }
-require("lsp-status").register_progress()
+
+local lsp_status = require("lsp-status")
+lsp_status.register_progress()
+
 lvim.lsp.override = { "dart" }
 lvim.builtin.dap.active = true
 
@@ -163,7 +166,6 @@ lvim.plugins = {
       require("flutter-tools").setup {
         lsp = {
           on_attach = function(client, bufnr)
-            local lsp_status = require('lsp-status')
             lsp_status.on_attach(client)
             require("lvim.lsp").common_on_attach(client, bufnr)
           end,
