@@ -129,6 +129,7 @@ lvim.builtin.treesitter.highlight.enabled = true
 -- lvim.autocommands.custom_groups = {
 --   { "BufWinEnter", "*.lua", "setlocal ts=8 sw=8" },
 -- }
+require("lsp-status").register_progress()
 lvim.lsp.override = { "dart" }
 lvim.builtin.dap.active = true
 
@@ -153,12 +154,20 @@ lvim.plugins = {
     "mhinz/vim-startify"
   },
   {
+    "nvim-lua/lsp-status.nvim"
+  },
+  {
     "akinsho/flutter-tools.nvim",
     requires = "nvim-lua/plenary.nvim",
     config = function()
       require("flutter-tools").setup {
         lsp = {
-          on_attach = require("lvim.lsp").common_on_attach
+          on_attach = function(client, bufnr)
+            local lsp_status = require('lsp-status')
+            lsp_status.on_attach(client)
+            require("lvim.lsp").common_on_attach(client, bufnr)
+          end,
+          capabilities = require('lsp-status').capabilities
         },
         debugger = { -- integrate with nvim dap + install dart code debugger
           enabled = true,
@@ -208,3 +217,4 @@ lvim.builtin.which_key.on_config_done = function (wk)
 end
 
 
+lvim.builtin.lualine.sections = {lualine_c = {"os.date('%a')", 'data', "require'lsp-status'.status()"}}
