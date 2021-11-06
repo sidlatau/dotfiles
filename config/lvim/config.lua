@@ -194,9 +194,9 @@ lvim.plugins = {
 
 lvim.builtin.which_key.mappings["F"] = {
   name = "+Flutter",
-  f = "<cmd>Telescope flutter commands<CR>",
-  e = "<cmd>FlutterEmulators<CR>",
-  r = "<cmd>FlutterRestart<CR>",
+  f = {"<cmd>Telescope flutter commands<CR>", "Commands list"},
+  e = {"<cmd>FlutterEmulators<CR>", "Emulators"},
+  r = {"<cmd>FlutterRestart<CR>", "Restart"},
 }
 
 -- Harpoon
