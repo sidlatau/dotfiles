@@ -160,6 +160,15 @@ lvim.plugins = {
     "nvim-lua/lsp-status.nvim"
   },
   {
+    "tpope/vim-projectionist"
+  },
+  {
+    "vim-test/vim-test"
+  },
+  {
+    "tpope/vim-dispatch"
+  },
+  {
     "akinsho/flutter-tools.nvim",
     requires = "nvim-lua/plenary.nvim",
     config = function()
@@ -175,17 +184,6 @@ lvim.plugins = {
           enabled = true,
         },
         fvm = true,
-        decorations = {
-          statusline = {
-            -- set to true to be able use the 'flutter_tools_decorations.app_version' in your statusline
-            -- this will show the current version of the flutter app from the pubspec.yaml file
-            app_version = true,
-            -- set to true to be able use the 'flutter_tools_decorations.device' in your statusline
-            -- this will show the currently running device if an application was started with a specific
-            -- device
-            device = true,
-          }
-        },
       }
       require("telescope").load_extension("flutter")
     end,
@@ -220,3 +218,9 @@ end
 
 
 lvim.builtin.lualine.sections = {lualine_z = {"require'lsp-status'.status()"}}
+
+-- vim-test
+vim.g["test#dart#fluttertest#executable"] = "fvm flutter test"
+vim.g["test#strategy"]= "neovim"
+vim.opt.timeoutlen = 3000
+vim.opt.autoread = true
