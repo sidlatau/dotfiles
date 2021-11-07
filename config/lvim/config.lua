@@ -1,16 +1,3 @@
---[[
-lvim is the global options object
-
-Linters should be
-filled in as strings with either
-a global executable or a path to
-an executable
-]]
--- THESE ARE EXAMPLE CONFIGS FEEL FREE TO CHANGE TO WHATEVER YOU WANT
-
--- general
-lvim.log.level = "warn"
-lvim.format_on_save = true
 lvim.colorscheme = "onedarker"
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
@@ -175,7 +162,7 @@ lvim.plugins = {
       require("flutter-tools").setup {
         lsp = {
           on_attach = function(client, bufnr)
-            lsp_status.on_attach(client)
+             lsp_status.on_attach(client)
             require("lvim.lsp").common_on_attach(client, bufnr)
           end,
           capabilities = require('lsp-status').capabilities
@@ -216,11 +203,9 @@ lvim.builtin.which_key.on_config_done = function (wk)
    wk.register(ignore_key, { mode="n", prefix="y" })
 end
 
-
 lvim.builtin.lualine.sections = {lualine_z = {"require'lsp-status'.status()"}}
 
 -- vim-test
 vim.g["test#dart#fluttertest#executable"] = "fvm flutter test"
 vim.g["test#strategy"]= "neovim"
-vim.opt.timeoutlen = 3000
-vim.opt.autoread = true
+vim.opt.timeoutlen = 1000

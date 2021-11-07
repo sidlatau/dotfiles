@@ -7,8 +7,6 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'tpope/vim-unimpaired'
 
 if !exists('g:vscode')
-  Plug 'dart-lang/dart-vim-plugin'
-  Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'sainnhe/gruvbox-material'
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
@@ -22,8 +20,6 @@ if !exists('g:vscode')
   Plug 'SirVer/ultisnips'
   Plug 'natebosch/dartlang-snippets'
   Plug 'ryanoasis/vim-devicons'
-  Plug 'puremourning/vimspector'
-  Plug 'szw/vim-maximizer'
   Plug 'tpope/vim-obsession'
   Plug 'jiangmiao/auto-pairs'
   Plug 'mhinz/vim-startify'
@@ -34,18 +30,25 @@ if !exists('g:vscode')
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim'
   Plug 'kdheepak/lazygit.nvim'
+  Plug 'kyazdani42/nvim-web-devicons' " for file icons
+  Plug 'kyazdani42/nvim-tree.lua'
+  Plug 'folke/which-key.nvim'
+  Plug 'akinsho/flutter-tools.nvim'
 endif
 
 call plug#end()
 
 if !exists('g:vscode')
-  " dart-vim-plugin
-  let dart_format_on_save = 1
-  let dart_style_guide = 2
-
   source ~/.config/nvim/settings.vim
   source ~/.config/nvim/mappings.vim
-  source ~/.config/nvim/coc.vim
+
+lua << EOF
+  require("which-key").setup { }
+  require("flutter-tools").setup{
+   fvm = true,
+  }
+  require'nvim-tree'.setup() -- use defaults
+EOF
 endif
 
 map <Space> <Leader>

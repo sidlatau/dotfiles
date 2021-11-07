@@ -65,3 +65,6 @@ nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 
 " setup mapping to call :LazyGit
 nnoremap <silent> <leader>gg :LazyGit<CR>
+
+" Nvim tree
+nnoremap <silent><leader>e :NvimTreeToggle<CR>
