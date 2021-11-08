@@ -1,4 +1,4 @@
-lvim.colorscheme = "onedarker"
+lvim.colorscheme = 'gruvbox-material'
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
@@ -6,19 +6,6 @@ lvim.leader = "space"
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 lvim.keys.normal_mode["<C-p>"] = ":Telescope find_files<cr>"
 
--- Use which-key to add extra bindings with the leader-key prefix
--- lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
--- lvim.builtin.which_key.mappings["t"] = {
---   name = "+Trouble",
---   r = { "<cmd>Trouble lsp_references<cr>", "References" },
---   f = { "<cmd>Trouble lsp_definitions<cr>", "Definitions" },
---   d = { "<cmd>Trouble lsp_document_diagnostics<cr>", "Diagnostics" },
---   q = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
---   l = { "<cmd>Trouble loclist<cr>", "LocationList" },
---   w = { "<cmd>Trouble lsp_workspace_diagnostics<cr>", "Diagnostics" },
--- }
-
--- TODO: User Config for predefined plugins
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
 lvim.builtin.dashboard.active = false
 lvim.builtin.terminal.active = true
@@ -26,70 +13,10 @@ lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.show_icons.git = 0
 
 -- if you don't want all the parsers change this to a table of the ones you want
-lvim.builtin.treesitter.ensure_installed = {
-  "bash",
-  "c",
-  "javascript",
-  "json",
-  "lua",
-  "python",
-  "typescript",
-  "css",
-  "rust",
-  "java",
-  "yaml"
-}
+lvim.builtin.treesitter.ensure_installed = "maintained"
 
 lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enabled = true
-
--- generic LSP settings
--- you can set a custom on_attach function that will be used for all the language servers
--- See <https://github.com/neovim/nvim-lspconfig#keybindings-and-completion>
--- lvim.lsp.on_attach_callback = function(client, bufnr)
---   local function buf_set_option(...)
---     vim.api.nvim_buf_set_option(bufnr, ...)
---   end
---   --Enable completion triggered by <c-x><c-o>
---   buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
--- end
--- you can overwrite the null_ls setup table (useful for setting the root_dir function)
--- lvim.lsp.null_ls.setup = {
---   root_dir = require("lspconfig").util.root_pattern("Makefile", ".git", "node_modules"),
--- }
--- or if you need something more advanced
--- lvim.lsp.null_ls.setup.root_dir = function(fname)
---   if vim.bo.filetype == "javascript" then
---     return require("lspconfig/util").root_pattern("Makefile", ".git", "node_modules")(fname)
---       or require("lspconfig/util").path.dirname(fname)
---   elseif vim.bo.filetype == "php" then
---     return require("lspconfig/util").root_pattern("Makefile", ".git", "composer.json")(fname) or vim.fn.getcwd()
---   else
---     return require("lspconfig/util").root_pattern("Makefile", ".git")(fname) or require("lspconfig/util").path.dirname(fname)
---   end
--- end
-
--- set a formatter if you want to override the default lsp one (if it exists)
--- lvim.lang.python.formatters = {
---   {
---     exe = "black",
---   }
--- }
--- set an additional linter
--- lvim.lang.python.linters = {
---   {
---     exe = "flake8",
---   }
--- }
-
--- Additional Plugins
--- lvim.plugins = {
---     {"folke/tokyonight.nvim"},
---     {
---       "folke/trouble.nvim",
---       cmd = "TroubleToggle",
---     },
--- }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
 -- lvim.autocommands.custom_groups = {
@@ -135,16 +62,25 @@ lvim.plugins = {
     "tpope/vim-dispatch"
   },
   {
+    "sainnhe/gruvbox-material"
+  },
+  {
+    "svermeulen/vim-easyclip",
+    config = function ()
+      vim.g["EasyClipUseSubstituteDefaults"] = true
+    end
+  },
+  {
     "akinsho/flutter-tools.nvim",
     requires = "nvim-lua/plenary.nvim",
     config = function()
       require("flutter-tools").setup {
         lsp = {
           on_attach = function(client, bufnr)
-             lsp_status.on_attach(client)
+            --lsp_status.on_attach(client)
             require("lvim.lsp").common_on_attach(client, bufnr)
           end,
-          capabilities = require('lsp-status').capabilities
+          --capabilities = require('lsp-status').capabilities
         },
         debugger = { -- integrate with nvim dap + install dart code debugger
           enabled = true,
@@ -154,6 +90,27 @@ lvim.plugins = {
       require("telescope").load_extension("flutter")
     end,
   },
+  {
+    "f-person/git-blame.nvim",
+    event = "BufRead",
+    config = function()
+      vim.cmd "highlight default link gitblame SpecialComment"
+      vim.g.gitblame_enabled = 0
+      vim.g.gitblame_date_format="%r"
+      vim.g.gitblame_highlight_group="Question"
+    end,
+  },
+  {
+    "folke/trouble.nvim",
+      cmd = "TroubleToggle",
+  },
+  {
+    "Pocco81/AutoSave.nvim",
+    config = function()
+      require("autosave").setup()
+    end,
+  },
+  { "tpope/vim-repeat" },
 }
 
 lvim.builtin.which_key.mappings["f"] = {
@@ -188,3 +145,14 @@ lvim.builtin.lualine.sections = {lualine_z = {"require'lsp-status'.status()"}}
 vim.g["test#dart#fluttertest#executable"] = "fvm flutter test"
 vim.g["test#strategy"]= "dispatch"
 vim.opt.timeoutlen = 1000
+
+
+lvim.builtin.which_key.mappings["t"] = {
+  name = "Diagnostics",
+  t = { "<cmd>TroubleToggle<cr>", "trouble" },
+  w = { "<cmd>TroubleToggle lsp_workspace_diagnostics<cr>", "workspace" },
+  d = { "<cmd>TroubleToggle lsp_document_diagnostics<cr>", "document" },
+  q = { "<cmd>TroubleToggle quickfix<cr>", "quickfix" },
+  l = { "<cmd>TroubleToggle loclist<cr>", "loclist" },
+  r = { "<cmd>TroubleToggle lsp_references<cr>", "references" },
+}

@@ -5,6 +5,8 @@ Plug 'tpope/vim-surround'
 Plug 'bkad/camelcasemotion'
 Plug 'machakann/vim-highlightedyank'
 Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-repeat'
+Plug 'svermeulen/vim-easyclip'
 
 if !exists('g:vscode')
   Plug 'sainnhe/gruvbox-material'
@@ -53,9 +55,10 @@ endif
 
 map <Space> <Leader>
 
-:set timeout timeoutlen=3000 ttimeoutlen=100
+:set timeout timeoutlen=1000 ttimeoutlen=100
 let g:camelcasemotion_key = '<leader>'
 let g:highlightedyank_highlight_duration = 400
+g:EasyClipPreserveCursorPositionAfterYank = true
 
 if exists('g:vscode')
   nnoremap <leader>t <Cmd>call VSCodeNotify('dart.goToTestOrImplementationFile')<CR>
