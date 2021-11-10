@@ -58,7 +58,7 @@ map <Space> <Leader>
 :set timeout timeoutlen=1000 ttimeoutlen=100
 let g:camelcasemotion_key = '<leader>'
 let g:highlightedyank_highlight_duration = 400
-g:EasyClipPreserveCursorPositionAfterYank = true
+g:EasyClipUseSubstituteDefaults = true
 
 if exists('g:vscode')
   nnoremap <leader>t <Cmd>call VSCodeNotify('dart.goToTestOrImplementationFile')<CR>

@@ -26,6 +26,13 @@ lvim.builtin.treesitter.highlight.enabled = true
 local lsp_status = require("lsp-status")
 lsp_status.register_progress()
 
+lsp_status.config {
+    indicator_info = '',
+    indicator_errors = '',
+    indicator_hint= '',
+    status_symbol= '',
+}
+
 lvim.lsp.override = { "dart" }
 lvim.builtin.dap.active = true
 
@@ -77,10 +84,10 @@ lvim.plugins = {
       require("flutter-tools").setup {
         lsp = {
           on_attach = function(client, bufnr)
-            --lsp_status.on_attach(client)
+            lsp_status.on_attach(client)
             require("lvim.lsp").common_on_attach(client, bufnr)
           end,
-          --capabilities = require('lsp-status').capabilities
+          capabilities = require('lsp-status').capabilities
         },
         debugger = { -- integrate with nvim dap + install dart code debugger
           enabled = true,
@@ -103,12 +110,6 @@ lvim.plugins = {
   {
     "folke/trouble.nvim",
       cmd = "TroubleToggle",
-  },
-  {
-    "Pocco81/AutoSave.nvim",
-    config = function()
-      require("autosave").setup()
-    end,
   },
   { "tpope/vim-repeat" },
 }
@@ -156,3 +157,7 @@ lvim.builtin.which_key.mappings["t"] = {
   l = { "<cmd>TroubleToggle loclist<cr>", "loclist" },
   r = { "<cmd>TroubleToggle lsp_references<cr>", "references" },
 }
+
+require("luasnip/loaders/from_vscode").load({ paths = {"~/Documents/personal/vim/snippets"} })
+require'luasnip'.filetype_extend("dart", {"flutter"})
+
