@@ -5,6 +5,9 @@ lvim.leader = "space"
 -- add your own keymapping
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 lvim.keys.normal_mode["<C-p>"] = ":Telescope find_files<cr>"
+vim.api.nvim_set_keymap('n', '<Leader><Space>', ':set hlsearch!<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('v', '<Leader>a', "<esc><cmd>lua require('lsp-fastaction').range_code_action()<CR>", { noremap = true, silent = true })
+
 
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
 lvim.builtin.dashboard.active = false
@@ -84,7 +87,7 @@ lvim.plugins = {
       require("flutter-tools").setup {
         lsp = {
           on_attach = function(client, bufnr)
-            lsp_status.on_attach(client)
+            --lsp_status.on_attach(client)
             require("lvim.lsp").common_on_attach(client, bufnr)
           end,
           capabilities = require('lsp-status').capabilities
@@ -93,6 +96,9 @@ lvim.plugins = {
           enabled = true,
         },
         fvm = true,
+        widget_guides = {
+          enabled = true,
+        },
       }
       require("telescope").load_extension("flutter")
     end,
@@ -112,6 +118,8 @@ lvim.plugins = {
       cmd = "TroubleToggle",
   },
   { "tpope/vim-repeat" },
+  { "windwp/lsp-fastaction.nvim" },
+  { "nvim-treesitter/nvim-treesitter-textobjects" }
 }
 
 lvim.builtin.which_key.mappings["f"] = {
@@ -140,7 +148,9 @@ lvim.builtin.which_key.on_config_done = function (wk)
    wk.register(ignore_key, { mode="n", prefix="y" })
 end
 
-lvim.builtin.lualine.sections = {lualine_z = {"require'lsp-status'.status()"}}
+lvim.builtin.lualine.sections = {
+  lualine_z = {"require'lsp-status'.status()"},
+}
 
 -- vim-test
 vim.g["test#dart#fluttertest#executable"] = "fvm flutter test"
@@ -158,6 +168,39 @@ lvim.builtin.which_key.mappings["t"] = {
   r = { "<cmd>TroubleToggle lsp_references<cr>", "references" },
 }
 
+lvim. builtin.which_key.mappings["a"] = {"<cmd>lua require('lsp-fastaction').code_action()<CR>",  "Code action"}
+
 require("luasnip/loaders/from_vscode").load({ paths = {"~/Documents/personal/vim/snippets"} })
 require'luasnip'.filetype_extend("dart", {"flutter"})
 
+require('lsp-fastaction').setup({
+    hide_cursor = true,
+    action_data = {
+      --- action for filetype dart
+        ['dart'] = {
+            --range code action
+            -- { pattern = "surround with %'if'", key = 'i', order = 2 },
+            -- { pattern = 'try%-catch', key = 't', order = 2 },
+            -- { pattern = 'for%-in', key = 'f', order = 2 },
+            -- { pattern = 'setstate', key = 's', order = 2 },
+        },
+    },
+})
+require'nvim-treesitter.configs'.setup {
+  textobjects = {
+    select = {
+      enable = true,
+
+      -- Automatically jump forward to textobj, similar to targets.vim 
+      lookahead = true,
+
+      keymaps = {
+        -- You can use the capture groups defined in textobjects.scm
+        ["af"] = "@function.outer",
+        ["if"] = "@function.inner",
+        ["ac"] = "@class.outer",
+        ["ic"] = "@class.inner",
+      },
+    },
+  },
+}

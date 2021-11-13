@@ -14,8 +14,6 @@ if !exists('g:vscode')
   Plug 'vim-airline/vim-airline-themes'
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
-  Plug 'stsewd/fzf-checkout.vim'
-  Plug 'pbogut/fzf-mru.vim'
   Plug 'preservim/nerdcommenter'
   Plug 'tpope/vim-fugitive'
   Plug 'airblade/vim-gitgutter'
@@ -31,7 +29,6 @@ if !exists('g:vscode')
   Plug 'nvim-lua/popup.nvim'
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim'
-  Plug 'kdheepak/lazygit.nvim'
   Plug 'kyazdani42/nvim-web-devicons' " for file icons
   Plug 'kyazdani42/nvim-tree.lua'
   Plug 'folke/which-key.nvim'

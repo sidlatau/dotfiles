@@ -68,3 +68,13 @@ nnoremap <silent> <leader>gg :LazyGit<CR>
 
 " Nvim tree
 nnoremap <silent><space>e :NvimTreeToggle<CR>
+
+
+ " Jump to definition
+nnoremap K <Cmd>lua vim.lsp.buf.hover()<CR>
+ " Jump to definition
+nnoremap gd <Cmd>lua vim.lsp.buf.definition()<CR>
+ " Open code actions using the default lsp UI, if you want to change this please see the plugins above
+nnoremap <leader>ca <Cmd>lua vim.lsp.buf.code_action()<CR>
+ " Open code actions for the selected visual range
+xnoremap <leader>ca <Cmd>lua vim.lsp.buf.range_code_action()<CR>
