@@ -119,7 +119,8 @@ lvim.plugins = {
   },
   { "tpope/vim-repeat" },
   { "windwp/lsp-fastaction.nvim" },
-  { "nvim-treesitter/nvim-treesitter-textobjects" }
+  { "nvim-treesitter/nvim-treesitter-textobjects" },
+  {"radenling/vim-dispatch-neovim"}
 }
 
 lvim.builtin.which_key.mappings["f"] = {
@@ -159,13 +160,15 @@ vim.opt.timeoutlen = 1000
 
 
 lvim.builtin.which_key.mappings["t"] = {
-  name = "Diagnostics",
+  name = "Diagnostics/Tests",
   t = { "<cmd>TroubleToggle<cr>", "trouble" },
   w = { "<cmd>TroubleToggle lsp_workspace_diagnostics<cr>", "workspace" },
   d = { "<cmd>TroubleToggle lsp_document_diagnostics<cr>", "document" },
   q = { "<cmd>TroubleToggle quickfix<cr>", "quickfix" },
-  l = { "<cmd>TroubleToggle loclist<cr>", "loclist" },
   r = { "<cmd>TroubleToggle lsp_references<cr>", "references" },
+  n = { "<cmd>TestNearest<cr>", "Test nearest" },
+  f = { "<cmd>TestFile<cr>", "Test file" },
+  l = { "<cmd>TestLast<cr>", "Test last" },
 }
 
 lvim. builtin.which_key.mappings["a"] = {"<cmd>lua require('lsp-fastaction').code_action()<CR>",  "Code action"}
@@ -178,6 +181,10 @@ require('lsp-fastaction').setup({
     action_data = {
       --- action for filetype dart
         ['dart'] = {
+          { pattern = 'padding', key = 'p', order = 2 },
+          { pattern = 'wrap with column', key = 'c', order = 3 },
+          { pattern = 'wrap with row', key = 'r', order = 3 },
+          { pattern = 'remove', key = 'R', order = 5 },
             --range code action
             -- { pattern = "surround with %'if'", key = 'i', order = 2 },
             -- { pattern = 'try%-catch', key = 't', order = 2 },
@@ -191,7 +198,7 @@ require'nvim-treesitter.configs'.setup {
     select = {
       enable = true,
 
-      -- Automatically jump forward to textobj, similar to targets.vim 
+      -- Automatically jump forward to textobj, similar to targets.vim
       lookahead = true,
 
       keymaps = {
