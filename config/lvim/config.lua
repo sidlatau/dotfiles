@@ -19,6 +19,22 @@ lvim.builtin.treesitter.ensure_installed = "maintained"
 
 lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enabled = true
+lvim.builtin.treesitter.textobjects = {
+  select = {
+    enable = true,
+
+    -- Automatically jump forward to textobj, similar to targets.vim
+    lookahead = true,
+
+    keymaps = {
+      -- You can use the capture groups defined in textobjects.scm
+      ["af"] = "@function.outer",
+      ["if"] = "@function.inner",
+      ["ac"] = "@class.outer",
+      ["ic"] = "@class.inner",
+    },
+  },
+}
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
 -- lvim.autocommands.custom_groups = {
@@ -219,21 +235,3 @@ lvim. builtin.which_key.mappings["<space>"] = {":set hlsearch!<CR>",  "Clear sea
 require("luasnip/loaders/from_vscode").load({ paths = {"~/Documents/personal/vim/snippets"} })
 require'luasnip'.filetype_extend("dart", {"flutter"})
 
-require'nvim-treesitter.configs'.setup {
-  textobjects = {
-    select = {
-      enable = true,
-
-      -- Automatically jump forward to textobj, similar to targets.vim
-      lookahead = true,
-
-      keymaps = {
-        -- You can use the capture groups defined in textobjects.scm
-        ["af"] = "@function.outer",
-        ["if"] = "@function.inner",
-        ["ac"] = "@class.outer",
-        ["ic"] = "@class.inner",
-      },
-    },
-  },
-}
