@@ -65,6 +65,9 @@ lvim.plugins = {
     "tpope/vim-unimpaired"
   },
   {
+    "tpope/vim-fugitive"
+  },
+  {
     "tpope/vim-obsession"
   },
   {
@@ -231,7 +234,17 @@ lvim.builtin.which_key.mappings["t"] = {
 lvim. builtin.which_key.mappings["a"] = {"<cmd>lua require('lsp-fastaction').code_action()<CR>",  "Code action"}
 lvim. builtin.which_key.mappings["q"] = {"<cmd>Sayonara<CR>",  "Close"}
 lvim. builtin.which_key.mappings["<space>"] = {":set hlsearch!<CR>",  "Clear search"}
+lvim. builtin.which_key.mappings["dv"] = {":lua require'dapui'.toggle()<CR>",  "View UI"}
 
 require("luasnip/loaders/from_vscode").load({ paths = {"~/Documents/personal/vim/snippets"} })
 require'luasnip'.filetype_extend("dart", {"flutter"})
+
+
+lvim.builtin.which_key.mappings["r"] = {
+  name = "Redux",
+  s = { "<cmd>Estate<cr>", "state" },
+  r = { "<cmd>Ereducer<cr>", "reducer" },
+  a = { "<cmd>Eactions<cr>", "actions" },
+  m = { "<cmd>Emiddleware<cr>", "middleware" },
+}
 
