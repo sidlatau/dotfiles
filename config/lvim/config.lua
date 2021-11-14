@@ -5,9 +5,6 @@ lvim.leader = "space"
 -- add your own keymapping
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 lvim.keys.normal_mode["<C-p>"] = ":Telescope find_files<cr>"
-lvim.keys.normal_mode["gs"] = "<cmd>Sayonara<CR>"
-vim.api.nvim_set_keymap('n', '<Leader><Space>', ':set hlsearch!<CR>', { noremap = true, silent = true })
--- vim.api.nvim_set_keymap('n', 'gs', '<cmd>Sayonara<CR>', { noremap = true })
 vim.api.nvim_set_keymap('v', '<Leader>a', "<esc><cmd>lua require('lsp-fastaction').range_code_action()<CR>", { noremap = true, silent = true })
 
 
@@ -216,6 +213,8 @@ lvim.builtin.which_key.mappings["t"] = {
 }
 
 lvim. builtin.which_key.mappings["a"] = {"<cmd>lua require('lsp-fastaction').code_action()<CR>",  "Code action"}
+lvim. builtin.which_key.mappings["q"] = {"<cmd>Sayonara<CR>",  "Close"}
+lvim. builtin.which_key.mappings["<space>"] = {":set hlsearch!<CR>",  "Clear search"}
 
 require("luasnip/loaders/from_vscode").load({ paths = {"~/Documents/personal/vim/snippets"} })
 require'luasnip'.filetype_extend("dart", {"flutter"})
