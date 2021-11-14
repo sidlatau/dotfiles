@@ -5,7 +5,9 @@ lvim.leader = "space"
 -- add your own keymapping
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 lvim.keys.normal_mode["<C-p>"] = ":Telescope find_files<cr>"
+lvim.keys.normal_mode["gs"] = "<cmd>Sayonara<CR>"
 vim.api.nvim_set_keymap('n', '<Leader><Space>', ':set hlsearch!<CR>', { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('n', 'gs', '<cmd>Sayonara<CR>', { noremap = true })
 vim.api.nvim_set_keymap('v', '<Leader>a', "<esc><cmd>lua require('lsp-fastaction').range_code_action()<CR>", { noremap = true, silent = true })
 
 
@@ -66,7 +68,11 @@ lvim.plugins = {
     "tpope/vim-projectionist"
   },
   {
-    "vim-test/vim-test"
+    "vim-test/vim-test",
+    config = function ()
+      vim.g["test#dart#fluttertest#executable"] = "fvm flutter test"
+      vim.g["test#strategy"]= "dispatch"
+    end
   },
   {
     "tpope/vim-dispatch"
@@ -78,6 +84,8 @@ lvim.plugins = {
     "svermeulen/vim-easyclip",
     config = function ()
       vim.g["EasyClipUseSubstituteDefaults"] = true
+      vim.g["EasyClipUsePasteToggleDefaults"] = false
+      vim.g["EasyClipUsePasteDefaults"] = false
     end
   },
   {
@@ -118,9 +126,47 @@ lvim.plugins = {
       cmd = "TroubleToggle",
   },
   { "tpope/vim-repeat" },
-  { "windwp/lsp-fastaction.nvim" },
-  { "nvim-treesitter/nvim-treesitter-textobjects" },
-  {"radenling/vim-dispatch-neovim"}
+  {
+    "windwp/lsp-fastaction.nvim",
+    config = function ()
+      require('lsp-fastaction').setup({
+          hide_cursor = true,
+          action_data = {
+            --- action for filetype dart
+              ['dart'] = {
+                { pattern = 'padding', key = 'p', order = 2 },
+                { pattern = 'wrap with column', key = 'c', order = 3 },
+                { pattern = 'wrap with row', key = 'r', order = 3 },
+                { pattern = 'remove', key = 'R', order = 5 },
+                  --range code action
+                  -- { pattern = "surround with %'if'", key = 'i', order = 2 },
+                  -- { pattern = 'try%-catch', key = 't', order = 2 },
+                  -- { pattern = 'for%-in', key = 'f', order = 2 },
+                  -- { pattern = 'setstate', key = 's', order = 2 },
+              },
+          },
+      })
+    end
+  },
+  {
+    "nvim-treesitter/nvim-treesitter-textobjects",
+    config = function()
+    end
+  },
+  { "radenling/vim-dispatch-neovim" },
+  {
+    "rcarriga/nvim-dap-ui",
+    requires = {"mfussenegger/nvim-dap"},
+    config = function ()
+     require("dapui").setup()
+    end
+  },
+  { 
+    "mhinz/vim-sayonara",
+    config = function ()
+       vim.g["sayonara_confirm_quit"] = true
+    end
+  }
 }
 
 lvim.builtin.which_key.mappings["f"] = {
@@ -154,8 +200,6 @@ lvim.builtin.lualine.sections = {
 }
 
 -- vim-test
-vim.g["test#dart#fluttertest#executable"] = "fvm flutter test"
-vim.g["test#strategy"]= "dispatch"
 vim.opt.timeoutlen = 1000
 
 
@@ -176,23 +220,6 @@ lvim. builtin.which_key.mappings["a"] = {"<cmd>lua require('lsp-fastaction').cod
 require("luasnip/loaders/from_vscode").load({ paths = {"~/Documents/personal/vim/snippets"} })
 require'luasnip'.filetype_extend("dart", {"flutter"})
 
-require('lsp-fastaction').setup({
-    hide_cursor = true,
-    action_data = {
-      --- action for filetype dart
-        ['dart'] = {
-          { pattern = 'padding', key = 'p', order = 2 },
-          { pattern = 'wrap with column', key = 'c', order = 3 },
-          { pattern = 'wrap with row', key = 'r', order = 3 },
-          { pattern = 'remove', key = 'R', order = 5 },
-            --range code action
-            -- { pattern = "surround with %'if'", key = 'i', order = 2 },
-            -- { pattern = 'try%-catch', key = 't', order = 2 },
-            -- { pattern = 'for%-in', key = 'f', order = 2 },
-            -- { pattern = 'setstate', key = 's', order = 2 },
-        },
-    },
-})
 require'nvim-treesitter.configs'.setup {
   textobjects = {
     select = {
