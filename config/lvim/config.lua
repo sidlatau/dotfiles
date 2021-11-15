@@ -5,6 +5,8 @@ lvim.leader = "space"
 -- add your own keymapping
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 lvim.keys.normal_mode["<C-p>"] = ":Telescope find_files<cr>"
+-- lvim.keys.normal_mode["<C-f>"] = "<cmd>lua require('telescope').extensions.frecency.frecency({ sorter = require('telescope').extensions.fzf.native_fzf_sorter() })<cr>"
+lvim.keys.normal_mode["<C-f>"] = "<cmd>lua require('telescope.builtin').oldfiles()<cr>"
 vim.api.nvim_set_keymap('v', '<Leader>a', "<esc><cmd>lua require('lsp-fastaction').range_code_action()<CR>", { noremap = true, silent = true })
 
 
@@ -13,6 +15,9 @@ lvim.builtin.dashboard.active = false
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.show_icons.git = 0
+lvim.builtin.telescope.extensions.frecency = {
+  show_scores = true
+}
 
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = "maintained"
@@ -37,9 +42,9 @@ lvim.builtin.treesitter.textobjects = {
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
--- lvim.autocommands.custom_groups = {
---   { "BufWinEnter", "*.lua", "setlocal ts=8 sw=8" },
--- }
+lvim.autocommands.custom_groups = {
+  { "BufRead,BufRead", "*.arb", "set syntax=json" },
+}
 
 local lsp_status = require("lsp-status")
 lsp_status.register_progress()
@@ -177,11 +182,18 @@ lvim.plugins = {
      require("dapui").setup()
     end
   },
-  { 
+  {
     "mhinz/vim-sayonara",
     config = function ()
        vim.g["sayonara_confirm_quit"] = true
     end
+  },
+  {
+    "nvim-telescope/telescope-frecency.nvim",
+    config = function()
+      require"telescope".load_extension("frecency")
+    end,
+    requires = {"tami5/sqlite.lua"}
   }
 }
 
@@ -235,6 +247,9 @@ lvim. builtin.which_key.mappings["a"] = {"<cmd>lua require('lsp-fastaction').cod
 lvim. builtin.which_key.mappings["q"] = {"<cmd>Sayonara<CR>",  "Close"}
 lvim. builtin.which_key.mappings["<space>"] = {":set hlsearch!<CR>",  "Clear search"}
 lvim. builtin.which_key.mappings["dv"] = {":lua require'dapui'.toggle()<CR>",  "View UI"}
+lvim. builtin.which_key.mappings["bf"] = {":lua require('telescope.builtin').buffers({sort_mru=true})<CR>",  "Find"}
+lvim. builtin.which_key.mappings["ss"] = {":lua require('telescope.builtin').grep_string()<CR>",  "Grep string"}
+lvim. builtin.which_key.mappings["gL"] = {":GitBlameToggle<CR>",  "Toogle blame"}
 
 require("luasnip/loaders/from_vscode").load({ paths = {"~/Documents/personal/vim/snippets"} })
 require'luasnip'.filetype_extend("dart", {"flutter"})
