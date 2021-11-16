@@ -105,14 +105,15 @@ lvim.plugins = {
 	{
 		"sainnhe/gruvbox-material",
 	},
-	{
-		"svermeulen/vim-easyclip",
-		config = function()
-			vim.g["EasyClipUseSubstituteDefaults"] = true
-			vim.g["EasyClipUsePasteToggleDefaults"] = false
-			vim.g["EasyClipUsePasteDefaults"] = false
-		end,
-	},
+  {
+    "svermeulen/vim-cutlass",
+    config = function ()
+      lvim.keys.normal_mode["m"] = "d"
+      lvim.keys.normal_mode["mm"] = "dd"
+      lvim.keys.visual_mode["m"] = "d"
+      lvim.keys.visual_mode["M"] = "D"
+    end
+  },
 	{
 		"akinsho/flutter-tools.nvim",
 		requires = "nvim-lua/plenary.nvim",
