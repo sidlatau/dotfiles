@@ -159,10 +159,10 @@ lvim.plugins = {
 						{ pattern = "wrap with row", key = "r", order = 3 },
 						{ pattern = "remove", key = "R", order = 5 },
 						--range code action
-						-- { pattern = "surround with %'if'", key = 'i', order = 2 },
-						-- { pattern = 'try%-catch', key = 't', order = 2 },
-						-- { pattern = 'for%-in', key = 'f', order = 2 },
-						-- { pattern = 'setstate', key = 's', order = 2 },
+						{ pattern = "surround with %'if'", key = 'i', order = 2 },
+						{ pattern = 'try%-catch', key = 't', order = 2 },
+						{ pattern = 'for%-in', key = 'f', order = 2 },
+						{ pattern = 'setstate', key = 's', order = 2 },
 					},
 				},
 			})
