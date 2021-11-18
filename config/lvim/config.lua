@@ -166,7 +166,6 @@ lvim.plugins = {
 	},
 	{
 		"nvim-treesitter/nvim-treesitter-textobjects",
-		config = function() end,
 	},
 	{ "radenling/vim-dispatch-neovim" },
 	{
@@ -250,26 +249,30 @@ lvim.builtin.which_key.mappings["r"] = {
 	m = { "<cmd>Emiddleware<cr>", "middleware" },
 }
 
--- set a formatter, this will override the language server formatting capabilities (if it exists)
 local formatters = require("lvim.lsp.null-ls.formatters")
 formatters.setup({
 	{
 		exe = "prettier",
-		---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
 		filetypes = { "typescript", "typescriptreact" },
 	},
 })
 
--- -- set additional linters
 local linters = require("lvim.lsp.null-ls.linters")
 linters.setup({
 	{
 		exe = "eslint_d",
-		---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
-		filetypes = { "javascript", "javascriptreact" },
+		filetypes = { "typescript", "typescriptreact" },
 	},
 })
 
 vim.cmd("highlight default link gitblame SpecialComment")
 vim.g.gitblame_enabled = 0
 vim.g.gitblame_date_format = "%r"
+
+lvim.lsp.null_ls.config = {
+  sources = { require("null-ls").builtins.code_actions.eslint_d }
+}
+
+lvim.lsp.null_ls.setup = {
+  root_dir = require("lspconfig").util.root_pattern("tsconfig.json", ".git", "node_modules"),
+}
