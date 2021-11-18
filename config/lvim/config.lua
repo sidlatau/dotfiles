@@ -3,12 +3,11 @@ lvim.colorscheme = "gruvbox-material"
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
 -- add your own keymapping
-lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
+lvim.keys.normal_mode["<C-s>"] = ":wa<cr>"
 lvim.keys.normal_mode["<C-p>"] = ":Telescope find_files<cr>"
--- lvim.keys.normal_mode["<C-f>"] = "<cmd>lua require('telescope').extensions.frecency.frecency({ sorter = require('telescope').extensions.fzf.native_fzf_sorter() })<cr>"
 lvim.keys.normal_mode["<C-f>"] = "<cmd>lua require('telescope.builtin').oldfiles()<cr>"
 vim.api.nvim_set_keymap(
-	"v",
+	"x",
 	"<Leader>a",
 	"<esc><cmd>lua require('lsp-fastaction').range_code_action()<CR>",
 	{ noremap = true, silent = true }
@@ -18,10 +17,16 @@ vim.api.nvim_set_keymap(
 lvim.builtin.dashboard.active = false
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
+lvim.builtin.nvimtree.setup.view.auto_resize = false
 lvim.builtin.nvimtree.show_icons.git = 0
-lvim.builtin.telescope.extensions.frecency = {
-	show_scores = true,
+
+-- lvim.builtin.telescope.defaults.layout_config.prompt_position = "top"
+lvim.builtin.telescope.defaults = {
+  path_display = {"smart"},
+  file_ignore_patterns = { '%.g.dart' },
+  results_height = 1
 }
+
 
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = "maintained"
@@ -105,15 +110,6 @@ lvim.plugins = {
 	{
 		"sainnhe/gruvbox-material",
 	},
-  {
-    "svermeulen/vim-cutlass",
-    config = function ()
-      lvim.keys.normal_mode["m"] = "d"
-      lvim.keys.normal_mode["mm"] = "dd"
-      lvim.keys.visual_mode["m"] = "d"
-      lvim.keys.visual_mode["M"] = "D"
-    end
-  },
 	{
 		"akinsho/flutter-tools.nvim",
 		requires = "nvim-lua/plenary.nvim",
@@ -186,13 +182,6 @@ lvim.plugins = {
 			vim.g["sayonara_confirm_quit"] = true
 		end,
 	},
-	{
-		"nvim-telescope/telescope-frecency.nvim",
-		config = function()
-			require("telescope").load_extension("frecency")
-		end,
-		requires = { "tami5/sqlite.lua" },
-	},
 }
 
 lvim.builtin.which_key.mappings["f"] = {
@@ -207,11 +196,12 @@ lvim.builtin.which_key.mappings["h"] = {
 	name = "+Harpoon",
 	a = { ':lua require("harpoon.mark").add_file()<CR>', "Add" },
 	h = { ':lua require("harpoon.ui").toggle_quick_menu()<CR>', "Edit" },
-	q = { ':lua require("harpoon.ui").nav_file(1)<CR>', "Nav 1" },
-	w = { ':lua require("harpoon.ui").nav_file(2)<CR>', "Nav 2" },
-	e = { ':lua require("harpoon.ui").nav_file(3)<CR>', "Nav 3" },
-	r = { ':lua require("harpoon.ui").nav_file(4)<CR>', "Nav 4" },
 }
+
+lvim.builtin.which_key.mappings["1"] = { ':lua require("harpoon.ui").nav_file(1)<CR>', "Nav 1" }
+lvim.builtin.which_key.mappings["2"] = { ':lua require("harpoon.ui").nav_file(2)<CR>', "Nav 2" }
+lvim.builtin.which_key.mappings["3"] = { ':lua require("harpoon.ui").nav_file(3)<CR>', "Nav 3" }
+lvim.builtin.which_key.mappings["4"] = { ':lua require("harpoon.ui").nav_file(4)<CR>', "Nav 4" }
 
 lvim.builtin.which_key.on_config_done = function(wk)
 	-- Harpoon quickmenu is closed when which key popup is opened
@@ -224,9 +214,8 @@ end
 lvim.builtin.lualine.sections = {
 	lualine_z = { "require'lsp-status'.status()" },
 }
+vim.opt.timeoutlen = 100
 
--- vim-test
-vim.opt.timeoutlen = 1000
 
 lvim.builtin.which_key.mappings["t"] = {
 	name = "Diagnostics/Tests",
@@ -234,19 +223,21 @@ lvim.builtin.which_key.mappings["t"] = {
 	w = { "<cmd>TroubleToggle lsp_workspace_diagnostics<cr>", "workspace" },
 	d = { "<cmd>TroubleToggle lsp_document_diagnostics<cr>", "document" },
 	q = { "<cmd>TroubleToggle quickfix<cr>", "quickfix" },
-	r = { "<cmd>TroubleToggle lsp_references<cr>", "references" },
+	r = { "<cmd>lua require('telescope.builtin').lsp_references(require('telescope.themes').get_dropdown({layout_config = {width = 0.8}}))<cr>", "references" },
 	n = { "<cmd>TestNearest<cr>", "Test nearest" },
 	f = { "<cmd>TestFile<cr>", "Test file" },
 	l = { "<cmd>TestLast<cr>", "Test last" },
 }
+
 
 lvim.builtin.which_key.mappings["a"] = { "<cmd>lua require('lsp-fastaction').code_action()<CR>", "Code action" }
 lvim.builtin.which_key.mappings["q"] = { "<cmd>Sayonara<CR>", "Close" }
 lvim.builtin.which_key.mappings["<space>"] = { ":set hlsearch!<CR>", "Clear search" }
 lvim.builtin.which_key.mappings["dv"] = { ":lua require'dapui'.toggle()<CR>", "View UI" }
 lvim.builtin.which_key.mappings["bf"] = { ":lua require('telescope.builtin').buffers({sort_mru=true})<CR>", "Find" }
-lvim.builtin.which_key.mappings["ss"] = { ":lua require('telescope.builtin').grep_string()<CR>", "Grep string" }
+lvim.builtin.which_key.mappings["ss"] = { ":lua require('telescope.builtin').grep_string(require('telescope.themes').get_dropdown({layout_config = {width = 0.8}}))<CR>", "Grep string" }
 lvim.builtin.which_key.mappings["gL"] = { ":GitBlameToggle<CR>", "Toogle blame" }
+lvim.builtin.which_key.mappings["w"] = { "<cmd>wa<cr>", "Save all" }
 
 require("luasnip/loaders/from_vscode").load({ paths = { "~/Documents/personal/vim/snippets" } })
 require("luasnip").filetype_extend("dart", { "flutter" })

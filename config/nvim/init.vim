@@ -6,7 +6,7 @@ Plug 'bkad/camelcasemotion'
 Plug 'machakann/vim-highlightedyank'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-repeat'
-Plug 'svermeulen/vim-cutlass'
+" Plug 'svermeulen/vim-cutlass'
 
 if !exists('g:vscode')
   Plug 'sainnhe/gruvbox-material'
@@ -57,10 +57,10 @@ let g:camelcasemotion_key = '<leader>'
 let g:highlightedyank_highlight_duration = 400
 
 " cutlass
-nnoremap m d
-xnoremap m d
-nnoremap mm dd
-nnoremap M D
+" nnoremap m d
+" xnoremap m d
+" nnoremap mm dd
+" nnoremap M D
 
 if exists('g:vscode')
   nnoremap <leader>t <Cmd>call VSCodeNotify('dart.goToTestOrImplementationFile')<CR>
