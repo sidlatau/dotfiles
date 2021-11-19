@@ -191,7 +191,8 @@ lvim.builtin.which_key.mappings["f"] = {
 	f = { "<cmd>Telescope flutter commands<CR>", "Commands list" },
 	e = { "<cmd>FlutterEmulators<CR>", "Emulators" },
 	r = { "<cmd>FlutterRestart<CR>", "Restart" },
-	s = { "<cmd>FlutterRun --dart-define=flavor=dev --flavor dev<CR>", "Start dev" },
+	d = { "<cmd>FlutterRun --dart-define=flavor=dev --flavor dev<CR>", "Start dev" },
+	p = { "<cmd>FlutterRun --dart-define=flavor=prod --flavor prod<CR>", "Start prod" },
 }
 
 -- Harpoon
