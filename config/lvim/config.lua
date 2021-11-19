@@ -17,6 +17,7 @@ vim.api.nvim_set_keymap(
 lvim.builtin.dashboard.active = false
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
+lvim.builtin.nvimtree.setup.view.width = 45
 lvim.builtin.nvimtree.setup.view.auto_resize = false
 lvim.builtin.nvimtree.show_icons.git = 0
 
@@ -26,6 +27,8 @@ lvim.builtin.telescope.defaults = {
   file_ignore_patterns = { '%.g.dart' },
   results_height = 1
 }
+
+lvim.lsp.buffer_mappings.normal_mode["gr"] = { "<cmd>lua require('telescope.builtin').lsp_references(require('telescope.themes').get_dropdown({layout_config = {width = 0.8}}))<cr>", "Goto references"}
 
 
 -- if you don't want all the parsers change this to a table of the ones you want
@@ -188,6 +191,7 @@ lvim.builtin.which_key.mappings["f"] = {
 	f = { "<cmd>Telescope flutter commands<CR>", "Commands list" },
 	e = { "<cmd>FlutterEmulators<CR>", "Emulators" },
 	r = { "<cmd>FlutterRestart<CR>", "Restart" },
+	s = { "<cmd>FlutterRun --dart-define=flavor=dev --flavor dev<CR>", "Start dev" },
 }
 
 -- Harpoon
@@ -222,7 +226,6 @@ lvim.builtin.which_key.mappings["t"] = {
 	w = { "<cmd>TroubleToggle lsp_workspace_diagnostics<cr>", "workspace" },
 	d = { "<cmd>TroubleToggle lsp_document_diagnostics<cr>", "document" },
 	q = { "<cmd>TroubleToggle quickfix<cr>", "quickfix" },
-	r = { "<cmd>lua require('telescope.builtin').lsp_references(require('telescope.themes').get_dropdown({layout_config = {width = 0.8}}))<cr>", "references" },
 	n = { "<cmd>TestNearest<cr>", "Test nearest" },
 	f = { "<cmd>TestFile<cr>", "Test file" },
 	l = { "<cmd>TestLast<cr>", "Test last" },
