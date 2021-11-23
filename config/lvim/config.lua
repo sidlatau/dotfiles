@@ -53,11 +53,6 @@ lvim.builtin.treesitter.textobjects = {
 	},
 }
 
--- Autocommands (https://neovim.io/doc/user/autocmd.html)
-lvim.autocommands.custom_groups = {
-	{ "BufRead,BufRead", "*.arb", "set syntax=json" },
-}
-
 local lsp_status = require("lsp-status")
 lsp_status.register_progress()
 
@@ -77,6 +72,9 @@ lvim.plugins = {
 	},
 	{
 		"bkad/camelcasemotion",
+		config = function()
+			vim.g["camelcasemotion_key"] = '\\'
+		end,
 	},
 	{
 		"tpope/vim-unimpaired",
@@ -101,7 +99,8 @@ lvim.plugins = {
 		"tpope/vim-projectionist",
 	},
 	{
-		"vim-test/vim-test",
+		"sidlatau/vim-test",
+    branch = 'flutter-long-name-test',
 		config = function()
 			vim.g["test#dart#fluttertest#executable"] = "fvm flutter test"
 			vim.g["test#strategy"] = "dispatch"
@@ -157,6 +156,7 @@ lvim.plugins = {
 						{ pattern = "wrap with column", key = "c", order = 3 },
 						{ pattern = "wrap with row", key = "r", order = 3 },
 						{ pattern = "remove", key = "R", order = 5 },
+						{ pattern = "add", key = "a", order = 3 },
 						--range code action
 						{ pattern = "surround with %'if'", key = 'i', order = 2 },
 						{ pattern = 'try%-catch', key = 't', order = 2 },
@@ -218,7 +218,7 @@ end
 lvim.builtin.lualine.sections = {
 	lualine_z = { "require'lsp-status'.status()" },
 }
-vim.opt.timeoutlen = 100
+vim.opt.timeoutlen = 2000
 
 
 lvim.builtin.which_key.mappings["t"] = {
@@ -279,4 +279,12 @@ lvim.lsp.null_ls.config = {
 
 lvim.lsp.null_ls.setup = {
   root_dir = require("lspconfig").util.root_pattern("tsconfig.json", ".git", "node_modules"),
+}
+vim.api.nvim_command('au CursorHold * checktime')
+
+
+-- Autocommands (https://neovim.io/doc/user/autocmd.html)
+lvim.autocommands.custom_groups = {
+  { "CursorHold", "*", "checktime" },
+	{ "BufRead,BufRead", "*.arb", "set syntax=json" },
 }
