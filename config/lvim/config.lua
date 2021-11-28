@@ -6,6 +6,8 @@ lvim.leader = "space"
 lvim.keys.normal_mode["<C-s>"] = ":wa<cr>"
 lvim.keys.normal_mode["<C-p>"] = ":Telescope find_files<cr>"
 lvim.keys.normal_mode["<C-f>"] = "<cmd>lua require('telescope.builtin').oldfiles()<cr>"
+lvim.keys.normal_mode["<F8>"] = "<cmd>lua require('trouble').next({skip_groups = true, jump = true})<cr>"
+lvim.keys.normal_mode["<F7>"] = "<cmd>lua require('trouble').previous({skip_groups = true, jump = true})<cr>"
 vim.api.nvim_set_keymap(
 	"x",
 	"<Leader>a",
@@ -143,7 +145,8 @@ lvim.plugins = {
 		"folke/trouble.nvim",
 		cmd = "TroubleToggle",
 	},
-	{ "tpope/vim-repeat" },
+  { "tpope/vim-repeat" },
+  {"mtdl9/vim-log-highlighting"},
 	{
 		"windwp/lsp-fastaction.nvim",
 		config = function()
@@ -219,6 +222,10 @@ lvim.builtin.lualine.sections = {
 	lualine_z = { "require'lsp-status'.status()" },
 }
 vim.opt.timeoutlen = 2000
+vim.opt.wrap = true
+vim.opt.linebreak = true
+vim.opt.breakindent = true
+vim.opt.showbreak ="ͱ"
 
 
 lvim.builtin.which_key.mappings["t"] = {
