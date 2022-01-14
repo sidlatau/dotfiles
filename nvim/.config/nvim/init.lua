@@ -12,3 +12,5 @@ require "user.treesitter"
 require "user.comment"
 require "user.gitsigns"
 require "user.lsp-fastaction"
+require "user.autosave"
+
