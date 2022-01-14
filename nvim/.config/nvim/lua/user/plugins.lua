@@ -52,6 +52,7 @@ return packer.startup(function(use)
   use "numToStr/Comment.nvim" -- Easily comment stuff
   use 'JoosepAlviste/nvim-ts-context-commentstring'
   use "Pocco81/AutoSave.nvim"
+  use "machakann/vim-highlightedyank"
 
   use "sainnhe/gruvbox-material"    -- color scheme
   use "tpope/vim-unimpaired"
