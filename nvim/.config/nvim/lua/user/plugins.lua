@@ -53,6 +53,10 @@ return packer.startup(function(use)
   use 'JoosepAlviste/nvim-ts-context-commentstring'
   use "Pocco81/AutoSave.nvim"
   use "machakann/vim-highlightedyank"
+  use "tpope/vim-surround"
+  use "tpope/vim-repeat"
+  use "tpope/vim-obsession"
+  use "mhinz/vim-startify"
 
   use "sainnhe/gruvbox-material"    -- color scheme
   use "tpope/vim-unimpaired"

@@ -12,7 +12,9 @@ autosave.setup(
         events = {"InsertLeave", "TextChanged"},
         conditions = {
             exists = true,
-            filename_is_not = {},
+            filename_is_not = {
+              "plugins.lua",
+            },
             filetype_is_not = {},
             modifiable = true
         },
