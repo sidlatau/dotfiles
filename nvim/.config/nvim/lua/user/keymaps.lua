@@ -71,3 +71,13 @@ keymap("n", "<C-p>", ":Telescope find_files<cr>", opts)
 keymap("n", "<c-t>", "<cmd>Telescope live_grep<cr>", opts)
 keymap("n", "<leader>ss", ":lua require('telescope.builtin').grep_string(require('telescope.themes').get_dropdown({layout_config = {width = 0.8}}))<CR>", opts)
 
+
+-- LSP
+keymap(
+	"x",
+	"<Leader>a",
+	"<esc><cmd>lua require('lsp-fastaction').range_code_action()<CR>",
+	opts
+)
+keymap("n", "<leader>a", "<cmd>lua require('lsp-fastaction').code_action()<CR>", opts)
+
