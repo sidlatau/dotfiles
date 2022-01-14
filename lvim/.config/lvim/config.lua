@@ -60,9 +60,9 @@ local lsp_status = require("lsp-status")
 lsp_status.register_progress()
 
 lsp_status.config({
-	indicator_info = "?",
-	indicator_errors = "?",
-	indicator_hint = "?",
+	indicator_info = "",
+	indicator_errors = "",
+	indicator_hint = "",
 	status_symbol = "",
 })
 
@@ -228,7 +228,7 @@ vim.opt.timeoutlen = 2000
 vim.opt.wrap = true
 vim.opt.linebreak = true
 vim.opt.breakindent = true
-vim.opt.showbreak ="?"
+vim.opt.showbreak ="ͱ"
 
 
 lvim.builtin.which_key.mappings["t"] = {
