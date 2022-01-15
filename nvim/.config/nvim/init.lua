@@ -15,4 +15,6 @@ require "user.lsp-fastaction"
 require "user.autosave"
 require "user.augroups"
 require "user.lsp-status"
+require "user.toggleterm"
+require "user.project"
 
