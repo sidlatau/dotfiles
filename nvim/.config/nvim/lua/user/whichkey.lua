@@ -91,6 +91,16 @@ local mappings = {
   ["<leader>"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
   ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
   ["P"] = { "<cmd>Telescope projects<cr>", "Projects" },
+  ["1"] = { ':lua require("harpoon.ui").nav_file(1)<CR>', "Nav 1" },
+  ["2"] = { ':lua require("harpoon.ui").nav_file(2)<CR>', "Nav 2" },
+  ["3"] = { ':lua require("harpoon.ui").nav_file(3)<CR>', "Nav 3" },
+  ["4"] = { ':lua require("harpoon.ui").nav_file(4)<CR>', "Nav 4" },
+
+  h = {
+    name = "Harpoon",
+    a = { ':lua require("harpoon.mark").add_file()<CR>', "Add" },
+    h = { ':lua require("harpoon.ui").toggle_quick_menu()<CR>', "Edit" },
+  },
 
   p = {
     name = "Packer",
@@ -100,14 +110,16 @@ local mappings = {
     S = { "<cmd>PackerStatus<cr>", "Status" },
     u = { "<cmd>PackerUpdate<cr>", "Update" },
   },
+
   f = {
-    name = "+Flutter",
+    name = "Flutter",
     f = { "<cmd>Telescope flutter commands<CR>", "Commands list" },
     e = { "<cmd>FlutterEmulators<CR>", "Emulators" },
     r = { "<cmd>FlutterRestart<CR>", "Restart" },
     d = { "<cmd>FlutterRun --dart-define=flavor=dev --flavor dev<CR>", "Start dev" },
     p = { "<cmd>FlutterRun --dart-define=flavor=prod --flavor prod<CR>", "Start prod" },
   },
+
   g = {
     name = "Git",
     g = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },

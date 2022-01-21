@@ -57,6 +57,7 @@ return packer.startup(function(use)
   use "tpope/vim-repeat"
   use "tpope/vim-obsession"
   use "mhinz/vim-startify"
+	use "tpope/vim-projectionist"
 
   use "sainnhe/gruvbox-material"    -- color scheme
   use "tpope/vim-unimpaired"
@@ -73,6 +74,7 @@ return packer.startup(function(use)
   use "ahmedkhalf/project.nvim"
   use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
   use "folke/which-key.nvim"
+  use "ThePrimeagen/harpoon"
 
   -- snippets
   use "L3MON4D3/LuaSnip" --snippet engine
