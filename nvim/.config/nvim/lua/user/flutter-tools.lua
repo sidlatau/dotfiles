@@ -4,7 +4,7 @@ if not status_ok then return end
 
 flutter_tools.setup({
     lsp = {
-        on_attach = function(client, bufnr) 
+        on_attach = function(client, bufnr)
           require("lsp-status").on_attach(client)
           require("user.lsp.handlers").on_attach(client, bufnr)
         end,

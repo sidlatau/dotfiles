@@ -89,10 +89,6 @@ local mappings = {
   ["w"] = { "<cmd>w!<CR>", "Save" },
   ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
   ["<leader>"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
-  ["f"] = {
-    "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-    "Find files",
-  },
   ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
   ["P"] = { "<cmd>Telescope projects<cr>", "Projects" },
 
@@ -104,7 +100,14 @@ local mappings = {
     S = { "<cmd>PackerStatus<cr>", "Status" },
     u = { "<cmd>PackerUpdate<cr>", "Update" },
   },
-
+  f = {
+    name = "+Flutter",
+    f = { "<cmd>Telescope flutter commands<CR>", "Commands list" },
+    e = { "<cmd>FlutterEmulators<CR>", "Emulators" },
+    r = { "<cmd>FlutterRestart<CR>", "Restart" },
+    d = { "<cmd>FlutterRun --dart-define=flavor=dev --flavor dev<CR>", "Start dev" },
+    p = { "<cmd>FlutterRun --dart-define=flavor=prod --flavor prod<CR>", "Start prod" },
+  },
   g = {
     name = "Git",
     g = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
