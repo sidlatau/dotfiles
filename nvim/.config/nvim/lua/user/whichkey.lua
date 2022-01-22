@@ -188,13 +188,18 @@ local mappings = {
   },
 
   t = {
-    name = "Terminal",
-    f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
+    name = "Test / Terminal",
     h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
     v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
+    t = { "<cmd>Ultest<cr>", "Test file" },
+    s = { "<cmd>UltestSummary<cr>", "Summary" },
+    d = { "<cmd>UltestDebugNearest<cr>", "Debug nearest" },
+    o = { "<cmd>UltestOutput<cr>", "Output" },
+    n = { "<cmd>UltestNearest<cr>", "Test nearest" },
+    l = { "<cmd>UltestLast<cr>", "Test last" },
+    c = { "<cmd>UltestClear<cr>", "Clear test ouput" },
   },
 }
-
 local vopts = {
   mode = "v", -- VISUAL mode
   prefix = "<leader>",

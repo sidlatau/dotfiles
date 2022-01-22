@@ -18,4 +18,5 @@ require "user.lsp-status"
 require "user.toggleterm"
 require "user.project"
 require "user.whichkey"
+require "user.test"
 
