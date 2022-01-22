@@ -58,6 +58,7 @@ return packer.startup(function(use)
   use "tpope/vim-obsession"
   use "mhinz/vim-startify"
   use "tpope/vim-projectionist"
+  use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
 
   use "sainnhe/gruvbox-material" -- color scheme
   use "tpope/vim-unimpaired"

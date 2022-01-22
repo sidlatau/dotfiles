@@ -20,4 +20,4 @@ require "user.project"
 require "user.whichkey"
 require "user.test"
 require "user.dap"
-
+require "user.autopairs"
