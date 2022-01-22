@@ -1,4 +1,4 @@
-local configs = require("nvim-treesitter.configs")
+local configs = require "nvim-treesitter.configs"
 configs.setup {
   ensure_installed = "maintained",
   sync_install = false,
@@ -7,7 +7,6 @@ configs.setup {
     enable = true, -- false will disable the whole extension
     disable = { "" }, -- list of language that will be disabled
     additional_vim_regex_highlighting = true,
-
   },
   indent = { enable = true, disable = { "yaml" } },
   textobjects = {
@@ -25,5 +24,5 @@ configs.setup {
         ["ic"] = "@class.inner",
       },
     },
-  }
+  },
 }

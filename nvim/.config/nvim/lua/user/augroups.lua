@@ -35,7 +35,10 @@ function M.disable_augroup(name)
 end
 
 function M.enable_format_on_save(opts)
-  local fmd_cmd = string.format(":silent lua vim.lsp.buf.formatting_sync({}, %s)", opts.timeout)
+  local fmd_cmd = string.format(
+    ":silent lua vim.lsp.buf.formatting_sync({}, %s)",
+    opts.timeout
+  )
   M.define_augroups {
     format_on_save = { { "BufWritePre", opts.pattern, fmd_cmd } },
   }
@@ -45,4 +48,4 @@ function M.disable_format_on_save()
   M.disable_augroup "format_on_save"
 end
 
-M.enable_format_on_save({pattern = "*", timeout=1000})
+M.enable_format_on_save { pattern = "*", timeout = 1000 }

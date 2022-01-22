@@ -41,25 +41,25 @@ packer.init {
 -- Install your plugins here
 return packer.startup(function(use)
   -- My plugins here
-  use "wbthomason/packer.nvim"      -- Have packer manage itself
-  use "nvim-lua/popup.nvim"         -- An implementation of the Popup API from vim in Neovim
-  use "nvim-lua/plenary.nvim"       -- Useful lua functions used ny lots of plugins
-  use 'kyazdani42/nvim-web-devicons'
-  use 'kyazdani42/nvim-tree.lua'
+  use "wbthomason/packer.nvim" -- Have packer manage itself
+  use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
+  use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
+  use "kyazdani42/nvim-web-devicons"
+  use "kyazdani42/nvim-tree.lua"
   use "akinsho/bufferline.nvim"
   use "moll/vim-bbye"
-  use 'nvim-lualine/lualine.nvim'
+  use "nvim-lualine/lualine.nvim"
   use "numToStr/Comment.nvim" -- Easily comment stuff
-  use 'JoosepAlviste/nvim-ts-context-commentstring'
+  use "JoosepAlviste/nvim-ts-context-commentstring"
   use "Pocco81/AutoSave.nvim"
   use "machakann/vim-highlightedyank"
   use "tpope/vim-surround"
   use "tpope/vim-repeat"
   use "tpope/vim-obsession"
   use "mhinz/vim-startify"
-	use "tpope/vim-projectionist"
+  use "tpope/vim-projectionist"
 
-  use "sainnhe/gruvbox-material"    -- color scheme
+  use "sainnhe/gruvbox-material" -- color scheme
   use "tpope/vim-unimpaired"
 
   -- cmp plugins
@@ -70,6 +70,7 @@ return packer.startup(function(use)
   use "saadparwaiz1/cmp_luasnip" -- snippet completions
   use "hrsh7th/cmp-nvim-lsp"
   use "hrsh7th/cmp-nvim-lua"
+
   use "akinsho/toggleterm.nvim"
   use "ahmedkhalf/project.nvim"
   use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
@@ -84,32 +85,37 @@ return packer.startup(function(use)
   use "neovim/nvim-lspconfig" -- enable LSP
   use "williamboman/nvim-lsp-installer" -- simple to use language server installer
   use "windwp/lsp-fastaction.nvim"
+  use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
 
-  use {'akinsho/flutter-tools.nvim', requires = 'nvim-lua/plenary.nvim'}
+  use { "akinsho/flutter-tools.nvim", requires = "nvim-lua/plenary.nvim" }
   use "nvim-lua/lsp-status.nvim"
 
   use "nvim-telescope/telescope.nvim"
 
   -- Treesitter
-   use {
-     "nvim-treesitter/nvim-treesitter",
-     commit="f048886f828e369cac3b771071137b2c62ca29e4",
-     run = ":TSUpdate",
-   }
-   use "nvim-treesitter/nvim-treesitter-textobjects"
+  use {
+    "nvim-treesitter/nvim-treesitter",
+    commit = "f048886f828e369cac3b771071137b2c62ca29e4",
+    run = ":TSUpdate",
+  }
+  use "nvim-treesitter/nvim-treesitter-textobjects"
 
-   -- Git
-   use "lewis6991/gitsigns.nvim"
+  -- Git
+  use "lewis6991/gitsigns.nvim"
 
   use {
     "folke/trouble.nvim",
     requires = "kyazdani42/nvim-web-devicons",
     config = function()
-      require("trouble").setup { }
-    end
+      require("trouble").setup {}
+    end,
   }
   -- Test
-  use { "rcarriga/vim-ultest", requires = {"vim-test/vim-test"}, run = ":UpdateRemotePlugins" }
+  use {
+    "rcarriga/vim-ultest",
+    requires = { "vim-test/vim-test" },
+    run = ":UpdateRemotePlugins",
+  }
 
   use "mfussenegger/nvim-dap"
   use "nvim-telescope/telescope-dap.nvim"

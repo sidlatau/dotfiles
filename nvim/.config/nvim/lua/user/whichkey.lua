@@ -79,8 +79,14 @@ local opts = {
 }
 
 local mappings = {
-  ["/"] = { "<cmd>lua require(\"Comment.api\").toggle_current_linewise()<CR>", "Comment" },
-  ["a"] = { "<cmd>lua require('lsp-fastaction').code_action()<CR>", "Code action" },
+  ["/"] = {
+    '<cmd>lua require("Comment.api").toggle_current_linewise()<CR>',
+    "Comment",
+  },
+  ["a"] = {
+    "<cmd>lua require('lsp-fastaction').code_action()<CR>",
+    "Code action",
+  },
   ["b"] = {
     "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
     "Buffers",
@@ -116,8 +122,14 @@ local mappings = {
     f = { "<cmd>Telescope flutter commands<CR>", "Commands list" },
     e = { "<cmd>FlutterEmulators<CR>", "Emulators" },
     r = { "<cmd>FlutterRestart<CR>", "Restart" },
-    d = { "<cmd>FlutterRun --dart-define=flavor=dev --flavor dev<CR>", "Start dev" },
-    p = { "<cmd>FlutterRun --dart-define=flavor=prod --flavor prod<CR>", "Start prod" },
+    d = {
+      "<cmd>FlutterRun --dart-define=flavor=dev --flavor dev<CR>",
+      "Start dev",
+    },
+    p = {
+      "<cmd>FlutterRun --dart-define=flavor=prod --flavor prod<CR>",
+      "Start prod",
+    },
   },
 
   g = {
@@ -184,7 +196,10 @@ local mappings = {
     R = { "<cmd>Telescope registers<cr>", "Registers" },
     k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
     C = { "<cmd>Telescope commands<cr>", "Commands" },
-    s = { ":lua require('telescope.builtin').grep_string(require('telescope.themes').get_dropdown({layout_config = {width = 0.8}}))<CR>", "Word under cursor" },
+    s = {
+      ":lua require('telescope.builtin').grep_string(require('telescope.themes').get_dropdown({layout_config = {width = 0.8}}))<CR>",
+      "Word under cursor",
+    },
   },
 
   t = {
@@ -201,7 +216,10 @@ local mappings = {
   },
   d = {
     name = "Debug",
-    t = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Toggle Breakpoint" },
+    t = {
+      "<cmd>lua require'dap'.toggle_breakpoint()<cr>",
+      "Toggle Breakpoint",
+    },
     b = { "<cmd>lua require'dap'.step_back()<cr>", "Step Back" },
     c = { "<cmd>lua require'dap'.continue()<cr>", "Continue" },
     C = { "<cmd>lua require'dap'.run_to_cursor()<cr>", "Run To Cursor" },
@@ -215,8 +233,14 @@ local mappings = {
     s = { "<cmd>lua require'dap'.continue()<cr>", "Start" },
     q = { "<cmd>lua require'dap'.close()<cr>", "Quit" },
     h = { "<cmd>lua require'dap.ui.widgets'.hover()<CR>", "Hover" },
-    v = { "<cmd>lua local widgets=require'dap.ui.widgets';widgets.centered_float(widgets.scopes)<CR>", "Variables" },
-    f = { "<cmd>lua require'telescope'.extensions.dap.frames{}<CR>", "Frames" },
+    v = {
+      "<cmd>lua local widgets=require'dap.ui.widgets';widgets.centered_float(widgets.scopes)<CR>",
+      "Variables",
+    },
+    f = {
+      "<cmd>lua require'telescope'.extensions.dap.frames{}<CR>",
+      "Frames",
+    },
   },
 }
 
@@ -229,8 +253,14 @@ local vopts = {
   nowait = true, -- use `nowait` when creating keymaps
 }
 local vmappings = {
-  ["/"] = { "<ESC><CMD>lua require(\"Comment.api\").toggle_linewise_op(vim.fn.visualmode())<CR>", "Comment" },
-  ["a"] = { "<esc><cmd>lua require('lsp-fastaction').range_code_action()<CR>", "Range code action" },
+  ["/"] = {
+    '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>',
+    "Comment",
+  },
+  ["a"] = {
+    "<esc><cmd>lua require('lsp-fastaction').range_code_action()<CR>",
+    "Range code action",
+  },
 }
 
 which_key.setup(setup)

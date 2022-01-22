@@ -3,7 +3,6 @@ if not status_ok then
   return
 end
 
-
 local actions = require "telescope.actions"
 
 telescope.setup {
@@ -12,7 +11,7 @@ telescope.setup {
     prompt_prefix = " ",
     selection_caret = " ",
     path_display = { "smart" },
-    file_ignore_patterns = { '%.g.dart' },
+    file_ignore_patterns = { "%.g.dart" },
 
     mappings = {
       i = {
@@ -97,5 +96,5 @@ telescope.setup {
   },
 }
 
-require("telescope").load_extension("flutter")
-require('telescope').load_extension('dap')
+require("telescope").load_extension "flutter"
+require("telescope").load_extension "dap"
