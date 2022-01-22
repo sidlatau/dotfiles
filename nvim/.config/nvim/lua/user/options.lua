@@ -45,3 +45,4 @@ vim.cmd [[set iskeyword+=-]]
 vim.cmd [[
 autocmd FileType dart setlocal commentstring=//\ %s
 ]]
+vim.cmd "set colorcolumn=81"
