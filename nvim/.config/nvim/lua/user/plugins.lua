@@ -111,6 +111,8 @@ return packer.startup(function(use)
   -- Test
   use { "rcarriga/vim-ultest", requires = {"vim-test/vim-test"}, run = ":UpdateRemotePlugins" }
 
+  use "mfussenegger/nvim-dap"
+  use "nvim-telescope/telescope-dap.nvim"
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then

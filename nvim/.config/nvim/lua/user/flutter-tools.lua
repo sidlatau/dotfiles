@@ -11,7 +11,8 @@ flutter_tools.setup({
         capabilities = require("user.lsp.handlers").capabilities
     },
     debugger = { -- integrate with nvim dap + install dart code debugger
-      enabled = false,
+      enabled = true,
+      run_via_dap = true,
     },
     fvm = true,
     widget_guides = {
