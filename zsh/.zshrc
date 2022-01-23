@@ -124,3 +124,5 @@ export PATH=/Users/ts/fvm/default/bin:$PATH
 # To be able to paste  in neovim I need to provide locale
 export LC_ALL=lt_LT.UTF-8
 export LC_CTYPE=lt_LT.UTF-8
+
+export EDITOR='nvim'
