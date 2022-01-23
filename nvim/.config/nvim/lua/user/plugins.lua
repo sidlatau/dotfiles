@@ -73,7 +73,6 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-nvim-lua"
 
   use "akinsho/toggleterm.nvim"
-  use "ahmedkhalf/project.nvim"
   use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
   use "folke/which-key.nvim"
   use "ThePrimeagen/harpoon"
@@ -120,6 +119,7 @@ return packer.startup(function(use)
 
   use "mfussenegger/nvim-dap"
   use "nvim-telescope/telescope-dap.nvim"
+  use "vim-scripts/BufOnly.vim"
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
