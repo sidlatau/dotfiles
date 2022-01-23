@@ -94,6 +94,7 @@ local mappings = {
   ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
   ["w"] = { "<cmd>w!<CR>", "Save" },
   ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
+  ["C"] = { "<cmd>Bufonly<CR>", "Leave single Buffer" },
   ["<leader>"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
   ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
   ["P"] = { "<cmd>Telescope projects<cr>", "Projects" },

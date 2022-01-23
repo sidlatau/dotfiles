@@ -10,6 +10,13 @@ flutter_tools.setup {
       require("user.lsp.handlers").on_attach(client, bufnr)
     end,
     capabilities = require("user.lsp.handlers").capabilities,
+    settings = {
+      analysisExcludedFolders = {
+        ".dart_tool",
+        "/Users/ts/.pub-cache/hosted/",
+        "/Users/ts/fvm/",
+      },
+    },
   },
   debugger = { -- integrate with nvim dap + install dart code debugger
     enabled = true,
