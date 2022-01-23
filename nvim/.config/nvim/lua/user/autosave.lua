@@ -8,7 +8,7 @@ autosave.setup {
   execution_message = function()
     return "AutoSave: saved at " .. vim.fn.strftime "%H:%M:%S"
   end,
-  events = { "InsertLeave", "TextChanged" },
+  events = { "InsertLeave" },
   conditions = {
     exists = true,
     filename_is_not = {

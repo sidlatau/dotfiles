@@ -120,6 +120,12 @@ return packer.startup(function(use)
   use "mfussenegger/nvim-dap"
   use "nvim-telescope/telescope-dap.nvim"
   use "vim-scripts/BufOnly.vim"
+  use {
+    "bkad/camelcasemotion",
+    config = function()
+      vim.g["camelcasemotion_key"] = "\\"
+    end,
+  }
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then

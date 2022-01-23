@@ -48,4 +48,4 @@ function M.disable_format_on_save()
   M.disable_augroup "format_on_save"
 end
 
-M.enable_format_on_save { pattern = "*", timeout = 1000 }
+M.enable_format_on_save { pattern = "*", timeout = 200 }

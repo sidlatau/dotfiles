@@ -13,6 +13,8 @@ lsp_fastaction.setup {
       { pattern = "wrap with row", key = "r", order = 3 },
       { pattern = "remove", key = "R", order = 5 },
       { pattern = "add", key = "a", order = 3 },
+      { pattern = "import library", key = "i", order = 3 },
+      { pattern = "organize", key = "o", order = 3 },
       --range code action
       { pattern = "surround with %'if'", key = "i", order = 2 },
       { pattern = "try%-catch", key = "t", order = 2 },
