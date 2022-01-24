@@ -57,3 +57,9 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 keymap("v", "p", '"_dP', opts)
 
 keymap("n", "<C-p>", ":Telescope find_files<cr>", opts)
+
+-- For easy navigation of wrapped lines
+vim.cmd [[
+nnoremap <expr> j v:count ? 'j' : 'gj'
+nnoremap <expr> k v:count ? 'k' : 'gk'
+]]

@@ -126,6 +126,7 @@ return packer.startup(function(use)
       vim.g["camelcasemotion_key"] = "\\"
     end,
   }
+  use "milch/vim-fastlane"
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
