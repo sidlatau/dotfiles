@@ -88,7 +88,7 @@ local mappings = {
     "Code action",
   },
   ["b"] = {
-    "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+    "<cmd>lua require('user.telescope').sorted_buffer()<cr>",
     "Buffers",
   },
   ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
