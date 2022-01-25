@@ -22,6 +22,8 @@ configs.setup {
         ["if"] = "@function.inner",
         ["ac"] = "@class.outer",
         ["ic"] = "@class.inner",
+        ["ip"] = "@parameter.outer",
+        ["ap"] = "@parameter.inner",
       },
     },
   },

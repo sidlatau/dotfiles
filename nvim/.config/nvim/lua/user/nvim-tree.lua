@@ -70,11 +70,11 @@ nvim_tree.setup {
     timeout = 500,
   },
   view = {
-    width = 30,
-    height = 30,
+    width = 45,
+    height = 45,
     hide_root_folder = false,
     side = "left",
-    auto_resize = true,
+    auto_resize = false,
     mappings = {
       custom_only = false,
       list = {
@@ -95,6 +95,6 @@ nvim_tree.setup {
     folders = 1,
     files = 1,
     folder_arrows = 1,
-    tree_width = 30,
+    tree_width = 45,
   },
 }
