@@ -49,3 +49,29 @@ function M.disable_format_on_save()
 end
 
 M.enable_format_on_save { pattern = "*", timeout = 200 }
+
+vim.cmd [[
+  augroup _general_settings
+    autocmd!
+    " Simplify exit
+    autocmd FileType qf,help,man,lspinfo nnoremap <silent> <buffer> q :close<CR> 
+
+    " Set comment string for dart as //  
+    autocmd FileType dart setlocal commentstring=//\ %s
+
+    " Treat arb files as json
+    autocmd BufRead *.arb :set filetype=json
+  augroup end
+]]
+
+vim.cmd [[
+  augroup _git
+    autocmd!
+    autocmd FileType gitcommit setlocal spell
+  augroup end
+
+  augroup _markdown
+    autocmd!
+    autocmd FileType markdown setlocal spell
+  augroup end
+]]

@@ -42,13 +42,13 @@ vim.opt.shortmess:append "c"
 vim.cmd "set whichwrap+=<,>,[,]"
 vim.cmd [[set iskeyword+=-]]
 
-vim.cmd [[
-autocmd FileType dart setlocal commentstring=//\ %s
-]]
 vim.cmd "set colorcolumn=81"
 
 vim.cmd [[
-autocmd FileType dart setlocal commentstring=//\ %s
+fun! TrimWhitespace()
+    let l:save = winsaveview()
+    keeppatterns %s/\s\+$//e
+    call winrestview(l:save)
+endfun
+command! TrimWhitespace call TrimWhitespace()
 ]]
-
-vim.api.nvim_command "autocmd BufRead *.arb :set filetype=json"
