@@ -44,11 +44,21 @@ function M.enable_format_on_save(opts)
   }
 end
 
+function M.enable_fix_all_on_save()
+  local fmd_cmd =
+    ":silent lua require('user.lsp.handlers').code_action_fix_all()"
+
+  M.define_augroups {
+    fix_all_on_save = { { "BufWritePre", "*.dart", fmd_cmd } },
+  }
+end
+
 function M.disable_format_on_save()
   M.disable_augroup "format_on_save"
 end
 
 M.enable_format_on_save { pattern = "*", timeout = 200 }
+M.enable_fix_all_on_save()
 
 vim.cmd [[
   augroup _general_settings
