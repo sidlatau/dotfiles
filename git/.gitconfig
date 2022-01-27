@@ -32,3 +32,14 @@
   last = "!git --no-pager log --graph --oneline --decorate --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' -n 10"
 [push]
 	default = current
+[merge]
+	tool = kdiff3
+[mergetool "kdiff3"]
+	path = /usr/local/bin/kdiff3
+	trustExitCode = true
+  keepbackup = false
+[diff]
+	guitool = kdiff3
+[difftool "kdiff3"]
+	path = /usr/local/bin/kdiff3
+	trustExitCode = true

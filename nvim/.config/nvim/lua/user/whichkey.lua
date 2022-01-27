@@ -211,6 +211,8 @@ local mappings = {
     name = "Test / Terminal",
     h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
     v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
+    f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
+
     t = { "<cmd>Ultest<cr>", "Test file" },
     s = { "<cmd>UltestSummary<cr>", "Summary" },
     d = { "<cmd>UltestDebugNearest<cr>", "Debug nearest" },
@@ -246,6 +248,13 @@ local mappings = {
       "<cmd>lua require'telescope'.extensions.dap.frames{}<CR>",
       "Frames",
     },
+  },
+  r = {
+    name = "Redux",
+    s = { "<cmd>Estate<cr>", "state" },
+    r = { "<cmd>Ereducer<cr>", "reducer" },
+    a = { "<cmd>Eactions<cr>", "actions" },
+    m = { "<cmd>Emiddleware<cr>", "middleware" },
   },
 }
 
