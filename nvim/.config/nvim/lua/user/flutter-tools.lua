@@ -26,6 +26,10 @@ flutter_tools.setup {
   widget_guides = {
     enabled = true,
   },
+  dev_log = {
+    enabled = true,
+    open_cmd = "15split", -- command to use to open the log buffer
+  },
 }
 
 local api = vim.api

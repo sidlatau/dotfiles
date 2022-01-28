@@ -46,7 +46,6 @@ return packer.startup(function(use)
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
   use "kyazdani42/nvim-web-devicons"
   use "kyazdani42/nvim-tree.lua"
-  use "akinsho/bufferline.nvim"
   use "moll/vim-bbye"
   use "nvim-lualine/lualine.nvim"
   use "numToStr/Comment.nvim" -- Easily comment stuff
@@ -118,6 +117,7 @@ return packer.startup(function(use)
   }
 
   use "mfussenegger/nvim-dap"
+  use "rcarriga/nvim-dap-ui"
   use "nvim-telescope/telescope-dap.nvim"
   use "vim-scripts/BufOnly.vim"
   use {
@@ -128,6 +128,7 @@ return packer.startup(function(use)
   }
   use "milch/vim-fastlane"
   use "delphinus/vim-firestore"
+  use "tpope/vim-fugitive"
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then

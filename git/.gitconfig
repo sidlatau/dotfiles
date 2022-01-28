@@ -37,9 +37,10 @@
 [mergetool "kdiff3"]
 	path = /usr/local/bin/kdiff3
 	trustExitCode = true
-  keepbackup = false
 [diff]
 	guitool = kdiff3
 [difftool "kdiff3"]
 	path = /usr/local/bin/kdiff3
 	trustExitCode = true
+[mergetool]
+	keepBackup = false

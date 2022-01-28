@@ -18,3 +18,5 @@ vim.fn.sign_define(
   "DapStopped",
   { text = "", texthl = "debugBreakpoint", linehl = "debugPC", numhl = "" }
 )
+
+require("dapui").setup()
