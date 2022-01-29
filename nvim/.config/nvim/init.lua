@@ -1,4 +1,4 @@
-if vim.api.nvim_eval 'exists("g:vscode")' == 1 then
+if vim.g.vscode == 1 then
   require "user.vscode"
 else
   require "user.options"
