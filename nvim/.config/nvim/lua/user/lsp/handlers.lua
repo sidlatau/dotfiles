@@ -202,7 +202,6 @@ function M.code_action_fix_all()
           and result.command
           and result.command.command == "edit.fixAll"
         then
-          print(vim.inspect(result))
           lsp_execute_command(result)
         end
       end
