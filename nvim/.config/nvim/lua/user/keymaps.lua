@@ -65,6 +65,7 @@ nnoremap <expr> k v:count ? 'k' : 'gk'
 ]]
 
 vim.cmd [[
+nnoremap <silent> <F3> :lua require('dapui').eval()<CR><CR>
 nnoremap <silent> <F5> :lua require'dap'.continue()<CR>
 nnoremap <silent> <F10> :lua require'dap'.step_over()<CR>
 nnoremap <silent> <F11> :lua require'dap'.step_into()<CR>
