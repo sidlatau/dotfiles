@@ -88,7 +88,7 @@ local mappings = {
     "Code action",
   },
   ["b"] = {
-    "<cmd>lua require('user.telescope').sorted_buffer()<cr>",
+    "<cmd>lua require('user.telescope').sorted_buffers()<cr>",
     "Buffers",
   },
   ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
@@ -97,7 +97,6 @@ local mappings = {
   ["C"] = { "<cmd>Bufonly<CR>", "Leave single Buffer" },
   ["<leader>"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
   ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
-  ["P"] = { "<cmd>Telescope projects<cr>", "Projects" },
   ["1"] = { ':lua require("harpoon.ui").nav_file(1)<CR>', "Nav 1" },
   ["2"] = { ':lua require("harpoon.ui").nav_file(2)<CR>', "Nav 2" },
   ["3"] = { ':lua require("harpoon.ui").nav_file(3)<CR>', "Nav 3" },

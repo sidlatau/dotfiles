@@ -103,7 +103,7 @@ local action_state = require "telescope.actions.state"
 
 local M = {}
 
-M.sorted_buffer = function(opts)
+M.sorted_buffers = function(opts)
   opts = opts or {}
   opts.attach_mappings = function(prompt_bufnr, map)
     local delete_buf = function()
@@ -120,6 +120,13 @@ M.sorted_buffer = function(opts)
   opts.sort_mru = true
   -- opts.shorten_path = false
   require("telescope.builtin").buffers(
+    require("telescope.themes").get_dropdown(opts)
+  )
+end
+
+M.find_files = function()
+  local opts = {}
+  require("telescope.builtin").find_files(
     require("telescope.themes").get_dropdown(opts)
   )
 end
