@@ -92,7 +92,10 @@ local mappings = {
     "Buffers",
   },
   ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
-  ["w"] = { "<cmd>wa<CR>", "Save" },
+  ["w"] = {
+    "<cmd>wa<cr><bar><cmd>LspFormat<cr><bar><cmd>LspFixAll<CR>",
+    "Save",
+  },
   ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
   ["C"] = { "<cmd>Bufonly<CR>", "Leave single Buffer" },
   ["<leader>"] = { "<cmd>nohlsearch<CR>", "No Highlight" },

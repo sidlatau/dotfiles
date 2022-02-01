@@ -35,18 +35,14 @@ function M.disable_augroup(name)
 end
 
 function M.enable_format_on_save(opts)
-  local fmd_cmd = string.format(
-    ":silent lua vim.lsp.buf.formatting_sync({}, %s)",
-    opts.timeout
-  )
+  local fmd_cmd = string.format("LspFormat", opts.timeout)
   M.define_augroups {
     format_on_save = { { "BufWritePre", opts.pattern, fmd_cmd } },
   }
 end
 
 function M.enable_fix_all_on_save()
-  local fmd_cmd =
-    ":silent lua require('user.lsp.handlers').code_action_fix_all()"
+  local fmd_cmd = ":LspFixAll"
 
   M.define_augroups {
     fix_all_on_save = { { "BufWritePre", "*.dart", fmd_cmd } },
@@ -57,8 +53,13 @@ function M.disable_format_on_save()
   M.disable_augroup "format_on_save"
 end
 
-M.enable_format_on_save { pattern = "*", timeout = 200 }
-M.enable_fix_all_on_save()
+-- M.enable_format_on_save { pattern = "*", timeout = 200 }
+-- M.enable_fix_all_on_save()
+
+vim.cmd [[
+command LspFormat :silent lua vim.lsp.buf.formatting_sync({}, 200)
+command LspFixAll :silent lua require('user.lsp.handlers').code_action_fix_all()
+]]
 
 vim.cmd [[
   augroup _general_settings
