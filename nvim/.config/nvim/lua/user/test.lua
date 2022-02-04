@@ -3,20 +3,32 @@ vim.cmd [[
 let g:ultest_running_sign = ""
 ]]
 
+local success, dap = pcall(require, "dap")
+if not success then
+  return
+end
+
 -- TODO does not work yet but left for future
 require("ultest").setup {
   builders = {
-    ---@diagnostic disable-next-line: unused-local
     ["dart#fluttertest"] = function(cmd)
+      dap.adapters.dart = {
+          type = "executable",
+          command = "flutter",
+          args = { "debug-adapter", "--test" },
+      }
+      dap.set_log_level('TRACE')
+      print(vim.inspect(cmd))
       return {
         dap = {
           type = "dart",
           request = "launch",
-          dartSdkPath = ".fvm/flutter_sdk/flutter/bin/cache/dart-sdk",
-          flutterSdkPath = ".fvm/flutter_sdk",
-          program = "${workspaceFolder}/lib/main.dart",
-          cwd = "${workspaceFolder}",
+          args = {cmd[#cmd], "--plain-name", cmd[5]},
         },
+        parse_result = function(lines)
+          print(vim.inspect(lines))
+          return 1
+        end
       }
     end,
   },
