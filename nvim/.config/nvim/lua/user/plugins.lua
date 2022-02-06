@@ -130,6 +130,7 @@ return packer.startup(function(use)
   use "delphinus/vim-firestore"
   use "tpope/vim-fugitive"
   use "tpope/vim-rhubarb"
+  use "tpope/vim-abolish"
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
