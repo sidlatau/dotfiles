@@ -93,7 +93,7 @@ local mappings = {
   },
   ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
   ["w"] = {
-    "<cmd>wa<cr><bar><cmd>LspFormat<cr><bar><cmd>LspFixAll<CR>",
+    "<cmd>wa<cr><bar><cmd>LspFormat<cr>",
     "Save",
   },
   ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },

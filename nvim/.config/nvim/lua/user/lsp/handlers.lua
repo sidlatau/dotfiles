@@ -141,6 +141,18 @@ end
 M.on_attach = function(client, bufnr)
   if client.name == "tsserver" then
     client.resolved_capabilities.document_formatting = false
+    local ts_utils = require "nvim-lsp-ts-utils"
+    ts_utils.setup {
+      filter_out_diagnostics_by_code = { 80001 },
+    }
+    -- required to fix code action ranges and filter diagnostics
+    ts_utils.setup_client(client)
+
+    -- no default maps, so you may want to define some here
+    local opts = { silent = true }
+    vim.api.nvim_buf_set_keymap(bufnr, "n", "gs", ":TSLspOrganize<CR>", opts)
+    vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>lr", ":TSLspRenameFile<CR>", opts)
+    vim.api.nvim_buf_set_keymap(bufnr, "n", "gi", ":TSLspImportAll<CR>", opts)
   end
   lsp_keymaps(bufnr)
   lsp_highlight_document(client)

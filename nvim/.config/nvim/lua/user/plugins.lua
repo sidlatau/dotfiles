@@ -85,6 +85,7 @@ return packer.startup(function(use)
   use "williamboman/nvim-lsp-installer" -- simple to use language server installer
   use "windwp/lsp-fastaction.nvim"
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
+  use "jose-elias-alvarez/nvim-lsp-ts-utils"
 
   use { "akinsho/flutter-tools.nvim", requires = "nvim-lua/plenary.nvim" }
   use "nvim-lua/lsp-status.nvim"
