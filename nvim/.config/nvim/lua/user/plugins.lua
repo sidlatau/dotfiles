@@ -55,7 +55,7 @@ return packer.startup(function(use)
   use "tpope/vim-surround"
   use "tpope/vim-repeat"
   use "tpope/vim-obsession"
-  use "mhinz/vim-startify"
+  -- use "mhinz/vim-startify"
   use "tpope/vim-projectionist"
   use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
 
