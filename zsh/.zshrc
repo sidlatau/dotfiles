@@ -121,6 +121,7 @@ eval "$(rbenv init - zsh)"
 
 export PATH=/Users/ts/fvm/default/bin:$PATH
 export PATH="$PATH":"$HOME/.pub-cache/bin"
+export PATH="$PATH":"$HOME/Library/Android/sdk/platform-tools"
 
 # To be able to paste  in neovim I need to provide locale
 export LC_ALL=lt_LT.UTF-8
