@@ -53,7 +53,7 @@ function M.disable_format_on_save()
   M.disable_augroup "format_on_save"
 end
 
---M.enable_format_on_save { pattern = "*", timeout = 200 }
+M.enable_format_on_save { pattern = "*", timeout = 200 }
 M.enable_fix_all_on_save()
 
 vim.cmd [[

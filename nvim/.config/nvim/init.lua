@@ -23,4 +23,5 @@ else
   require "user.test"
   require "user.dap"
   require "user.autopairs"
+  require "user.luasnip"
 end
