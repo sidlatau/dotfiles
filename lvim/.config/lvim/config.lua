@@ -16,7 +16,6 @@ vim.api.nvim_set_keymap(
 )
 
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
-lvim.builtin.dashboard.active = false
 lvim.builtin.notify.active = true
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
@@ -96,9 +95,6 @@ lvim.plugins = {
 		requires = "nvim-lua/plenary.nvim",
 	},
 	{
-		"mhinz/vim-startify",
-	},
-	{
 		"nvim-lua/lsp-status.nvim",
 	},
 	{
@@ -141,10 +137,6 @@ lvim.plugins = {
 		end,
 	},
 	{
-		"f-person/git-blame.nvim",
-		event = "BufRead",
-	},
-	{
 		"folke/trouble.nvim",
 		cmd = "TroubleToggle",
 	},
@@ -182,12 +174,6 @@ lvim.plugins = {
 		requires = { "mfussenegger/nvim-dap" },
 		config = function()
 			require("dapui").setup()
-		end,
-	},
-	{
-		"mhinz/vim-sayonara",
-		config = function()
-			vim.g["sayonara_confirm_quit"] = true
 		end,
 	},
 }
