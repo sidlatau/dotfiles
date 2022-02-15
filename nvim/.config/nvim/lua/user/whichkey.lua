@@ -91,7 +91,7 @@ local mappings = {
     "<cmd>lua require('user.telescope').sorted_buffers()<cr>",
     "Buffers",
   },
-  ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
+  ["e"] = { "<cmd>NeoTreeFloatToggle<cr>", "Explorer" },
   ["w"] = {
     "<cmd>wa<cr>",
     "Save",
