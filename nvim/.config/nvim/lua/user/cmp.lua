@@ -114,3 +114,18 @@ cmp.setup {
   },
   experimental = { ghost_text = false, native_menu = false },
 }
+
+local search_sources = {
+  sources = cmp.config.sources({
+    { name = "nvim_lsp_document_symbol" },
+  }, {
+    { name = "buffer" },
+  }),
+}
+cmp.setup.cmdline("/", search_sources)
+cmp.setup.cmdline("?", search_sources)
+cmp.setup.cmdline(":", {
+  sources = cmp.config.sources {
+    { name = "cmdline" },
+  },
+})
