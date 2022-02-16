@@ -125,7 +125,9 @@ M.sorted_buffers = function(opts)
 end
 
 M.find_files = function()
-  local opts = {}
+  local opts = {
+    hidden = true,
+  }
   require("telescope.builtin").find_files(
     require("telescope.themes").get_dropdown(opts)
   )
