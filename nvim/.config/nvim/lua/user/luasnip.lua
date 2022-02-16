@@ -42,3 +42,9 @@ vim.keymap.set(
   "<leader><leader>s",
   "<cmd>source ~/Documents/github/personal/dotfiles/nvim/.config/nvim/lua/user/lualine.lua"
 )
+
+require("luasnip/loaders/from_vscode").lazy_load {
+  paths = { "~/Documents/github/personal/dotfiles/snippets" },
+}
+-- require("luasnip.loaders.from_vscode").lazy_load()
+luasnip.filetype_extend("dart", { "flutter" })

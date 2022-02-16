@@ -32,7 +32,7 @@ local function shift_tab(fallback)
   elseif vim.api.nvim_get_mode().mode == "c" then
     fallback()
   else
-    feed "<Plug>(Tabout)"
+    feed "<Plug>(TaboutBack)"
   end
 end
 
@@ -114,9 +114,3 @@ cmp.setup {
   },
   experimental = { ghost_text = false, native_menu = false },
 }
-
-require("luasnip/loaders/from_vscode").lazy_load {
-  paths = { "~/Documents/github/personal/dotfiles/snippets" },
-}
-require("luasnip.loaders.from_vscode").lazy_load()
-luasnip.filetype_extend("dart", { "flutter" })

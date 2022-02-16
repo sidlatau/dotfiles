@@ -45,8 +45,6 @@ vim.cmd [[set iskeyword+=-]]
 vim.cmd "set colorcolumn=81"
 
 vim.cmd [[
-let g:dart_format_on_save = 1
-
 fun! TrimWhitespace()
     let l:save = winsaveview()
     keeppatterns %s/\s\+$//e

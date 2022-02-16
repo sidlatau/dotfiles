@@ -1,4 +1,7 @@
-require("tabout").setup {
+local status_ok, tabout = pcall(require, "tabout")
+if not status_ok then
+  return
+end
+tabout.setup {
   completion = false,
-  ignore_beginning = false,
 }
