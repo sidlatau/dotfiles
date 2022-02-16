@@ -137,6 +137,10 @@ local mappings = {
       "<cmd>FlutterRun --dart-define=flavor=prod --flavor prod<CR>",
       "Start prod",
     },
+    b = {
+      "<cmd>TermExec cmd='fvm flutter pub run build_runner build --delete-conflicting-outputs'<CR>",
+      "Run code generation",
+    },
   },
 
   g = {
