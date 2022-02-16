@@ -145,4 +145,8 @@ return packer.startup(function(use)
       "MunifTanjim/nui.nvim",
     },
   }
+  use "abecodes/tabout.nvim"
+  use "github/copilot.vim"
+  use "dart-lang/dart-vim-plugin"
+  use "mtdl9/vim-log-highlighting"
 end)

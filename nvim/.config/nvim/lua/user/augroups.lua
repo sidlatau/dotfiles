@@ -53,7 +53,7 @@ function M.disable_format_on_save()
   M.disable_augroup "format_on_save"
 end
 
-M.enable_format_on_save { pattern = "*", timeout = 200 }
+-- M.enable_format_on_save { pattern = "*", timeout = 200 }
 M.enable_fix_all_on_save()
 
 vim.cmd [[
@@ -66,9 +66,6 @@ vim.cmd [[
     autocmd!
     " Simplify exit
     autocmd FileType qf,help,man,lspinfo nnoremap <silent> <buffer> q :close<CR> 
-
-    " Set comment string for dart as //  
-    autocmd FileType dart setlocal commentstring=//\ %s
 
     " Treat arb files as json
     autocmd BufRead *.arb :set filetype=json

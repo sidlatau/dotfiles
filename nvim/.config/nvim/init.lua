@@ -24,4 +24,6 @@ else
   require "user.dap"
   require "user.autopairs"
   require "user.luasnip"
+  require "user.copilot"
+  require "user.tabout"
 end
