@@ -16,6 +16,26 @@ local function feed(key, mode)
   )
 end
 
+local function tab(fallback)
+  if cmp.visible() then
+    cmp.select_next_item()
+  elseif vim.api.nvim_get_mode().mode == "c" then
+    fallback()
+  else
+    feed "<Plug>(Tabout)"
+  end
+end
+
+local function shift_tab(fallback)
+  if cmp.visible() then
+    cmp.select_prev_item()
+  elseif vim.api.nvim_get_mode().mode == "c" then
+    fallback()
+  else
+    feed "<Plug>(Tabout)"
+  end
+end
+
 --   פּ ﯟ   some other good icons
 local kind_icons = {
   Text = "",
@@ -56,46 +76,16 @@ cmp.setup {
     ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
     ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
     ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
-    --["<C-y>"] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
     ["<C-e>"] = cmp.mapping {
       i = cmp.mapping.abort(),
       c = cmp.mapping.close(),
     },
-    -- Accept currently selected item. If none selected, `select` first item.
-    -- Set `select` to `false` to only confirm explicitly selected items.
-    ["<CR>"] = cmp.mapping.confirm { select = true },
-    ["<Tab>"] = cmp.mapping(function(fallback)
-      local copilot_keys = vim.fn["copilot#Accept"]()
-      if cmp.visible() then
-        cmp.select_next_item()
-      elseif copilot_keys ~= "" then
-        vim.api.nvim_feedkeys(copilot_keys, "i", true)
-      elseif luasnip.expandable() then
-        luasnip.expand()
-      elseif luasnip.expand_or_jumpable() then
-        luasnip.expand_or_jump()
-      elseif vim.api.nvim_get_mode().mode == "c" then
-        fallback()
-      else
-        feed "<Plug>(Tabout)"
-      end
-    end, { "i", "s" }),
-    ["<S-Tab>"] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_prev_item()
-      elseif luasnip.jumpable(-1) then
-        luasnip.jump(-1)
-      elseif vim.api.nvim_get_mode().mode == "c" then
-        fallback()
-      else
-        local copilot_keys = vim.fn["copilot#Accept"]()
-        if copilot_keys ~= "" then
-          feed(copilot_keys, "i")
-        else
-          feed "<Plug>(Tabout)"
-        end
-      end
-    end, { "i", "s" }),
+    ["<CR>"] = cmp.mapping.confirm {
+      behavior = cmp.ConfirmBehavior.Replace,
+      select = true,
+    },
+    ["<Tab>"] = cmp.mapping(tab, { "i", "c" }),
+    ["<S-Tab>"] = cmp.mapping(shift_tab, { "i", "c" }),
   },
   formatting = {
     fields = { "kind", "abbr", "menu" },
