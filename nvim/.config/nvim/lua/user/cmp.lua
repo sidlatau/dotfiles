@@ -84,8 +84,8 @@ cmp.setup {
       behavior = cmp.ConfirmBehavior.Replace,
       select = true,
     },
-    ["<Tab>"] = cmp.mapping(tab, { "i", "c" }),
-    ["<S-Tab>"] = cmp.mapping(shift_tab, { "i", "c" }),
+    ["<C-N>"] = cmp.mapping(tab, { "i", "c" }),
+    ["<C-P>"] = cmp.mapping(shift_tab, { "i", "c" }),
   },
   formatting = {
     fields = { "kind", "abbr", "menu" },
