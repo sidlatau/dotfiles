@@ -90,6 +90,19 @@ local function workspace_diagnostic()
   return str
 end
 
+local function lsp_client()
+  local names = {}
+  for _, client in ipairs(vim.lsp.buf_get_clients(0)) do
+    if client.name then
+      table.insert(names, client.name)
+    end
+  end
+  if #names == 0 then
+    return ""
+  end
+  return table.concat(names, ", ")
+end
+
 lualine.setup {
   options = {
     icons_enabled = true,
@@ -105,7 +118,7 @@ lualine.setup {
     lualine_c = {},
     lualine_x = { diff, spaces, "encoding", filetype },
     lualine_y = { location },
-    lualine_z = { "require('lsp-status').status()" },
+    lualine_z = { lsp_client },
   },
   inactive_sections = {
     lualine_a = {},

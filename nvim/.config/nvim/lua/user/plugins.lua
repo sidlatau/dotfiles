@@ -149,4 +149,5 @@ return packer.startup(function(use)
   use "github/copilot.vim"
   use "dart-lang/dart-vim-plugin"
   use "mtdl9/vim-log-highlighting"
+  use "j-hui/fidget.nvim"
 end)

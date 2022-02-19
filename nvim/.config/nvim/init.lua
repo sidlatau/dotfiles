@@ -17,7 +17,6 @@ else
   require "user.lsp-fastaction"
   require "user.autosave"
   require "user.augroups"
-  require "user.lsp-status"
   require "user.toggleterm"
   require "user.whichkey"
   require "user.test"
@@ -26,4 +25,5 @@ else
   require "user.luasnip"
   require "user.copilot"
   require "user.tabout"
+  require "user.fidget"
 end

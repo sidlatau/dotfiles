@@ -13,7 +13,6 @@ flutter_tools.setup {
       virtual_text_str = "■", -- the virtual text character to highlight
     },
     on_attach = function(client, bufnr)
-      require("lsp-status").on_attach(client)
       require("user.lsp.handlers").on_attach(client, bufnr)
     end,
     capabilities = require("user.lsp.handlers").capabilities,
