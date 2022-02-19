@@ -19,7 +19,7 @@ flutter_tools.setup {
     settings = {
       analysisExcludedFolders = {
         ".dart_tool",
-        "/Users/ts/.pub-cache/hosted/",
+        "/Users/ts/.pub-cache/",
         "/Users/ts/fvm/",
       },
     },
