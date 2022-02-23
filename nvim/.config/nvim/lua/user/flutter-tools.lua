@@ -27,6 +27,28 @@ flutter_tools.setup {
   debugger = { -- integrate with nvim dap + install dart code debugger
     enabled = true,
     run_via_dap = true,
+    register_configurations = function(paths)
+      require("dap").configurations.dart = {
+        {
+          type = "dart",
+          request = "launch",
+          name = "Launch flutter",
+          dartSdkPath = paths.dart_sdk,
+          flutterSdkPath = paths.flutter_sdk,
+          program = "${workspaceFolder}/lib/main.dart",
+          cwd = "${workspaceFolder}",
+        },
+        {
+          type = "dart",
+          request = "launch",
+          name = "Test flutter",
+          dartSdkPath = paths.dart_sdk,
+          flutterSdkPath = paths.flutter_sdk,
+          program = "${file}",
+          cwd = "${workspaceFolder}",
+        },
+      }
+    end,
   },
   fvm = true,
   widget_guides = {
