@@ -17,6 +17,7 @@ flutter_tools.setup {
     },
     on_attach = function(client, bufnr)
       require("user.lsp.handlers").on_attach(client, bufnr)
+      vim.cmd "highlight FlutterWidgetGuides ctermfg=9 guifg=grey"
     end,
     capabilities = require("user.lsp.handlers").capabilities,
     settings = {
