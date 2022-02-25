@@ -150,5 +150,5 @@ return packer.startup(function(use)
   use "dart-lang/dart-vim-plugin"
   use "mtdl9/vim-log-highlighting"
   use "j-hui/fidget.nvim"
-  use { "TimUntersberger/neogit", requires = "nvim-lua/plenary.nvim" }
+  use "rcarriga/nvim-notify"
 end)
