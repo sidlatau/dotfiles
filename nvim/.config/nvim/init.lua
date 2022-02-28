@@ -16,7 +16,6 @@ else
   require "user.comment"
   require "user.gitsigns"
   require "user.lsp-fastaction"
-  require "user.autosave"
   require "user.augroups"
   require "user.toggleterm"
   require "user.whichkey"

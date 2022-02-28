@@ -49,7 +49,6 @@ return packer.startup(function(use)
   use "nvim-lualine/lualine.nvim"
   use "numToStr/Comment.nvim" -- Easily comment stuff
   use "JoosepAlviste/nvim-ts-context-commentstring"
-  use "Pocco81/AutoSave.nvim"
   use "machakann/vim-highlightedyank"
   use "tpope/vim-surround"
   use "tpope/vim-repeat"
