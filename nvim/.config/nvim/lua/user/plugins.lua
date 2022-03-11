@@ -150,4 +150,5 @@ return packer.startup(function(use)
   use "mtdl9/vim-log-highlighting"
   use "j-hui/fidget.nvim"
   use "rcarriga/nvim-notify"
+  use { "nvim-telescope/telescope-fzf-native.nvim", run = "make" }
 end)
