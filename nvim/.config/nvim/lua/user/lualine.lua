@@ -107,9 +107,9 @@ lualine.setup {
   options = {
     icons_enabled = true,
     theme = "gruvbox",
-    component_separators = { left = "", right = "" },
-    section_separators = { left = "", right = "" },
-    disabled_filetypes = { "dashboard", "NvimTree", "Outline" },
+    section_separators = { left = "", right = "" },
+    component_separators = { left = "", right = "" },
+    disabled_filetypes = { "Outline" },
     always_divide_middle = true,
   },
   sections = {
@@ -130,7 +130,6 @@ lualine.setup {
   },
   tabline = {
     lualine_c = { "filename" },
-    ualine_z = { "tabs" },
   },
   extensions = {},
 }
