@@ -142,16 +142,20 @@ local mappings = {
       "Run code generation",
     },
     g = {
-      "<cmd>FlutterPubGet <CR>",
+      "<cmd>FlutterPubGet<CR>",
       "Flutter pub get",
     },
     q = {
-      "<cmd>FlutterQuit <CR>",
+      "<cmd>FlutterQuit<CR>",
       "Flutter quit",
     },
     f = {
-      "<cmd>FlutterRun <CR>",
+      "<cmd>FlutterRun<CR>",
       "Flutter run",
+    },
+    z = {
+      "<cmd>FlutterLogClear<CR>",
+      "Flutter log clear",
     },
   },
 
