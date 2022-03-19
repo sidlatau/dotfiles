@@ -9,6 +9,7 @@ notify.setup {
   stages = "fade_in_slide_out",
   timeout = 3000,
   minimum_width = 40,
+  background_colour = "#282828",
   render = function(bufnr, notif, highlights)
     if notif.title[1] == "" then
       return renderer.minimal(bufnr, notif, highlights)

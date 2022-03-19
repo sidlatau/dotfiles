@@ -26,4 +26,5 @@ else
   require "user.copilot"
   require "user.tabout"
   require "user.fidget"
+  require "user.transparent"
 end
