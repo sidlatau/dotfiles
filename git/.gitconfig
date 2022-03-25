@@ -1,7 +1,7 @@
 
 [user]
-	name = Tautvydas Šidlauskas 
-	email = ts@mworker.com
+	name = Tautvydas Šidlauskas
+	email = tautvydas.sidlauskas@gmail.com
 [alias]	
   rmd = "!f() { \
                   branchToMerge=$(git rev-parse --abbrev-ref HEAD); \
