@@ -224,6 +224,10 @@ local mappings = {
       "Word under cursor",
     },
   },
+  R = {
+    "<cmd>Telescope resume<cr>",
+    "Telescope resume",
+  },
 
   t = {
     name = "Test / Terminal",

@@ -29,6 +29,12 @@ telescope.setup {
     -- }
     -- please take a look at the readme of the extension you want to configure
   },
+  mappings = {
+    i = {
+      ["<C-k"] = require("telescope.actions").cycle_history_next,
+      ["<C-j>"] = require("telescope.actions").cycle_history_prev,
+    },
+  },
 }
 
 require("telescope").load_extension "flutter"
