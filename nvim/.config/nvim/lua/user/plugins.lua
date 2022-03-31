@@ -151,4 +151,17 @@ return packer.startup(function(use)
   use "rcarriga/nvim-notify"
   use { "nvim-telescope/telescope-fzf-native.nvim", run = "make" }
   use "xiyaowong/nvim-transparent"
+  use {
+    "akinsho/git-conflict.nvim",
+    config = function()
+      require("git-conflict").setup()
+    end,
+  }
+  use { "kevinhwang91/nvim-bqf", ft = "qf" }
+  use {
+    "junegunn/fzf",
+    run = function()
+      vim.fn["fzf#install"]()
+    end,
+  }
 end)
