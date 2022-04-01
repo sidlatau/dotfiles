@@ -52,7 +52,6 @@ return packer.startup(function(use)
   use "machakann/vim-highlightedyank"
   use "tpope/vim-surround"
   use "tpope/vim-repeat"
-  use "tpope/vim-obsession"
   use "tpope/vim-projectionist"
   use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
 
@@ -159,9 +158,14 @@ return packer.startup(function(use)
   }
   use { "kevinhwang91/nvim-bqf", ft = "qf" }
   use {
-    "junegunn/fzf",
-    run = function()
-      vim.fn["fzf#install"]()
+    "rmagatti/auto-session",
+    config = function()
+      require("auto-session").setup {
+        log_level = "error",
+        auto_session_root_dir = ("%s/session/auto/"):format(
+          vim.fn.stdpath "data"
+        ),
+      }
     end,
   }
 end)
