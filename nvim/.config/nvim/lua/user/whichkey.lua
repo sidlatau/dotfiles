@@ -171,6 +171,7 @@ local mappings = {
     o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
     b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
     c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
+    t = { "<cmd>0Gclog<cr>", "File timeline" },
     d = {
       "<cmd>Gitsigns diffthis HEAD<cr>",
       "Diff",
@@ -223,6 +224,7 @@ local mappings = {
       ":lua require('telescope.builtin').grep_string(require('telescope.themes').get_dropdown({layout_config = {width = 0.8}}))<CR>",
       "Word under cursor",
     },
+    S = { "<cmd>SearchSession<cr>", "Sessions" },
   },
   R = {
     "<cmd>Telescope resume<cr>",
@@ -237,7 +239,7 @@ local mappings = {
 
     t = { "<cmd>Ultest<cr>", "Test file" },
     s = { "<cmd>UltestSummary<cr>", "Summary" },
-    d = { "<cmd>UltestDebugNearest<cr>", "Debug nearest" },
+    -- d = { "<cmd>UltestDebugNearest<cr>", "Debug nearest" },
     o = { "<cmd>UltestOutput<cr>", "Output" },
     n = { "<cmd>UltestNearest<cr>", "Test nearest" },
     l = { "<cmd>UltestLast<cr>", "Test last" },

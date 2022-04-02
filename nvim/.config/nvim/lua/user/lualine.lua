@@ -17,7 +17,7 @@ local diff = {
 local mode = {
   "mode",
   fmt = function(str)
-    return "-- " .. str .. " --"
+    return " " .. str .. " "
   end,
 }
 
@@ -106,7 +106,7 @@ end
 lualine.setup {
   options = {
     icons_enabled = true,
-    theme = "gruvbox",
+    theme = "gruvbox-material",
     section_separators = { left = "", right = "" },
     component_separators = { left = "", right = "" },
     disabled_filetypes = { "Outline" },

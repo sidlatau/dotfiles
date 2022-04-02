@@ -37,7 +37,6 @@ packer.init {
     end,
   },
 }
-
 -- Install your plugins here
 return packer.startup(function(use)
   -- My plugins here
@@ -91,7 +90,6 @@ return packer.startup(function(use)
   -- Treesitter
   use {
     "nvim-treesitter/nvim-treesitter",
-    commit = "f048886f828e369cac3b771071137b2c62ca29e4",
     run = ":TSUpdate",
   }
   use "nvim-treesitter/nvim-treesitter-textobjects"
@@ -165,6 +163,15 @@ return packer.startup(function(use)
         auto_session_root_dir = ("%s/session/auto/"):format(
           vim.fn.stdpath "data"
         ),
+      }
+    end,
+  }
+  use {
+    "rmagatti/session-lens",
+    requires = { "rmagatti/auto-session", "nvim-telescope/telescope.nvim" },
+    config = function()
+      require("session-lens").setup {
+        previewer = false,
       }
     end,
   }
