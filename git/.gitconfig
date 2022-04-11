@@ -33,7 +33,7 @@
 [push]
 	default = current
 [merge]
-	tool = kdiff3
+	tool = nvimdiff
 [mergetool "kdiff3"]
 	path = /usr/local/bin/kdiff3
 	trustExitCode = true
