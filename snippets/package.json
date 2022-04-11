@@ -16,6 +16,10 @@
       {
         "language": "dart",
         "path": "./frameworks/consumer_widgets.json"
+      },
+      {
+        "language": "dart",
+        "path": "./frameworks/freezed.json"
       }
     ]
   }
