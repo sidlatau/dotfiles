@@ -11,7 +11,7 @@ telescope.setup {
     prompt_prefix = " ",
     selection_caret = " ",
     path_display = { "smart" },
-    file_ignore_patterns = { "%.g.dart" },
+    file_ignore_patterns = { "%.g.dart", "%.freezed.dart" },
   },
   pickers = {
     -- Default configuration for builtin pickers goes here:
