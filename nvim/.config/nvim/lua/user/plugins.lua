@@ -123,6 +123,7 @@ return packer.startup(function(use)
   }
   use "milch/vim-fastlane"
   use "delphinus/vim-firestore"
+  use "tpope/vim-obsession"
   use "tpope/vim-fugitive"
   use "tpope/vim-rhubarb"
   use "tpope/vim-abolish"
@@ -152,28 +153,15 @@ return packer.startup(function(use)
   use {
     "akinsho/git-conflict.nvim",
     config = function()
-      require("git-conflict").setup()
+      require("git-conflict").setup {
+        default_mappings = true, -- disable buffer local mapping created by this plugin
+        disable_diagnostics = false, -- This will disable the diagnostics in a buffer whilst it is conflicted
+        highlights = { -- They must have background color, otherwise the default color will be used
+          incoming = "DiffText",
+          current = "DiffAdd",
+        },
+      }
     end,
   }
   use { "kevinhwang91/nvim-bqf", ft = "qf" }
-  use {
-    "rmagatti/auto-session",
-    config = function()
-      require("auto-session").setup {
-        log_level = "error",
-        auto_session_root_dir = ("%s/session/auto/"):format(
-          vim.fn.stdpath "data"
-        ),
-      }
-    end,
-  }
-  use {
-    "rmagatti/session-lens",
-    requires = { "rmagatti/auto-session", "nvim-telescope/telescope.nvim" },
-    config = function()
-      require("session-lens").setup {
-        previewer = false,
-      }
-    end,
-  }
 end)
