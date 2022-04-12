@@ -133,7 +133,8 @@ return packer.startup(function(use)
   end
   use {
     "nvim-neo-tree/neo-tree.nvim",
-    branch = "v2.x",
+    -- branch = "v2.x",
+    commit = "54b5f253d65eaaee651cdd74252ad3fa37d1ea19",
     requires = {
       "nvim-lua/plenary.nvim",
       "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
