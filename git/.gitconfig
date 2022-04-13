@@ -42,5 +42,8 @@
 [difftool "kdiff3"]
 	path = /usr/local/bin/kdiff3
 	trustExitCode = true
+[mergetool "diffconflicts"]
+  cmd = nvim -c DiffConflicts \"$MERGED\" \"$BASE\" \"$LOCAL\" \"$REMOTE\"
+  trustExitCode = true
 [mergetool]
 	keepBackup = false

@@ -164,4 +164,6 @@ return packer.startup(function(use)
     end,
   }
   use { "kevinhwang91/nvim-bqf", ft = "qf" }
+  use "whiteinge/diffconflicts"
+  use "rickhowe/diffchar.vim"
 end)
