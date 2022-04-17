@@ -2,6 +2,9 @@ local status_ok, telescope = pcall(require, "telescope")
 if not status_ok then
   return
 end
+-- Register filetypes via plenary for telescope previewers
+-- https://github.com/nvim-lua/plenary.nvim#plenaryfiletype
+require("plenary.filetype").add_file "filetypes"
 
 local actions = require "telescope.actions"
 
