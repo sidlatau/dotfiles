@@ -20,15 +20,15 @@ local general_settings = vim.api.nvim_create_augroup("general_settings", {})
 vim.api.nvim_create_autocmd({ "FileType" }, {
   group = general_settings,
   pattern = "qf,help,man,lspinfo",
-  command = "nnoremap <silent> <buffer> q :close<CR> ",
+  command = [[nnoremap <silent> <buffer> q :close<CR>]],
 })
 vim.api.nvim_create_autocmd({ "BufRead" }, {
   group = general_settings,
   pattern = "*.arb",
-  command = ":set filetype=json",
+  command = [[set filetype=json]],
 })
 vim.api.nvim_create_autocmd({ "FileType" }, {
   group = general_settings,
   pattern = "gitcommit,markdown",
-  command = "setlocal spell",
+  command = [[setlocal spell]],
 })
