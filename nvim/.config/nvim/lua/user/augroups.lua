@@ -22,11 +22,6 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = "qf,help,man,lspinfo",
   command = [[nnoremap <silent> <buffer> q :close<CR>]],
 })
-vim.api.nvim_create_autocmd({ "BufRead" }, {
-  group = general_settings,
-  pattern = "*.arb",
-  command = [[set filetype=json]],
-})
 vim.api.nvim_create_autocmd({ "FileType" }, {
   group = general_settings,
   pattern = "gitcommit,markdown",

@@ -1,3 +1,8 @@
+vim.cmd [[
+let g:do_filetype_lua = 1
+let g:did_load_filetypes = 0
+]]
+
 vim.opt.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
 vim.opt.cmdheight = 2 -- more space in the neovim command line for displaying messages
 vim.opt.completeopt = { "menuone", "noselect" } -- mostly just for cmp
