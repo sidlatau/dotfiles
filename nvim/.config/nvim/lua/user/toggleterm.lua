@@ -40,3 +40,16 @@ vim.api.nvim_create_autocmd({ "TermOpen" }, {
   pattern = "term://*",
   callback = set_terminal_keymaps,
 })
+
+vim.api.nvim_create_user_command("RegenerateSingleDirectory", function()
+  local git_dir = require("toggleterm.utils").git_dir() .. "/"
+  local root_path = vim.fn.expand "%:h"
+  local extension = vim.fn.expand "%:e"
+  local relative_path = root_path:gsub(git_dir, "")
+  local command = string.format(
+    'fvm flutter pub run build_runner build --build-filter="%s/*.%s"',
+    relative_path,
+    extension
+  )
+  toggleterm.exec(command, 1)
+end, {})

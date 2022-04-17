@@ -141,6 +141,10 @@ local mappings = {
       "<cmd>TermExec cmd='fvm flutter pub run build_runner build --delete-conflicting-outputs'<CR>",
       "Run code generation",
     },
+    s = {
+      "<cmd>RegenerateSingleDirectory<cr>",
+      "Reneration single directory",
+    },
     g = {
       "<cmd>FlutterPubGet<CR>",
       "Flutter pub get",
