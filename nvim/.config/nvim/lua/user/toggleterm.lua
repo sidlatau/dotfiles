@@ -3,6 +3,8 @@ if not status_ok then
   return
 end
 
+M = {}
+
 toggleterm.setup {
   size = 20,
   open_mapping = [[<c-\>]],
@@ -26,7 +28,7 @@ toggleterm.setup {
   },
 }
 
-function _G.set_terminal_keymaps()
+local function set_terminal_keymaps()
   local opts = { noremap = true }
   vim.api.nvim_buf_set_keymap(0, "t", "<esc>", [[<C-\><C-n>]], opts)
   vim.api.nvim_buf_set_keymap(0, "t", "jk", [[<C-\><C-n>]], opts)
@@ -41,7 +43,7 @@ vim.api.nvim_create_autocmd({ "TermOpen" }, {
   callback = set_terminal_keymaps,
 })
 
-vim.api.nvim_create_user_command("RegenerateSingleDirectory", function()
+M.regenerate_single_directory = function()
   local git_dir = require("toggleterm.utils").git_dir() .. "/"
   local root_path = vim.fn.expand "%:h"
   local extension = vim.fn.expand "%:e"
@@ -52,4 +54,6 @@ vim.api.nvim_create_user_command("RegenerateSingleDirectory", function()
     extension
   )
   toggleterm.exec(command, 1)
-end, {})
+end
+
+return M

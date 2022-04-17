@@ -80,15 +80,15 @@ local opts = {
 
 local mappings = {
   ["/"] = {
-    '<cmd>lua require("Comment.api").toggle_current_linewise()<CR>',
+    require("Comment.api").toggle_current_linewise,
     "Comment",
   },
   ["a"] = {
-    "<cmd>lua require('lsp-fastaction').code_action()<CR>",
+    require("lsp-fastaction").code_action,
     "Code action",
   },
   ["b"] = {
-    "<cmd>lua require('user.telescope').sorted_buffers()<cr>",
+    require("user.telescope").sorted_buffers,
     "Buffers",
   },
   ["e"] = { "<cmd>NeoTreeFloatToggle<cr>", "Explorer" },
@@ -107,8 +107,8 @@ local mappings = {
 
   h = {
     name = "Harpoon",
-    a = { ':lua require("harpoon.mark").add_file()<CR>', "Add" },
-    h = { ':lua require("harpoon.ui").toggle_quick_menu()<CR>', "Edit" },
+    a = { require("harpoon.mark").add_file, "Add" },
+    h = { require("harpoon.ui").toggle_quick_menu, "Edit" },
   },
 
   p = {
@@ -124,7 +124,7 @@ local mappings = {
     name = "Flutter",
     c = { "<cmd>Telescope flutter commands<CR>", "Commands list" },
     l = {
-      "<cmd>lua require 'user.flutter-tools'.toggle_log()<CR>",
+      require("user.flutter-tools").toggle_log,
       "Toggle log",
     },
     e = { "<cmd>FlutterEmulators<CR>", "Emulators" },
@@ -134,7 +134,7 @@ local mappings = {
       "Run code generation",
     },
     s = {
-      "<cmd>RegenerateSingleDirectory<cr>",
+      require("user.toggleterm").regenerate_single_directory,
       "Reneration single directory",
     },
     g = {
@@ -157,12 +157,12 @@ local mappings = {
 
   g = {
     name = "Git",
-    j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
-    k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
-    l = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", "Blame" },
-    p = { "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", "Preview Hunk" },
-    r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk" },
-    R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
+    j = { require("gitsigns").next_hunk, "Next Hunk" },
+    k = { require("gitsigns").prev_hunk, "Prev Hunk" },
+    l = { require("gitsigns").blame_line, "Blame" },
+    p = { require("gitsigns").preview_hunk, "Preview Hunk" },
+    r = { require("gitsigns").reset_hunk, "Reset Hunk" },
+    R = { require("gitsigns").reset_buffer, "Reset Buffer" },
     o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
     b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
     c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
@@ -176,7 +176,7 @@ local mappings = {
 
   l = {
     name = "LSP",
-    a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
+    a = { vim.lsp.buf.code_action, "Code Action" },
     d = {
       "<cmd>Telescope lsp_document_diagnostics<cr>",
       "Document Diagnostics",
@@ -185,20 +185,20 @@ local mappings = {
       "<cmd>Telescope diagnostics<cr>",
       "Workspace Diagnostics",
     },
-    f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Format" },
+    f = { vim.lsp.buf.formatting, "Format" },
     i = { "<cmd>LspInfo<cr>", "Info" },
     I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
     j = {
-      "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>",
+      vim.lsp.diagnostic.goto_next,
       "Next Diagnostic",
     },
     k = {
-      "<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>",
+      vim.lsp.diagnostic.goto_prev,
       "Prev Diagnostic",
     },
-    l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
+    l = { vim.lsp.codelens.run, "CodeLens Action" },
     q = { "<cmd>Trouble workspace_diagnostics<cr>", "Quickfix" },
-    r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
+    r = { vim.lsp.buf.rename, "Rename" },
     s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
     S = {
       "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
@@ -242,23 +242,22 @@ local mappings = {
   },
   d = {
     name = "Debug",
-    t = {
-      "<cmd>lua require'dap'.toggle_breakpoint()<cr>",
-      "Toggle Breakpoint",
-    },
-    C = { "<cmd>lua require'dap'.run_to_cursor()<cr>", "Run To Cursor" },
-    p = { "<cmd>lua require'dap'.pause.toggle()<cr>", "Pause" },
-    r = { "<cmd>lua require'dap'.repl.toggle()<cr>", "Toggle Repl" },
-    s = { "<cmd>lua require'dap'.continue()<cr>", "Start" },
-    q = { "<cmd>lua require'dap'.close()<cr>", "Quit" },
-    d = { "<cmd>lua require('dapui').toggle()<CR>", "UI" },
-    e = { "<cmd>lua require('dapui').eval()<CR>", "Eval" },
+    t = { require("dap").toggle_breakpoint, "Toggle Breakpoint" },
+    C = { require("dap").run_to_cursor, "Run To Cursor" },
+    r = { require("dap").repl.toggle, "Toggle Repl" },
+    s = { require("dap").continue, "Start" },
+    q = { require("dap").close, "Quit" },
+    d = { require("dapui").toggle, "UI" },
+    e = { require("dapui").eval, "Eval" },
     v = {
-      "<cmd>lua local widgets=require'dap.ui.widgets';widgets.centered_float(widgets.scopes)<CR>",
+      function()
+        local widgets = require "dap.ui.widgets"
+        widgets.centered_float(widgets.scopes)
+      end,
       "Variables",
     },
     f = {
-      "<cmd>lua require'telescope'.extensions.dap.frames{}<CR>",
+      require("telescope").extensions.dap.frames,
       "Frames",
     },
   },
