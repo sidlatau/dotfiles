@@ -129,14 +129,6 @@ local mappings = {
     },
     e = { "<cmd>FlutterEmulators<CR>", "Emulators" },
     r = { "<cmd>FlutterRestart<CR>", "Restart" },
-    d = {
-      "<cmd>FlutterRun --dart-define=flavor=dev --flavor dev<CR>",
-      "Start dev",
-    },
-    p = {
-      "<cmd>FlutterRun --dart-define=flavor=prod --flavor prod<CR>",
-      "Start prod",
-    },
     b = {
       "<cmd>TermExec cmd='fvm flutter pub run build_runner build --delete-conflicting-outputs'<CR>",
       "Run code generation",
