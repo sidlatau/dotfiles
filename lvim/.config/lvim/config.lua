@@ -1,286 +1,156 @@
-lvim.colorscheme = "gruvbox-material"
+--[[
+lvim is the global options object
+
+Linters should be
+filled in as strings with either
+a global executable or a path to
+an executable
+]]
+-- THESE ARE EXAMPLE CONFIGS FEEL FREE TO CHANGE TO WHATEVER YOU WANT
+
+-- general
+lvim.log.level = "warn"
+lvim.format_on_save = true
+lvim.colorscheme = "onedarker"
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
 -- add your own keymapping
-lvim.keys.normal_mode["<C-s>"] = ":wa<cr>"
-lvim.keys.normal_mode["<C-p>"] = ":Telescope find_files<cr>"
-lvim.keys.normal_mode["<C-f>"] = "<cmd>lua require('telescope.builtin').oldfiles()<cr>"
-lvim.keys.normal_mode["<F8>"] = "<cmd>lua require('trouble').next({skip_groups = true, jump = true})<cr>"
-lvim.keys.normal_mode["<F7>"] = "<cmd>lua require('trouble').previous({skip_groups = true, jump = true})<cr>"
-vim.api.nvim_set_keymap(
-	"x",
-	"<Leader>a",
-	"<esc><cmd>lua require('lsp-fastaction').range_code_action()<CR>",
-	{ noremap = true, silent = true }
-)
+lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
+-- unmap a default keymapping
+-- lvim.keys.normal_mode["<C-Up>"] = false
+-- edit a default keymapping
+-- lvim.keys.normal_mode["<C-q>"] = ":q<cr>"
 
+-- Change Telescope navigation to use j and k for navigation and n and p for history in both input and normal mode.
+-- we use protected-mode (pcall) just in case the plugin wasn't loaded yet.
+-- local _, actions = pcall(require, "telescope.actions")
+-- lvim.builtin.telescope.defaults.mappings = {
+--   -- for input mode
+--   i = {
+--     ["<C-j>"] = actions.move_selection_next,
+--     ["<C-k>"] = actions.move_selection_previous,
+--     ["<C-n>"] = actions.cycle_history_next,
+--     ["<C-p>"] = actions.cycle_history_prev,
+--   },
+--   -- for normal mode
+--   n = {
+--     ["<C-j>"] = actions.move_selection_next,
+--     ["<C-k>"] = actions.move_selection_previous,
+--   },
+-- }
+
+-- Use which-key to add extra bindings with the leader-key prefix
+-- lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
+-- lvim.builtin.which_key.mappings["t"] = {
+--   name = "+Trouble",
+--   r = { "<cmd>Trouble lsp_references<cr>", "References" },
+--   f = { "<cmd>Trouble lsp_definitions<cr>", "Definitions" },
+--   d = { "<cmd>Trouble document_diagnostics<cr>", "Diagnostics" },
+--   q = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
+--   l = { "<cmd>Trouble loclist<cr>", "LocationList" },
+--   w = { "<cmd>Trouble workspace_diagnostics<cr>", "Wordspace Diagnostics" },
+-- }
+
+-- TODO: User Config for predefined plugins
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
+lvim.builtin.alpha.active = true
+lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.notify.active = true
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
-lvim.builtin.nvimtree.setup.view.width = 45
-lvim.builtin.nvimtree.setup.view.auto_resize = false
 lvim.builtin.nvimtree.show_icons.git = 0
 
--- lvim.builtin.telescope.defaults.layout_config.prompt_position = "top"
-lvim.builtin.telescope.defaults = {
-  path_display = {"smart"},
-  file_ignore_patterns = { '%.g.dart' },
-  results_height = 1
-}
-
-lvim.lsp.buffer_mappings.normal_mode["gr"] = { "<cmd>lua require('telescope.builtin').lsp_references(require('telescope.themes').get_dropdown({layout_config = {width = 0.8}}))<cr>", "Goto references"}
-
-
 -- if you don't want all the parsers change this to a table of the ones you want
-lvim.builtin.treesitter.ensure_installed = "maintained"
+lvim.builtin.treesitter.ensure_installed = {
+  "bash",
+  "c",
+  "javascript",
+  "json",
+  "lua",
+  "python",
+  "typescript",
+  "tsx",
+  "css",
+  "rust",
+  "java",
+  "yaml",
+}
 
 lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enabled = true
-lvim.builtin.treesitter.enabled = false
-lvim.builtin.treesitter.textobjects = {
-	select = {
-		enable = true,
 
-		-- Automatically jump forward to textobj, similar to targets.vim
-		lookahead = true,
+-- generic LSP settings
 
-		keymaps = {
-			-- You can use the capture groups defined in textobjects.scm
-			["af"] = "@function.outer",
-			["if"] = "@function.inner",
-			["ac"] = "@class.outer",
-			["ic"] = "@class.inner",
-		},
-	},
-}
-local lsp_status = require("lsp-status")
-lsp_status.register_progress()
+-- ---@usage disable automatic installation of servers
+-- lvim.lsp.automatic_servers_installation = false
 
-lsp_status.config({
-	indicator_info = "",
-	indicator_errors = "",
-	indicator_hint = "",
-	status_symbol = "",
-})
+-- ---configure a server manually. !!Requires `:LvimCacheReset` to take effect!!
+-- ---see the full default list `:lua print(vim.inspect(lvim.lsp.automatic_configuration.skipped_servers))`
+-- vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "pyright" })
+-- local opts = {} -- check the lspconfig documentation for a list of all possible options
+-- require("lvim.lsp.manager").setup("pyright", opts)
 
-vim.list_extend(lvim.lsp.override, { "dart" })
-lvim.builtin.dap.active = true
+-- ---remove a server from the skipped list, e.g. eslint, or emmet_ls. !!Requires `:LvimCacheReset` to take effect!!
+-- ---`:LvimInfo` lists which server(s) are skiipped for the current filetype
+-- vim.tbl_map(function(server)
+--   return server ~= "emmet_ls"
+-- end, lvim.lsp.automatic_configuration.skipped_servers)
 
-lvim.plugins = {
-	{
-		"tpope/vim-surround",
-	},
-	{
-		"bkad/camelcasemotion",
-		config = function()
-			vim.g["camelcasemotion_key"] = '\\'
-		end,
-	},
-  {
-    "mfussenegger/nvim-dap"
-  },
-	{
-		"tpope/vim-unimpaired",
-	},
-	{
-		"tpope/vim-fugitive",
-	},
-	{
-		"tpope/vim-obsession",
-	},
-	{
-		"ThePrimeagen/harpoon",
-		requires = "nvim-lua/plenary.nvim",
-	},
-	{
-		"nvim-lua/lsp-status.nvim",
-	},
-	{
-		"tpope/vim-projectionist",
-	},
-	{
-		"vim-test/vim-test",
-		config = function()
-			vim.g["test#dart#fluttertest#executable"] = "fvm flutter test"
-			vim.g["test#strategy"] = "dispatch"
-		end,
-	},
-	{
-		"tpope/vim-dispatch",
-	},
-	{
-		"sainnhe/gruvbox-material",
-	},
-	{
-		"akinsho/flutter-tools.nvim",
-		requires = "nvim-lua/plenary.nvim",
-		config = function()
-			require("flutter-tools").setup({
-				lsp = {
-					on_attach = function(client, bufnr)
-						--lsp_status.on_attach(client)
-						require("lvim.lsp").common_on_attach(client, bufnr)
-					end,
-					capabilities = require("lsp-status").capabilities,
-				},
-				debugger = { -- integrate with nvim dap + install dart code debugger
-					enabled = true,
-				},
-				fvm = true,
-				widget_guides = {
-					enabled = true,
-				},
-			})
-			require("telescope").load_extension("flutter")
-		end,
-	},
-	{
-		"folke/trouble.nvim",
-		cmd = "TroubleToggle",
-	},
-  { "tpope/vim-repeat" },
-  {"mtdl9/vim-log-highlighting"},
-	{
-		"windwp/lsp-fastaction.nvim",
-		config = function()
-			require("lsp-fastaction").setup({
-				hide_cursor = true,
-				action_data = {
-					--- action for filetype dart
-					["dart"] = {
-						{ pattern = "padding", key = "p", order = 2 },
-						{ pattern = "wrap with column", key = "c", order = 3 },
-						{ pattern = "wrap with row", key = "r", order = 3 },
-						{ pattern = "remove", key = "R", order = 5 },
-						{ pattern = "add", key = "a", order = 3 },
-						--range code action
-						{ pattern = "surround with %'if'", key = 'i', order = 2 },
-						{ pattern = 'try%-catch', key = 't', order = 2 },
-						{ pattern = 'for%-in', key = 'f', order = 2 },
-						{ pattern = 'setstate', key = 's', order = 2 },
-					},
-				},
-			})
-		end,
-	},
-	{
-		"nvim-treesitter/nvim-treesitter-textobjects",
-	},
-	{ "radenling/vim-dispatch-neovim" },
-	{
-		"rcarriga/nvim-dap-ui",
-		requires = { "mfussenegger/nvim-dap" },
-		config = function()
-			require("dapui").setup()
-		end,
-	},
-}
+-- -- you can set a custom on_attach function that will be used for all the language servers
+-- -- See <https://github.com/neovim/nvim-lspconfig#keybindings-and-completion>
+-- lvim.lsp.on_attach_callback = function(client, bufnr)
+--   local function buf_set_option(...)
+--     vim.api.nvim_buf_set_option(bufnr, ...)
+--   end
+--   --Enable completion triggered by <c-x><c-o>
+--   buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
+-- end
 
-lvim.builtin.which_key.mappings["f"] = {
-	name = "+Flutter",
-	f = { "<cmd>Telescope flutter commands<CR>", "Commands list" },
-	e = { "<cmd>FlutterEmulators<CR>", "Emulators" },
-	r = { "<cmd>FlutterRestart<CR>", "Restart" },
-	d = { "<cmd>FlutterRun --dart-define=flavor=dev --flavor dev<CR>", "Start dev" },
-	p = { "<cmd>FlutterRun --dart-define=flavor=prod --flavor prod<CR>", "Start prod" },
-}
+-- -- set a formatter, this will override the language server formatting capabilities (if it exists)
+-- local formatters = require "lvim.lsp.null-ls.formatters"
+-- formatters.setup {
+--   { command = "black", filetypes = { "python" } },
+--   { command = "isort", filetypes = { "python" } },
+--   {
+--     -- each formatter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
+--     command = "prettier",
+--     ---@usage arguments to pass to the formatter
+--     -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
+--     extra_args = { "--print-with", "100" },
+--     ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
+--     filetypes = { "typescript", "typescriptreact" },
+--   },
+-- }
 
--- Harpoon
-lvim.builtin.which_key.mappings["h"] = {
-	name = "+Harpoon",
-	a = { ':lua require("harpoon.mark").add_file()<CR>', "Add" },
-	h = { ':lua require("harpoon.ui").toggle_quick_menu()<CR>', "Edit" },
-}
+-- -- set additional linters
+-- local linters = require "lvim.lsp.null-ls.linters"
+-- linters.setup {
+--   { command = "flake8", filetypes = { "python" } },
+--   {
+--     -- each linter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
+--     command = "shellcheck",
+--     ---@usage arguments to pass to the formatter
+--     -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
+--     extra_args = { "--severity", "warning" },
+--   },
+--   {
+--     command = "codespell",
+--     ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
+--     filetypes = { "javascript", "python" },
+--   },
+-- }
 
-lvim.builtin.which_key.mappings["1"] = { ':lua require("harpoon.ui").nav_file(1)<CR>', "Nav 1" }
-lvim.builtin.which_key.mappings["2"] = { ':lua require("harpoon.ui").nav_file(2)<CR>', "Nav 2" }
-lvim.builtin.which_key.mappings["3"] = { ':lua require("harpoon.ui").nav_file(3)<CR>', "Nav 3" }
-lvim.builtin.which_key.mappings["4"] = { ':lua require("harpoon.ui").nav_file(4)<CR>', "Nav 4" }
-
-lvim.builtin.which_key.on_config_done = function(wk)
-	-- Harpoon quickmenu is closed when which key popup is opened
-	-- So disabling which_key for d and y keys
-	local ignore_key = "which_key_ignore"
-	wk.register(ignore_key, { mode = "n", prefix = "d" })
-	wk.register(ignore_key, { mode = "n", prefix = "y" })
-end
-
-lvim.builtin.lualine.sections = {
-	lualine_z = { "require'lsp-status'.status()" },
-}
-vim.opt.timeoutlen = 2000
-vim.opt.wrap = true
-vim.opt.linebreak = true
-vim.opt.breakindent = true
-vim.opt.showbreak ="ͱ"
-
-
-lvim.builtin.which_key.mappings["t"] = {
-	name = "Diagnostics/Tests",
-	t = { "<cmd>TroubleToggle<cr>", "trouble" },
-	w = { "<cmd>TroubleToggle lsp_workspace_diagnostics<cr>", "workspace" },
-	d = { "<cmd>TroubleToggle lsp_document_diagnostics<cr>", "document" },
-	q = { "<cmd>TroubleToggle quickfix<cr>", "quickfix" },
-	n = { "<cmd>TestNearest<cr>", "Test nearest" },
-	f = { "<cmd>TestFile<cr>", "Test file" },
-	l = { "<cmd>TestLast<cr>", "Test last" },
-}
-
-
-lvim.builtin.which_key.mappings["a"] = { "<cmd>lua require('lsp-fastaction').code_action()<CR>", "Code action" }
-lvim.builtin.which_key.mappings["q"] = { "<cmd>Sayonara<CR>", "Close" }
-lvim.builtin.which_key.mappings["<space>"] = { ":set hlsearch!<CR>", "Clear search" }
-lvim.builtin.which_key.mappings["dv"] = { ":lua require'dapui'.toggle()<CR>", "View UI" }
-lvim.builtin.which_key.mappings["bf"] = { ":lua require('telescope.builtin').buffers({sort_mru=true})<CR>", "Find" }
-lvim.builtin.which_key.mappings["ss"] = { ":lua require('telescope.builtin').grep_string(require('telescope.themes').get_dropdown({layout_config = {width = 0.8}}))<CR>", "Grep string" }
-lvim.builtin.which_key.mappings["gL"] = { ":GitBlameToggle<CR>", "Toogle blame" }
-lvim.builtin.which_key.mappings["w"] = { "<cmd>wa<cr>", "Save all" }
-
-require("luasnip/loaders/from_vscode").load({ paths = { "~/Documents/personal/vim/snippets" } })
-require("luasnip").filetype_extend("dart", { "flutter" })
-
-lvim.builtin.which_key.mappings["r"] = {
-	name = "Redux",
-	s = { "<cmd>Estate<cr>", "state" },
-	r = { "<cmd>Ereducer<cr>", "reducer" },
-	a = { "<cmd>Eactions<cr>", "actions" },
-	m = { "<cmd>Emiddleware<cr>", "middleware" },
-}
-
-local formatters = require("lvim.lsp.null-ls.formatters")
-formatters.setup({
-	{
-		exe = "prettier",
-		filetypes = { "typescript", "typescriptreact" },
-	},
-})
-
-local linters = require("lvim.lsp.null-ls.linters")
-linters.setup({
-	{
-		exe = "eslint_d",
-		filetypes = { "typescript", "typescriptreact" },
-	},
-})
-
-vim.cmd("highlight default link gitblame SpecialComment")
-vim.g.gitblame_enabled = 0
-vim.g.gitblame_date_format = "%r"
-
-lvim.lsp.null_ls.config = {
-  sources = { require("null-ls").builtins.code_actions.eslint_d }
-}
-
-lvim.lsp.null_ls.setup = {
-  root_dir = require("lspconfig").util.root_pattern("tsconfig.json", ".git", "node_modules"),
-}
-vim.api.nvim_command('au CursorHold * checktime')
-
+-- Additional Plugins
+-- lvim.plugins = {
+--     {"folke/tokyonight.nvim"},
+--     {
+--       "folke/trouble.nvim",
+--       cmd = "TroubleToggle",
+--     },
+-- }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
-lvim.autocommands.custom_groups = {
-  { "CursorHold", "*", "checktime" },
-	{ "BufRead,BufRead", "*.arb", "set syntax=json" },
-}
+-- lvim.autocommands.custom_groups = {
+--   { "BufWinEnter", "*.lua", "setlocal ts=8 sw=8" },
+-- }
