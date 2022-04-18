@@ -176,4 +176,5 @@ return packer.startup(function(use)
       require("lsp-format").setup {}
     end,
   }
+  use { "stevearc/dressing.nvim" }
 end)
