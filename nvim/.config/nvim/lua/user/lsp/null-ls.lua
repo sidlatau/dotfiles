@@ -15,4 +15,10 @@ null_ls.setup {
     },
     null_ls.builtins.formatting.prettierd,
   },
+  on_attach = function(client)
+    local ok, lsp_format = pcall(require, "lsp-format")
+    if ok then
+      lsp_format.on_attach(client)
+    end
+  end,
 }
