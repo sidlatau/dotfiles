@@ -166,4 +166,8 @@ return packer.startup(function(use)
   use { "kevinhwang91/nvim-bqf", ft = "qf" }
   use "whiteinge/diffconflicts"
   use "rickhowe/diffchar.vim"
+  use {
+    "lukas-reineke/indent-blankline.nvim",
+    config = require "user.indentline"(),
+  }
 end)
