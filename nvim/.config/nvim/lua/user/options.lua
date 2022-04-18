@@ -57,3 +57,5 @@ fun! TrimWhitespace()
 endfun
 command! TrimWhitespace call TrimWhitespace()
 ]]
+-- Save on quiting
+vim.cmd [[cabbrev wq execute "lua vim.lsp.buf.formatting_seq_sync()" <bar> wq]]

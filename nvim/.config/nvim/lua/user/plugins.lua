@@ -170,4 +170,10 @@ return packer.startup(function(use)
     "lukas-reineke/indent-blankline.nvim",
     config = require "user.indentline"(),
   }
+  use {
+    "lukas-reineke/lsp-format.nvim",
+    config = function()
+      require("lsp-format").setup {}
+    end,
+  }
 end)

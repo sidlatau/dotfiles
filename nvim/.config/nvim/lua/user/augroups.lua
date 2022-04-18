@@ -1,12 +1,3 @@
-local format_on_save = vim.api.nvim_create_augroup("format_on_save", {})
-vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-  group = format_on_save,
-  pattern = "*",
-  callback = function()
-    vim.lsp.buf.formatting_sync()
-  end,
-})
-
 local fix_all_on_save = vim.api.nvim_create_augroup("fix_all_on_save", {})
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   group = fix_all_on_save,
