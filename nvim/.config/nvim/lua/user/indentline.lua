@@ -1,5 +1,9 @@
 return function()
-  require("indent_blankline").setup {
+  local status_ok, indent = pcall(require, "indent_blankline")
+  if not status_ok then
+    return
+  end
+  indent.setup {
     char = "", -- ┆ ┊
     show_foldtext = false,
     show_current_context = true,
