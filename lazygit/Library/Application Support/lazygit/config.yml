@@ -1,5 +1,6 @@
 gui:
   showFileTree: false
+
 git:
   branchLogCmd: "git log --graph --color=always --oneline --decorate --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'"
 customCommands:

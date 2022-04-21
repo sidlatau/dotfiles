@@ -157,6 +157,7 @@ local mappings = {
 
   g = {
     name = "Git",
+    g = { require("user.toggleterm").lazygit_toggle, "Lazygit" },
     j = { require("gitsigns").next_hunk, "Next Hunk" },
     k = { require("gitsigns").prev_hunk, "Prev Hunk" },
     l = { require("gitsigns").blame_line, "Blame" },
