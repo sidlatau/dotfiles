@@ -149,7 +149,6 @@ return packer.startup(function(use)
   use "j-hui/fidget.nvim"
   use "rcarriga/nvim-notify"
   use { "nvim-telescope/telescope-fzf-native.nvim", run = "make" }
-  use "xiyaowong/nvim-transparent"
   use {
     "akinsho/git-conflict.nvim",
     config = function()
