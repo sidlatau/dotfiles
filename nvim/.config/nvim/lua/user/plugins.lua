@@ -45,31 +45,31 @@ return packer.startup(function(use)
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
   use "kyazdani42/nvim-web-devicons"
   use "moll/vim-bbye"
-  use "nvim-lualine/lualine.nvim"
-  use "numToStr/Comment.nvim" -- Easily comment stuff
+  use { "nvim-lualine/lualine.nvim", config = "require 'user.lualine'" }
+  use { "numToStr/Comment.nvim", config = "require'user.comment'" }
   use "JoosepAlviste/nvim-ts-context-commentstring"
   use "machakann/vim-highlightedyank"
   use "tpope/vim-surround"
   use "tpope/vim-repeat"
   use "tpope/vim-projectionist"
-  use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
+  use { "windwp/nvim-autopairs", config = "require'user.autopairs'" }
 
   use "sainnhe/gruvbox-material" -- color scheme
   use "tpope/vim-unimpaired"
 
   -- cmp plugins
-  use "hrsh7th/nvim-cmp" -- The completion plugin
+  use { "hrsh7th/nvim-cmp", config = "require'user.cmp'" }
   use "hrsh7th/cmp-buffer" -- buffer completions
   use "hrsh7th/cmp-path" -- path completions
   use "hrsh7th/cmp-cmdline" -- cmdline completions
-  use "saadparwaiz1/cmp_luasnip" -- snippet completions
+  use { "saadparwaiz1/cmp_luasnip", config = "require'user.luasnip'" }
   use "hrsh7th/cmp-nvim-lsp"
   use "hrsh7th/cmp-nvim-lua"
   use "hrsh7th/cmp-nvim-lsp-document-symbol"
 
-  use "akinsho/toggleterm.nvim"
+  use { "akinsho/toggleterm.nvim", config = "require'user.toggleterm'" }
   use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
-  use "folke/which-key.nvim"
+  use { "folke/which-key.nvim", config = "require'user.whichkey'" }
   use "ThePrimeagen/harpoon"
 
   -- snippets
@@ -78,11 +78,18 @@ return packer.startup(function(use)
   -- LSP
   use "neovim/nvim-lspconfig" -- enable LSP
   use "williamboman/nvim-lsp-installer" -- simple to use language server installer
-  use "~/Documents/github/personal/lsp-fastaction.nvim"
+  use {
+    "~/Documents/github/personal/lsp-fastaction.nvim",
+    config = "require'user.lsp-fastaction'",
+  }
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
   use "jose-elias-alvarez/nvim-lsp-ts-utils"
 
-  use { "akinsho/flutter-tools.nvim", requires = "nvim-lua/plenary.nvim" }
+  use {
+    "akinsho/flutter-tools.nvim",
+    requires = "nvim-lua/plenary.nvim",
+    config = "require'user.flutter-tools'",
+  }
   use "nvim-lua/lsp-status.nvim"
 
   use "nvim-telescope/telescope.nvim"
@@ -91,11 +98,12 @@ return packer.startup(function(use)
   use {
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
+    config = "require'user.treesitter'",
   }
   use "nvim-treesitter/nvim-treesitter-textobjects"
 
   -- Git
-  use "lewis6991/gitsigns.nvim"
+  use { "lewis6991/gitsigns.nvim", config = "require'user.gitsigns'" }
 
   use {
     "folke/trouble.nvim",
@@ -109,10 +117,11 @@ return packer.startup(function(use)
     "rcarriga/vim-ultest",
     requires = { "vim-test/vim-test" },
     run = ":UpdateRemotePlugins",
+    config = "require'user.test'",
   }
 
   use "mfussenegger/nvim-dap"
-  use "rcarriga/nvim-dap-ui"
+  use { "rcarriga/nvim-dap-ui", config = "require'user.dap'" }
   use "nvim-telescope/telescope-dap.nvim"
   use "vim-scripts/BufOnly.vim"
   use {
@@ -141,13 +150,14 @@ return packer.startup(function(use)
       "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
       "MunifTanjim/nui.nvim",
     },
+    config = "require 'user.neo-tree'",
   }
-  use "abecodes/tabout.nvim"
-  use "github/copilot.vim"
+  use { "abecodes/tabout.nvim", config = "require'user.tabout'" }
+  use { "github/copilot.vim", config = "require'user.copilot'" }
   use "dart-lang/dart-vim-plugin"
   use "mtdl9/vim-log-highlighting"
-  use "j-hui/fidget.nvim"
-  use "rcarriga/nvim-notify"
+  use { "j-hui/fidget.nvim", config = "require'user.fidget'" }
+  use { "rcarriga/nvim-notify", config = "require 'user.notify'" }
   use { "nvim-telescope/telescope-fzf-native.nvim", run = "make" }
   use {
     "akinsho/git-conflict.nvim",
