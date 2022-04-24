@@ -186,4 +186,10 @@ return packer.startup(function(use)
     end,
   }
   use { "stevearc/dressing.nvim" }
+  use {
+    "lukas-reineke/virt-column.nvim",
+    config = function()
+      require("virt-column").setup()
+    end,
+  }
 end)
