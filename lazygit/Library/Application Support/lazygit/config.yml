@@ -7,4 +7,10 @@ customCommands:
   - key: "<c-r>"
     command: "gh pr create --fill --web"
     context: "global"
-    loadingText: "Creating pull request on GitHub"
+  - key: "n"
+    description: "branch"
+    command: "git checkout -b {{index .PromptResponses 0}}"
+    context: "global"
+    prompts:
+      - type: "input"
+        title: "Branch name:"
