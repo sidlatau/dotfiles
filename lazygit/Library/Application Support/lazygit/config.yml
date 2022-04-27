@@ -5,7 +5,7 @@ git:
   branchLogCmd: "git log --graph --color=always --oneline --decorate --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'"
 customCommands:
   - key: "<c-r>"
-    command: "gh pr create --fill --web"
+    command: "git push -u && gh pr create --fill --web"
     context: "global"
   - key: "n"
     description: "branch"
