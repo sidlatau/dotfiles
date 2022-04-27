@@ -5,40 +5,40 @@
       "@freezed",
       "class $1 with _$${1:Classname} {",
       "\tfactory $1({}) = _$1;",
-      "}",
-      "const $1._();"
+      "const $1._();",
+      "}"
     ],
     "description": "Create new immutable data type"
   },
-	"Freezed Class file": {
-		"prefix": "frzf",
-		"body": [
-			"import 'package:freezed_annotation/freezed_annotation.dart';",
-			"",
-			"part '${1/(.*)/${1:/downcase}/}.freezed.dart';",
-			"part '${1/(.*)/${1:/downcase}/}.g.dart'",
-			"",
-			"@freezed",
-			"class ${1:Classname} with _$${1:Classname} {",
-			"\tfactory ${1:Classname}(classProperties) = _${1:Classname};",
-			"}"
-		],
-		"description": "Create new immutable data type"
-	},
-	"Freezed Serializable Class": {
-		"prefix": "frzs",
-		"body": [
-			"import 'package:freezed_annotation/freezed_annotation.dart';",
-			"",
-			"part '${1/(.*)/${1:/downcase}/}.freezed.dart';",
-			"part '${1/(.*)/${1:/downcase}/}.g.dart';",
-			"",
-			"@freezed",
-			"class ${1:Classname} implements _$${1:Classname} {",
-			"\tfactory ${1:Classname}(${2:properties}) = _${1:Classname};",
-			"\tfactory ${1:Classname}.fromJson(Map<String, dynamic> json) => _$${1:Classname}FromJson(json);",
-			"}"
-		],
-		"description": "Create new immutable JSON serilizable data type"
-	}
+  "Freezed Class file": {
+    "prefix": "frzf",
+    "body": [
+      "import 'package:freezed_annotation/freezed_annotation.dart';",
+      "",
+      "part '${1/(.*)/${1:/downcase}/}.freezed.dart';",
+      "part '${1/(.*)/${1:/downcase}/}.g.dart'",
+      "",
+      "@freezed",
+      "class ${1:Classname} with _$${1:Classname} {",
+      "\tfactory ${1:Classname}(classProperties) = _${1:Classname};",
+      "}"
+    ],
+    "description": "Create new immutable data type"
+  },
+  "Freezed Serializable Class": {
+    "prefix": "frzs",
+    "body": [
+      "import 'package:freezed_annotation/freezed_annotation.dart';",
+      "",
+      "part '${1/(.*)/${1:/downcase}/}.freezed.dart';",
+      "part '${1/(.*)/${1:/downcase}/}.g.dart';",
+      "",
+      "@freezed",
+      "class ${1:Classname} implements _$${1:Classname} {",
+      "\tfactory ${1:Classname}(${2:properties}) = _${1:Classname};",
+      "\tfactory ${1:Classname}.fromJson(Map<String, dynamic> json) => _$${1:Classname}FromJson(json);",
+      "}"
+    ],
+    "description": "Create new immutable JSON serilizable data type"
+  }
 }
