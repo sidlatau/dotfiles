@@ -21,6 +21,7 @@ flutter_tools.setup {
     end,
     capabilities = require("user.lsp.handlers").capabilities,
     settings = {
+      renameFilesWithClasses = "always",
       analysisExcludedFolders = {
         ".dart_tool",
         "/Users/ts/.pub-cache/",
