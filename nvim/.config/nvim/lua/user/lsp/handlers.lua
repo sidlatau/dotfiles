@@ -164,7 +164,10 @@ function M.code_action_fix_all()
     params,
     function(err, results_lsp)
       if err then
-        print("ERROR: " .. err)
+        vim.pretty_print(err)
+        if err.message then
+          vim.notify(err.message, "error")
+        end
         return
       end
       if not results_lsp or vim.tbl_isempty(results_lsp) then
