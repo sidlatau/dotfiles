@@ -14,3 +14,7 @@ customCommands:
     prompts:
       - type: "input"
         title: "Branch name:"
+  - key: "F"
+    description: "branch"
+    command: "git commit --fixup=HEAD"
+    context: "files"
