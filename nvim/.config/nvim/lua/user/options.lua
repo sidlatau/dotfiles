@@ -40,7 +40,7 @@ vim.opt.showbreak = "ͱ"
 
 vim.opt.scrolloff = 8 -- is one of my fav
 vim.opt.sidescrolloff = 8
-vim.opt.guifont = "hack nerd font mono" -- the font used in graphical neovim applications
+vim.opt.guifont = "FiraCode Nerd Font" -- the font used in graphical neovim applications
 
 vim.opt.shortmess:append "c"
 
@@ -59,3 +59,7 @@ command! TrimWhitespace call TrimWhitespace()
 ]]
 -- Save on quiting
 vim.cmd [[cabbrev wq execute "lua vim.lsp.buf.formatting_seq_sync()" <bar> wq]]
+
+vim.cmd [[
+let g:neovide_cursor_vfx_mode = "sonicboom"
+]]
