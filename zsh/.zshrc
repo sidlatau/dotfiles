@@ -122,6 +122,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 alias lvim="/Users/ts/.local/bin/lvim"
+alias neovide="/Applications/Neovide.app/Contents/MacOS/neovide --frame None --multigrid -- -S"
 alias vim=nvim
 alias lg=lazygit
 
