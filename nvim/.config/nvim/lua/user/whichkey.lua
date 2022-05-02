@@ -91,7 +91,7 @@ local mappings = {
     require("user.telescope").sorted_buffers,
     "Buffers",
   },
-  ["e"] = { "<cmd>NeoTreeFloatToggle<cr>", "Explorer" },
+  ["e"] = { "<cmd>Neotree float toggle reveal<cr>", "Explorer" },
   ["w"] = {
     "<cmd>wa<cr>",
     "Save",
