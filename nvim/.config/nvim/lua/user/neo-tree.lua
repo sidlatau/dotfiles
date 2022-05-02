@@ -7,6 +7,8 @@ vim.cmd [[ let g:neo_tree_remove_legacy_commands = 1 ]]
 vim.cmd [[
   hi link NeoTreeDirectoryName Directory
   hi link NeoTreeDirectoryIcon NeoTreeDirectoryName
+  hi link NeoTreeFloatBorder Normal
+  hi link NeoTreeFloatTitle Normal
 ]]
 
 neo_tree.setup {
