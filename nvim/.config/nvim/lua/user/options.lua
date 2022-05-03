@@ -1,7 +1,5 @@
-vim.cmd [[
-let g:do_filetype_lua = 1
-let g:did_load_filetypes = 0
-]]
+vim.g.do_filetype_lua = 1
+vim.g.did_load_filetypes = 0
 
 vim.opt.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
 vim.opt.cmdheight = 2 -- more space in the neovim command line for displaying messages
@@ -60,6 +58,4 @@ command! TrimWhitespace call TrimWhitespace()
 -- Save on quiting
 vim.cmd [[cabbrev wq execute "lua vim.lsp.buf.formatting_seq_sync()" <bar> wq]]
 
-vim.cmd [[
-let g:neovide_cursor_vfx_mode = "sonicboom"
-]]
+vim.g.neovide_cursor_vfx_mode = "sonicboom"
