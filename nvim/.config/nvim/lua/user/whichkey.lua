@@ -172,6 +172,12 @@ local mappings = {
       "<cmd>Gitsigns diffthis HEAD<cr>",
       "Diff",
     },
+    D = {
+      function()
+        require("gitsigns").diffthis "~"
+      end,
+      "Diff ~",
+    },
     s = { "<cmd>.GBrowse<cr>", "Show in GitHub" },
   },
 
@@ -240,6 +246,7 @@ local mappings = {
     n = { "<cmd>UltestNearest<cr>", "Test nearest" },
     l = { "<cmd>UltestLast<cr>", "Test last" },
     c = { "<cmd>UltestClear<cr>", "Clear test ouput" },
+    d = { require("gitsigns").toggle_deleted, "Toggle deleted" },
   },
   d = {
     name = "Debug",
