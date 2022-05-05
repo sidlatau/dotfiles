@@ -13,7 +13,9 @@ null_ls.setup {
     null_ls.builtins.code_actions.eslint_d.with {
       prefer_local = "node_modules/.bin",
     },
-    null_ls.builtins.formatting.prettierd,
+    null_ls.builtins.formatting.prettierd.with {
+      prefer_local = "node_modules/.bin",
+    },
   },
   on_attach = function(client)
     local ok, lsp_format = pcall(require, "lsp-format")
