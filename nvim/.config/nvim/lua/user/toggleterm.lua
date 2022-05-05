@@ -49,7 +49,7 @@ M.regenerate_single_directory = function()
   local extension = vim.fn.expand "%:e"
   local relative_path = root_path:gsub(git_dir, "")
   local command = string.format(
-    'fvm flutter pub run build_runner build --build-filter="%s/*.%s"',
+    'fvm flutter pub get  && fvm flutter pub run build_runner build --build-filter="%s/*.%s"',
     relative_path,
     extension
   )
