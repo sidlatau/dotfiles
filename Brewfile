@@ -33,3 +33,5 @@ cask "rectangle"
 cask "spotify"
 cask "thor"
 cask "visual-studio-code"
+cask "iina"
+
