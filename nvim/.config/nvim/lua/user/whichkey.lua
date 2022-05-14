@@ -153,6 +153,10 @@ local mappings = {
       "<cmd>FlutterLogClear<CR>",
       "Flutter log clear",
     },
+    v = {
+      "<cmd>FlutterVisualDebug<CR>",
+      "Flutter visual debug",
+    },
   },
 
   g = {
