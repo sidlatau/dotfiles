@@ -72,7 +72,7 @@ local function lsp_highlight_document(client, bufnr)
       "lsp_document_highlight",
       {}
     )
-    vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+    vim.api.nvim_create_autocmd({ "CursorHold" }, {
       group = lsp_document_highlight,
       buffer = bufnr,
       callback = function()
