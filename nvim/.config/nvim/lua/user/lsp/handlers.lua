@@ -55,27 +55,45 @@ M.setup = function()
   )
 end
 
-local function lsp_highlight_document(client)
+local function lsp_highlight_document(client, bufnr)
   -- Set autocommands conditional on server_capabilities
+  if client and client.server_capabilities.codeLensProvider then
+    local codelens_highlight = vim.api.nvim_create_augroup("LspCodeLens", {})
+    vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "InsertLeave" }, {
+      group = codelens_highlight,
+      buffer = bufnr,
+      callback = function()
+        vim.lsp.codelens.refresh()
+      end,
+    })
+  end
   if client.server_capabilities.documentHighlightProvider then
     local lsp_document_highlight = vim.api.nvim_create_augroup(
       "lsp_document_highlight",
       {}
     )
-    vim.api.nvim_create_autocmd({ "CursorHold" }, {
+    vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
       group = lsp_document_highlight,
-      pattern = "<buffer>",
+      buffer = bufnr,
       callback = function()
-        vim.lsp.buf.document_highlight()
+        vim.diagnostic.open_float({ scope = "line" }, { focus = false })
       end,
     })
-    vim.api.nvim_create_autocmd({ "CursorMoved" }, {
-      group = lsp_document_highlight,
-      pattern = "<buffer>",
-      callback = function()
-        vim.lsp.buf.clear_references()
-      end,
-    })
+    --FIXME: Flutter for some reason throws an error
+    -- vim.api.nvim_create_autocmd({ "CursorHold" }, {
+    --   group = lsp_document_highlight,
+    --   buffer = bufnr,
+    --   callback = function()
+    --     pcall(vim.lsp.buf.document_highlight)
+    --   end,
+    -- })
+    -- vim.api.nvim_create_autocmd({ "CursorMoved" }, {
+    --   group = lsp_document_highlight,
+    --   buffer = bufnr,
+    --   callback = function()
+    --     vim.lsp.buf.clear_references()
+    --   end,
+    -- })
   end
 end
 
@@ -125,7 +143,7 @@ M.on_attach = function(client, bufnr)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "gi", ":TSLspImportAll<CR>", opts)
   end
   lsp_keymaps(bufnr)
-  lsp_highlight_document(client)
+  lsp_highlight_document(client, bufnr)
   local ok, lsp_format = pcall(require, "lsp-format")
   if ok then
     lsp_format.on_attach(client)
