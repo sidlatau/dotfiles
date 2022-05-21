@@ -89,6 +89,9 @@ return packer.startup(function(use)
     "akinsho/flutter-tools.nvim",
     requires = "nvim-lua/plenary.nvim",
     config = "require'user.flutter-tools'",
+    cond = function()
+      return not vim.g.vscode
+    end,
   }
   use "nvim-lua/lsp-status.nvim"
 

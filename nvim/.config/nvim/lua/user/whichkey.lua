@@ -124,7 +124,9 @@ local mappings = {
     name = "Flutter",
     c = { "<cmd>Telescope flutter commands<CR>", "Commands list" },
     l = {
-      require("user.flutter-tools").toggle_log,
+      function()
+        require("user.flutter-tools").toggle_log()
+      end,
       "Toggle log",
     },
     e = { "<cmd>FlutterEmulators<CR>", "Emulators" },
