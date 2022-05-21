@@ -1,0 +1,186 @@
+// Place your settings in this file to overwrite the default settings
+{
+  "files.autoSave": "afterDelay",
+  "editor.wordWrap": "off",
+  "files.associations": {
+    "*.js": "javascriptreact",
+    "*.arb": "json"
+  },
+  "workbench.iconTheme": "material-icon-theme",
+  "gitlens.hovers.currentLine.over": "line",
+  "editor.formatOnType": true,
+  "breadcrumbs.enabled": true,
+  "editor.fontLigatures": true,
+  "workbench.editor.enablePreviewFromQuickOpen": false,
+  "workbench.sideBar.location": "left",
+  "debug.openDebug": "openOnDebugBreak",
+  // Draw a guide line at 80 characters, where Dart's formatting will wrap code.
+  "[dart]": {
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.rulers": [
+      80
+    ],
+    "editor.selectionHighlight": false,
+    "editor.suggest.snippetsPreventQuickSuggestions": false,
+    "editor.suggestSelection": "first",
+    "editor.tabCompletion": "onlySnippets",
+    "editor.wordBasedSuggestions": false,
+    "editor.codeActionsOnSave": {
+      "source.fixAll": true,
+      "source.organizeImports": true
+    }
+  },
+  // Disables built-in highlighting of words that match your selection. Without this, all
+  // instances of the selected text will be highlighted, interfering with Dart's ability
+  // to highlight only exact references to the selected variable.
+  "editor.selectionHighlight": false,
+  // By default, VS Code prevents code completion from popping open when in "snippet mode"
+  // (editing placeholders in inserted code). Setting this option to `false` stops that
+  // and allows completion to open as normal, as if you weren't in a snippet placeholder.
+  "editor.suggest.snippetsPreventQuickSuggestions": false,
+  // By default, VS Code will pre-select the most recently used item from code completion.
+  // This is usually not the most relevant thing so setting it to "first" will always select
+  // top item or setting it to "recentlyUsedByPrefix" will filter the recently used items
+  // based on the text immediately preceeding where completion was invoked.
+  "editor.suggestSelection": "recentlyUsedByPrefix",
+  // Allows pressing <TAB> to complete snippets such as `for` even when the completion
+  // list is not visible.
+  "editor.tabCompletion": "onlySnippets",
+  // By default, VS Code will popualte code completion with words found in the current
+  // file when a language service does not provide its own completions. This results in
+  // code completion suggesting words when editing comments and strings. This setting
+  // will prevent that.
+  "editor.wordBasedSuggestions": false,
+  // Force all files to have a trailing newline for consistency and reduced diffs when
+  // adding new lines at the bottom of the file.
+  "files.insertFinalNewline": true,
+  "dart.triggerSignatureHelpAutomatically": true,
+  "editor.minimap.enabled": false,
+  "yaml.schemas": {
+    "https://json.schemastore.org/github-workflow": "/.github/workflows/**/*.yaml",
+    "https://json.schemastore.org/dart-build.json": "build.yaml"
+  },
+  "files.exclude": {
+    "**/.classpath": true,
+    "**/.project": true,
+    "**/.settings": true,
+    "**/.factorypath": true,
+    "**/*.g.dart": true,
+    "**/*.freezed.dart": true
+  },
+  "diffEditor.renderSideBySide": false,
+  "dart.openDevTools": "never",
+  "gitlens.blame.ignoreWhitespace": true,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "workbench.editor.enablePreview": false,
+  "editor.rulers": [
+    80
+  ],
+  "git.autofetch": true,
+  "workbench.editor.showTabs": false,
+  "workbench.editor.limit.enabled": true,
+  "extensions.ignoreRecommendations": true,
+  "mochaExplorer.files": [
+    "**/*/test.ts",
+    "**/*Tests.ts"
+  ],
+  "mochaExplorer.require": "ts-node/register",
+  "dart.debugSdkLibraries": true,
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "diffEditor.ignoreTrimWhitespace": true,
+  "gitlens.codeLens.recentChange.enabled": false,
+  "gitlens.hovers.currentLine.changes": false,
+  "gitlens.hovers.currentLine.enabled": false,
+  "gitlens.hovers.enabled": false,
+  "githubPullRequests.defaultMergeMethod": "squash",
+  "githubPullRequests.queries": [
+    {
+      "label": "Waiting For My Review",
+      "query": "is:open review-requested:${user}"
+    },
+    {
+      "label": "Assigned To Me",
+      "query": "is:open assignee:${user}"
+    },
+    {
+      "label": "Created By Me",
+      "query": "is:open author:${user}"
+    }
+  ],
+  "debug.inlineValues": true,
+  "editor.gotoLocation.multipleDefinitions": "goto",
+  "gitlens.menus": {
+    "editor": false,
+    "editorGroup": false,
+    "editorTab": false,
+    "explorer": {
+      "clipboard": true,
+      "compare": true,
+      "history": true,
+      "remote": true
+    },
+    "scmGroup": {
+      "compare": true,
+      "openClose": true,
+      "stash": true,
+      "stashInline": true
+    },
+    "scmItem": {
+      "clipboard": true,
+      "compare": true,
+      "history": true,
+      "remote": true,
+      "stash": true
+    }
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "gruvboxMaterial.italicComments": false,
+  "gruvboxMaterial.darkContrast": "hard",
+  "workbench.colorTheme": "Gruvbox Material Dark",
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "dart.flutterSdkPath": ".fvm/flutter_sdk",
+  // Remove .fvm files from search
+  "search.exclude": {
+    "**/.fvm": true
+  },
+  // Remove from file watching
+  "files.watcherExclude": {
+    "**/.fvm": true
+  },
+  "redhat.telemetry.enabled": false,
+  "editor.formatOnSave": true,
+  "security.workspace.trust.untrustedFiles": "open",
+  "GitLive.Issue tracker integration": "Disabled",
+  "terminal.integrated.fontFamily": "MesloLGS NF",
+  "gitlens.advanced.messages": {
+    "suppressGitMissingWarning": true
+  },
+  "editor.accessibilitySupport": "off",
+  "workbench.list.automaticKeyboardNavigation": false,
+  "explorer.confirmDelete": false,
+  "cSpell.enabled": false,
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "editor.fontFamily": "MesloLGS NF",
+  "editor.fontSize": 14,
+  "terminal.integrated.persistentSessionReviveProcess": "never",
+  "dart.previewFlutterUiGuides": true,
+  "dart.previewFlutterUiGuidesCustomTracking": true,
+  "eslint.workingDirectories": [
+    "./cli"
+  ],
+  "terminal.external.osxExec": "iTerm.app",
+  "gitlens.defaultDateFormat": null,
+  "gitlens.defaultDateLocale": null,
+  "vscode-neovim.neovimExecutablePaths.darwin": "/opt/homebrew/bin/nvim",
+  "gitlens.currentLine.enabled": false,
+}
