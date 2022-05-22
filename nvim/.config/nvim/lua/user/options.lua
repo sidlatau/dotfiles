@@ -61,3 +61,4 @@ vim.cmd [[cabbrev wq execute "lua vim.lsp.buf.formatting_seq_sync()" <bar> wq]]
 vim.g.neovide_cursor_vfx_mode = "sonicboom"
 
 vim.g.dart_trailing_comma_indent = true
+vim.g.dart_style_guide = 2
