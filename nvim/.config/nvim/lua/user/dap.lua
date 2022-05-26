@@ -1,3 +1,4 @@
+require "dap"
 vim.fn.sign_define(
   "DapBreakpoint",
   { text = " ", texthl = "debugBreakpoint", linehl = "", numhl = "" }
@@ -18,5 +19,3 @@ vim.fn.sign_define(
   "DapStopped",
   { text = "", texthl = "debugBreakpoint", linehl = "debugPC", numhl = "" }
 )
-
-require("dapui").setup()

@@ -122,8 +122,13 @@ return packer.startup(function(use)
     config = "require'user.test'",
   }
 
-  use "mfussenegger/nvim-dap"
-  use { "rcarriga/nvim-dap-ui", config = "require'user.dap'" }
+  use { "mfussenegger/nvim-dap", config = "require'user.dap'" }
+  use {
+    "rcarriga/nvim-dap-ui",
+    config = function()
+      require("dapui").setup()
+    end,
+  }
   use "nvim-telescope/telescope-dap.nvim"
   use "vim-scripts/BufOnly.vim"
   use {
