@@ -107,8 +107,18 @@ local mappings = {
 
   h = {
     name = "Harpoon",
-    a = { require("harpoon.mark").add_file, "Add" },
-    h = { require("harpoon.ui").toggle_quick_menu, "Edit" },
+    a = {
+      function()
+        require("harpoon.mark").add_file()
+      end,
+      "Add",
+    },
+    h = {
+      function()
+        require("harpoon.ui").toggle_quick_menu()
+      end,
+      "Edit",
+    },
   },
 
   p = {
@@ -291,13 +301,48 @@ local mappings = {
   },
   d = {
     name = "Debug",
-    t = { require("dap").toggle_breakpoint, "Toggle Breakpoint" },
-    C = { require("dap").run_to_cursor, "Run To Cursor" },
-    r = { require("dap").repl.toggle, "Toggle Repl" },
-    s = { require("dap").continue, "Start" },
-    q = { require("dap").close, "Quit" },
-    d = { require("dapui").toggle, "UI" },
-    e = { require("dapui").eval, "Eval" },
+    t = {
+      function()
+        require("dap").toggle_breakpoint()
+      end,
+      "Toggle Breakpoint",
+    },
+    C = {
+      function()
+        require("dap").run_to_cursor()
+      end,
+      "Run To Cursor",
+    },
+    r = {
+      function()
+        require("dap").repl.toggle()
+      end,
+      "Toggle Repl",
+    },
+    s = {
+      function()
+        require("dap").continue()
+      end,
+      "Start",
+    },
+    q = {
+      function()
+        require("dap").close()
+      end,
+      "Quit",
+    },
+    d = {
+      function()
+        require("dapui").toggle()
+      end,
+      "UI",
+    },
+    e = {
+      function()
+        require("dapui").eval()
+      end,
+      "Eval",
+    },
     v = {
       function()
         local widgets = require "dap.ui.widgets"
@@ -306,7 +351,9 @@ local mappings = {
       "Variables",
     },
     f = {
-      require("telescope").extensions.dap.frames,
+      function()
+        require("telescope").extensions.dap.frames()
+      end,
       "Frames",
     },
   },
