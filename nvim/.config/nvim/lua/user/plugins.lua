@@ -115,7 +115,7 @@ return packer.startup(function(use)
       require("trouble").setup {}
     end,
   }
-  use { "sidlatau/vim-test" }
+  use { "vim-test/vim-test" }
   use {
     "rcarriga/vim-ultest",
     run = ":UpdateRemotePlugins",
