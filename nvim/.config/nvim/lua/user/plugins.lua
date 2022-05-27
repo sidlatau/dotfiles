@@ -221,4 +221,5 @@ return packer.startup(function(use)
       }
     end,
   }
+  use { "SmiteshP/nvim-gps", config = "require'user.gps'" }
 end)

@@ -102,6 +102,7 @@ local function lsp_client()
   end
   return table.concat(names, ", ")
 end
+
 local ultest = {
   function()
     local status = vim.api.nvim_eval "ultest#status()"
@@ -175,8 +176,4 @@ lualine.setup {
     lualine_y = {},
     lualine_z = {},
   },
-  tabline = {
-    lualine_c = { "filename" },
-  },
-  extensions = {},
 }

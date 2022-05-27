@@ -2,7 +2,6 @@ vim.g.do_filetype_lua = 1
 vim.g.did_load_filetypes = 0
 
 vim.opt.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
-vim.opt.cmdheight = 2 -- more space in the neovim command line for displaying messages
 vim.opt.completeopt = { "menuone", "noselect" } -- mostly just for cmp
 vim.opt.conceallevel = 0 -- so that `` is visible in markdown files
 vim.opt.fileencoding = "utf-8" -- the encoding written to a file
@@ -11,7 +10,6 @@ vim.opt.ignorecase = true -- ignore case in search patterns
 vim.opt.mouse = "a" -- allow the mouse to be used in neovim
 vim.opt.pumheight = 10 -- pop up menu height
 vim.opt.showmode = false -- we don't need to see things like -- INSERT -- anymore
-vim.opt.showtabline = 2 -- always show tabs
 vim.opt.smartcase = true -- smart case
 vim.opt.smartindent = true -- make indenting smarter again
 vim.opt.splitbelow = true -- force all horizontal splits to go below current window
@@ -62,3 +60,4 @@ vim.g.neovide_cursor_vfx_mode = "sonicboom"
 
 vim.g.dart_trailing_comma_indent = true
 vim.g.dart_style_guide = 2
+vim.opt.laststatus = 3
