@@ -221,5 +221,9 @@ return packer.startup(function(use)
       }
     end,
   }
-  use { "SmiteshP/nvim-gps", config = "require'user.gps'" }
+  use {
+    "ChristianChiarulli/nvim-gps",
+    config = "require'user.gps'",
+    branch = "text_hl",
+  }
 end)
