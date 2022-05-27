@@ -67,7 +67,7 @@ M.get_winbar = function()
 
   if not f.isempty(value) and f.get_buf_option "mod" then
     local mod = "%#Normal#" .. require("user.icons").ui.Circle .. "%*"
-    value = value .. mod
+    value = value .. " " .. mod
   end
 
   local status_ok, _ = pcall(
