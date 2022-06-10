@@ -86,8 +86,8 @@ return packer.startup(function(use)
   use "jose-elias-alvarez/nvim-lsp-ts-utils"
 
   use {
-    -- "akinsho/flutter-tools.nvim",
-    "~/Documents/github/personal/flutter-tools.nvim",
+    "akinsho/flutter-tools.nvim",
+    -- "~/Documents/github/personal/flutter-tools.nvim",
     requires = "nvim-lua/plenary.nvim",
     config = "require'user.flutter-tools'",
     cond = function()

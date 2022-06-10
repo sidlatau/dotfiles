@@ -10,7 +10,7 @@ flutter_tools.setup {
   },
   lsp = {
     color = { -- show the derived colours for dart variables
-      enabled = false,
+      enabled = true,
       background = false, -- highlight the background
       foreground = false, -- highlight the foreground
       virtual_text = true, -- show the highlight using virtual text
@@ -31,7 +31,7 @@ flutter_tools.setup {
   },
   debugger = {
     enabled = true,
-    run_via_dap = true,
+    run_via_dap = false,
   },
   fvm = true,
   widget_guides = {
