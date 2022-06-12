@@ -76,13 +76,15 @@ vim.keymap.set("n", "<F5>", function()
   require("dap").continue()
 end)
 vim.keymap.set("n", "<F10>", function()
-  require("dap").step_over()
+  -- Should provide fake granularity until https://github.com/flutter/flutter/issues/105856
+  -- is fixed
+  require("dap").step_over { granularity = { not_used = true } }
 end)
 vim.keymap.set("n", "<F11>", function()
-  require("dap").step_into()
+  require("dap").step_into { granularity = { not_used = true } }
 end)
 vim.keymap.set("n", "<F12>", function()
-  require("dap").step_out()
+  require("dap").step_out { granularity = { not_used = true } }
 end)
 
 function _G.abbreviate_or_noop(input, output)
