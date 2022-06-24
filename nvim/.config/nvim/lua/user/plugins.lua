@@ -79,7 +79,7 @@ return packer.startup(function(use)
   use "neovim/nvim-lspconfig" -- enable LSP
   use "williamboman/nvim-lsp-installer" -- simple to use language server installer
   use {
-    "~/Documents/github/personal/lsp-fastaction.nvim",
+    "sidlatau/lsp-fastaction.nvim",
     config = "require'user.lsp-fastaction'",
   }
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
@@ -182,7 +182,7 @@ return packer.startup(function(use)
   use "rickhowe/diffchar.vim"
   use {
     "lukas-reineke/indent-blankline.nvim",
-    config = require "user.indentline"(),
+    config = require "user.indentline" (),
   }
   use {
     "lukas-reineke/lsp-format.nvim",
@@ -221,4 +221,5 @@ return packer.startup(function(use)
       }
     end,
   }
+  use "wsdjeg/vim-fetch"
 end)
