@@ -285,13 +285,30 @@ local mappings = {
     v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
     f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
 
-    t = { "<cmd>Ultest<cr>", "Test file" },
-    s = { "<cmd>UltestSummary<cr>", "Summary" },
-    -- d = { "<cmd>UltestDebugNearest<cr>", "Debug nearest" },
-    o = { "<cmd>UltestOutput<cr>", "Output" },
-    n = { "<cmd>UltestNearest<cr>", "Test nearest" },
-    l = { "<cmd>UltestLast<cr>", "Test last" },
-    c = { "<cmd>UltestClear<cr>", "Clear test ouput" },
+    t = {
+      function()
+        require("neotest").run.run(vim.fn.expand "%")
+      end,
+      "Test file",
+    },
+    s = {
+      function()
+        require("neotest").summary.toggle()
+      end,
+      "Summary",
+    },
+    o = {
+      function()
+        require("neotest").output.open { enter = true }
+      end,
+      "Output",
+    },
+    n = {
+      function()
+        require("neotest").run.run()
+      end,
+      "Test nearest",
+    },
     d = {
       function()
         require("gitsigns").toggle_deleted()

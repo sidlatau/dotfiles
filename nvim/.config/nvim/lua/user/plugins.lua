@@ -118,10 +118,15 @@ return packer.startup(function(use)
   }
   use { "vim-test/vim-test" }
   use {
-    "rcarriga/vim-ultest",
-    run = ":UpdateRemotePlugins",
+    "nvim-neotest/neotest",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+      "antoinemadec/FixCursorHold.nvim",
+    },
     config = "require'user.test'",
   }
+  use { "nvim-neotest/neotest-vim-test" }
 
   use { "mfussenegger/nvim-dap", config = "require'user.dap'" }
   use {
@@ -144,11 +149,6 @@ return packer.startup(function(use)
   use "tpope/vim-fugitive"
   use "tpope/vim-rhubarb"
   use "tpope/vim-abolish"
-  -- Automatically set up your configuration after cloning packer.nvim
-  -- Put this at the end after all plugins
-  if PACKER_BOOTSTRAP then
-    require("packer").sync()
-  end
   use {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v2.x",
@@ -182,7 +182,7 @@ return packer.startup(function(use)
   use "rickhowe/diffchar.vim"
   use {
     "lukas-reineke/indent-blankline.nvim",
-    config = require "user.indentline" (),
+    config = require "user.indentline"(),
   }
   use {
     "lukas-reineke/lsp-format.nvim",
@@ -222,4 +222,9 @@ return packer.startup(function(use)
     end,
   }
   use "wsdjeg/vim-fetch"
+  -- Automatically set up your configuration after cloning packer.nvim
+  -- Put this at the end after all plugins
+  if PACKER_BOOTSTRAP then
+    require("packer").sync()
+  end
 end)
