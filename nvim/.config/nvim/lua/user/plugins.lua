@@ -160,20 +160,6 @@ return packer.startup(function(use)
     config = "require 'user.neo-tree'",
   }
   use { "abecodes/tabout.nvim", config = "require'user.tabout'" }
-  -- use { "github/copilot.vim", config = "require'user.copilot'" }
-  use {
-    "zbirenbaum/copilot.lua",
-    event = { "VimEnter" },
-    config = function()
-      vim.defer_fn(function()
-        require("copilot").setup()
-      end, 100)
-    end,
-  }
-  use {
-    "zbirenbaum/copilot-cmp",
-    after = { "copilot.lua", "nvim-cmp" },
-  }
   use "dart-lang/dart-vim-plugin"
   use "mtdl9/vim-log-highlighting"
   use { "j-hui/fidget.nvim", config = "require'user.fidget'" }
