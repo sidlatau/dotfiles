@@ -287,6 +287,7 @@ local mappings = {
 
     t = {
       function()
+        ---@diagnostic disable-next-line: missing-parameter
         require("neotest").run.run(vim.fn.expand "%")
       end,
       "Test file",
@@ -356,6 +357,7 @@ local mappings = {
     },
     e = {
       function()
+        ---@diagnostic disable-next-line: missing-parameter
         require("dapui").eval()
       end,
       "Eval",
