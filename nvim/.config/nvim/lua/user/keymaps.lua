@@ -59,7 +59,7 @@ keymap("v", "p", '"_dP', opts)
 keymap(
   "n",
   "<C-p>",
-  "<cmd>lua require('user.telescope').find_files()<cr>",
+  "<cmd>lua require('user.telescope_config').find_files()<cr>",
   opts
 )
 
