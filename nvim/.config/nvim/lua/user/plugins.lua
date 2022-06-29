@@ -38,199 +38,204 @@ packer.init {
   },
 }
 -- Install your plugins here
-return packer.startup(function(use)
-  -- My plugins here
-  use "wbthomason/packer.nvim" -- Have packer manage itself
-  use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
-  use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
-  use "kyazdani42/nvim-web-devicons"
-  use "moll/vim-bbye"
-  use { "nvim-lualine/lualine.nvim", config = "require 'user.lualine'" }
-  use { "numToStr/Comment.nvim", config = "require'user.comment'" }
-  use "JoosepAlviste/nvim-ts-context-commentstring"
-  use "machakann/vim-highlightedyank"
-  use "tpope/vim-surround"
-  use "tpope/vim-repeat"
-  use "tpope/vim-projectionist"
-  use { "windwp/nvim-autopairs", config = "require'user.autopairs'" }
+return packer.startup {
+  function(use)
+    -- My plugins here
+    use "wbthomason/packer.nvim" -- Have packer manage itself
+    use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
+    use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
+    use "kyazdani42/nvim-web-devicons"
+    use "moll/vim-bbye"
+    use { "nvim-lualine/lualine.nvim", config = "require 'user.lualine'" }
+    use { "numToStr/Comment.nvim", config = "require'user.comment'" }
+    use "JoosepAlviste/nvim-ts-context-commentstring"
+    use "machakann/vim-highlightedyank"
+    use "tpope/vim-surround"
+    use "tpope/vim-repeat"
+    use "tpope/vim-projectionist"
+    use { "windwp/nvim-autopairs", config = "require'user.autopairs'" }
 
-  use "sainnhe/gruvbox-material" -- color scheme
-  use "tpope/vim-unimpaired"
+    use "sainnhe/gruvbox-material" -- color scheme
+    use "tpope/vim-unimpaired"
 
-  -- cmp plugins
-  use { "hrsh7th/nvim-cmp", config = "require'user.cmp'" }
-  use "hrsh7th/cmp-buffer" -- buffer completions
-  use "hrsh7th/cmp-path" -- path completions
-  use "hrsh7th/cmp-cmdline" -- cmdline completions
-  use { "saadparwaiz1/cmp_luasnip", config = "require'user.luasnip'" }
-  use "hrsh7th/cmp-nvim-lsp"
-  use "hrsh7th/cmp-nvim-lua"
-  use "hrsh7th/cmp-nvim-lsp-document-symbol"
+    -- cmp plugins
+    use { "hrsh7th/nvim-cmp", config = "require'user.cmp'" }
+    use "hrsh7th/cmp-buffer" -- buffer completions
+    use "hrsh7th/cmp-path" -- path completions
+    use "hrsh7th/cmp-cmdline" -- cmdline completions
+    use { "saadparwaiz1/cmp_luasnip", config = "require'user.luasnip'" }
+    use "hrsh7th/cmp-nvim-lsp"
+    use "hrsh7th/cmp-nvim-lua"
+    use "hrsh7th/cmp-nvim-lsp-document-symbol"
 
-  use { "akinsho/toggleterm.nvim", config = "require'user.toggleterm'" }
-  use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
-  use { "folke/which-key.nvim", config = "require'user.whichkey'" }
-  use "ThePrimeagen/harpoon"
+    use { "akinsho/toggleterm.nvim", config = "require'user.toggleterm'" }
+    use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
+    use { "folke/which-key.nvim", config = "require'user.whichkey'" }
+    use "ThePrimeagen/harpoon"
 
-  -- snippets
-  use "L3MON4D3/LuaSnip" --snippet engine
+    -- snippets
+    use "L3MON4D3/LuaSnip" --snippet engine
 
-  -- LSP
-  use "neovim/nvim-lspconfig" -- enable LSP
-  use "williamboman/nvim-lsp-installer" -- simple to use language server installer
-  use {
-    "sidlatau/lsp-fastaction.nvim",
-    config = "require'user.lsp-fastaction'",
-  }
-  use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
-  use "jose-elias-alvarez/nvim-lsp-ts-utils"
+    -- LSP
+    use "neovim/nvim-lspconfig" -- enable LSP
+    use "williamboman/nvim-lsp-installer" -- simple to use language server installer
+    use {
+      "sidlatau/lsp-fastaction.nvim",
+      config = "require'user.lsp-fastaction'",
+    }
+    use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
+    use "jose-elias-alvarez/nvim-lsp-ts-utils"
 
-  use {
-    "akinsho/flutter-tools.nvim",
-    -- "~/Documents/github/personal/flutter-tools.nvim",
-    requires = "nvim-lua/plenary.nvim",
-    config = "require'user.flutter-tools'",
-    cond = function()
-      return not vim.g.vscode
-    end,
-  }
-  use {
-    --"~/Documents/github/personal/neotest-dart"
-    "sidlatau/neotest-dart",
-  }
-  use "nvim-lua/lsp-status.nvim"
+    use {
+      "akinsho/flutter-tools.nvim",
+      -- "~/Documents/github/personal/flutter-tools.nvim",
+      requires = "nvim-lua/plenary.nvim",
+      config = "require'user.flutter-tools'",
+      cond = function()
+        return not vim.g.vscode
+      end,
+    }
+    use {
+      --"~/Documents/github/personal/neotest-dart"
+      "sidlatau/neotest-dart",
+    }
+    use "nvim-lua/lsp-status.nvim"
 
-  use "nvim-telescope/telescope.nvim"
+    use "nvim-telescope/telescope.nvim"
 
-  -- Treesitter
-  use {
-    "nvim-treesitter/nvim-treesitter",
-    run = ":TSUpdate",
-    config = "require'user.treesitter'",
-  }
-  use "nvim-treesitter/nvim-treesitter-textobjects"
-
-  -- Git
-  use { "lewis6991/gitsigns.nvim", config = "require'user.gitsigns'" }
-
-  use {
-    "folke/trouble.nvim",
-    requires = "kyazdani42/nvim-web-devicons",
-    config = function()
-      require("trouble").setup {}
-    end,
-  }
-  use { "vim-test/vim-test" }
-  use {
-    "nvim-neotest/neotest",
-    requires = {
-      "nvim-lua/plenary.nvim",
+    -- Treesitter
+    use {
       "nvim-treesitter/nvim-treesitter",
-      "antoinemadec/FixCursorHold.nvim",
-    },
-    config = "require'user.test'",
-  }
-  use { "nvim-neotest/neotest-vim-test" }
+      run = ":TSUpdate",
+      config = "require'user.treesitter'",
+    }
+    use "nvim-treesitter/nvim-treesitter-textobjects"
 
-  use { "mfussenegger/nvim-dap", config = "require'user.dap'" }
-  use {
-    "rcarriga/nvim-dap-ui",
-    config = function()
-      require("dapui").setup()
-    end,
-  }
-  use "nvim-telescope/telescope-dap.nvim"
-  use "vim-scripts/BufOnly.vim"
-  use {
-    "bkad/camelcasemotion",
-    config = function()
-      vim.g["camelcasemotion_key"] = "\\"
-    end,
-  }
-  use "milch/vim-fastlane"
-  use "delphinus/vim-firestore"
-  use "tpope/vim-obsession"
-  use "tpope/vim-fugitive"
-  use "tpope/vim-rhubarb"
-  use "tpope/vim-abolish"
-  use {
-    "nvim-neo-tree/neo-tree.nvim",
-    branch = "v2.x",
-    requires = {
-      "nvim-lua/plenary.nvim",
-      "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
-      "MunifTanjim/nui.nvim",
-    },
-    config = "require 'user.neo-tree'",
-  }
-  use { "abecodes/tabout.nvim", config = "require'user.tabout'" }
-  use "dart-lang/dart-vim-plugin"
-  use "mtdl9/vim-log-highlighting"
-  use { "j-hui/fidget.nvim", config = "require'user.fidget'" }
-  use { "rcarriga/nvim-notify", config = "require 'user.notify'" }
-  use { "nvim-telescope/telescope-fzf-native.nvim", run = "make" }
-  use {
-    "akinsho/git-conflict.nvim",
-    config = function()
-      require("git-conflict").setup {
-        default_mappings = true, -- disable buffer local mapping created by this plugin
-        disable_diagnostics = false, -- This will disable the diagnostics in a buffer whilst it is conflicted
-        highlights = { -- They must have background color, otherwise the default color will be used
-          incoming = "DiffText",
-          current = "DiffAdd",
-        },
-      }
-    end,
-  }
-  use "whiteinge/diffconflicts"
-  use "rickhowe/diffchar.vim"
-  use {
-    "lukas-reineke/indent-blankline.nvim",
-    config = require "user.indentline"(),
-  }
-  use {
-    "lukas-reineke/lsp-format.nvim",
-    config = function()
-      require("lsp-format").setup {}
-    end,
-  }
-  use { "stevearc/dressing.nvim" }
-  use {
-    "lukas-reineke/virt-column.nvim",
-    config = function()
-      require("virt-column").setup()
-    end,
-  }
-  use {
-    "ethanholz/nvim-lastplace",
-    event = "BufRead",
-    config = function()
-      require("nvim-lastplace").setup {
-        lastplace_ignore_buftype = { "quickfix", "nofile", "help" },
-        lastplace_ignore_filetype = {
-          "gitcommit",
-          "gitrebase",
-          "svn",
-          "hgcommit",
-        },
-        lastplace_open_folds = true,
-      }
-    end,
-  }
-  use {
-    "nvim-treesitter/nvim-treesitter-context",
-    config = function()
-      require("treesitter-context").setup {
-        max_lines = 1, -- How many lines the window should span. Values <= 0 mean no limit.
-      }
-    end,
-  }
-  use "wsdjeg/vim-fetch"
-  use "nvim-treesitter/playground"
-  use "folke/lua-dev.nvim"
-  -- Automatically set up your configuration after cloning packer.nvim
-  -- Put this at the end after all plugins
-  if PACKER_BOOTSTRAP then
-    require("packer").sync()
-  end
-end)
+    -- Git
+    use { "lewis6991/gitsigns.nvim", config = "require'user.gitsigns'" }
+
+    use {
+      "folke/trouble.nvim",
+      requires = "kyazdani42/nvim-web-devicons",
+      config = function()
+        require("trouble").setup {}
+      end,
+    }
+    use { "vim-test/vim-test" }
+    use {
+      "nvim-neotest/neotest",
+      requires = {
+        "nvim-lua/plenary.nvim",
+        "nvim-treesitter/nvim-treesitter",
+        "antoinemadec/FixCursorHold.nvim",
+      },
+      config = "require'user.test'",
+    }
+    use { "nvim-neotest/neotest-vim-test" }
+
+    use { "mfussenegger/nvim-dap", config = "require'user.dap'" }
+    use {
+      "rcarriga/nvim-dap-ui",
+      config = function()
+        require("dapui").setup()
+      end,
+    }
+    use "nvim-telescope/telescope-dap.nvim"
+    use "vim-scripts/BufOnly.vim"
+    use {
+      "bkad/camelcasemotion",
+      config = function()
+        vim.g["camelcasemotion_key"] = "\\"
+      end,
+    }
+    use "milch/vim-fastlane"
+    use "delphinus/vim-firestore"
+    use "tpope/vim-obsession"
+    use "tpope/vim-fugitive"
+    use "tpope/vim-rhubarb"
+    use "tpope/vim-abolish"
+    use {
+      "nvim-neo-tree/neo-tree.nvim",
+      branch = "v2.x",
+      requires = {
+        "nvim-lua/plenary.nvim",
+        "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
+        "MunifTanjim/nui.nvim",
+      },
+      config = "require 'user.neo-tree'",
+    }
+    use { "abecodes/tabout.nvim", config = "require'user.tabout'" }
+    use "dart-lang/dart-vim-plugin"
+    use "mtdl9/vim-log-highlighting"
+    use { "j-hui/fidget.nvim", config = "require'user.fidget'" }
+    use { "rcarriga/nvim-notify", config = "require 'user.notify'" }
+    use { "nvim-telescope/telescope-fzf-native.nvim", run = "make" }
+    use {
+      "akinsho/git-conflict.nvim",
+      config = function()
+        require("git-conflict").setup {
+          default_mappings = true, -- disable buffer local mapping created by this plugin
+          disable_diagnostics = false, -- This will disable the diagnostics in a buffer whilst it is conflicted
+          highlights = { -- They must have background color, otherwise the default color will be used
+            incoming = "DiffText",
+            current = "DiffAdd",
+          },
+        }
+      end,
+    }
+    use "whiteinge/diffconflicts"
+    use "rickhowe/diffchar.vim"
+    use {
+      "lukas-reineke/indent-blankline.nvim",
+      config = require "user.indentline"(),
+    }
+    use {
+      "lukas-reineke/lsp-format.nvim",
+      config = function()
+        require("lsp-format").setup {}
+      end,
+    }
+    use { "stevearc/dressing.nvim" }
+    use {
+      "lukas-reineke/virt-column.nvim",
+      config = function()
+        require("virt-column").setup()
+      end,
+    }
+    use {
+      "ethanholz/nvim-lastplace",
+      event = "BufRead",
+      config = function()
+        require("nvim-lastplace").setup {
+          lastplace_ignore_buftype = { "quickfix", "nofile", "help" },
+          lastplace_ignore_filetype = {
+            "gitcommit",
+            "gitrebase",
+            "svn",
+            "hgcommit",
+          },
+          lastplace_open_folds = true,
+        }
+      end,
+    }
+    use {
+      "nvim-treesitter/nvim-treesitter-context",
+      config = function()
+        require("treesitter-context").setup {
+          max_lines = 1, -- How many lines the window should span. Values <= 0 mean no limit.
+        }
+      end,
+    }
+    use "wsdjeg/vim-fetch"
+    use "nvim-treesitter/playground"
+    use "folke/lua-dev.nvim"
+    -- Automatically set up your configuration after cloning packer.nvim
+    -- Put this at the end after all plugins
+    if PACKER_BOOTSTRAP then
+      require("packer").sync()
+    end
+  end,
+  config = {
+    max_jobs = 10,
+  },
+}
