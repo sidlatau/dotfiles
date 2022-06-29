@@ -94,6 +94,10 @@ return packer.startup(function(use)
       return not vim.g.vscode
     end,
   }
+  use {
+    --"~/Documents/github/personal/neotest-dart"
+    "sidlatau/neotest-dart",
+  }
   use "nvim-lua/lsp-status.nvim"
 
   use "nvim-telescope/telescope.nvim"
