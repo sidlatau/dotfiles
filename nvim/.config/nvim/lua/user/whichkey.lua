@@ -310,6 +310,12 @@ local mappings = {
       end,
       "Test nearest",
     },
+    l = {
+      function()
+        require("neotest").run.run_last()
+      end,
+      "Test last",
+    },
     d = {
       function()
         require("neotest").run.run { strategy = "dap" }
