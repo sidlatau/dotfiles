@@ -1,2 +1,15 @@
 vim.g["test#dart#fluttertest#executable"] = "fvm flutter test"
-vim.g.ultest_running_sign = ""
+
+require("neotest").setup {
+  adapters = {
+    require "neotest-dart" {
+      fvm = true,
+    },
+    require "neotest-vim-test" {
+      ignore_filetypes = { "python", "lua", "dart" },
+    },
+  },
+  icons = {
+    running = "",
+  },
+}

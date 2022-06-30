@@ -88,7 +88,7 @@ local mappings = {
     "Code action",
   },
   ["b"] = {
-    require("user.telescope").sorted_buffers,
+    require("user.telescope_config").sorted_buffers,
     "Buffers",
   },
   ["e"] = { "<cmd>Neotree float toggle reveal<cr>", "Explorer" },
@@ -242,11 +242,11 @@ local mappings = {
     i = { "<cmd>LspInfo<cr>", "Info" },
     I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
     j = {
-      vim.lsp.diagnostic.goto_next,
+      vim.diagnostic.goto_next,
       "Next Diagnostic",
     },
     k = {
-      vim.lsp.diagnostic.goto_prev,
+      vim.diagnostic.goto_prev,
       "Prev Diagnostic",
     },
     l = { vim.lsp.codelens.run, "CodeLens Action" },
@@ -285,13 +285,31 @@ local mappings = {
     v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
     f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
 
-    t = { "<cmd>Ultest<cr>", "Test file" },
-    s = { "<cmd>UltestSummary<cr>", "Summary" },
-    -- d = { "<cmd>UltestDebugNearest<cr>", "Debug nearest" },
-    o = { "<cmd>UltestOutput<cr>", "Output" },
-    n = { "<cmd>UltestNearest<cr>", "Test nearest" },
-    l = { "<cmd>UltestLast<cr>", "Test last" },
-    c = { "<cmd>UltestClear<cr>", "Clear test ouput" },
+    t = {
+      function()
+        ---@diagnostic disable-next-line: missing-parameter
+        require("neotest").run.run(vim.fn.expand "%")
+      end,
+      "Test file",
+    },
+    s = {
+      function()
+        require("neotest").summary.toggle()
+      end,
+      "Summary",
+    },
+    o = {
+      function()
+        require("neotest").output.open { enter = true }
+      end,
+      "Output",
+    },
+    n = {
+      function()
+        require("neotest").run.run()
+      end,
+      "Test nearest",
+    },
     d = {
       function()
         require("gitsigns").toggle_deleted()
@@ -339,6 +357,7 @@ local mappings = {
     },
     e = {
       function()
+        ---@diagnostic disable-next-line: missing-parameter
         require("dapui").eval()
       end,
       "Eval",
