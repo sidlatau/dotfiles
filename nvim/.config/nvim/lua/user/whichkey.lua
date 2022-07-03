@@ -312,9 +312,9 @@ local mappings = {
     },
     d = {
       function()
-        require("gitsigns").toggle_deleted()
+        require("neotest").run.run { strategy = "dap" }
       end,
-      "Toggle deleted",
+      "Debug nearest",
     },
   },
   d = {
@@ -324,6 +324,12 @@ local mappings = {
         require("dap").toggle_breakpoint()
       end,
       "Toggle Breakpoint",
+    },
+    z = {
+      function()
+        require("gitsigns").toggle_deleted()
+      end,
+      "Toggle deleted",
     },
     C = {
       function()
