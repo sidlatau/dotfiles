@@ -121,7 +121,6 @@ return packer.startup {
         require("trouble").setup {}
       end,
     }
-    use { "vim-test/vim-test" }
     use {
       "nvim-neotest/neotest",
       requires = {
@@ -131,7 +130,6 @@ return packer.startup {
       },
       config = "require'user.test'",
     }
-    use { "nvim-neotest/neotest-vim-test" }
 
     use { "mfussenegger/nvim-dap", config = "require'user.dap'" }
     use {
