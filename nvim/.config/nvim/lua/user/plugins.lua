@@ -162,7 +162,6 @@ return packer.startup {
       },
       config = "require 'user.neo-tree'",
     }
-    use { "abecodes/tabout.nvim", config = "require'user.tabout'" }
     use "dart-lang/dart-vim-plugin"
     use "mtdl9/vim-log-highlighting"
     use { "j-hui/fidget.nvim", config = "require'user.fidget'" }
