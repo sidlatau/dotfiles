@@ -169,6 +169,10 @@ local mappings = {
       "<cmd>FlutterVisualDebug<CR>",
       "Flutter visual debug",
     },
+    d = {
+      "<cmd>FlutterDevices<CR>",
+      "Flutter devices",
+    },
   },
 
   g = {
