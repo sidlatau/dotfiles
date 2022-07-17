@@ -181,7 +181,6 @@ return packer.startup {
       end,
     }
     use "whiteinge/diffconflicts"
-    use "rickhowe/diffchar.vim"
     use {
       "lukas-reineke/indent-blankline.nvim",
       config = require "user.indentline"(),
