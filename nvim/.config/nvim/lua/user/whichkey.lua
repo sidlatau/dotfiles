@@ -229,6 +229,12 @@ local mappings = {
       "Diff ~",
     },
     s = { "<cmd>.GBrowse<cr>", "Show in GitHub" },
+    z = {
+      function()
+        require("gitsigns").toggle_deleted()
+      end,
+      "Toggle deleted",
+    },
   },
 
   l = {
@@ -334,12 +340,6 @@ local mappings = {
         require("dap").toggle_breakpoint()
       end,
       "Toggle Breakpoint",
-    },
-    z = {
-      function()
-        require("gitsigns").toggle_deleted()
-      end,
-      "Toggle deleted",
     },
     C = {
       function()
