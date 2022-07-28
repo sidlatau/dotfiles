@@ -10,5 +10,3 @@ setlocal commentstring=//%s
 
 setlocal isfname+=:
 setlocal iskeyword+=$
-
-let b:undo_ftplugin = 'setl et< fo< sw< sts< com< cms< inex< isf<'
