@@ -52,7 +52,7 @@ fun! TrimWhitespace()
 endfun
 command! TrimWhitespace call TrimWhitespace()
 ]]
--- Save on quiting
+-- Save on quitting
 vim.cmd [[cabbrev wq execute "lua vim.lsp.buf.formatting_seq_sync()" <bar> wq]]
 
 vim.g.neovide_cursor_vfx_mode = "sonicboom"
