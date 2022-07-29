@@ -29,7 +29,7 @@ vim.api.nvim_create_autocmd(
   }
 )
 
-local dart = vim.api.nvim_create_augroup "dart"
+local dart = vim.api.nvim_create_augroup("dart", {})
 vim.api.nvim_create_autocmd({ "FileType" }, {
   group = dart,
   pattern = "dart",
