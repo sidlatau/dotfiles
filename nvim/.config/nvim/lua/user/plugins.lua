@@ -78,7 +78,7 @@ return packer.startup {
 
     -- LSP
     use "neovim/nvim-lspconfig" -- enable LSP
-    use "williamboman/nvim-lsp-installer" -- simple to use language server installer
+    use { "williamboman/mason.nvim", "williamboman/mason-lspconfig.nvim" }
     use {
       "sidlatau/lsp-fastaction.nvim",
       config = "require'user.lsp-fastaction'",
