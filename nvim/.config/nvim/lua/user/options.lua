@@ -32,6 +32,7 @@ vim.opt.wrap = true -- display lines as one long line
 vim.opt.linebreak = true
 vim.opt.breakindent = true
 vim.opt.showbreak = "ͱ"
+vim.opt.cmdheight = 0
 
 vim.opt.scrolloff = 8 -- is one of my fav
 vim.opt.sidescrolloff = 8
