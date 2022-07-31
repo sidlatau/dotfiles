@@ -32,7 +32,6 @@ vim.opt.wrap = true -- display lines as one long line
 vim.opt.linebreak = true
 vim.opt.breakindent = true
 vim.opt.showbreak = "ͱ"
-vim.opt.cmdheight = 0
 
 vim.opt.scrolloff = 8 -- is one of my fav
 vim.opt.sidescrolloff = 8
@@ -58,6 +57,4 @@ vim.cmd [[cabbrev wq execute "lua vim.lsp.buf.formatting_seq_sync()" <bar> wq]]
 
 vim.g.neovide_cursor_vfx_mode = "sonicboom"
 
-vim.g.dart_trailing_comma_indent = true
-vim.g.dart_style_guide = 2
 vim.opt.laststatus = 3
