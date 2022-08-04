@@ -3,18 +3,12 @@ configs.setup {
   ensure_installed = { "lua", "dart" },
   sync_install = false,
   ignore_install = { "" }, -- List of parsers to ignore installing
-  highlight = {
-    enable = true, -- false will disable the whole extension
-    disable = { "" }, -- list of language that will be disabled
-    additional_vim_regex_highlighting = true,
-  },
-  indent = { enable = true },
   textobjects = {
     select = {
       enable = true,
 
       -- Automatically jump forward to textobj, similar to targets.vim
-      lookahead = true,
+      lookahead = false,
 
       keymaps = {
         -- You can use the capture groups defined in textobjects.scm
