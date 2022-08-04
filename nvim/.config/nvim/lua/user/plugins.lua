@@ -224,6 +224,10 @@ return packer.startup {
     use "wsdjeg/vim-fetch"
     use "nvim-treesitter/playground"
     use "folke/lua-dev.nvim"
+    use {
+      "petertriho/nvim-scrollbar",
+      config = "require 'user.scrollbar'",
+    }
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if PACKER_BOOTSTRAP then
