@@ -1,6 +1,6 @@
 require("scrollbar").setup {
   handle = {
-    highlight = "Background",
+    color = "#1d2021",
   },
   marks = {
     Error = { highlight = "DiagnosticError" },
