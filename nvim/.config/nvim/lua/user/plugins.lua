@@ -166,19 +166,6 @@ return packer.startup {
     use { "j-hui/fidget.nvim", config = "require'user.fidget'" }
     use { "rcarriga/nvim-notify", config = "require 'user.notify'" }
     use { "nvim-telescope/telescope-fzf-native.nvim", run = "make" }
-    use {
-      "akinsho/git-conflict.nvim",
-      config = function()
-        require("git-conflict").setup {
-          default_mappings = true, -- disable buffer local mapping created by this plugin
-          disable_diagnostics = false, -- This will disable the diagnostics in a buffer whilst it is conflicted
-          highlights = { -- They must have background color, otherwise the default color will be used
-            incoming = "DiffText",
-            current = "DiffAdd",
-          },
-        }
-      end,
-    }
     use "whiteinge/diffconflicts"
     use {
       "lukas-reineke/indent-blankline.nvim",
