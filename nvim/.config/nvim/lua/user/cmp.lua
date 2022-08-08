@@ -80,7 +80,7 @@ cmp.setup {
     },
     ["<CR>"] = cmp.mapping.confirm {
       behavior = cmp.ConfirmBehavior.Replace,
-      select = true,
+      select = false,
     },
     ["<C-N>"] = cmp.mapping(tab, { "i", "c" }),
     ["<C-P>"] = cmp.mapping(shift_tab, { "i", "c" }),
