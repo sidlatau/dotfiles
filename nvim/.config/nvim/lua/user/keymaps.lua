@@ -26,7 +26,6 @@ keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
--- keymap("n", "<C-->", "<C-w>l", opts)
 
 -- Resize with arrows
 keymap("n", "<A-Up>", ":resize +2<CR>", opts)
@@ -115,3 +114,6 @@ SetupCommandAlias("W", "w")
 SetupCommandAlias("Wa", "wa")
 SetupCommandAlias("Q", "q")
 SetupCommandAlias("Qa", "qa")
+
+-- Remap CTRL+K to allow enter digraphs (CTRL-Y RT for √)
+keymap("i", "<C-y>", "<C-k>", opts)
