@@ -153,3 +153,10 @@ if [ -f '/Users/ts/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/ts/goo
 export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+firebaseTokenDev() {
+  curl "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=$(gcloud secrets --project indusenz-dev versions access --secret=firebaseWebApiKey 1)" \
+  -H 'Content-Type: application/json' \
+  --data-binary '{"email":"test@indusenz.com","password":"'$(gcloud secrets versions access --project indusenz-dev --secret=invenioWebTest latest)'","returnSecureToken":true}' \
+  | jq -r '.idToken'
+}
