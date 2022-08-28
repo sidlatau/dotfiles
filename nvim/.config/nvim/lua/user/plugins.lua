@@ -215,6 +215,12 @@ return packer.startup {
       "petertriho/nvim-scrollbar",
       config = "require 'user.scrollbar'",
     }
+    use {
+      "nguyenvukhang/nvim-toggler",
+      config = function()
+        require("nvim-toggler").setup()
+      end,
+    }
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if PACKER_BOOTSTRAP then
