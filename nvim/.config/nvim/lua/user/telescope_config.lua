@@ -77,4 +77,11 @@ M.find_files = function()
   )
 end
 
+M.live_grep = function()
+  local opts = {}
+  require("telescope.builtin").live_grep(
+    require("telescope.themes").get_dropdown(opts)
+  )
+end
+
 return M

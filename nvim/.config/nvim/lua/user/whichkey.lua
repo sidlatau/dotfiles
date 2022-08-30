@@ -99,7 +99,12 @@ local mappings = {
   ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
   ["C"] = { "<cmd>Bufonly<CR>", "Leave single Buffer" },
   ["<leader>"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
-  ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
+  ["F"] = {
+    function()
+      require("user.telescope_config").live_grep()
+    end,
+    "Find Text",
+  },
   ["1"] = { ':lua require("harpoon.ui").nav_file(1)<CR>', "Nav 1" },
   ["2"] = { ':lua require("harpoon.ui").nav_file(2)<CR>', "Nav 2" },
   ["3"] = { ':lua require("harpoon.ui").nav_file(3)<CR>', "Nav 3" },

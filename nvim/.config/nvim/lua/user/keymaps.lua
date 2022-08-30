@@ -55,12 +55,9 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
 keymap("v", "p", '"_dP', opts)
 
-keymap(
-  "n",
-  "<C-p>",
-  "<cmd>lua require('user.telescope_config').find_files()<cr>",
-  opts
-)
+vim.keymap.set("n", "<C-p>", function()
+  require("user.telescope_config").find_files()
+end)
 
 -- For easy navigation of wrapped lines
 vim.cmd [[
