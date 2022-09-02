@@ -74,7 +74,7 @@ return packer.startup {
     use "ThePrimeagen/harpoon"
 
     -- snippets
-    use "L3MON4D3/LuaSnip" --snippet engine
+    use { "L3MON4D3/LuaSnip", run = "make install_jsregexp" }
 
     -- LSP
     use "neovim/nvim-lspconfig" -- enable LSP
