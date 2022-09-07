@@ -1,5 +1,5 @@
 HOST=$(hostname)
-if [ "$HOST" = "Tautvydass-MacBook-Pro.local" ]; then 
+if [ "$HOST" = "Tautvydass-MacBook-Pro.local" ] || [ "$HOST" = "Tautvydass-MBP.lan" ]; then 
   source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
 else
   eval "$(/opt/homebrew/bin/brew shellenv)"
