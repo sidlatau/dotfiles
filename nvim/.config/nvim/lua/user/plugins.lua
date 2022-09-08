@@ -221,6 +221,13 @@ return packer.startup {
         require("nvim-toggler").setup()
       end,
     }
+    use {
+      "levouh/tint.nvim",
+      event = "BufRead",
+      config = function()
+        require("tint").setup {}
+      end,
+    }
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if PACKER_BOOTSTRAP then
