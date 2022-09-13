@@ -80,7 +80,9 @@ local opts = {
 
 local mappings = {
   ["/"] = {
-    require("Comment.api").toggle_current_linewise,
+    function()
+      require("Comment.api").toggle.current_linewise()
+    end,
     "Comment",
   },
   ["a"] = {
@@ -416,7 +418,7 @@ local vopts = {
 }
 local vmappings = {
   ["/"] = {
-    '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>',
+    '<ESC><CMD>lua require("Comment.api").toggle.linewise_op(vim.fn.visualmode())<CR>',
     "Comment",
   },
   ["a"] = {
