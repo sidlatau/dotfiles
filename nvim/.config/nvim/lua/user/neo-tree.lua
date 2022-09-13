@@ -88,6 +88,7 @@ neo_tree.setup {
         ["x"] = "cut_to_clipboard",
         ["p"] = "paste_from_clipboard",
         ["q"] = "close_window",
+        ["<esc>"] = "close_window",
       },
     },
   },
