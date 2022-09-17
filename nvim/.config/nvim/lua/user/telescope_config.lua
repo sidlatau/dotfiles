@@ -26,11 +26,9 @@ telescope.setup {
     -- builtin picker
   },
   extensions = {
-    -- Your extension configuration goes here:
-    -- extension_name = {
-    --   extension_config_key = value,
-    -- }
-    -- please take a look at the readme of the extension you want to configure
+    recent_files = {
+      only_cwd = true,
+    },
   },
   mappings = {
     i = {
@@ -42,6 +40,7 @@ telescope.setup {
 
 require("telescope").load_extension "dap"
 require("telescope").load_extension "fzf"
+require("telescope").load_extension "recent_files"
 
 local action_state = require "telescope.actions.state"
 

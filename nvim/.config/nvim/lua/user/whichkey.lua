@@ -93,6 +93,10 @@ local mappings = {
     require("user.telescope_config").sorted_buffers,
     "Buffers",
   },
+  ["o"] = {
+    require("telescope").extensions.recent_files.pick,
+    "Recent files",
+  },
   ["e"] = { "<cmd>Neotree float toggle reveal<cr>", "Explorer" },
   ["w"] = {
     "<cmd>wa<cr>",
