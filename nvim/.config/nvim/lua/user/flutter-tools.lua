@@ -27,6 +27,8 @@ flutter_tools.setup {
         "/Users/ts/.pub-cache/",
         "/Users/ts/fvm/",
       },
+      updateImportsOnRename = true,
+      completeFunctionCalls = true,
     },
   },
   debugger = {
