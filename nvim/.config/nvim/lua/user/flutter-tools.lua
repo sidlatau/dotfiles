@@ -34,6 +34,8 @@ flutter_tools.setup {
   debugger = {
     enabled = true,
     run_via_dap = true,
+    -- don't pause on exception in flutter
+    exception_breakpoints = {},
   },
   fvm = true,
   widget_guides = {
