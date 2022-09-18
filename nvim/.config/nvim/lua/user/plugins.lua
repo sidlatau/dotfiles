@@ -222,6 +222,7 @@ return packer.startup {
       end,
     }
     use { "smartpde/telescope-recent-files" }
+    use { "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" }
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if PACKER_BOOTSTRAP then
