@@ -229,6 +229,7 @@ return packer.startup {
         return require "user.tint"()
       end,
     }
+    use "mbbill/undotree"
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if PACKER_BOOTSTRAP then

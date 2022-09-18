@@ -98,6 +98,7 @@ local mappings = {
     "Recent files",
   },
   ["e"] = { "<cmd>Neotree float toggle reveal<cr>", "Explorer" },
+  ["u"] = { "<cmd>UndotreeToggle<cr>", "Undotree" },
   ["w"] = {
     "<cmd>wa<cr>",
     "Save",
