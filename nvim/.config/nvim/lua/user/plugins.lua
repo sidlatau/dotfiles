@@ -215,16 +215,24 @@ return packer.startup {
       "petertriho/nvim-scrollbar",
       config = "require 'user.scrollbar'",
     }
-    use {
-      "nguyenvukhang/nvim-toggler",
-      config = function()
-        require("nvim-toggler").setup()
-      end,
-    }
     use { "smartpde/telescope-recent-files" }
     use { "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" }
     use "mbbill/undotree"
     use { "kevinhwang91/nvim-hlslens" }
+    use {
+      "monaqa/dial.nvim",
+      config = function()
+        local augend = require "dial.augend"
+        require("dial.config").augends:register_group {
+          -- default augends used when no group name is specified
+          default = {
+            augend.integer.alias.decimal, -- nonnegative decimal number (0, 1, 2, 3, ...)
+            augend.integer.alias.hex, -- nonnegative hex number  (0x01, 0x1a1f, etc.)
+            augend.constant.alias.bool, -- boolean value (true <-> false)
+          },
+        }
+      end,
+    }
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if PACKER_BOOTSTRAP then
