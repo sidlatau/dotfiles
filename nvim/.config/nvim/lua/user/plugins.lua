@@ -223,12 +223,6 @@ return packer.startup {
     }
     use { "smartpde/telescope-recent-files" }
     use { "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" }
-    use {
-      "levouh/tint.nvim",
-      config = function()
-        return require "user.tint"()
-      end,
-    }
     use "mbbill/undotree"
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
