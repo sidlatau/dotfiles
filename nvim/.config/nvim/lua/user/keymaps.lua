@@ -115,31 +115,6 @@ SetupCommandAlias("Qa", "qa")
 -- Remap CTRL+K to allow enter digraphs (CTRL-Y RT for √)
 keymap("i", "<C-y>", "<C-k>", opts)
 
--- hlslens
-vim.api.nvim_set_keymap(
-  "n",
-  "n",
-  [[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]],
-  opts
-)
-vim.api.nvim_set_keymap(
-  "n",
-  "N",
-  [[<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>]],
-  opts
-)
-vim.api.nvim_set_keymap(
-  "n",
-  "*",
-  [[*<Cmd>lua require('hlslens').start()<CR>]],
-  opts
-)
-vim.api.nvim_set_keymap(
-  "n",
-  "#",
-  [[#<Cmd>lua require('hlslens').start()<CR>]],
-  opts
-)
 --dial
 vim.api.nvim_set_keymap(
   "n",

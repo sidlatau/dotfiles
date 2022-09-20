@@ -218,7 +218,6 @@ return packer.startup {
     use { "smartpde/telescope-recent-files" }
     use { "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" }
     use "mbbill/undotree"
-    use { "kevinhwang91/nvim-hlslens" }
     use {
       "monaqa/dial.nvim",
       config = function()
