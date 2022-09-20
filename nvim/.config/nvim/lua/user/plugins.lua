@@ -69,7 +69,6 @@ return packer.startup {
     use "hrsh7th/cmp-nvim-lsp-document-symbol"
 
     use { "akinsho/toggleterm.nvim", config = "require'user.toggleterm'" }
-    use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
     use { "folke/which-key.nvim", config = "require'user.whichkey'" }
     use "ThePrimeagen/harpoon"
 
