@@ -49,7 +49,6 @@ return packer.startup {
     use { "nvim-lualine/lualine.nvim", config = "require 'user.lualine'" }
     use { "numToStr/Comment.nvim", config = "require'user.comment'" }
     use "JoosepAlviste/nvim-ts-context-commentstring"
-    use "machakann/vim-highlightedyank"
     use "tpope/vim-surround"
     use "tpope/vim-repeat"
     use "tpope/vim-projectionist"
@@ -125,7 +124,6 @@ return packer.startup {
       requires = {
         "nvim-lua/plenary.nvim",
         "nvim-treesitter/nvim-treesitter",
-        "antoinemadec/FixCursorHold.nvim",
       },
       config = "require'user.test'",
     }

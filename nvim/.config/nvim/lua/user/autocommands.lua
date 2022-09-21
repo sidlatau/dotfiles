@@ -20,6 +20,17 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
   command = [[setlocal spell]],
 })
 
+vim.api.nvim_create_autocmd({ "TextYankPost" }, {
+  group = general_settings,
+  pattern = "*",
+  callback = function()
+    vim.highlight.on_yank {
+      higroup = "Search",
+      timeout = 150,
+    }
+  end,
+})
+
 vim.api.nvim_create_autocmd(
   { "CursorMoved", "BufWinEnter", "BufFilePost", "InsertEnter", "BufWritePost" },
   {
