@@ -27,5 +27,4 @@ return packer.startup(function(use)
   use "tpope/vim-surround"
   use "tpope/vim-repeat"
   use "tpope/vim-unimpaired"
-  use "machakann/vim-highlightedyank"
 end)
