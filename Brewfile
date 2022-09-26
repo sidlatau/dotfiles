@@ -14,7 +14,6 @@ brew "git"
 brew "lazygit"
 brew "mercurial"
 brew "neovim", args: ["HEAD"]
-brew "node"
 brew "openjdk"
 brew "rbenv"
 brew "ripgrep"
