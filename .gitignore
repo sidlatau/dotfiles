@@ -4,3 +4,6 @@ nvim/.config/nvim/plugin/packer_compiled.lua
 lazygit/Library/Application Support/lazygit/state.yml
 Session.vim
 Brewfile.lock.json
+vscode/Library/Application Support/Code
+!vscode/Library/Application Support/Code/User/keybindings.json
+!vscode/Library/Application Support/Code/User/settings.json
