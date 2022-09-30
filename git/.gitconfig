@@ -35,19 +35,20 @@
 	autoSetupRemote = true
 	rebase = true
 [merge]
-	tool = nvimdiff
+	tool = vimdiff1
 [mergetool "kdiff3"]
-	path = /usr/local/bin/kdiff3
+	path = /opt/homebrew/bin/kdiff3
 	trustExitCode = true
 [diff]
 	guitool = kdiff3
 [difftool "kdiff3"]
-	path = /usr/local/bin/kdiff3
+	path = /opt/homebrew/bin/kdiff3
 	trustExitCode = true
 [mergetool "diffconflicts"]
   cmd = nvim -c DiffConflicts \"$MERGED\" \"$BASE\" \"$LOCAL\" \"$REMOTE\"
   trustExitCode = true
 [mergetool]
 	keepBackup = false
+  hideResolved = true
 [init]
 	defaultBranch = main
