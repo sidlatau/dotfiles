@@ -35,7 +35,6 @@ vim.opt.showbreak = "ͱ"
 
 vim.opt.scrolloff = 8 -- is one of my fav
 vim.opt.sidescrolloff = 8
-vim.opt.guifont = "FiraCode Nerd Font" -- the font used in graphical neovim applications
 
 vim.opt.shortmess:append "c"
 
