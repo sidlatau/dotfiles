@@ -1,9 +1,7 @@
-if exists('b:did_ftplugin')
-  finish
-endif
-let b:did_ftplugin = 1
-
+vim.cmd [[
 setlocal fo+=r " Automatically insert comment string after hitting ENTER in insert mode
 
 setlocal isfname+=:
 setlocal iskeyword+=$
+]]
+vim.opt.spell = true

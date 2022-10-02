@@ -238,6 +238,7 @@ return packer.startup {
       ft = { "markdown" },
     }
     use { "RRethy/vim-illuminate" }
+    use { "psliwka/vim-dirtytalk", run = ":DirtytalkUpdate" }
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if PACKER_BOOTSTRAP then
