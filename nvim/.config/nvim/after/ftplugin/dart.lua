@@ -4,4 +4,4 @@ setlocal fo+=r " Automatically insert comment string after hitting ENTER in inse
 setlocal isfname+=:
 setlocal iskeyword+=$
 ]]
-vim.opt.spell = true
+vim.opt_local.spell = true
