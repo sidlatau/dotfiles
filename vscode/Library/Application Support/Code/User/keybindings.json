@@ -67,9 +67,4 @@
     "key": "shift+cmd+a",
     "command": "workbench.action.toggleActivityBarVisibility"
   },
-  {
-    "key": "space a",
-    "command": "editor.action.quickFix",
-    "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
-  }
 ]
