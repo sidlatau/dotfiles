@@ -191,7 +191,6 @@ local mappings = {
     name = "Git",
     f = { "<cmd>!fork<cr><cr>", "Open Fork app" },
     h = { "<cmd>DiffviewFileHistory %<cr>", "File history" },
-    H = { "<cmd>DiffviewClose<cr>", "File history close" },
     g = { require("user.toggleterm").lazygit_toggle, "Lazygit" },
     j = {
       function()
