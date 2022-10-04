@@ -44,17 +44,21 @@ M.setup = function()
 
   vim.diagnostic.config(config)
 
-  vim.lsp.handlers["textDocument/hover"] =
-    vim.lsp.with(vim.lsp.handlers.hover, {
+  -- vim.lsp.handlers["textDocument/hover"] =
+  --   vim.lsp.with(vim.lsp.handlers.hover, {
+  --     border = "rounded",
+  --   })
+  vim.lsp.handlers["textDocument/hover"] = function(...)
+    local hover_handler = vim.lsp.with(vim.lsp.handlers.hover, {
       border = "rounded",
     })
+    vim.b.lsp_hover_buf, vim.b.lsp_hover_win = hover_handler(...)
+  end
 
-  vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
-    vim.lsp.handlers.signature_help,
-    {
+  vim.lsp.handlers["textDocument/signatureHelp"] =
+    vim.lsp.with(vim.lsp.handlers.signature_help, {
       border = "rounded",
-    }
-  )
+    })
 end
 
 local function lsp_highlight_document(client, bufnr)
@@ -70,32 +74,20 @@ local function lsp_highlight_document(client, bufnr)
     })
   end
   if client.server_capabilities.documentHighlightProvider then
-    local lsp_document_highlight = vim.api.nvim_create_augroup(
-      "lsp_document_highlight",
-      {}
-    )
+    local lsp_document_highlight =
+      vim.api.nvim_create_augroup("lsp_document_highlight", {})
     vim.api.nvim_create_autocmd({ "CursorHold" }, {
       group = lsp_document_highlight,
       buffer = bufnr,
-      callback = function()
-        vim.diagnostic.open_float({ scope = "line" }, { focus = false })
+      callback = function(args)
+        if
+          vim.b.lsp_hover_win and vim.api.nvim_win_is_valid(vim.b.lsp_hover_win)
+        then
+          return
+        end
+        vim.diagnostic.open_float(args.buf, { scope = "line", focus = false })
       end,
     })
-    --FIXME: Flutter for some reason throws an error
-    -- vim.api.nvim_create_autocmd({ "CursorHold" }, {
-    --   group = lsp_document_highlight,
-    --   buffer = bufnr,
-    --   callback = function()
-    --     pcall(vim.lsp.buf.document_highlight)
-    --   end,
-    -- })
-    -- vim.api.nvim_create_autocmd({ "CursorMoved" }, {
-    --   group = lsp_document_highlight,
-    --   buffer = bufnr,
-    --   callback = function()
-    --     vim.lsp.buf.clear_references()
-    --   end,
-    -- })
   end
 end
 
