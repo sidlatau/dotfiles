@@ -183,4 +183,5 @@
   "gitlens.defaultDateLocale": null,
   "vscode-neovim.neovimExecutablePaths.darwin": "/opt/homebrew/bin/nvim",
   "gitlens.currentLine.enabled": false,
+  "workbench.activityBar.visible": false,
 }
