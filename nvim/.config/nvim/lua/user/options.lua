@@ -35,6 +35,7 @@ vim.opt.showbreak = "ͱ"
 
 vim.opt.scrolloff = 8 -- is one of my fav
 vim.opt.sidescrolloff = 8
+vim.opt.splitkeep = "screen"
 
 vim.opt.shortmess:append "c"
 
