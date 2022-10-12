@@ -176,12 +176,6 @@ return packer.startup {
     }
     use { "stevearc/dressing.nvim" }
     use {
-      "lukas-reineke/virt-column.nvim",
-      config = function()
-        require("virt-column").setup()
-      end,
-    }
-    use {
       "ethanholz/nvim-lastplace",
       event = "BufRead",
       config = function()

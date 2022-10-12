@@ -42,8 +42,6 @@ vim.opt.shortmess:append "c"
 vim.cmd "set whichwrap+=<,>,[,]"
 vim.cmd [[set iskeyword+=-]]
 
-vim.cmd "set colorcolumn=81"
-
 vim.cmd [[
 fun! TrimWhitespace()
     let l:save = winsaveview()
