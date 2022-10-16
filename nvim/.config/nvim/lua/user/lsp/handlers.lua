@@ -151,7 +151,7 @@ if not cmp_status_ok then
   return
 end
 
-M.capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
+M.capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
 
 local function lsp_execute_command(val)
   if val.edit or type(val.command) == "table" then

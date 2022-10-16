@@ -201,7 +201,7 @@ return packer.startup {
     }
     use "wsdjeg/vim-fetch"
     use "nvim-treesitter/playground"
-    use "folke/lua-dev.nvim"
+    use "folke/neodev.nvim"
     use {
       "petertriho/nvim-scrollbar",
       config = "require 'user.scrollbar'",
