@@ -185,6 +185,10 @@ local mappings = {
       "<cmd>FlutterDevices<CR>",
       "Flutter devices",
     },
+    o = {
+      "<cmd>FlutterOutlineToggle<CR>",
+      "Flutter outline",
+    },
   },
 
   g = {
