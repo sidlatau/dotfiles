@@ -3,6 +3,7 @@ require("neotest").setup {
     require "neotest-dart" {
       command = "fvm flutter",
     },
+    require "neotest-plenary",
   },
   icons = {
     expanded = "",
