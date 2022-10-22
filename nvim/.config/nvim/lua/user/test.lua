@@ -3,26 +3,15 @@ if not status_ok then
   return
 end
 
-local namespace = vim.api.nvim_create_namespace "neotest"
-vim.diagnostic.config({
-  virtual_text = {
-    format = function(diagnostic)
-      vim.pretty_print(diagnostic)
-      return diagnostic.message
-        :gsub("\n", " ")
-        :gsub("\t", " ")
-        :gsub("%s+", " ")
-        :gsub("^%s+", "")
-    end,
-  },
-}, namespace)
-
 neotest.setup {
   adapters = {
     require "neotest-dart" {
       command = "fvm flutter",
     },
     require "neotest-plenary",
+  },
+  output = {
+    open_on_run = false,
   },
   discovery = {
     enabled = false,
