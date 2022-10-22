@@ -97,8 +97,6 @@ return packer.startup {
       --"~/Documents/github/personal/neotest-dart"
       "sidlatau/neotest-dart",
     }
-    use "nvim-lua/lsp-status.nvim"
-
     use "nvim-telescope/telescope.nvim"
 
     -- Treesitter

@@ -1,10 +1,5 @@
 local M = {}
 
-vim.cmd [[
-highlight DiagnosticUnderlineError guifg=Red ctermfg=Red
-hi DiagnosticError guifg=Red ctermfg=Red
-]]
-
 M.setup = function()
   local signs = {
     { name = "DiagnosticSignError", text = "" },

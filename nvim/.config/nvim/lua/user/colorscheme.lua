@@ -5,6 +5,7 @@ vim.g.gruvbox_material_enable_bold = 0
 vim.g.gruvbox_material_visual = "green background"
 vim.g.gruvbox_material_show_eob = 0
 vim.g.gruvbox_material_diagnostic_text_highlight = 1
+vim.g.gruvbox_material_diagnostic_virtual_text = 1
 vim.g.gruvbox_material_enable_italic = 1
 
 local colorscheme = "gruvbox-material"
