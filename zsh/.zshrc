@@ -153,6 +153,13 @@ firebaseTokenDev() {
   | jq -r '.idToken'
 }
 
+firebaseTokenAdminDev() {
+  curl "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=$(gcloud secrets --project indusenz-dev versions access --secret=firebaseWebApiKey 1)" \
+  -H 'Content-Type: application/json' \
+  --data-binary '{"email":"admin@indusenz.com","password":"'$(gcloud secrets versions access --project indusenz-dev --secret=invenioWebAdmin latest)'","returnSecureToken":true}' \
+  | jq -r '.idToken'
+}
+
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/ts/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/ts/google-cloud-sdk/path.zsh.inc'; fi
 
