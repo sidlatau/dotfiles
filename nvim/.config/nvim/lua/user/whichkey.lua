@@ -157,6 +157,10 @@ local mappings = {
       "<cmd>TermExec cmd='fvm flutter pub run build_runner build --delete-conflicting-outputs'<CR>",
       "Run code generation",
     },
+    w = {
+      "<cmd>TermExec cmd='fvm flutter pub run build_runner watch'<CR>",
+      "Watch code generation",
+    },
     s = {
       require("user.toggleterm").regenerate_single_directory,
       "Reneration single directory",
