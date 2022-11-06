@@ -49,9 +49,12 @@ neo_tree.setup {
   },
   filesystem = {
     filtered_items = { --These filters are applied to both browsing and searching
-      visible = true,
+      visible = false,
       hide_dotfiles = false,
       hide_gitignored = true,
+      hide_by_pattern = { -- uses glob style patterns
+        "**/*.g.dart",
+      },
     },
     follow_current_file = true, -- This will find and focus the file in the active buffer every
     -- time the current file is changed while the tree is open.
