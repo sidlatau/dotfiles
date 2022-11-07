@@ -14,11 +14,27 @@ npairs.setup {
 }
 
 local cmp_autopairs = require "nvim-autopairs.completion.cmp"
+local handlers = require "nvim-autopairs.completion.handlers"
 local cmp_status_ok, cmp = pcall(require, "cmp")
 if not cmp_status_ok then
   return
 end
 cmp.event:on(
   "confirm_done",
-  cmp_autopairs.on_confirm_done { map_char = { tex = "" } }
+  cmp_autopairs.on_confirm_done {
+    filetypes = {
+      -- "*" is a alias to all filetypes
+      ["*"] = {
+        ["("] = {
+          kind = {
+            cmp.lsp.CompletionItemKind.Function,
+            cmp.lsp.CompletionItemKind.Method,
+          },
+          handler = handlers["*"],
+        },
+      },
+      -- Disable for tex
+      tex = false,
+    },
+  }
 )
