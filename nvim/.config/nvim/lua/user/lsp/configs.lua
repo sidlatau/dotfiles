@@ -14,6 +14,7 @@ local servers = {
   "sumneko_lua",
   "yamlls",
   "tsserver",
+  "gopls",
 }
 
 mason_lspconfig.setup {

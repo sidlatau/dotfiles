@@ -102,7 +102,6 @@ local function lsp_keymaps(bufnr)
   vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
   vim.keymap.set("n", "gl", vim.diagnostic.open_float, opts)
   vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
-  vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, opts)
 end
 
 M.on_attach = function(client, bufnr)
@@ -147,7 +146,7 @@ M.capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
 local function lsp_execute_command(val)
   if val.edit or type(val.command) == "table" then
     if val.edit then
-      vim.lsp.util.apply_workspace_edit(val.edit)
+      vim.lsp.util.apply_workspace_edit(val.edit, "utf-8")
     end
     if type(val.command) == "table" then
       vim.lsp.buf.execute_command(val.command)
