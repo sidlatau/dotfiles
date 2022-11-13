@@ -256,6 +256,12 @@ return packer.startup {
     use { "psliwka/vim-dirtytalk", run = ":DirtytalkUpdate" }
     use { "nvim-neotest/neotest-plenary" }
     use { "inkarkat/vim-ReplaceWithRegister" }
+    use {
+      "ray-x/go.nvim",
+      config = function()
+        require("go").setup()
+      end,
+    }
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if PACKER_BOOTSTRAP then
