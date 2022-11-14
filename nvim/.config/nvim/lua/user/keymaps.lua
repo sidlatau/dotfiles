@@ -122,3 +122,7 @@ keymap("v", "g<C-a>", require("dial.map").inc_gvisual())
 keymap("v", "g<C-x>", require("dial.map").dec_gvisual())
 keymap("n", "<leader>r", "<Plug>ReplaceWithRegisterOperator")
 keymap("x", "<leader>r", "<Plug>ReplaceWithRegisterVisual")
+
+keymap("n", " <C-u>", "<C-u>zz")
+keymap("n", " <C-d>", "<C-d>zz")
+keymap("n", " n", "nzz")
