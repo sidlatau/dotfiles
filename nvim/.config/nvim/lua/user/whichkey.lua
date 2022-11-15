@@ -299,7 +299,13 @@ local mappings = {
     R = { "<cmd>Telescope registers<cr>", "Registers" },
     k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
     C = { "<cmd>Telescope commands<cr>", "Commands" },
-
+    s = {
+      ":lua require('telescope.builtin').grep_string(require('telescope.themes').get_dropdown({layout_config = {width = 0.8}}))<CR>",
+      "Word under cursor",
+    },
+  },
+  n = {
+    name = "Navigate",
     s = { "<cmd>Estate<cr>", "state" },
     r = { "<cmd>Ereducer<cr>", "reducer" },
     a = { "<cmd>Eactions<cr>", "actions" },
