@@ -4,14 +4,10 @@ if not status_ok then
 end
 
 scrollbar.setup {
-  handle = {
-    color = "#1d2021",
+  handlers = {
+    handle = false,
   },
   marks = {
-    Error = { highlight = "DiagnosticError" },
-    Warn = { highlight = "DiagnosticSignWarning" },
-    Info = { highlight = "DiagnosticSignInfo" },
-    Hint = { highlight = "DiagnosticSignHing" },
-    Mics = { highlight = "DiagnosticSignWarning" },
+    Cursor = { text = "" },
   },
 }
