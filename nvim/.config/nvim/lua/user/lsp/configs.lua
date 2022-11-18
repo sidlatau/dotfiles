@@ -21,7 +21,10 @@ mason_lspconfig.setup {
   ensure_installed = servers,
 }
 
-require("neodev").setup {}
+local neodev_status_ok, neodev = pcall(require, "neodev")
+if neodev_status_ok then
+  neodev.setup {}
+end
 
 for _, server in pairs(servers) do
   local opts = {
