@@ -241,14 +241,8 @@ local mappings = {
     c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
     t = { "<cmd>0Gclog<cr>", "File timeline" },
     d = {
-      "<cmd>Gitsigns diffthis HEAD<cr>",
+      "<cmd>DiffviewOpen<cr>",
       "Diff",
-    },
-    D = {
-      function()
-        require("gitsigns").diffthis "~"
-      end,
-      "Diff ~",
     },
     s = { "<cmd>.GBrowse<cr>", "Show in GitHub" },
     z = {
