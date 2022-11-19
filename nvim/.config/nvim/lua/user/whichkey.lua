@@ -277,7 +277,13 @@ local mappings = {
     },
     l = { vim.lsp.codelens.run, "CodeLens Action" },
     q = { "<cmd>Trouble workspace_diagnostics<cr>", "Quickfix" },
-    r = { vim.lsp.buf.rename, "Rename" },
+    r = {
+      function()
+        require("dart-lsp-refactorings").rename()
+        -- vim.lsp.buf.rename()
+      end,
+      "Rename",
+    },
     s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
     S = {
       "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",

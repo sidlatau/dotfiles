@@ -166,12 +166,6 @@ return packer.startup {
       "lukas-reineke/indent-blankline.nvim",
       config = require "user.indentline"(),
     }
-    use {
-      "lukas-reineke/lsp-format.nvim",
-      config = function()
-        require("lsp-format").setup {}
-      end,
-    }
     use { "stevearc/dressing.nvim" }
     use {
       "ethanholz/nvim-lastplace",
@@ -261,6 +255,9 @@ return packer.startup {
       config = function()
         require("go").setup()
       end,
+    }
+    use {
+      "~/Documents/github/personal/dart-lsp-refactorings.nvim",
     }
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
