@@ -92,6 +92,7 @@ local function lsp_keymaps(bufnr)
   vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
   vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
   vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
+  vim.keymap.set("i", "<C-'>", vim.lsp.buf.signature_help, opts)
   vim.keymap.set("n", "gr", function()
     require("telescope.builtin").lsp_references(
       require("telescope.themes").get_dropdown {

@@ -8,21 +8,11 @@ if not snip_status_ok then
   return
 end
 
-local function feed(key, mode)
-  vim.api.nvim_feedkeys(
-    vim.api.nvim_replace_termcodes(key, true, true, true),
-    mode or "",
-    true
-  )
-end
-
 local function tab(fallback)
   if cmp.visible() then
     cmp.select_next_item()
   elseif vim.api.nvim_get_mode().mode == "c" then
     fallback()
-  else
-    feed "<Plug>(Tabout)"
   end
 end
 
@@ -31,8 +21,6 @@ local function shift_tab(fallback)
     cmp.select_prev_item()
   elseif vim.api.nvim_get_mode().mode == "c" then
     fallback()
-  else
-    feed "<Plug>(TaboutBack)"
   end
 end
 
