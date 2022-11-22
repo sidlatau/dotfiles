@@ -148,7 +148,8 @@ return packer.startup {
     use "tpope/vim-rhubarb"
     use "tpope/vim-abolish"
     use {
-      "nvim-neo-tree/neo-tree.nvim",
+      -- "nvim-neo-tree/neo-tree.nvim",
+      "~/Documents/github/personal/neo-tree.nvim",
       branch = "v2.x",
       requires = {
         "nvim-lua/plenary.nvim",
@@ -257,7 +258,15 @@ return packer.startup {
       end,
     }
     use {
+      -- "sidlatau/dart-lsp-refactorings.nvim"
       "~/Documents/github/personal/dart-lsp-refactorings.nvim",
+    }
+    use {
+      -- "sidlatau/lsp-format.nvim",
+      "~/Documents/github/personal/lsp-format.nvim",
+      config = function()
+        require("lsp-format").setup {}
+      end,
     }
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
