@@ -262,8 +262,7 @@ return packer.startup {
       -- "~/Documents/github/personal/dart-lsp-refactorings.nvim",
     }
     use {
-      "sidlatau/lsp-format.nvim",
-      -- "~/Documents/github/personal/lsp-format.nvim",
+      "lukas-reineke/lsp-format.nvim",
       config = function()
         require("lsp-format").setup {}
       end,
