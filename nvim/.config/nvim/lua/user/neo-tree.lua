@@ -142,4 +142,12 @@ neo_tree.setup {
       },
     },
   },
+  hooks = {
+    on_rename_file = function(data)
+      local ok, refact = pcall(require, "dart-lsp-refactorings")
+      if ok then
+        refact.on_rename_file(data)
+      end
+    end,
+  },
 }
