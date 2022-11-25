@@ -170,3 +170,6 @@ if [ -f '/Users/ts/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/ts/goo
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+# Amount of open files
+ulimit -n 4096
