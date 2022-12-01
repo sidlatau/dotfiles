@@ -158,19 +158,15 @@
   "redhat.telemetry.enabled": false,
   "editor.formatOnSave": true,
   "security.workspace.trust.untrustedFiles": "open",
-  "GitLive.Issue tracker integration": "Disabled",
-  "terminal.integrated.fontFamily": "MesloLGS NF",
   "gitlens.advanced.messages": {
     "suppressGitMissingWarning": true
   },
   "editor.accessibilitySupport": "off",
-  "workbench.list.automaticKeyboardNavigation": false,
   "explorer.confirmDelete": false,
   "cSpell.enabled": false,
   "[jsonc]": {
     "editor.defaultFormatter": "vscode.json-language-features"
   },
-  "editor.fontFamily": "MesloLGS NF",
   "editor.fontSize": 14,
   "terminal.integrated.persistentSessionReviveProcess": "never",
   "dart.previewFlutterUiGuides": true,
@@ -181,7 +177,7 @@
   "terminal.external.osxExec": "iTerm.app",
   "gitlens.defaultDateFormat": null,
   "gitlens.defaultDateLocale": null,
-  "vscode-neovim.neovimExecutablePaths.darwin": "/opt/homebrew/bin/nvim",
   "gitlens.currentLine.enabled": false,
   "workbench.activityBar.visible": false,
+  "terminal.integrated.fontFamily": "Hack Nerd Font Mono",
 }
