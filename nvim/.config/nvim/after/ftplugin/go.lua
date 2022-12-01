@@ -1,4 +1,4 @@
-vim.keymap.set("n", "<leader>rr", "<cmd>GoRun<cr>", { buffer = 0 })
+vim.keymap.set("n", "<leader>rr", "<cmd>w<cr><cmd>GoRun<cr>", { buffer = 0 })
 
 vim.keymap.set("n", "<leader>q", function()
   local qf_exists = false

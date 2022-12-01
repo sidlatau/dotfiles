@@ -253,9 +253,8 @@ return packer.startup {
     use { "inkarkat/vim-ReplaceWithRegister" }
     use {
       "ray-x/go.nvim",
-      config = function()
-        require("go").setup()
-      end,
+      requires = "ray-x/guihua.lua",
+      config = "require 'user.go'",
     }
     use {
       "sidlatau/dart-lsp-refactorings.nvim",
