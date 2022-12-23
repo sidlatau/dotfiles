@@ -29,13 +29,8 @@ local filetype = {
 
 local branch = {
   "branch",
-  icons_enabled = true,
   icon = "",
-}
-
-local location = {
-  "location",
-  padding = 0,
+  separator = { left = "", right = "" },
 }
 
 local spaces = function()
@@ -103,49 +98,6 @@ local function lsp_client()
   return table.concat(names, ", ")
 end
 
-local ultest = {
-  function()
-    local status = vim.api.nvim_eval "ultest#status()"
-
-    local sections = {
-      {
-        sign = vim.g.ultest_fail_sign,
-        count = status.failed,
-        base = "UltestFail",
-        tag = "test_fail",
-      },
-      {
-        sign = vim.g.ultest_running_sign,
-        count = status.running,
-        base = "UltestRunning",
-        tag = "test_running",
-      },
-      {
-        sign = vim.g.ultest_pass_sign,
-        count = status.passed,
-        base = "UltestPass",
-        tag = "test_pass",
-      },
-    }
-
-    local result = {}
-    for _, section in ipairs(sections) do
-      if section.count > 0 then
-        table.insert(
-          result,
-          "%#" .. section.base .. "#" .. section.sign .. section.count
-        )
-      end
-    end
-
-    return table.concat(result, " ")
-  end,
-  cond = function()
-    local is_ok, is_test = pcall(vim.api.nvim_eval, "ultest#is_test_file()")
-    return is_ok and is_test == 1
-  end,
-}
-
 lualine.setup {
   options = {
     icons_enabled = true,
@@ -156,17 +108,17 @@ lualine.setup {
     always_divide_middle = true,
   },
   sections = {
-    lualine_a = { branch, workspace_diagnostic },
+    lualine_a = { branch },
     lualine_b = { mode },
-    lualine_c = { ultest },
+    lualine_c = { workspace_diagnostic },
     lualine_x = {
       diff,
       spaces,
       "encoding",
       filetype,
     },
-    lualine_y = { location },
-    lualine_z = { lsp_client },
+    lualine_y = { "location" },
+    lualine_z = { { lsp_client, separator = { left = "", right = "" } } },
   },
   inactive_sections = {
     lualine_a = {},
