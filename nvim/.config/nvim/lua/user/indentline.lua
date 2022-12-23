@@ -4,9 +4,9 @@ return function()
     return
   end
   indent.setup {
-    char = "", -- ┆ ┊
+    char = "┊", -- ┆ ┊
     show_foldtext = false,
-    show_current_context = true,
+    show_current_context = false,
     show_current_context_start = false,
     show_current_context_start_on_current_line = false,
     show_first_indent_level = true,
