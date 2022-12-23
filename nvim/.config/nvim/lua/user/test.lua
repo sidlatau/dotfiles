@@ -25,19 +25,6 @@ neotest.setup {
     max_width = 0.8,
     options = {},
   },
-  icons = {
-    expanded = "",
-    child_prefix = "",
-    child_indent = "",
-    final_child_prefix = "",
-    non_collapsible = "",
-    collapsed = "",
-
-    passed = "",
-    running = "",
-    failed = "",
-    unknown = "",
-  },
 }
 local opts = { noremap = true, silent = true }
 
