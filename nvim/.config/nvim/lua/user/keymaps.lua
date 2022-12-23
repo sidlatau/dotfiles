@@ -114,12 +114,15 @@ SetupCommandAlias("Qa", "qa")
 keymap("i", "<C-y>", "<C-k>")
 
 --dial
-keymap("n", "<C-a>", require("dial.map").inc_normal())
-keymap("n", "<C-x>", require("dial.map").dec_normal())
-keymap("v", "<C-a>", require("dial.map").inc_visual())
-keymap("v", "<C-x>", require("dial.map").dec_visual())
-keymap("v", "g<C-a>", require("dial.map").inc_gvisual())
-keymap("v", "g<C-x>", require("dial.map").dec_gvisual())
+local status_ok, dial = pcall(require, "dial.map")
+if status_ok then
+  keymap("n", "<C-a>", dial.inc_normal())
+  keymap("n", "<C-x>", dial.dec_normal())
+  keymap("v", "<C-a>", dial.inc_visual())
+  keymap("v", "<C-x>", dial.dec_visual())
+  keymap("v", "g<C-a>", dial.inc_gvisual())
+  keymap("v", "g<C-x>", dial.dec_gvisual())
+end
 keymap("n", "<leader>r", "<Plug>ReplaceWithRegisterOperator")
 keymap("x", "<leader>r", "<Plug>ReplaceWithRegisterVisual")
 
