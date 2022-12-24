@@ -82,7 +82,10 @@ return packer.startup {
       config = "require'user.lsp-fastaction'",
     }
     use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
-    use "jose-elias-alvarez/nvim-lsp-ts-utils"
+    use {
+      "jose-elias-alvarez/typescript.nvim",
+      config = "require'user.typescript'",
+    }
 
     use {
       "akinsho/flutter-tools.nvim",

@@ -8,6 +8,16 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   end,
 })
 
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+  group = fix_all_on_save,
+  pattern = "*.ts,*.tsx",
+  callback = function()
+    require("typescript").actions.addMissingImports()
+    require("typescript").actions.removeUnused()
+    require("typescript").actions.fixAll()
+  end,
+})
+
 local general_settings = vim.api.nvim_create_augroup("general_settings", {})
 vim.api.nvim_create_autocmd({ "FileType" }, {
   group = general_settings,
@@ -39,11 +49,3 @@ vim.api.nvim_create_autocmd(
     end,
   }
 )
-
--- Format on save (using lsp-format plugin for now)
--- vim.api.nvim_create_autocmd({ "BufWritePre" }, {
---   pattern = "*",
---   callback = function()
---     vim.lsp.buf.format { async = false }
---   end,
--- })
