@@ -37,16 +37,5 @@ for _, server in pairs(servers) do
   if has_custom_opts then
     opts = vim.tbl_deep_extend("force", server_custom_opts, opts)
   end
-  if server == "sumneko_lua" then
-    lspconfig.sumneko_lua.setup {
-      settings = {
-        Lua = {
-          completion = {
-            callSnippet = "Replace",
-          },
-        },
-      },
-    }
-  end
   lspconfig[server].setup(opts)
 end
