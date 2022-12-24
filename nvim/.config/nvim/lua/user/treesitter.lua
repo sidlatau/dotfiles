@@ -1,10 +1,22 @@
 local configs = require "nvim-treesitter.configs"
 configs.setup {
-  ensure_installed = { "lua", "dart", "go" },
+  ensure_installed = {
+    "lua",
+    "dart",
+    "go",
+    "tsx",
+    "html",
+    "typescript",
+    "javascript",
+  },
   sync_install = false,
   ignore_install = { "" }, -- List of parsers to ignore installing
   highlight = {
     enable = true,
+  },
+  context_commentstring = {
+    enable = true,
+    enable_autocmd = false,
   },
   textobjects = {
     select = {
