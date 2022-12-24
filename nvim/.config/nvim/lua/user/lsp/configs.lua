@@ -13,10 +13,11 @@ local servers = {
   "jsonls",
   "sumneko_lua",
   "yamlls",
-  "tsserver",
   "gopls",
   "eslint",
 }
+
+require("typescript").setup {}
 
 mason_lspconfig.setup {
   ensure_installed = servers,

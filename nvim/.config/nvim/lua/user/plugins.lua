@@ -84,7 +84,6 @@ return packer.startup {
     use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
     use {
       "jose-elias-alvarez/typescript.nvim",
-      config = "require'user.typescript'",
     }
 
     use {
