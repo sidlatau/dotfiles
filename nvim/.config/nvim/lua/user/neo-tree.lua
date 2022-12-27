@@ -54,6 +54,7 @@ neo_tree.setup {
       hide_gitignored = true,
       hide_by_pattern = { -- uses glob style patterns
         "**/*.g.dart",
+        "**/*.freezed.dart",
       },
     },
     follow_current_file = true, -- This will find and focus the file in the active buffer every

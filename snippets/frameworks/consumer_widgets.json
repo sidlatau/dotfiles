@@ -5,7 +5,7 @@
     "description": "Create a ConsumerStatelessWidget",
     "body": [
       "class $1 extends ConsumerWidget {",
-      "\tconst $1({super.key})\n",
+      "\tconst $1({super.key});\n",
       "\t@override",
       "\tWidget build(BuildContext context, WidgetRef ref) {",
       "\t\treturn Container();",
@@ -35,11 +35,7 @@
     "scope": "dart",
     "prefix": "provider",
     "description": "Create a simple Provider",
-    "body": [
-      "final $1Provider = Provider<$2>((ref) {",
-      "\treturn $3;",
-      "});"
-    ]
+    "body": ["final $1Provider = Provider<$2>((ref) {", "\treturn $3;", "});"]
   },
   "Provider with Family": {
     "scope": "dart",
