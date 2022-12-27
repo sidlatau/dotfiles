@@ -267,6 +267,14 @@ return packer.startup {
         require("lsp-format").setup {}
       end,
     }
+    use {
+      "andrewferrier/debugprint.nvim",
+      config = function()
+        require("debugprint").setup {
+          print_tag = "D-->",
+        }
+      end,
+    }
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if PACKER_BOOTSTRAP then
