@@ -66,6 +66,16 @@ return packer.startup {
     use "hrsh7th/cmp-nvim-lsp"
     use "hrsh7th/cmp-nvim-lua"
     use "hrsh7th/cmp-nvim-lsp-document-symbol"
+    use {
+      "ray-x/lsp_signature.nvim",
+      config = function()
+        local signature_config = {
+          hint_enable = false,
+          transparency = 30,
+        }
+        require("lsp_signature").setup(signature_config)
+      end,
+    }
 
     use { "akinsho/toggleterm.nvim", config = "require'user.toggleterm'" }
     use { "folke/which-key.nvim", config = "require'user.whichkey'" }

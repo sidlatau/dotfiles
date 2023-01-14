@@ -8,6 +8,11 @@ configs.setup {
     "html",
     "typescript",
     "javascript",
+    "vim",
+    "bash",
+    "markdown",
+    "markdown_inline",
+    "regex",
   },
   sync_install = false,
   ignore_install = { "" }, -- List of parsers to ignore installing
