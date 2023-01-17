@@ -72,6 +72,7 @@ return packer.startup {
         local signature_config = {
           hint_enable = false,
           transparency = 30,
+          toggle_key = "<C-x>",
         }
         require("lsp_signature").setup(signature_config)
       end,
