@@ -25,6 +25,9 @@ neotest.setup {
     max_width = 0.8,
     options = {},
   },
+  quickfix = {
+    enabled = false,
+  },
 }
 local opts = { noremap = true, silent = true }
 
