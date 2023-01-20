@@ -82,7 +82,11 @@ return packer.startup {
     use "ThePrimeagen/harpoon"
 
     -- snippets
-    use { "L3MON4D3/LuaSnip", run = "make install_jsregexp" }
+    use {
+      "L3MON4D3/LuaSnip",
+      run = "make install_jsregexp",
+      branch = "parser-cases",
+    }
 
     -- LSP
     use "neovim/nvim-lspconfig" -- enable LSP
