@@ -85,7 +85,6 @@ return packer.startup {
     use {
       "L3MON4D3/LuaSnip",
       run = "make install_jsregexp",
-      branch = "parser-cases",
     }
 
     -- LSP
