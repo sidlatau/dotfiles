@@ -63,24 +63,6 @@ nnoremap <expr> j v:count ? 'j' : 'gj'
 nnoremap <expr> k v:count ? 'k' : 'gk'
 ]]
 
-vim.keymap.set("n", "<F3>", function()
-  require("dapui").eval()
-end)
-vim.keymap.set("n", "<F5>", function()
-  require("dap").continue()
-end)
-vim.keymap.set("n", "<F10>", function()
-  -- Should provide fake granularity until https://github.com/flutter/flutter/issues/105856
-  -- is fixed
-  require("dap").step_over { granularity = { not_used = true } }
-end)
-vim.keymap.set("n", "<F11>", function()
-  require("dap").step_into { granularity = { not_used = true } }
-end)
-vim.keymap.set("n", "<F12>", function()
-  require("dap").step_out { granularity = { not_used = true } }
-end)
-
 function _G.abbreviate_or_noop(input, output)
   local cmdtype = vim.fn.getcmdtype()
   local cmdline = vim.fn.getcmdline()
