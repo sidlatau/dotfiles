@@ -142,12 +142,6 @@ return packer.startup {
     }
 
     use { "mfussenegger/nvim-dap", config = "require'user.dap'" }
-    use {
-      "rcarriga/nvim-dap-ui",
-      config = function()
-        require("dapui").setup()
-      end,
-    }
     use "nvim-telescope/telescope-dap.nvim"
     use "vim-scripts/BufOnly.vim"
     use {
@@ -265,11 +259,11 @@ return packer.startup {
     use { "psliwka/vim-dirtytalk", run = ":DirtytalkUpdate" }
     use { "nvim-neotest/neotest-plenary" }
     use { "inkarkat/vim-ReplaceWithRegister" }
-    use {
-      "ray-x/go.nvim",
-      requires = "ray-x/guihua.lua",
-      config = "require 'user.go'",
-    }
+    -- use {
+    --   "ray-x/go.nvim",
+    --   requires = "ray-x/guihua.lua",
+    --   config = "require 'user.go'",
+    -- }
     use {
       "sidlatau/dart-lsp-refactorings.nvim",
       -- "~/Documents/github/personal/dart-lsp-refactorings.nvim",

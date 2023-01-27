@@ -14,6 +14,7 @@ M.winbar_filetype_exclude = {
   "spectre_panel",
   "toggleterm",
   "neo-tree",
+  "dap-float",
 }
 
 local get_filename = function()
@@ -70,12 +71,8 @@ M.get_winbar = function()
     value = value .. " " .. mod
   end
 
-  local status_ok, _ = pcall(
-    vim.api.nvim_set_option_value,
-    "winbar",
-    value,
-    { scope = "local" }
-  )
+  local status_ok, _ =
+    pcall(vim.api.nvim_set_option_value, "winbar", value, { scope = "local" })
   if not status_ok then
     return
   end

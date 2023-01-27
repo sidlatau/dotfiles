@@ -368,7 +368,7 @@ local mappings = {
       end,
       "Toggle Breakpoint",
     },
-    C = {
+    c = {
       function()
         require("dap").run_to_cursor()
       end,
@@ -380,11 +380,11 @@ local mappings = {
       end,
       "Toggle Repl",
     },
-    s = {
+    C = {
       function()
         require("dap").continue()
       end,
-      "Start",
+      "Start/Continue",
     },
     q = {
       function()
@@ -394,16 +394,9 @@ local mappings = {
     },
     d = {
       function()
-        require("dapui").toggle()
+        require("dap.ui.widgets").hover()
       end,
-      "UI",
-    },
-    e = {
-      function()
-        ---@diagnostic disable-next-line: missing-parameter
-        require("dapui").eval()
-      end,
-      "Eval",
+      "Hover",
     },
     v = {
       function()
@@ -417,6 +410,33 @@ local mappings = {
         require("telescope").extensions.dap.frames()
       end,
       "Frames",
+    },
+    o = {
+      function()
+        require("dap").step_over()
+      end,
+      "Step Over",
+    },
+    i = {
+      function()
+        require("dap").step_into()
+      end,
+      "Step Into",
+    },
+    s = {
+      function()
+        local widgets = require "dap.ui.widgets"
+        widgets.centered_float(widgets.threads)
+      end,
+      "Threads",
+    },
+    S = {
+      function()
+        local widgets = require "dap.ui.widgets"
+        local my_sidebar = widgets.sidebar(widgets.scopes)
+        my_sidebar.open()
+      end,
+      "Sidebar",
     },
   },
 }

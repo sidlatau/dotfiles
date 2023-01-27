@@ -21,7 +21,7 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 local general_settings = vim.api.nvim_create_augroup("general_settings", {})
 vim.api.nvim_create_autocmd({ "FileType" }, {
   group = general_settings,
-  pattern = "qf,help,man,lspinfo",
+  pattern = "qf,help,man,lspinfo,dap-float",
   command = [[nnoremap <silent> <buffer> q :close<CR>]],
 })
 vim.api.nvim_create_autocmd({ "FileType" }, {
