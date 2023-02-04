@@ -418,7 +418,7 @@ local mappings = {
       end,
       "Frames",
     },
-    f = {
+    b = {
       function()
         require("telescope").extensions.dap.list_breakpoints()
       end,
