@@ -119,4 +119,22 @@ M.live_grep = function()
   )
 end
 
+M.grep_string = function()
+  local opts = {
+    additional_args = function()
+      return { "--hidden" }
+    end,
+    layout_config = { width = 0.8 },
+  }
+  require("telescope.builtin").grep_string(
+    require("telescope.themes").get_dropdown { opts }
+  )
+end
+
+M.git_status = function()
+  require("telescope.builtin").git_status(
+    require("telescope.themes").get_dropdown {}
+  )
+end
+
 return M

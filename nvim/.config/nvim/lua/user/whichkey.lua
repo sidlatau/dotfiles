@@ -236,7 +236,13 @@ local mappings = {
       end,
       "Reset Buffer",
     },
-    o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
+    o = {
+
+      function()
+        require("user.telescope_config").git_status()
+      end,
+      "Open changed file",
+    },
     b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
     c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
     t = { "<cmd>0Gclog<cr>", "File timeline" },
@@ -292,7 +298,6 @@ local mappings = {
   },
   s = {
     name = "Search",
-    b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
     c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
     h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
     M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
@@ -300,7 +305,9 @@ local mappings = {
     k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
     C = { "<cmd>Telescope commands<cr>", "Commands" },
     s = {
-      ":lua require('telescope.builtin').grep_string(require('telescope.themes').get_dropdown({layout_config = {width = 0.8}}))<CR>",
+      function()
+        require("user.telescope_config").grep_string()
+      end,
       "Word under cursor",
     },
   },
@@ -408,6 +415,12 @@ local mappings = {
     f = {
       function()
         require("telescope").extensions.dap.frames()
+      end,
+      "Frames",
+    },
+    f = {
+      function()
+        require("telescope").extensions.dap.list_breakpoints()
       end,
       "Frames",
     },
