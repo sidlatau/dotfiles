@@ -152,7 +152,6 @@ return packer.startup {
     }
     use "milch/vim-fastlane"
     use "delphinus/vim-firestore"
-    use "tpope/vim-obsession"
     use "tpope/vim-fugitive"
     use "tpope/vim-rhubarb"
     use "tpope/vim-abolish"
@@ -279,6 +278,20 @@ return packer.startup {
       config = function()
         require("debugprint").setup {
           print_tag = "D-->",
+        }
+      end,
+    }
+    use {
+      "rmagatti/auto-session",
+      config = function()
+        require("auto-session").setup {
+          log_level = "error",
+          auto_session_suppress_dirs = {
+            "~/",
+            "~/Documents/github",
+            "~/Downloads",
+            "/",
+          },
         }
       end,
     }
