@@ -37,7 +37,7 @@ flutter_tools.setup {
     -- don't pause on exception in flutter
     exception_breakpoints = {},
   },
-  fvm = true,
+  fvm = false,
   widget_guides = {
     enabled = true,
   },
