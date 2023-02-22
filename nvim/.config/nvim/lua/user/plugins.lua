@@ -295,6 +295,13 @@ return packer.startup {
         }
       end,
     }
+    use {
+      "akinsho/pubspec-assist.nvim",
+      requires = "plenary.nvim",
+      config = function()
+        require("pubspec-assist").setup {}
+      end,
+    }
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if PACKER_BOOTSTRAP then
