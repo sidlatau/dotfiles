@@ -162,7 +162,9 @@ local mappings = {
       "Watch code generation",
     },
     s = {
-      require("user.toggleterm").regenerate_single_directory,
+      function()
+        require("user.toggleterm").regenerate_single_directory()
+      end,
       "Reneration single directory",
     },
     g = {
@@ -199,7 +201,12 @@ local mappings = {
     name = "Git",
     f = { "<cmd>!fork<cr><cr>", "Open Fork app" },
     h = { "<cmd>DiffviewFileHistory %<cr>", "File history" },
-    g = { require("user.toggleterm").lazygit_toggle, "Lazygit" },
+    g = {
+      function()
+        require("user.toggleterm").lazygit_toggle()
+      end,
+      "Lazygit",
+    },
     j = {
       function()
         require("gitsigns").next_hunk()

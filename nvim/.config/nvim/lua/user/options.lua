@@ -61,7 +61,6 @@ vim.g.neovide_cursor_vfx_mode = "sonicboom"
 vim.opt.laststatus = 3
 
 vim.opt.spelloptions:append { "camel", "noplainbuffer" }
-vim.opt.spelllang:append "programming"
 vim.opt.spellcapcheck = "" -- don't check for capital letters at start of sentence
 
 vim.cmd [[
