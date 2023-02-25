@@ -153,7 +153,7 @@ local mappings = {
     },
     e = { "<cmd>FlutterEmulators<CR>", "Emulators" },
     r = { "<cmd>FlutterRestart<CR>", "Restart" },
-    b = {
+    B = {
       "<cmd>TermExec cmd='fvm flutter pub run build_runner build --delete-conflicting-outputs'<CR>",
       "Run code generation",
     },
@@ -161,7 +161,7 @@ local mappings = {
       "<cmd>TermExec cmd='fvm flutter pub run build_runner watch'<CR>",
       "Watch code generation",
     },
-    s = {
+    b = {
       function()
         require("user.toggleterm").regenerate_single_directory()
       end,
@@ -194,6 +194,14 @@ local mappings = {
     o = {
       "<cmd>FlutterOutlineToggle<CR>",
       "Flutter outline",
+    },
+    m = {
+      "<cmd>FlutterRun --dart-define=flavor=mobileworker --flavor mobileworker<CR>",
+      "Start Mobile Worker flavor",
+    },
+    s = {
+      "<cmd>FlutterRun --dart-define=flavor=speedycraft --flavor speedycraft<CR>",
+      "Start Speedycraft flavor",
     },
   },
 
