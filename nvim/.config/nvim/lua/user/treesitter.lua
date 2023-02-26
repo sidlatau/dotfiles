@@ -14,6 +14,7 @@ configs.setup {
     "markdown_inline",
     "regex",
     "c_sharp",
+    "kotlin",
   },
   sync_install = false,
   ignore_install = { "" }, -- List of parsers to ignore installing
