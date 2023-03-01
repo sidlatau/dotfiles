@@ -1,101 +1,132 @@
-local status_ok, gitsigns = pcall(require, "gitsigns")
-if not status_ok then
-  return
-end
+return {
+  "nvim-lua/popup.nvim",
+  "nvim-lua/plenary.nvim",
+  "kyazdani42/nvim-web-devicons",
+  "moll/vim-bbye",
+  "JoosepAlviste/nvim-ts-context-commentstring",
+  "tpope/vim-surround",
+  "tpope/vim-repeat",
+  "tpope/vim-projectionist",
+  "sainnhe/gruvbox-material", -- color scheme
+  "tpope/vim-unimpaired",
 
-gitsigns.setup {
-  signs = {
-    add = {
-      hl = "GitSignsAdd",
-      text = "│",
-      numhl = "GitSignsAddNr",
-      linehl = "GitSignsAddLn",
-    },
-    change = {
-      hl = "GitSignsChange",
-      text = "│",
-      numhl = "GitSignsChangeNr",
-      linehl = "GitSignsChangeLn",
-    },
-    delete = {
-      text = "_",
-      numhl = "GitSignsDeleteNr",
-      linehl = "GitSignsDeleteLn",
-    },
-    topdelete = {
-      hl = "GitSignsDelete",
-      text = "‾",
-      numhl = "GitSignsDeleteNr",
-      linehl = "GitSignsDeleteLn",
-    },
-    changedelete = {
-      hl = "GitSignsChange",
-      text = "~",
-      numhl = "GitSignsChangeNr",
-      linehl = "GitSignsChangeLn",
-    },
-  },
-  signcolumn = true, -- Toggle with `:Gitsigns toggle_signs`
-  numhl = false, -- Toggle with `:Gitsigns toggle_numhl`
-  linehl = false, -- Toggle with `:Gitsigns toggle_linehl`
-  word_diff = false, -- Toggle with `:Gitsigns toggle_word_diff`
-  watch_gitdir = {
-    interval = 1000,
-    follow_files = true,
-  },
-  attach_to_untracked = true,
-  current_line_blame = false, -- Toggle with `:Gitsigns toggle_current_line_blame`
-  current_line_blame_opts = {
-    virt_text = true,
-    virt_text_pos = "eol", -- 'eol' | 'overlay' | 'right_align'
-    delay = 1000,
-    ignore_whitespace = true,
-  },
-  current_line_blame_formatter = "<author>, <author_time:%Y-%m-%d> - <summary>",
-  sign_priority = 6,
-  update_debounce = 100,
-  status_formatter = nil, -- Use default
-  max_file_length = 40000,
-  preview_config = {
-    -- Options passed to nvim_open_win
-    border = "single",
-    style = "minimal",
-    relative = "cursor",
-    row = 0,
-    col = 1,
-  },
-  yadm = {
-    enable = false,
-  },
-  on_attach = function(bufnr)
-    local function map(mode, l, r, opts)
-      opts = opts or {}
-      opts.buffer = bufnr
-      vim.keymap.set(mode, l, r, opts)
-    end
+  "hrsh7th/cmp-buffer",
+  "hrsh7th/cmp-path",
+  "hrsh7th/cmp-cmdline",
+  "saadparwaiz1/cmp_luasnip",
+  "hrsh7th/cmp-nvim-lsp",
+  "hrsh7th/cmp-nvim-lua",
+  "hrsh7th/cmp-nvim-lsp-document-symbol",
+  "ThePrimeagen/harpoon",
 
-    -- Text object
-    map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>")
+  -- LSP
+  "neovim/nvim-lspconfig", -- enable LSP
+  "williamboman/mason.nvim",
+  "williamboman/mason-lspconfig.nvim",
+  "jose-elias-alvarez/null-ls.nvim", -- for formatters and linters
+  "jose-elias-alvarez/typescript.nvim",
+  {
+    --"~/Documents/github/personal/neotest-dart"
+    "sidlatau/neotest-dart",
+  },
+  "nvim-telescope/telescope.nvim",
 
-    -- Navigation
-    map("n", "]c", function()
-      if vim.wo.diff then
-        return "]c"
-      end
-      vim.schedule(function()
-        gitsigns.next_hunk()
-      end)
-      return "<Ignore>"
-    end, { expr = true })
+  "nvim-treesitter/nvim-treesitter-textobjects",
 
-    map("n", "[c", function()
-      if vim.wo.diff then
-        return "[c"
-      end
-      vim.schedule(function()
-        gitsigns.prev_hunk()
-      end)
-      return "<Ignore>"
-    end, { expr = true })
-  end,
+  -- Git
+
+  {
+    "folke/trouble.nvim",
+    dependencies = "kyazdani42/nvim-web-devicons",
+    config = function()
+      require("trouble").setup {}
+    end,
+  },
+
+  "nvim-telescope/telescope-dap.nvim",
+  "vim-scripts/BufOnly.vim",
+  {
+    "bkad/camelcasemotion",
+    config = function()
+      vim.g["camelcasemotion_key"] = "\\"
+    end,
+  },
+  "milch/vim-fastlane",
+  "delphinus/vim-firestore",
+  "tpope/vim-fugitive",
+  "tpope/vim-rhubarb",
+  "tpope/vim-abolish",
+  "mtdl9/vim-log-highlighting",
+  { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+  "whiteinge/diffconflicts",
+  { "stevearc/dressing.nvim" },
+  {
+    "nvim-treesitter/nvim-treesitter-context",
+    config = function()
+      require("treesitter-context").setup {
+        max_lines = 1, -- How many lines the window should span. Values <= 0 mean no limit.
+      }
+    end,
+  },
+  "wsdjeg/vim-fetch",
+  "nvim-treesitter/playground",
+  "folke/neodev.nvim",
+  {
+    "petertriho/nvim-scrollbar",
+    config = function()
+      require "user.scrollbar"
+    end,
+  },
+  "smartpde/telescope-recent-files",
+  "mbbill/undotree",
+  {
+    "monaqa/dial.nvim",
+    config = function()
+      local augend = require "dial.augend"
+      require("dial.config").augends:register_group {
+        -- default augends used when no group name is specified
+        default = {
+          augend.integer.alias.decimal, -- nonnegative decimal number (0, 1, 2, 3, ...)
+          augend.integer.alias.hex, -- nonnegative hex number  (0x01, 0x1a1f, etc.)
+          augend.constant.alias.bool, -- boolean value (true <-> false)
+        },
+      }
+    end,
+  },
+  {
+    "iamcco/markdown-preview.nvim",
+    build = "cd app && npm install",
+    init = function()
+      vim.g.mkdp_filetypes = { "markdown" }
+    end,
+    ft = { "markdown" },
+  },
+  "RRethy/vim-illuminate",
+  "nvim-neotest/neotest-plenary",
+  "inkarkat/vim-ReplaceWithRegister",
+  {
+    "sidlatau/dart-lsp-refactorings.nvim",
+    -- "~/Documents/github/personal/dart-lsp-refactorings.nvim",
+  },
+  {
+    "lukas-reineke/lsp-format.nvim",
+    config = function()
+      require("lsp-format").setup {}
+    end,
+  },
+  {
+    "andrewferrier/debugprint.nvim",
+    config = function()
+      require("debugprint").setup {
+        print_tag = "D-->",
+      }
+    end,
+  },
+  {
+    "akinsho/pubspec-assist.nvim",
+    dependencies = "plenary.nvim",
+    config = function()
+      require("pubspec-assist").setup {}
+    end,
+  },
 }

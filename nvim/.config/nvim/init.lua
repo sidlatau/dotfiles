@@ -13,7 +13,13 @@ vim.opt.rtp:prepend(lazypath)
 if not vim.g.vscode then
   require "user.options"
   require "user.keymaps"
-  require "user.plugins"
+  require("lazy").setup("plugins", {
+
+    dev = {
+      -- directory where you store your local plugin projects
+      path = "~/Documents/github/personal",
+    },
+  })
   require "user.colorscheme"
   require "user.lsp"
   require "user.autocommands"
