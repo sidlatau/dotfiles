@@ -4,6 +4,7 @@ return {
     "nvim-lua/plenary.nvim",
     "nvim-treesitter/nvim-treesitter",
   },
+  event = "VeryLazy",
   config = function()
     local status_ok, neotest = pcall(require, "neotest")
     if not status_ok then
