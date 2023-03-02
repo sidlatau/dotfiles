@@ -99,7 +99,24 @@ return {
         "Code action",
       },
       ["b"] = {
-        require("config.telescope_config").sorted_buffers,
+        function()
+          require("telescope.builtin").buffers(
+            require("telescope.themes").get_dropdown {
+              previewer = false,
+              sort_mru = true,
+              attach_mappings = function(prompt_bufnr, map)
+                local delete_buf = function()
+                  local selection =
+                    require("telescope.actions.state").get_selected_entry()
+                  require("telescope.actions").close(prompt_bufnr)
+                  vim.api.nvim_buf_delete(selection.bufnr, { force = true })
+                end
+                map("i", "<c-x>", delete_buf)
+                return true
+              end,
+            }
+          )
+        end,
         "Buffers",
       },
       ["o"] = {
@@ -117,7 +134,9 @@ return {
       ["<leader>"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
       ["F"] = {
         function()
-          require("config.telescope_config").live_grep()
+          require("telescope.builtin").live_grep(
+            require("telescope.themes").get_dropdown()
+          )
         end,
         "Find Text",
       },
@@ -263,7 +282,9 @@ return {
         o = {
 
           function()
-            require("config.telescope_config").git_status()
+            require("telescope.builtin").git_status(
+              require("telescope.themes").get_dropdown {}
+            )
           end,
           "Open changed file",
         },
@@ -330,7 +351,13 @@ return {
         C = { "<cmd>Telescope commands<cr>", "Commands" },
         s = {
           function()
-            require("config.telescope_config").grep_string()
+            require("telescope.builtin").grep_string(
+              require("telescope.themes").get_dropdown {
+                {
+                  layout_config = { width = 0.8 },
+                },
+              }
+            )
           end,
           "Word under cursor",
         },

@@ -54,7 +54,12 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv")
 keymap("v", "p", '"_dP')
 
 vim.keymap.set("n", "<C-p>", function()
-  require("config.telescope_config").find_files()
+  local opts = {
+    hidden = true,
+  }
+  require("telescope.builtin").find_files(
+    require("telescope.themes").get_dropdown(opts)
+  )
 end)
 
 -- For easy navigation of wrapped lines
@@ -77,13 +82,13 @@ end
 function SetupCommandAlias(input, output)
   vim.api.nvim_command(
     "cabbrev <expr> "
-    .. input
-    .. " "
-    .. "v:lua.abbreviate_or_noop('"
-    .. input
-    .. "', '"
-    .. output
-    .. "')"
+      .. input
+      .. " "
+      .. "v:lua.abbreviate_or_noop('"
+      .. input
+      .. "', '"
+      .. output
+      .. "')"
   )
 end
 

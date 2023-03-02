@@ -2,9 +2,20 @@ return {
   "nvim-telescope/telescope.nvim",
   config = function()
     local telescope = require "telescope"
+    local telescopeConfig = require "telescope.config"
     -- Register filetypes via plenary for telescope previewers
     -- https://github.com/nvim-lua/plenary.nvim#plenaryfiletype
     require("plenary.filetype").add_file "filetypes"
+
+    -- Clone the default Telescope configuration
+    local vimgrep_arguments =
+      { unpack(telescopeConfig.values.vimgrep_arguments) }
+
+    -- I want to search in hidden/dot files.
+    table.insert(vimgrep_arguments, "--hidden")
+    -- I don't want to search in the `.git` directory.
+    table.insert(vimgrep_arguments, "--glob")
+    table.insert(vimgrep_arguments, "!**/.git/*")
 
     telescope.setup {
       defaults = {
@@ -12,6 +23,8 @@ return {
         selection_caret = " ",
         path_display = { "smart" },
         file_ignore_patterns = { "%.g.dart", "%.freezed.dart" },
+        -- `hidden = true` is not supported in text grep commands.
+        vimgrep_arguments = vimgrep_arguments,
         preview = {
           mime_hook = function(filepath, bufnr, opts)
             local is_image = function(imagePath)
@@ -48,13 +61,19 @@ return {
         },
       },
       pickers = {
-        -- Default configuration for builtin pickers goes here:
-        -- picker_name = {
-        --   picker_config_key = value,
-        --   ...
-        -- }
-        -- Now the picker_config_key will be applied every time you call this
-        -- builtin picker
+        find_files = {
+          find_command = {
+            "fd",
+            "--type",
+            "file",
+            "--type",
+            "symlink",
+            "--hidden",
+            "--exclude",
+            ".git",
+            -- put your other patterns here
+          },
+        },
       },
       extensions = {
         recent_files = {
