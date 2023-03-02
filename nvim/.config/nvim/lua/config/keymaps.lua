@@ -54,7 +54,7 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv")
 keymap("v", "p", '"_dP')
 
 vim.keymap.set("n", "<C-p>", function()
-  require("user.telescope_config").find_files()
+  require("config.telescope_config").find_files()
 end)
 
 -- For easy navigation of wrapped lines

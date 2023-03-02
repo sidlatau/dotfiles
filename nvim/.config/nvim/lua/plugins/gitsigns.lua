@@ -1,7 +1,6 @@
 return {
   "lewis6991/gitsigns.nvim",
   config = function()
-    require "user.gitsigns"
     local gitsigns = require "gitsigns"
 
     gitsigns.setup {

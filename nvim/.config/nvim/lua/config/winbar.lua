@@ -20,7 +20,7 @@ M.winbar_filetype_exclude = {
 local get_filename = function()
   local filename = vim.fn.expand "%:t"
   local extension = vim.fn.expand "%:e"
-  local f = require "user.functions"
+  local f = require "config.functions"
 
   if not f.isempty(filename) then
     local file_icon, file_icon_color =
@@ -63,11 +63,11 @@ M.get_winbar = function()
   if excludes() then
     return
   end
-  local f = require "user.functions"
+  local f = require "config.functions"
   local value = get_filename()
 
   if not f.isempty(value) and f.get_buf_option "mod" then
-    local mod = "%#Normal#" .. require("user.icons").ui.Circle .. "%*"
+    local mod = "%#Normal#" .. require("config.icons").ui.Circle .. "%*"
     value = value .. " " .. mod
   end
 

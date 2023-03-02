@@ -99,7 +99,7 @@ return {
         "Code action",
       },
       ["b"] = {
-        require("user.telescope_config").sorted_buffers,
+        require("config.telescope_config").sorted_buffers,
         "Buffers",
       },
       ["o"] = {
@@ -117,7 +117,7 @@ return {
       ["<leader>"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
       ["F"] = {
         function()
-          require("user.telescope_config").live_grep()
+          require("config.telescope_config").live_grep()
         end,
         "Find Text",
       },
@@ -156,7 +156,7 @@ return {
         c = { "<cmd>Telescope flutter commands<CR>", "Commands list" },
         l = {
           function()
-            require("user.flutter-tools").toggle_log()
+            require("config.flutter-tools").toggle_log()
           end,
           "Toggle log",
         },
@@ -172,7 +172,7 @@ return {
         },
         b = {
           function()
-            require("user.toggleterm").regenerate_single_directory()
+            require("config.toggleterm").regenerate_single_directory()
           end,
           "Reneration single directory",
         },
@@ -220,7 +220,7 @@ return {
         h = { "<cmd>DiffviewFileHistory %<cr>", "File history" },
         g = {
           function()
-            require("user.toggleterm").lazygit_toggle()
+            require("config.toggleterm").lazygit_toggle()
           end,
           "Lazygit",
         },
@@ -263,7 +263,7 @@ return {
         o = {
 
           function()
-            require("user.telescope_config").git_status()
+            require("config.telescope_config").git_status()
           end,
           "Open changed file",
         },
@@ -330,7 +330,7 @@ return {
         C = { "<cmd>Telescope commands<cr>", "Commands" },
         s = {
           function()
-            require("user.telescope_config").grep_string()
+            require("config.telescope_config").grep_string()
           end,
           "Word under cursor",
         },
