@@ -17,7 +17,6 @@ local servers = {
   "eslint",
 }
 
-require("typescript").setup {}
 
 mason_lspconfig.setup {
   ensure_installed = servers,
