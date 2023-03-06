@@ -10,16 +10,6 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   end,
 })
 
-vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-  group = augroup "typescript_fix",
-  pattern = "*.ts,*.tsx",
-  callback = function()
-    require("typescript").actions.addMissingImports()
-    require("typescript").actions.removeUnused()
-    require("typescript").actions.fixAll()
-  end,
-})
-
 -- close some filetypes with <q>
 vim.api.nvim_create_autocmd("FileType", {
   group = augroup "close_with_q",

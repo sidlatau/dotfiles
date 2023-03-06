@@ -17,7 +17,6 @@ local servers = {
   "eslint",
 }
 
-
 mason_lspconfig.setup {
   ensure_installed = servers,
 }
