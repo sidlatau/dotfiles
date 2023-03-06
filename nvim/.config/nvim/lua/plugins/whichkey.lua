@@ -144,7 +144,6 @@ return {
       ["2"] = { ':lua require("harpoon.ui").nav_file(2)<CR>', "Nav 2" },
       ["3"] = { ':lua require("harpoon.ui").nav_file(3)<CR>', "Nav 3" },
       ["4"] = { ':lua require("harpoon.ui").nav_file(4)<CR>', "Nav 4" },
-
       h = {
         name = "Harpoon",
         a = {
@@ -160,7 +159,6 @@ return {
           "Edit",
         },
       },
-
       p = {
         name = "Packer",
         c = { "<cmd>PackerCompile<cr>", "Compile" },
@@ -169,7 +167,6 @@ return {
         S = { "<cmd>PackerStatus<cr>", "Status" },
         u = { "<cmd>PackerUpdate<cr>", "Update" },
       },
-
       f = {
         name = "Flutter",
         c = { "<cmd>Telescope flutter commands<CR>", "Commands list" },
@@ -232,7 +229,6 @@ return {
           "Start Speedycraft flavor",
         },
       },
-
       g = {
         name = "Git",
         f = { "<cmd>!fork<cr><cr>", "Open Fork app" },
@@ -303,7 +299,6 @@ return {
           "Toggle deleted",
         },
       },
-
       l = {
         name = "LSP",
         a = { vim.lsp.buf.code_action, "Code Action" },
@@ -373,7 +368,6 @@ return {
         "<cmd>Telescope resume<cr>",
         "Telescope resume",
       },
-
       t = {
         name = "Test / Terminal",
         h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
@@ -417,6 +411,16 @@ return {
           end,
           "Debug nearest",
         },
+      },
+      q = {
+        function()
+          for _, win in pairs(vim.fn.getwininfo()) do
+            if win["quickfix"] == 1 then
+              vim.cmd "cclose"
+            end
+          end
+        end,
+        "Close quickfix",
       },
       d = {
         name = "Debug",
