@@ -54,3 +54,5 @@
 	defaultBranch = main
 [rebase]
 	updateRefs = true
+[pull]
+	rebase = true
