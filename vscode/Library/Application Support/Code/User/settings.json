@@ -181,4 +181,7 @@
   "workbench.activityBar.visible": false,
   "terminal.integrated.fontFamily": "Hack Nerd Font Mono",
   "editor.fontFamily": "JetBrains Mono",
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
 }
