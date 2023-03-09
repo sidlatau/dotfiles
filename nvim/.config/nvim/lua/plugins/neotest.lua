@@ -1,5 +1,6 @@
 return {
   "nvim-neotest/neotest",
+  branch = "feat/state-consumer",
   dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-treesitter/nvim-treesitter",
@@ -35,6 +36,9 @@ return {
       },
       quickfix = {
         enabled = false,
+      },
+      state = {
+        enabled = true,
       },
     }
     local opts = { noremap = true, silent = true }
