@@ -31,3 +31,5 @@ config
 snackbar
 lodash
 firestore
+oclif
+localhost
