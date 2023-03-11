@@ -11,7 +11,7 @@ return {
           { pattern = "wrap with row", key = "r", order = 3 },
           { pattern = "remove", key = "R", order = 5 },
           { pattern = "add", key = "a", order = 3 },
-          { pattern = "import library", key = "i", order = 3 },
+          { pattern = "import library 'package", key = "i", order = 3 },
           { pattern = "organize", key = "o", order = 3 },
           { pattern = "wrap with widget", key = "w", order = 2 },
           --range code action
