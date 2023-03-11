@@ -107,7 +107,7 @@ return {
               attach_mappings = function(prompt_bufnr, map)
                 local delete_buf = function()
                   local selection =
-                    require("telescope.actions.state").get_selected_entry()
+                  require("telescope.actions.state").get_selected_entry()
                   require("telescope.actions").close(prompt_bufnr)
                   vim.api.nvim_buf_delete(selection.bufnr, { force = true })
                 end
@@ -172,7 +172,7 @@ return {
         c = { "<cmd>Telescope flutter commands<CR>", "Commands list" },
         l = {
           function()
-            require("config.flutter-tools").toggle_log()
+            require("config").toggle_flutter_log()
           end,
           "Toggle log",
         },

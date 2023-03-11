@@ -47,6 +47,7 @@ return {
         open_cmd = "15split", -- command to use to open the log buffer
       },
     }
+    require("telescope").load_extension "flutter"
   end,
   cond = function()
     return not vim.g.vscode
