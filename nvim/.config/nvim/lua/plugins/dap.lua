@@ -1,7 +1,6 @@
 return {
   "mfussenegger/nvim-dap",
   config = function()
-    require "dap"
     vim.fn.sign_define(
       "DapBreakpoint",
       { text = " ", texthl = "debugBreakpoint", linehl = "", numhl = "" }
