@@ -44,7 +44,13 @@ return {
   "vim-scripts/BufOnly.vim",
   "milch/vim-fastlane",
   "delphinus/vim-firestore",
-  "tpope/vim-fugitive",
+  {
+    "tpope/vim-fugitive",
+    dependencies = {
+      "cedarbaum/fugitive-azure-devops.vim",
+    },
+  },
+
   "tpope/vim-rhubarb",
   "tpope/vim-abolish",
   "mtdl9/vim-log-highlighting",

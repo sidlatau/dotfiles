@@ -19,6 +19,7 @@
   "dressing.nvim": { "branch": "master", "commit": "5f44f829481640be0f96759c965ae22a3bcaf7ce" },
   "fidget.nvim": { "branch": "main", "commit": "688b4fec4517650e29c3e63cfbb6e498b3112ba1" },
   "flutter-tools.nvim": { "branch": "main", "commit": "31f75ae70780cb593bbd3b5179203a9e2b05cefa" },
+  "fugitive-azure-devops.vim": { "branch": "master", "commit": "9b120ab24628212301e03cb400e328535287a1c4" },
   "gitsigns.nvim": { "branch": "main", "commit": "b1f9cf7c5c5639c006c937fc1819e09f358210fc" },
   "gruvbox-material": { "branch": "master", "commit": "a0dc84816b913e9afcf6b8a5ade304bfb47a6f65" },
   "harpoon": { "branch": "master", "commit": "f7040fd0c44e7a4010369136547de5604b9c22a1" },
