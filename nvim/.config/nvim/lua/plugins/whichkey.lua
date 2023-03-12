@@ -107,7 +107,7 @@ return {
               attach_mappings = function(prompt_bufnr, map)
                 local delete_buf = function()
                   local selection =
-                  require("telescope.actions.state").get_selected_entry()
+                    require("telescope.actions.state").get_selected_entry()
                   require("telescope.actions").close(prompt_bufnr)
                   vim.api.nvim_buf_delete(selection.bufnr, { force = true })
                 end
