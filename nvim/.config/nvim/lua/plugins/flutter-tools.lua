@@ -1,6 +1,5 @@
 return {
   "akinsho/flutter-tools.nvim",
-  branch = "refactor/move-to-nui",
   -- dir = "~/Documents/github/personal/flutter-tools.nvim",
   dependencies = "nvim-lua/plenary.nvim",
   config = function()
