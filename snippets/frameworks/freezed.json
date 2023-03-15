@@ -15,12 +15,11 @@
     "body": [
       "import 'package:freezed_annotation/freezed_annotation.dart';",
       "",
-      "part '${1/(.*)/${1:/downcase}/}.freezed.dart';",
-      "part '${1/(.*)/${1:/downcase}/}.g.dart'",
+      "part '$TM_FILENAME_BASE.freezed.dart';",
       "",
       "@freezed",
-      "class ${1:Classname} with _$${1:Classname} {",
-      "\tfactory ${1:Classname}(classProperties) = _${1:Classname};",
+      "class ${TM_FILENAME_BASE/(.*)$/${1:/pascalcase}/} with _$${TM_FILENAME_BASE/(.*)$/${1:/pascalcase}/} {",
+      "\tfactory ${TM_FILENAME_BASE/(.*)$/${1:/pascalcase}/}(${1}) = _${TM_FILENAME_BASE/(.*)$/${1:/pascalcase}/};",
       "}"
     ],
     "description": "Create new immutable data type"
