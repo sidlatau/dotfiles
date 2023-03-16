@@ -173,3 +173,8 @@ export SDKMAN_DIR="$HOME/.sdkman"
 
 # Amount of open files
 ulimit -n 4096
+
+if [ -f ~/.env ]
+then
+  export $(cat ~/.env | xargs)
+fi
