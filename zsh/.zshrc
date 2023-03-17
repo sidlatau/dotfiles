@@ -178,3 +178,8 @@ if [ -f ~/.env ]
 then
   export $(cat ~/.env | xargs)
 fi
+
+## [Completion]
+## Completion scripts setup. Remove the following line to uninstall
+[[ -f /Users/ts/.dart-cli-completion/zsh-config.zsh ]] && . /Users/ts/.dart-cli-completion/zsh-config.zsh || true
+## [/Completion]
