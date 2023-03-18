@@ -8,6 +8,7 @@ return {
         insert_only = true,
         -- When true, input will start in insert mode.
         start_in_insert = true,
+        relative = "editor",
       },
     }
   end,
