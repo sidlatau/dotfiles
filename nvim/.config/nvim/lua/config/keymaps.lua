@@ -101,15 +101,19 @@ SetupCommandAlias("Qa", "qa")
 keymap("i", "<C-y>", "<C-k>")
 
 --dial
-local status_ok, dial = pcall(require, "dial.map")
-if status_ok then
-  keymap("n", "<C-a>", dial.inc_normal())
-  keymap("n", "<C-x>", dial.dec_normal())
-  keymap("v", "<C-a>", dial.inc_visual())
-  keymap("v", "<C-x>", dial.dec_visual())
-  keymap("v", "g<C-a>", dial.inc_gvisual())
-  keymap("v", "g<C-x>", dial.dec_gvisual())
-end
+vim.keymap.set("n", "<C-a>", function()
+  return require("dial.map").inc_normal()
+end, { noremap = true, silent = true, expr = true })
+vim.keymap.set("n", "<C-x>", function()
+  return require("dial.map").dec_normal()
+end, { noremap = true, silent = true, expr = true })
+vim.keymap.set("v", "<C-a>", function()
+  return require("dial.map").inc_visual()
+end, { noremap = true, silent = true, expr = true })
+vim.keymap.set("v", "<C-x>", function()
+  return require("dial.map").dec_visual()
+end, { noremap = true, silent = true, expr = true })
+
 keymap("n", "<leader>r", "<Plug>ReplaceWithRegisterOperator")
 keymap("x", "<leader>r", "<Plug>ReplaceWithRegisterVisual")
 
