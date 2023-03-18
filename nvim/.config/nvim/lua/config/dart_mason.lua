@@ -229,7 +229,7 @@ local function select_brick(brick)
     end
     vim.ui.input({
       prompt = "Enter path:",
-      default = "lib",
+      default = "lib/",
       completion = "file",
     }, function(path)
       if not path or #name == 0 then
