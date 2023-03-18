@@ -56,7 +56,6 @@ return {
   "mtdl9/vim-log-highlighting",
   { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
   "whiteinge/diffconflicts",
-  { "stevearc/dressing.nvim", event = "VeryLazy" },
   "wsdjeg/vim-fetch",
   { "nvim-treesitter/playground", cmd = "TSPlaygroundToggle" },
   "folke/neodev.nvim",
