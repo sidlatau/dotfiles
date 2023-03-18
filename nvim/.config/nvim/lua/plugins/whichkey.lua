@@ -224,6 +224,15 @@ return {
           "<cmd>FlutterRun --dart-define=flavor=speedycraft --flavor speedycraft<CR>",
           "Start Speedycraft flavor",
         },
+        t = {
+          name = "Mason CLI",
+          b = {
+            function()
+              require("config.dart_mason").list_bricks()
+            end,
+            "List bricks",
+          },
+        },
       },
       g = {
         name = "Git",
