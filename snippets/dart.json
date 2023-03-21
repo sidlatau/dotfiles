@@ -890,11 +890,14 @@
     "description": "Create a test function"
   },
   "Test Widgets": {
-    "prefix": "widgetTest",
+    "prefix": "testWidget",
     "body": [
       "testWidgets(",
-      "   \"${1:test description}\",",
-      "   (WidgetTester tester) async {},",
+      "   '${1:test description}',",
+      "   (tester) async {",
+      "   ${2}",
+      "   },",
+      "   skip: skipTests,",
       ");"
     ],
     "description": "Create a testWidgets function"
