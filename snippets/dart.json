@@ -895,6 +895,7 @@
       "testWidgets(",
       "   '${1:test description}',",
       "   (tester) async {",
+      "     await initPump(tester);",
       "   ${2}",
       "   },",
       "   skip: skipTests,",

@@ -24,9 +24,9 @@ return {
       discovery = {
         enabled = false,
       },
-      diagnostic = {
-        enabled = true,
-      },
+      -- diagnostic = {
+      --   enabled = true,
+      -- },
       floating = {
         border = "rounded",
         max_height = 0.8,
