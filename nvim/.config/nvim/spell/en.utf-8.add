@@ -33,3 +33,5 @@ lodash
 firestore
 oclif
 localhost
+utils
+png
