@@ -119,10 +119,6 @@ return {
         end,
         "Buffers",
       },
-      ["o"] = {
-        require("telescope").extensions.recent_files.pick,
-        "Recent files",
-      },
       ["e"] = { "<cmd>Neotree float toggle reveal<cr>", "Explorer" },
       ["u"] = { "<cmd>UndotreeToggle<cr>", "Undotree" },
       ["w"] = {
@@ -512,7 +508,16 @@ return {
           "Sidebar",
         },
       },
-      m = { "<cmd>Telescope noice<CR>", "Messages" },
+      o = {
+        name = "Telescope",
+        n = { "<cmd>Telescope noice<CR>", "Noice" },
+        h = { "<cmd>Telescope help_tags<CR>", "Help tags" },
+        k = { "<cmd>Telescope keymaps<CR>", "Keymaps" },
+        o = {
+          require("telescope").extensions.recent_files.pick,
+          "Recent files",
+        },
+      },
     }
 
     local vopts = {
