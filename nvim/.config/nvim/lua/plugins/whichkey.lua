@@ -512,6 +512,7 @@ return {
           "Sidebar",
         },
       },
+      m = { "<cmd>Telescope noice<CR>", "Messages" },
     }
 
     local vopts = {
