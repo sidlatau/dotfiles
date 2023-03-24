@@ -510,7 +510,7 @@ return {
       },
       o = {
         name = "Telescope",
-        n = { "<cmd>Telescope noice<CR>", "Noice" },
+        m = { "<cmd>Telescope noice<CR>", "Messages" },
         h = { "<cmd>Telescope help_tags<CR>", "Help tags" },
         k = { "<cmd>Telescope keymaps<CR>", "Keymaps" },
         o = {
