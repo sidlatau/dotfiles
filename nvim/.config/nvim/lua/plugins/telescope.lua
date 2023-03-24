@@ -1,6 +1,23 @@
 return {
   "nvim-telescope/telescope.nvim",
   config = function()
+    local yank_selected_entry = function(prompt_bufnr)
+      local action_state = require "telescope.actions.state"
+      local entry_display = require "telescope.pickers.entry_display"
+      local actions = require "telescope.actions"
+
+      local picker = action_state.get_current_picker(prompt_bufnr)
+      local manager = picker.manager
+
+      local selection_row = picker:get_selection_row()
+      local entry = manager:get_entry(picker:get_index(selection_row))
+      local display, _ = entry_display.resolve(picker, entry)
+
+      actions.close(prompt_bufnr)
+
+      vim.fn.setreg("+", display)
+    end
+
     local telescope = require "telescope"
     local telescopeConfig = require "telescope.config"
     -- Register filetypes via plenary for telescope previewers
@@ -19,6 +36,16 @@ return {
 
     telescope.setup {
       defaults = {
+        mappings = {
+          i = {
+            ["<C-k"] = require("telescope.actions").cycle_history_next,
+            ["<C-j>"] = require("telescope.actions").cycle_history_prev,
+            ["<c-y>"] = yank_selected_entry,
+          },
+          n = {
+            ["<c-y>"] = yank_selected_entry,
+          },
+        },
         prompt_prefix = " ",
         selection_caret = " ",
         path_display = { "smart" },
@@ -78,12 +105,6 @@ return {
       extensions = {
         recent_files = {
           only_cwd = true,
-        },
-      },
-      mappings = {
-        i = {
-          ["<C-k"] = require("telescope.actions").cycle_history_next,
-          ["<C-j>"] = require("telescope.actions").cycle_history_prev,
         },
       },
     }
