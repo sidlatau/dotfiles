@@ -65,4 +65,6 @@ vim.opt.spellcapcheck = "" -- don't check for capital letters at start of senten
 
 vim.cmd [[
 set fillchars+=diff:╱
+
+set report=99999
 ]]
