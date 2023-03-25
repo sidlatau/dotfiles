@@ -51,6 +51,14 @@ return {
           winhighlight = { Normal = "NormalFloat", FloatBorder = "FloatBorder" },
         },
       },
+      mini = {
+        timeout = 2000,
+        win_options = {
+          winhighlight = {
+            Normal = "Normal",
+          },
+        },
+      },
     },
     redirect = { view = "popup", filter = { event = "msg_show" } },
     routes = {
@@ -63,56 +71,8 @@ return {
             { event = "msg_show", kind = "search_count" },
             { event = "msg_show", find = "%d+L, %d+B" },
             { event = "msg_show", find = "^Hunk %d+ of %d" },
-            -- TODO: investigate the source of this LSP message and disable it happens in typescript files
-            { event = "notify", find = "No information available" },
           },
         },
-      },
-      {
-        view = "vsplit",
-        filter = { event = "msg_show", min_height = 20 },
-      },
-      {
-        view = "notify",
-        filter = {
-          any = {
-            { event = "msg_show", min_height = 10 },
-            { event = "msg_show", find = "Treesitter" },
-          },
-        },
-        opts = { timeout = 10000 },
-      },
-      {
-        view = "mini",
-        filter = { any = { { event = "msg_show", find = "^E486:" } } }, -- minimise pattern not found messages
-      },
-      {
-        view = "notify",
-        filter = {
-          any = {
-            { warning = true },
-            { event = "msg_show", find = "^Warn" },
-            { event = "msg_show", find = "^W%d+:" },
-            { event = "msg_show", find = "^No hunks$" },
-          },
-        },
-        opts = { title = "Warning", merge = false, replace = false },
-      },
-      {
-        view = "notify",
-        opts = { title = "Error", merge = true, replace = false },
-        filter = {
-          any = {
-            { error = true },
-            { event = "msg_show", find = "^Error" },
-            { event = "msg_show", find = "^E%d+:" },
-          },
-        },
-      },
-      {
-        view = "notify",
-        opts = { title = "" },
-        filter = { kind = { "emsg", "echo", "echomsg" } },
       },
     },
     commands = {
