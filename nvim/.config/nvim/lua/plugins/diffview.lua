@@ -1,5 +1,6 @@
 return {
   "sindrets/diffview.nvim",
+  commit = "58035354fc79c6ec42fa7b218dab90bd3968615f",
   dependencies = "nvim-lua/plenary.nvim",
   config = function()
     require("diffview").setup {
