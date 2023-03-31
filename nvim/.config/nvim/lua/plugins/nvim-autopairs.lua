@@ -12,6 +12,7 @@ return {
       },
       disable_filetype = { "TelescopePrompt", "dart" },
     }
+    autopairs.disable()
     -- credit: https://github.com/JoosepAlviste
     -- Typing = when () -> () => {|}
     autopairs.add_rules {
