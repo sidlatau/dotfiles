@@ -106,7 +106,7 @@ local function lsp_keymaps(bufnr)
 end
 
 M.on_attach = function(client, bufnr)
-  if client.name == "tsserver" then
+  if client.name == "tsserver" or client.name == "lua_ls" then
     -- do not format by this LSP - prettier is used for formatting
     client.server_capabilities.documentFormattingProvider = false
   end
