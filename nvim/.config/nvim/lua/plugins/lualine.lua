@@ -134,6 +134,11 @@ return {
           status_counts,
         },
         lualine_x = {
+          {
+            require("noice").api.status.mode.get,
+            cond = require("noice").api.status.mode.has,
+            color = { fg = "#ff9e64" },
+          },
           diff,
           filetype,
           lsp_client,

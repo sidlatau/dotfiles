@@ -7,6 +7,7 @@ return {
   dependencies = { "MunifTanjim/nui.nvim" },
   opts = {
     cmdline = {
+      view = "cmdline",
       format = {
         cmdline = { title = "" },
         lua = { title = "" },
