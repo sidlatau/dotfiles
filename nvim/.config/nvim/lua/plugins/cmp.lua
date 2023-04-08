@@ -1,5 +1,6 @@
 return {
   "hrsh7th/nvim-cmp",
+  event = "VeryLazy",
   config = function()
     local cmp_status_ok, cmp = pcall(require, "cmp")
     if not cmp_status_ok then

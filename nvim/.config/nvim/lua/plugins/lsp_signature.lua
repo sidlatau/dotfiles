@@ -1,5 +1,6 @@
 return {
   "ray-x/lsp_signature.nvim",
+  event = "VeryLazy",
   config = function()
     local signature_config = {
       hint_enable = false,

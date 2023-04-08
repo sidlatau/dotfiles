@@ -3,6 +3,8 @@ return {
   dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-treesitter/nvim-treesitter",
+    "sidlatau/neotest-dart",
+    "nvim-neotest/neotest-plenary",
   },
   event = "VeryLazy",
   config = function()

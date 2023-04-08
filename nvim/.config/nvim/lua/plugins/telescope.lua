@@ -1,5 +1,6 @@
 return {
   "nvim-telescope/telescope.nvim",
+  event = "VeryLazy",
   config = function()
     local yank_selected_entry = function(prompt_bufnr)
       local action_state = require "telescope.actions.state"

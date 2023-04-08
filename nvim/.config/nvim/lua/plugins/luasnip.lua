@@ -2,6 +2,7 @@ return {
   "L3MON4D3/LuaSnip",
   version = "v1.2.1",
   build = "make install_jsregexp",
+  event = "VeryLazy",
   config = function()
     local luasnip = require "luasnip"
 

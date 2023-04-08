@@ -1,5 +1,6 @@
 return {
   "folke/which-key.nvim",
+  event = "VeryLazy",
   config = function()
     local which_key = require "which-key"
 
@@ -323,7 +324,6 @@ return {
           "Prev Diagnostic",
         },
         l = { vim.lsp.codelens.run, "CodeLens Action" },
-        q = { "<cmd>Trouble workspace_diagnostics<cr>", "Quickfix" },
         r = {
           function()
             require("dart-lsp-refactorings").rename()

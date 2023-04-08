@@ -1,5 +1,6 @@
 return {
   "nvim-neo-tree/neo-tree.nvim",
+  event = "VeryLazy",
   branch = "main",
   dependencies = {
     "nvim-lua/plenary.nvim",

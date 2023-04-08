@@ -1,5 +1,6 @@
 return {
   "github/copilot.vim",
+  event = "VeryLazy",
   config = function()
     local function accept_word()
       vim.fn["copilot#Accept"] ""

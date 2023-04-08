@@ -1,5 +1,6 @@
 return {
   "sidlatau/lsp-fastaction.nvim",
+  event = "VeryLazy",
   config = function()
     require("lsp-fastaction").setup {
       hide_cursor = true,
