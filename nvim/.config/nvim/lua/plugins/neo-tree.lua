@@ -9,19 +9,13 @@ return {
   },
   config = function()
     local neo_tree = require "neo-tree"
-
-    vim.cmd [[ let g:neo_tree_remove_legacy_commands = 1 ]]
-    vim.cmd [[
-      hi link NeoTreeDirectoryName Directory
-      hi link NeoTreeDirectoryIcon NeoTreeDirectoryName
-      hi link NeoTreeFloatBorder Normal
-      hi link NeoTreeFloatTitle Normal
-    ]]
+    vim.g.neo_tree_remove_legacy_commands = 1
 
     neo_tree.setup {
       close_if_last_window = false, -- Close Neo-tree if it is the last window left in the tab
       popup_border_style = "rounded",
       enable_git_status = true,
+      git_status_async = true,
       enable_diagnostics = true,
       default_component_configs = {
         indent = {

@@ -58,6 +58,7 @@ return {
           winhighlight = {
             Normal = "Normal",
           },
+          winblend = 0,
         },
       },
     },
