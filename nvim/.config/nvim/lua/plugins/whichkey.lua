@@ -326,8 +326,11 @@ return {
         l = { vim.lsp.codelens.run, "CodeLens Action" },
         r = {
           function()
-            require("dart-lsp-refactorings").rename()
-            -- vim.lsp.buf.rename()
+            if vim.g.filetype == "dart" then
+              require("flutter-tools.lsp.rename").rename()
+            else
+              vim.lsp.buf.rename()
+            end
           end,
           "Rename",
         },
@@ -374,7 +377,6 @@ return {
         h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
         v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
         f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
-
         t = {
           function()
             ---@diagnostic disable-next-line: missing-parameter
