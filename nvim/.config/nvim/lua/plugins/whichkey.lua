@@ -213,14 +213,6 @@ return {
           "<cmd>FlutterOutlineToggle<CR>",
           "Flutter outline",
         },
-        m = {
-          "<cmd>FlutterRun --dart-define=flavor=mobileworker --flavor mobileworker<CR>",
-          "Start Mobile Worker flavor",
-        },
-        s = {
-          "<cmd>FlutterRun --dart-define=flavor=speedycraft --flavor speedycraft<CR>",
-          "Start Speedycraft flavor",
-        },
         t = {
           name = "Mason CLI",
           b = {
