@@ -331,6 +331,12 @@ return {
           "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
           "Workspace Symbols",
         },
+        h = {
+          function()
+            require("lsp-inlayhints").toggle()
+          end,
+          "Inlay hints",
+        },
       },
       s = {
         name = "Search",
