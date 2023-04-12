@@ -15,6 +15,7 @@ local servers = {
   "yamlls",
   "gopls",
   "eslint",
+  "tsserver",
 }
 
 mason_lspconfig.setup {
