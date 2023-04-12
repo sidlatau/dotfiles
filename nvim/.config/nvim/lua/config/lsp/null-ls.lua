@@ -9,7 +9,7 @@ null_ls.setup {
     null_ls.builtins.formatting.stylua,
     null_ls.builtins.formatting.prettierd.with {
       prefer_local = "node_modules/.bin",
-      disabled_filetypes = { "yaml" },
+      disabled_filetypes = { "yaml", "markdown" },
     },
   },
   on_attach = function(client)
