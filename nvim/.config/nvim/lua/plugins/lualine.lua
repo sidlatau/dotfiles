@@ -118,6 +118,15 @@ return {
       color = { fg = colors.green, gui = "bold" },
     }
 
+    local flutter_project_config = {
+      function()
+        local decorations = vim.g.flutter_tools_decorations or {}
+        local project_config = decorations.project_config or {}
+        return project_config.name or ""
+      end,
+      color = { fg = colors.green, gui = "bold" },
+    }
+
     lualine.setup {
       options = {
         icons_enabled = true,
@@ -140,6 +149,7 @@ return {
             cond = require("noice").api.status.mode.has,
             color = { fg = "#ff9e64" },
           },
+          flutter_project_config,
           diff,
           filetype,
           lsp_client,

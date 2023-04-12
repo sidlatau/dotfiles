@@ -44,6 +44,11 @@ return {
         enabled = true,
         open_cmd = "15split", -- command to use to open the log buffer
       },
+      decorations = {
+        statusline = {
+          project_config = true,
+        },
+      },
     }
     require("telescope").load_extension "flutter"
   end,
