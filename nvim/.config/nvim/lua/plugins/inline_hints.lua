@@ -17,6 +17,7 @@ return {
   end,
   config = function()
     require("lsp-inlayhints").setup {
+      enabled_at_startup = false,
       inlay_hints = {
         highlight = "Comment",
         labels_separator = " ⏐ ",
