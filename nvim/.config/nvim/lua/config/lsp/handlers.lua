@@ -16,7 +16,7 @@ M.setup = function()
   end
 
   local config = {
-    virtual_text = {
+    virtual_text = false and {
       prefix = "●",
       source = "always",
     },
@@ -24,7 +24,7 @@ M.setup = function()
     signs = {
       active = signs,
     },
-    update_in_insert = false,
+    update_in_insert = true,
     underline = true,
     severity_sort = true,
     float = {
