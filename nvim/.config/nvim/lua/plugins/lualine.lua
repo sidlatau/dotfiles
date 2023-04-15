@@ -5,17 +5,7 @@ return {
     local lualine = require "lualine"
 
     local colors = {
-      bg = "#202328",
-      fg = "#bbc2cf",
-      yellow = "#ECBE7B",
-      cyan = "#008080",
-      darkblue = "#081633",
       green = "#98be65",
-      orange = "#FF8800",
-      violet = "#a9a1e1",
-      magenta = "#c678dd",
-      blue = "#51afef",
-      red = "#ec5f67",
     }
 
     local hide_in_width = function()
@@ -127,10 +117,13 @@ return {
       color = { fg = colors.green, gui = "bold" },
     }
 
+    local custom_gruvbox = require "lualine.themes.gruvbox-material"
+    custom_gruvbox.normal.a.bg = "#e5c07b"
+
     lualine.setup {
       options = {
         icons_enabled = true,
-        theme = "gruvbox-material",
+        theme = custom_gruvbox,
         section_separators = { left = "", right = "" },
         component_separators = { left = "", right = "" },
         disabled_filetypes = { "Outline" },
