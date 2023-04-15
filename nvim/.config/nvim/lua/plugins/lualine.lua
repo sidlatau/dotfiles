@@ -119,6 +119,7 @@ return {
 
     local custom_gruvbox = require "lualine.themes.gruvbox-material"
     custom_gruvbox.normal.a.bg = "#e5c07b"
+    custom_gruvbox.normal.c.bg = "#1E2021"
 
     lualine.setup {
       options = {
