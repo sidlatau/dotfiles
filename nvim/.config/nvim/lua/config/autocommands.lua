@@ -69,3 +69,9 @@ vim.api.nvim_create_autocmd({ "VimResized" }, {
     vim.cmd "tabdo wincmd ="
   end,
 })
+
+vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+  group = augroup "generate_l10n_on_save",
+  pattern = "*.arb",
+  command = [[!flutter gen-l10n]],
+})
