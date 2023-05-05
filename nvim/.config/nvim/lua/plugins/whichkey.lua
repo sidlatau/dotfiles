@@ -226,7 +226,7 @@ return {
       g = {
         name = "Git",
         f = { "<cmd>!fork<cr><cr>", "Open Fork app" },
-        h = { "<cmd>DiffviewFileHistory %<cr>", "File history" },
+        h = { "<cmd>DiffviewFileHistory --follow<cr>", "File history" },
         g = {
           function()
             require("config.toggleterm").lazygit_toggle()
