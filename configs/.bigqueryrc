@@ -1,0 +1,6 @@
+--location=EU
+[query]
+--use_legacy_sql=false
+
+[mk]
+--use_legacy_sql=false
