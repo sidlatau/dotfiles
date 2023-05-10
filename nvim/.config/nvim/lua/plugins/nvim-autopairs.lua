@@ -11,7 +11,7 @@ return {
         dart = { "string" },
         javascript = { "template_string" },
       },
-      disable_filetype = { "TelescopePrompt" },
+      disable_filetype = { "TelescopePrompt", "dart" },
     }
     -- autopairs.disable()
     -- credit: https://github.com/JoosepAlviste
