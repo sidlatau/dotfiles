@@ -2,7 +2,7 @@ return {
   { "nvim-lua/popup.nvim", event = "VeryLazy" },
   { "nvim-lua/plenary.nvim", event = "VeryLazy" },
   { "kyazdani42/nvim-web-devicons", event = "VeryLazy" },
-  { "moll/vim-bbye", event = "VeryLazy" },
+  { "famiu/bufdelete.nvim", event = "VeryLazy" },
   { "JoosepAlviste/nvim-ts-context-commentstring", event = "VeryLazy" },
   { "tpope/vim-surround", event = "VeryLazy" },
   { "tpope/vim-repeat", event = "VeryLazy" },
