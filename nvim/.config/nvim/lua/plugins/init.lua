@@ -52,4 +52,5 @@ return {
     "sidlatau/dart-lsp-refactorings.nvim",
     event = "VeryLazy",
   },
+  { "akinsho/git-conflict.nvim", version = "*", config = true },
 }
