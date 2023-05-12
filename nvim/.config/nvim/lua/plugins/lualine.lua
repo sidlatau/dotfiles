@@ -43,24 +43,24 @@ return {
         local adapters = neotest.state.adapter_ids()
         if #adapters > 0 then
           local status = neotest.state.status_counts(adapters[1], {
-            buffer = vim.api.nvim_buf_get_name(0),
+            buffer = tonumber(vim.api.nvim_buf_get_name(0)),
           })
           local sections = {
             {
               sign = "",
-              count = status.failed,
+              count = status and status.failed or "-",
               base = "NeotestFailed",
               tag = "test_fail",
             },
             {
               sign = "",
-              count = status.running,
+              count = status and status.running or "-",
               base = "NeotestRunning",
               tag = "test_running",
             },
             {
               sign = "",
-              count = status.passed,
+              count = status and status.passed or "-",
               base = "NeotestPassed",
               tag = "test_pass",
             },
