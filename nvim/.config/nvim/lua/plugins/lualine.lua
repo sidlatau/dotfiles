@@ -15,7 +15,7 @@ return {
     local diff = {
       "diff",
       cond = hide_in_width,
-      symbols = { added = " ", modified = "柳 ", removed = " " },
+      symbols = { added = " ", modified = " ", removed = " " },
     }
 
     local mode = {
