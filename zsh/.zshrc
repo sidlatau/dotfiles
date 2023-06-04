@@ -126,6 +126,7 @@ alias lvim="/Users/ts/.local/bin/lvim"
 alias neovide="/Applications/Neovide.app/Contents/MacOS/neovide --frame None --multigrid -- -S"
 alias vim=nvim
 alias lg=lazygit
+alias mc="mc --nosubshell"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
