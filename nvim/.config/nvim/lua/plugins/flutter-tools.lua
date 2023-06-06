@@ -29,6 +29,7 @@ return {
             "/Users/ts/fvm/",
           },
           completeFunctionCalls = true,
+          experimentalRefactors = true,
         },
       },
       debugger = {
