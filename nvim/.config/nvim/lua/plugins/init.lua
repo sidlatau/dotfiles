@@ -53,12 +53,4 @@ return {
     event = "VeryLazy",
   },
   { "akinsho/git-conflict.nvim", version = "*", config = true },
-  {
-    "axkirillov/hbac.nvim",
-    config = function()
-      require("hbac").setup {
-        threshold = 25,
-      }
-    end,
-  },
 }
