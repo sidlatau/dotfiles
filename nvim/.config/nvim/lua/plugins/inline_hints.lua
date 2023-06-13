@@ -1,5 +1,6 @@
 return {
   "lvimuser/lsp-inlayhints.nvim",
+  branch = "anticonceal",
   init = function()
     vim.api.nvim_create_augroup("LspAttach_inlayhints", {})
     vim.api.nvim_create_autocmd("LspAttach", {
@@ -17,7 +18,6 @@ return {
   end,
   config = function()
     require("lsp-inlayhints").setup {
-      enabled_at_startup = false,
       inlay_hints = {
         highlight = "Comment",
         labels_separator = " ⏐ ",
