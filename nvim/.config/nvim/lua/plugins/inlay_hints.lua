@@ -17,10 +17,6 @@ return {
     })
   end,
   config = function()
-    require("lsp-inlayhints").setup {
-      inlay_hints = {
-        highlight = "Comment",
-      },
-    }
+    require("lsp-inlayhints").setup {}
   end,
 }
