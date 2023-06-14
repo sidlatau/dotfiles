@@ -97,8 +97,8 @@ return {
       },
       ["a"] = {
         function()
-          vim.lsp.buf.code_action()
-          -- require("lsp-fastaction").code_action()
+          -- vim.lsp.buf.code_action()
+          require("lsp-fastaction").code_action()
         end,
         "Code action",
       },
