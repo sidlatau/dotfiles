@@ -66,7 +66,9 @@ M.get_winbar = function()
   local f = require "config.functions"
   local value = get_filename()
 
-  if not f.isempty(value) and f.get_buf_option "mod" then
+  if
+    not f.isempty(value) and vim.api.nvim_get_option_value("mod", { buf = 0 })
+  then
     local mod = "%#Normal#" .. require("config.icons").ui.Circle .. "%*"
     value = value .. " " .. mod
   end
