@@ -96,7 +96,10 @@ return {
         "Comment",
       },
       ["a"] = {
-        require("lsp-fastaction").code_action,
+        function()
+          vim.lsp.buf.code_action()
+          -- require("lsp-fastaction").code_action()
+        end,
         "Code action",
       },
       ["b"] = {
