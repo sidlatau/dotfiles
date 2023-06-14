@@ -7,6 +7,7 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   pattern = "*.dart",
   callback = function()
     require("config.lsp.handlers").code_action_fix_all()
+    vim.lsp.buf.format()
   end,
 })
 

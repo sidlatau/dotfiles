@@ -113,7 +113,7 @@ M.on_attach = function(client, bufnr)
   lsp_keymaps(bufnr)
   lsp_highlight_document(client, bufnr)
   local ok, lsp_format = pcall(require, "lsp-format")
-  if ok then
+  if ok and client.name ~= "dartls" then
     lsp_format.on_attach(client)
   end
 end
