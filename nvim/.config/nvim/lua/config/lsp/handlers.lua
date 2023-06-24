@@ -84,7 +84,11 @@ end
 
 local function lsp_keymaps(bufnr)
   -- Enable completion triggered by <c-x><c-o>
-  vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
+  vim.api.nvim_set_option_value(
+    "omnifunc",
+    "v:lua.vim.lsp.omnifunc",
+    { buf = 0 }
+  )
 
   local opts = { buffer = bufnr, silent = true }
   vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
