@@ -336,7 +336,7 @@ return {
         },
         h = {
           function()
-            require("lsp-inlayhints").toggle()
+            vim.lsp.buf.inlay_hint(0)
           end,
           "Inlay hints",
         },
