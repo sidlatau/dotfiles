@@ -36,7 +36,7 @@ return {
     event = "VeryLazy",
     build = "make",
   },
-  { "whiteinge/diffconflicts", event = "VeryLazy" },
+  { "whiteinge/diffconflicts" },
   { "wsdjeg/vim-fetch", event = "VeryLazy" },
   {
     "nvim-treesitter/playground",
