@@ -178,11 +178,15 @@
   "gitlens.defaultDateFormat": null,
   "gitlens.defaultDateLocale": null,
   "gitlens.currentLine.enabled": false,
-  "workbench.activityBar.visible": false,
   "terminal.integrated.fontFamily": "Hack Nerd Font Mono",
   "editor.fontFamily": "JetBrains Mono",
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "editor.inlineSuggest.enabled": true,
+"editor.inlineSuggest.enabled": true,
+"dotnet.help.firstView": "gettingStarted",
+"extensions.confirmedUriHandlerExtensionIds": [
+    "ms-dotnettools.dotnet-interactive-vscode",
+    "ms-dotnettools.vscode-dotnet-pack"
+],
 }

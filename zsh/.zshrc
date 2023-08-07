@@ -184,3 +184,4 @@ fi
 ## Completion scripts setup. Remove the following line to uninstall
 [[ -f /Users/ts/.dart-cli-completion/zsh-config.zsh ]] && . /Users/ts/.dart-cli-completion/zsh-config.zsh || true
 ## [/Completion]
+export PATH="/Users/ts/.vscode-dotnet-sdk/.dotnet:$PATH"
