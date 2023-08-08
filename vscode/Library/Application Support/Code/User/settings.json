@@ -183,10 +183,11 @@
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-"editor.inlineSuggest.enabled": true,
-"dotnet.help.firstView": "gettingStarted",
-"extensions.confirmedUriHandlerExtensionIds": [
+  "editor.inlineSuggest.enabled": true,
+  "dotnet.help.firstView": "gettingStarted",
+  "extensions.confirmedUriHandlerExtensionIds": [
     "ms-dotnettools.dotnet-interactive-vscode",
     "ms-dotnettools.vscode-dotnet-pack"
-],
+  ],
+  "go.toolsManagement.autoUpdate": true,
 }
