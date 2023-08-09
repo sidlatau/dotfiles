@@ -70,3 +70,9 @@ set fillchars+=diff:╱
 vim.opt.report = 99999
 vim.opt.exrc = true
 vim.opt.autowriteall = true -- automatically :write before running commands and changing files
+
+vim.o.foldcolumn = "0" -- '0' is not bad
+vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+vim.o.foldlevelstart = 99
+vim.o.foldenable = true
+vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]

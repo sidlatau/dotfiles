@@ -76,3 +76,15 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
   pattern = "*.arb",
   command = [[!flutter gen-l10n]],
 })
+--
+-- -- Telescope breaks folding, this fixes it
+-- -- https://github.com/nvim-telescope/telescope.nvim/issues/699#issuecomment-1159637962
+-- -- https://github.com/nvim-telescope/telescope.nvim/issues/559#issuecomment-1074076011
+-- vim.api.nvim_create_autocmd("BufRead", {
+--   callback = function()
+--     vim.api.nvim_create_autocmd("BufWinEnter", {
+--       once = true,
+--       command = "normal! zx",
+--     })
+--   end,
+-- })
