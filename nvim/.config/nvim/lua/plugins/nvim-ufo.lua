@@ -20,11 +20,20 @@ return {
       },
     },
     event = "BufReadPost",
-    opts = {
-      provider_selector = function()
-        return { "treesitter", "indent" }
-      end,
-    },
+    opts = function()
+      local ft_map = { dart = "lsp" }
+      require("ufo").setup {
+        open_fold_hl_timeout = 0,
+        preview = {
+          win_config = { winhighlight = "Normal:Normal,FloatBorder:Normal" },
+        },
+        enable_get_fold_virt_text = true,
+        close_fold_kinds = { "imports", "comment" },
+        provider_selector = function(_, ft)
+          return ft_map[ft] or { "treesitter", "indent" }
+        end,
+      }
+    end,
     keys = {
       {
         "zR",
