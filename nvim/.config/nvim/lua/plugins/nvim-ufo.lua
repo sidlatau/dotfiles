@@ -28,7 +28,7 @@ return {
           win_config = { winhighlight = "Normal:Normal,FloatBorder:Normal" },
         },
         enable_get_fold_virt_text = true,
-        close_fold_kinds = { "imports", "comment" },
+        close_fold_kinds = { "imports" },
         provider_selector = function(_, ft)
           return ft_map[ft] or { "treesitter", "indent" }
         end,
