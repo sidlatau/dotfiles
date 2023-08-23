@@ -38,8 +38,7 @@ vim.opt.scrolloff = 8 -- is one of my fav
 vim.opt.sidescrolloff = 8
 vim.opt.splitkeep = "screen"
 
-vim.o.sessionoptions =
-  "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+vim.o.sessionoptions = "winsize,winpos"
 
 vim.opt.shortmess:append "c"
 
