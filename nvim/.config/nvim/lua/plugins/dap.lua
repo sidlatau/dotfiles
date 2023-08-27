@@ -6,10 +6,12 @@ return {
       "DapBreakpoint",
       { text = "🟥", texthl = "", linehl = "", numhl = "" }
     )
-    vim.fn.sign_define(
-      "DapStopped",
-      { text = "▶️", texthl = "", linehl = "", numhl = "" }
-    )
+    vim.fn.sign_define("DapStopped", {
+      text = "▶️",
+      texthl = "debugBreakpoint",
+      linehl = "debugPC",
+      numhl = "",
+    })
     vim.keymap.set("n", "<F5>", function()
       require("dap").continue()
     end)
