@@ -38,11 +38,6 @@ return {
   },
   { "whiteinge/diffconflicts" },
   { "wsdjeg/vim-fetch", event = "VeryLazy" },
-  {
-    "nvim-treesitter/playground",
-    cmd = "TSPlaygroundToggle",
-    event = "VeryLazy",
-  },
   { "folke/neodev.nvim", event = "VeryLazy" },
   { "smartpde/telescope-recent-files", event = "VeryLazy" },
   { "mbbill/undotree", event = "VeryLazy" },
