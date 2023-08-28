@@ -48,4 +48,8 @@ return {
     event = "VeryLazy",
   },
   { "akinsho/git-conflict.nvim", version = "*", config = true },
+  {
+    "sidlatau/neotest-dart",
+    -- dir = "~/Documents/github/personal/neotest-dart",
+  },
 }

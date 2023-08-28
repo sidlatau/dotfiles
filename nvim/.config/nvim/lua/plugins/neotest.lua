@@ -3,7 +3,6 @@ return {
   dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-treesitter/nvim-treesitter",
-    "sidlatau/neotest-dart",
     "nvim-neotest/neotest-plenary",
   },
   event = "VeryLazy",
@@ -17,6 +16,7 @@ return {
       adapters = {
         require "neotest-dart" {
           command = "fvm flutter",
+          custom_test_method_names = { "testWidgetsWithDeps", "testWithDeps" },
         },
         require "neotest-plenary",
       },
