@@ -1,53 +1,42 @@
 return {
   "lukas-reineke/indent-blankline.nvim",
-  event = "VeryLazy",
-  config = function()
-    require("indent_blankline").setup {
-      char = "┊", -- ┆ ┊
-      show_foldtext = false,
-      show_current_context = false,
-      show_current_context_start = false,
-      show_current_context_start_on_current_line = false,
-      show_first_indent_level = true,
-      filetype_exclude = {
+  branch = "v3",
+  event = "UIEnter",
+  opts = {
+    exclude = {
+      filetypes = {
+        "dbout",
         "neo-tree-popup",
-        "dap-repl",
-        "startify",
-        "dashboard",
         "log",
-        "fugitive",
         "gitcommit",
-        "packer",
-        "vimwiki",
-        "markdown",
-        "json",
         "txt",
-        "vista",
         "help",
         "NvimTree",
         "git",
-        "TelescopePrompt",
-        "undotree",
         "flutterToolsOutline",
+        "undotree",
+        "markdown",
         "norg",
         "org",
         "orgagenda",
-        "", -- for all buffers without a file type
       },
-      buftype_exclude = { "terminal", "nofile" },
-      context_patterns = {
-        "class",
-        "function",
-        "method",
-        "block",
-        "list_literal",
-        "selector",
-        "^if",
-        "^table",
-        "if_statement",
-        "while",
-        "for",
-      },
-    }
+    },
+    indent = {
+      char = "┊", -- ▏┆ ┊ 
+      tab_char = "┊",
+    },
+    show_first_indent_level = true,
+  },
+  config = function(_, opts)
+    require("ibl").setup(opts)
+    local hooks = require "ibl.hooks"
+    hooks.register(
+      hooks.type.SCOPE_HIGHLIGHT,
+      hooks.builtin.scope_highlight_from_extmark
+    )
+    hooks.register(
+      hooks.type.WHITESPACE,
+      hooks.builtin.hide_first_space_indent_level
+    )
   end,
 }
