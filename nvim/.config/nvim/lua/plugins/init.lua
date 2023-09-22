@@ -22,7 +22,6 @@ return {
   { "neovim/nvim-lspconfig", event = "VeryLazy" },
   { "williamboman/mason.nvim", event = "VeryLazy" },
   { "williamboman/mason-lspconfig.nvim", event = "VeryLazy" },
-  { "jose-elias-alvarez/null-ls.nvim", event = "VeryLazy" },
   { "nvim-treesitter/nvim-treesitter-textobjects", event = "VeryLazy" },
   { "nvim-telescope/telescope-dap.nvim", event = "VeryLazy" },
   { "vim-scripts/BufOnly.vim", event = "VeryLazy" },
