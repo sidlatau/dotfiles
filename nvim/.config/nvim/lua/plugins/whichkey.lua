@@ -336,7 +336,10 @@ return {
         },
         h = {
           function()
-            vim.lsp.buf.inlay_hint(0)
+            local ok = pcall(vim.lsp.buf.inlay_hint, 0)
+            if not ok then
+              print "No inlay hints available"
+            end
           end,
           "Inlay hints",
         },
