@@ -1,6 +1,5 @@
 return {
   "lukas-reineke/indent-blankline.nvim",
-  branch = "v3",
   event = "UIEnter",
   opts = {
     exclude = {
