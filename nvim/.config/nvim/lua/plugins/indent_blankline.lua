@@ -24,7 +24,6 @@ return {
       char = "┊", -- ▏┆ ┊ 
       tab_char = "┊",
     },
-    show_first_indent_level = true,
   },
   config = function(_, opts)
     require("ibl").setup(opts)
