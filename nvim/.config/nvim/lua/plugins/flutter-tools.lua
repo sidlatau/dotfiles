@@ -1,7 +1,5 @@
 return {
-  -- "akinsho/flutter-tools.nvim",
-  "ch-vik/flutter-tools.nvim",
-  branch = "dap/flutter-run-project-path",
+  "akinsho/flutter-tools.nvim",
   -- dir = "~/Documents/github/personal/flutter-tools.nvim",
   dependencies = "nvim-lua/plenary.nvim",
   config = function()
@@ -39,10 +37,6 @@ return {
         run_via_dap = true,
         -- don't pause on exception in flutter
         exception_breakpoints = {},
-        register_configurations = function(paths)
-          require("dap").configurations.dart = {}
-          require("dap.ext.vscode").load_launchjs()
-        end,
       },
       fvm = true,
       widget_guides = {
