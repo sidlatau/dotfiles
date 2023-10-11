@@ -51,4 +51,5 @@ return {
     "sidlatau/neotest-dart",
     -- dir = "~/Documents/github/personal/neotest-dart",
   },
+  { "tpope/vim-dadbod" },
 }

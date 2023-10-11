@@ -24,6 +24,7 @@ vim.api.nvim_create_autocmd("FileType", {
     "log",
     "neotest-output",
     "vim",
+    "dbout",
   },
   callback = function(event)
     vim.bo[event.buf].buflisted = false
