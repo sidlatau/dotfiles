@@ -160,8 +160,9 @@ return {
         },
       },
       p = {
-        name = "ChatGPT",
+        name = "Custom commands",
         c = { "<cmd>ChatGPT<cr>", "ChatGPT" },
+        d = { "<cmd>DBUIToggle<cr>", "DBUI" },
       },
       f = {
         name = "Flutter",
