@@ -163,6 +163,12 @@ return {
         name = "Custom commands",
         c = { "<cmd>ChatGPT<cr>", "ChatGPT" },
         d = { "<cmd>DBUIToggle<cr>", "DBUI" },
+        o = {
+          function()
+            require("config.pick_db").open_simulator_db_connection()
+          end,
+          "Add simulator DB connection",
+        },
       },
       f = {
         name = "Flutter",
