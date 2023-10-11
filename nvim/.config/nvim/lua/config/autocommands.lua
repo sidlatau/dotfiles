@@ -23,6 +23,7 @@ vim.api.nvim_create_autocmd("FileType", {
     "dap-float",
     "log",
     "neotest-output",
+    "vim",
   },
   callback = function(event)
     vim.bo[event.buf].buflisted = false
