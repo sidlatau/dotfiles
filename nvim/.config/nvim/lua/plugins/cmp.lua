@@ -88,6 +88,7 @@ return {
             luasnip = "Snippet",
             buffer = "Buffer",
             path = "Path",
+            ["vim-dadbod-completion"] = "DB",
           })[entry.source.name]
           return vim_item
         end,
@@ -120,6 +121,21 @@ return {
       sources = cmp.config.sources {
         { name = "cmdline" },
       },
+    })
+
+    local autocomplete_group =
+      vim.api.nvim_create_augroup("vimrc_autocompletion", { clear = true })
+    vim.api.nvim_create_autocmd("FileType", {
+      pattern = { "sql" },
+      callback = function()
+        cmp.setup.buffer {
+          sources = {
+            { name = "vim-dadbod-completion" },
+            { name = "buffer" },
+          },
+        }
+      end,
+      group = autocomplete_group,
     })
   end,
 }
