@@ -3,7 +3,9 @@ return {
   event = "VeryLazy",
   config = function()
     require("chatgpt").setup {
-      -- optional configuration
+      popup_input = {
+        submit = "<CR>",
+      },
     }
   end,
   requires = {
