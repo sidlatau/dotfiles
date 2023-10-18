@@ -173,9 +173,12 @@ return {
           mode = { "n", "v" },
         },
         t = {
-          "<cmd>ChatGPTRun translate<CR>",
-          "Translate",
-          mode = { "n", "v" },
+          name = "Translate",
+          n = {
+            "<cmd>ChatGPTRun translate nb<CR>",
+            "Norwegian",
+            mode = { "v" },
+          },
         },
         k = { "<cmd>ChatGPTRun keywords<CR>", "Keywords", mode = { "n", "v" } },
         d = {
