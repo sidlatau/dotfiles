@@ -3,7 +3,6 @@ if [ "$HOST" = "Tautvydass-MacBook-Pro.local" ] || [ "$HOST" = "Tautvydass-MBP.l
   source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
 else
   eval "$(/opt/homebrew/bin/brew shellenv)"
-  source /opt/homebrew/opt/powerlevel10k/powerlevel10k.zsh-theme
 fi
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
@@ -18,11 +17,7 @@ fi
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-#ZSH_THEME="robbyrussell"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
