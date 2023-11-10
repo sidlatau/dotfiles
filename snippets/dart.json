@@ -44,7 +44,6 @@
       "switch ($1) {",
       "  case $2:",
       "    $0",
-      "    break;",
       "  default:",
       "}"
     ]
@@ -215,31 +214,6 @@
       ")"
     ],
     "description": "Flutter Center widget snippet"
-  },
-  "Flutter Row widget snippet": {
-    "prefix": "frow",
-    "body": [
-      "Row(",
-      "  children: <Widget>[${0}],",
-      ")"
-    ],
-    "description": "Flutter Row widget snippet"
-  },
-  "Flutter Column widget snippet": {
-    "prefix": "fcol",
-    "body": [
-      "Column(",
-      "  children: <Widget>[${0}],",
-      ")"
-    ],
-    "description": "Flutter Column widget snippet"
-  },
-  "SizedBox widget snippet with width and height arguments": {
-    "prefix": "fszb",
-    "body": [
-      "SizedBox(width: ${1:0.0}, height: ${2:0.0})${0}"
-    ],
-    "description": "SizedBox widget with width and height arguments"
   },
   "SizedBox widget snippet with just width argument": {
     "prefix": "fszbw",
@@ -826,34 +800,6 @@
       "}"
     ]
   },
-  "Cupertino App": {
-    "prefix": "cupeapp",
-    "description": "Create a CupertinoApp",
-    "body": [
-      "import 'package:flutter/cupertino.dart';",
-      " ",
-      "void main() => runApp(MyApp());",
-      " ",
-      "class MyApp extends StatelessWidget {",
-      "  @override",
-      "  Widget build(BuildContext context) {",
-      "    return CupertinoApp(",
-      "      title: 'Cupertino App',",
-      "      home: CupertinoPageScaffold(",
-      "        navigationBar: CupertinoNavigationBar(",
-      "          middle: Text('Cupertino App Bar'),",
-      "        ),",
-      "        child: Center(",
-      "          child: Container(",
-      "            child: Text('Hello World'),",
-      "          ),",
-      "        ),",
-      "      ),",
-      "    );",
-      "  }",
-      "}"
-    ]
-  },
   "Tween Animation Builder": {
     "prefix": "tweenAnimationBuilder",
     "body": [
@@ -913,9 +859,48 @@
     "body": "class ${1:Name} ${2:extends ${3:SuperClass}}{\n\tfinal ${4:var};\n}",
     "description": "Create a class"
   },
-  "vm": {
-    "prefix": "vm",
-    "body": "class ${1:Name}ViewModel extends BaseViewModel {\n\t${1:Name}ViewModel(BuildContext context) : super(context: context);\n\n\tvoid ${3:someMethod}() {\n\t\t// TODO\n\t}\n}",
-    "description": "ViewModel"
+  "Flutter Screen": {
+    "prefix": "scr",
+    "body": [
+      "import 'package:app/l10n/l10n.dart';",
+      "import 'package:flutter/material.dart';",
+      "",
+      "class ${TM_FILENAME_BASE/(.*)$/${1:/pascalcase}/} extends StatelessWidget {",
+      "  const ${TM_FILENAME_BASE/(.*)$/${1:/pascalcase}/}({super.key});",
+      "",
+      "  @override",
+      "  Widget build(BuildContext context) => Scaffold(",
+      "      appBar: AppBar(",
+      "        title: Text(context.l10n.${TM_FILENAME_BASE/(.*)$/${1:/camelcase}/}),",
+      "      ),",
+      "    );",
+      "}"
+    ],
+    "description": "Flutter screen"
+  },
+  "Flutter Row widget snippet": {
+    "prefix": "row",
+    "body": [
+      "Row(",
+      "  children: <Widget>[${0}],",
+      ")"
+    ],
+    "description": "Flutter Row widget snippet"
+  },
+  "Flutter Column widget snippet": {
+    "prefix": "col",
+    "body": [
+      "Column(",
+      "  children: <Widget>[${0}],",
+      ")"
+    ],
+    "description": "Flutter Column widget snippet"
+  },
+  "SizedBox.shrink": {
+    "prefix": "sbs",
+    "body": [
+      "const SizedBox.shrink()"
+    ],
+    "description": "SizedBox shrink"
   }
 }
