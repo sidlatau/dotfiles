@@ -16,6 +16,7 @@ local servers = {
   "gopls",
   "eslint",
   "tsserver",
+  "pyright",
 }
 
 mason_lspconfig.setup {
