@@ -20,7 +20,10 @@ return {
         "regex",
         "c_sharp",
         "kotlin",
+        "python",
       },
+      modules = {},
+      auto_install = true,
       sync_install = false,
       ignore_install = { "" }, -- List of parsers to ignore installing
       highlight = {
