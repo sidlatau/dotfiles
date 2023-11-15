@@ -287,6 +287,10 @@ return {
           end,
           "Add simulator DB connection",
         },
+        u = {
+          "<cmd>PubspecAssistPickVersion<cr>",
+          "Pubspec assist pick version",
+        },
       },
       g = {
         name = "Git",
