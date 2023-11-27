@@ -181,11 +181,6 @@ return {
           },
         },
         k = { "<cmd>ChatGPTRun keywords<CR>", "Keywords", mode = { "n", "v" } },
-        d = {
-          "<cmd>ChatGPTRun docstring<CR>",
-          "Docstring",
-          mode = { "n", "v" },
-        },
         a = {
           "<cmd>ChatGPTRun add_tests<CR>",
           "Add Tests",
@@ -205,11 +200,6 @@ return {
         x = {
           "<cmd>ChatGPTRun explain_code<CR>",
           "Explain Code",
-          mode = { "n", "v" },
-        },
-        r = {
-          "<cmd>ChatGPTRun roxygen_edit<CR>",
-          "Roxygen Edit",
           mode = { "n", "v" },
         },
         l = {
