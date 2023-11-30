@@ -422,11 +422,9 @@ return {
         },
       },
       n = {
-        name = "Navigate",
-        s = { "<cmd>Estate<cr>", "state" },
-        r = { "<cmd>Ereducer<cr>", "reducer" },
-        a = { "<cmd>Eactions<cr>", "actions" },
-        m = { "<cmd>Emiddleware<cr>", "middleware" },
+        name = "Neorg",
+        i = { "<cmd>Neorg index<cr>", "Open index" },
+        q = { "<cmd>Neorg return<cr>", "Return" },
       },
       R = {
         "<cmd>Telescope resume<cr>",

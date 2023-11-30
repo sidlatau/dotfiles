@@ -2,7 +2,7 @@ vim.g.do_filetype_lua = 1
 
 vim.opt.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
 vim.opt.completeopt = { "menuone", "noselect" } -- mostly just for cmp
-vim.opt.conceallevel = 0 -- so that `` is visible in markdown files
+vim.opt.conceallevel = 2
 vim.opt.fileencoding = "utf-8" -- the encoding written to a file
 vim.opt.hlsearch = true -- highlight all matches on previous search pattern
 vim.opt.ignorecase = true -- ignore case in search patterns
