@@ -27,7 +27,7 @@ return {
         enabled = false,
       },
       diagnostic = {
-        enabled = false,
+        enabled = true,
       },
       floating = {
         border = "rounded",
