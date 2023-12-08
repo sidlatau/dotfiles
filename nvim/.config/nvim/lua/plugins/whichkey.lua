@@ -402,7 +402,7 @@ return {
       },
       s = {
         name = "Search",
-        c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
+        c = { "<cmd>Telescope neoclip<cr>", "Clipboard" },
         h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
         M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
         R = { "<cmd>Telescope registers<cr>", "Registers" },

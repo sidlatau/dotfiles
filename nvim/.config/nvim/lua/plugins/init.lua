@@ -52,4 +52,13 @@ return {
     -- dir = "~/Documents/github/personal/neotest-dart",
   },
   { "tpope/vim-dadbod" },
+  {
+    "AckslD/nvim-neoclip.lua",
+    requires = {
+      { "nvim-telescope/telescope.nvim" },
+    },
+    config = function()
+      require("neoclip").setup()
+    end,
+  },
 }
