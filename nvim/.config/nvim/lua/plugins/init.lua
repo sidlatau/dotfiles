@@ -61,4 +61,7 @@ return {
       require("neoclip").setup()
     end,
   },
+  {
+    "aaronhallaert/advanced-git-search.nvim",
+  },
 }

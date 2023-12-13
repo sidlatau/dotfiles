@@ -286,6 +286,10 @@ return {
         name = "Git",
         f = { "<cmd>!fork<cr><cr>", "Open Fork app" },
         h = { "<cmd>DiffviewFileHistory --follow<cr>", "File history" },
+        H = {
+          "<cmd>Telescope advanced_git_search search_log_content_file<cr>",
+          "File history",
+        },
         g = {
           function()
             require("config.toggleterm").lazygit_toggle()
@@ -338,7 +342,10 @@ return {
           "Open changed file",
         },
         b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
-        c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
+        c = {
+          "<cmd>Telescope advanced_git_search search_log_content<cr>",
+          "Git log",
+        },
         t = { "<cmd>0Gclog<cr>", "File timeline" },
         d = {
           "<cmd>DiffviewOpen<cr>",

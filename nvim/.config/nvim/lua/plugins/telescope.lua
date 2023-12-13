@@ -107,11 +107,15 @@ return {
         recent_files = {
           only_cwd = true,
         },
+        advanced_git_search = {
+          diff_plugin = "diffview",
+        },
       },
     }
 
     require("telescope").load_extension "dap"
     require("telescope").load_extension "fzf"
     require("telescope").load_extension "recent_files"
+    require("telescope").load_extension "advanced_git_search"
   end,
 }
