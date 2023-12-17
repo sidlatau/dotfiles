@@ -2,9 +2,15 @@ local status_ok, mason = pcall(require, "mason")
 if not status_ok then
   return
 end
+
+local neodev_status_ok, neodev = pcall(require, "neodev")
+if neodev_status_ok then
+  neodev.setup {}
+end
+
 mason.setup()
-local status_ok, mason_lspconfig = pcall(require, "mason-lspconfig")
-if not status_ok then
+local mason_status_ok, mason_lspconfig = pcall(require, "mason-lspconfig")
+if not mason_status_ok then
   return
 end
 local lspconfig = require "lspconfig"
@@ -22,11 +28,6 @@ local servers = {
 mason_lspconfig.setup {
   ensure_installed = servers,
 }
-
-local neodev_status_ok, neodev = pcall(require, "neodev")
-if neodev_status_ok then
-  neodev.setup {}
-end
 
 for _, server in pairs(servers) do
   local opts = {
