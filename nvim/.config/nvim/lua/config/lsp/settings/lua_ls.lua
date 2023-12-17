@@ -13,7 +13,7 @@ return {
       },
       format = { enable = false },
       diagnostics = {
-        globals = { "vim" },
+        globals = { "vim", "describe", "it", "before_each", "after_each" },
       },
       completion = { keywordSnippet = "Replace", callSnippet = "Replace" },
       workspace = { checkThirdParty = false },
