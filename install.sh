@@ -7,3 +7,4 @@ stow --target=${HOME} git --ignore=.DS_Store
 stow --target=${HOME} kitty --ignore=.DS_Store 
 stow --target=${HOME} vscode --ignore=.DS_Store 
 stow --target=${HOME} configs --ignore=.DS_Store 
+stow --target=${HOME} ideavim --ignore=.DS_Store 
