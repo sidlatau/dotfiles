@@ -23,6 +23,7 @@ local servers = {
   "eslint",
   "tsserver",
   "pyright",
+  "omnisharp",
 }
 
 mason_lspconfig.setup {
