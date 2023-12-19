@@ -25,10 +25,10 @@
     "editor.suggest.snippetsPreventQuickSuggestions": false,
     "editor.suggestSelection": "first",
     "editor.tabCompletion": "onlySnippets",
-    "editor.wordBasedSuggestions": false,
+    "editor.wordBasedSuggestions": "off",
     "editor.codeActionsOnSave": {
-      "source.fixAll": true,
-      "source.organizeImports": true
+      "source.fixAll": "explicit",
+      "source.organizeImports": "explicit"
     }
   },
   // Disables built-in highlighting of words that match your selection. Without this, all
@@ -51,11 +51,10 @@
   // file when a language service does not provide its own completions. This results in
   // code completion suggesting words when editing comments and strings. This setting
   // will prevent that.
-  "editor.wordBasedSuggestions": false,
+  "editor.wordBasedSuggestions": "off",
   // Force all files to have a trailing newline for consistency and reduced diffs when
   // adding new lines at the bottom of the file.
   "files.insertFinalNewline": true,
-  "dart.triggerSignatureHelpAutomatically": true,
   "editor.minimap.enabled": false,
   "yaml.schemas": {
     "https://json.schemastore.org/github-workflow": "/.github/workflows/**/*.yaml",
@@ -79,7 +78,7 @@
     80
   ],
   "git.autofetch": true,
-  "workbench.editor.showTabs": false,
+  "workbench.editor.showTabs": "single",
   "workbench.editor.limit.enabled": true,
   "extensions.ignoreRecommendations": true,
   "mochaExplorer.files": [
@@ -155,7 +154,6 @@
   "files.watcherExclude": {
     "**/.fvm": true
   },
-  "redhat.telemetry.enabled": false,
   "editor.formatOnSave": true,
   "security.workspace.trust.untrustedFiles": "open",
   "gitlens.advanced.messages": {
@@ -184,10 +182,9 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "editor.inlineSuggest.enabled": true,
-  "dotnet.help.firstView": "gettingStarted",
   "extensions.confirmedUriHandlerExtensionIds": [
     "ms-dotnettools.dotnet-interactive-vscode",
     "ms-dotnettools.vscode-dotnet-pack"
   ],
-  "go.toolsManagement.autoUpdate": true,
+  "vim.useSystemClipboard": true
 }
