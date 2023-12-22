@@ -187,6 +187,6 @@
     "ms-dotnettools.vscode-dotnet-pack"
   ],
   "vim.useSystemClipboard": true,
-  "window.commandCenter": false,
-  "workbench.layoutControl.enabled": false
+  "workbench.layoutControl.enabled": false,
+  "debug.toolBarLocation": "commandCenter"
 }
