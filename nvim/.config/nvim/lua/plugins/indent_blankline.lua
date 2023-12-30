@@ -18,6 +18,7 @@ return {
         "norg",
         "org",
         "orgagenda",
+        "dashboard",
       },
     },
     indent = {

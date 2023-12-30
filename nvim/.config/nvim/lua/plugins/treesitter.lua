@@ -1,7 +1,7 @@
 return {
   "nvim-treesitter/nvim-treesitter",
   build = ":TSUpdate",
-  event = "VeryLazy",
+  event = { "BufRead" },
   config = function()
     local configs = require "nvim-treesitter.configs"
     configs.setup {
@@ -24,7 +24,7 @@ return {
       },
       modules = {},
       auto_install = true,
-      sync_install = false,
+      sync_install = true,
       ignore_install = { "" }, -- List of parsers to ignore installing
       highlight = {
         enable = true,
@@ -34,7 +34,7 @@ return {
           enable = true,
 
           -- Automatically jump forward to textobj, similar to targets.vim
-          lookahead = false,
+          lookahead = true,
 
           keymaps = {
             -- You can use the capture groups defined in textobjects.scm
@@ -45,6 +45,7 @@ return {
             ["ip"] = "@parameter.outer",
             ["ap"] = "@parameter.inner",
           },
+          include_surrounding_whitespace = true,
         },
       },
     }
