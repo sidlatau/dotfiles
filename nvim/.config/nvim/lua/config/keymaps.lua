@@ -3,6 +3,7 @@ local keymap = vim.keymap.set
 
 -- Remap space as leader key
 keymap("", "<Space>", "<Nop>")
+keymap("n", "q:", "<NOP>")
 vim.g.mapleader = " "
 vim.g.maplocalleader = ","
 
