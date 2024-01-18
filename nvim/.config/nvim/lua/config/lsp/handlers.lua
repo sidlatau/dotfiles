@@ -110,15 +110,11 @@ end
 
 M.on_attach = function(client, bufnr)
   if client.name == "tsserver" or client.name == "lua_ls" then
-    -- do not format by this LSP - prettier is used for formatting
+    -- do not format by this LSP - conform will handle this is used for formatting
     client.server_capabilities.documentFormattingProvider = false
   end
   lsp_keymaps(bufnr)
   lsp_highlight_document(client, bufnr)
-  local ok, lsp_format = pcall(require, "lsp-format")
-  if ok and client.name ~= "dartls" then
-    lsp_format.on_attach(client)
-  end
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
