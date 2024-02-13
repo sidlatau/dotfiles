@@ -14,7 +14,7 @@ M.toggle_flutter_log = function()
   end
 
   pcall(function()
-    vim.api.nvim_command "sb + __FLUTTER_DEV_LOG__ | resize 15"
+    vim.api.nvim_command "sb + __FLUTTER_DEV_LOG__ | resize 15 | wincmd p"
   end)
 end
 
