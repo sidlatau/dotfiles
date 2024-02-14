@@ -422,11 +422,10 @@
     "prefix": "stless",
     "body": [
       "class ${1:name} extends StatelessWidget {",
-      "  const ${1:name}({Key? key}) : super(key: key);\n",
+      "  const ${1:name}({super.key});\n",
       "  @override",
       "  Widget build(BuildContext context) {",
       "    return Container(",
-      "      child: ${2:child},",
       "    );",
       "  }",
       "}"
@@ -437,7 +436,7 @@
     "prefix": "stfull",
     "body": [
       "class ${1:name} extends StatefulWidget {",
-      "  ${1:name}({Key? key}) : super(key: key);\n",
+      "  ${1:name}({super.key});\n",
       "  @override",
       "  _${1:WidgetName}State createState() => _${1:WidgetName}State();",
       "}\n",
