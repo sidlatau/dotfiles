@@ -220,11 +220,11 @@ return {
         e = { "<cmd>FlutterEmulators<CR>", "Emulators" },
         r = { "<cmd>FlutterRestart<CR>", "Restart" },
         B = {
-          "<cmd>TermExec cmd='fvm flutter pub run build_runner build --delete-conflicting-outputs'<CR>",
+          "<cmd>TermExec cmd='fvm dart run build_runner build --delete-conflicting-outputs'<CR>",
           "Run code generation",
         },
         w = {
-          "<cmd>TermExec cmd='fvm flutter pub run build_runner watch'<CR>",
+          "<cmd>TermExec cmd='fvm dart run build_runner watch'<CR>",
           "Watch code generation",
         },
         b = {
