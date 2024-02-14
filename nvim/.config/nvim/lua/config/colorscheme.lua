@@ -14,8 +14,11 @@ local grpid =
 vim.api.nvim_create_autocmd("ColorScheme", {
   group = grpid,
   pattern = "gruvbox-material",
+  callback = function()
+    vim.cmd [[highlight  WinBar NONE]]
+    vim.cmd [[hi NormalFloat guibg=#1d2021 | hi FloatBorder guibg=#1d2021]]
+  end,
   -- floating popups for neo-tree
-  command = "hi NormalFloat guibg=#1d2021 |" .. "hi FloatBorder guibg=#1d2021",
 })
 
 local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
