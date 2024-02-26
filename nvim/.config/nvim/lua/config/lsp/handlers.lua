@@ -149,7 +149,7 @@ function M.code_action_fix_all()
     params,
     function(err, results_lsp)
       if err then
-        vim.pretty_print(err)
+        vim.print(err)
         if err.message then
           vim.notify(err.message, "error")
         end
