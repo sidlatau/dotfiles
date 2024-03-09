@@ -384,11 +384,7 @@ return {
         l = { vim.lsp.codelens.run, "CodeLens Action" },
         r = {
           function()
-            if vim.g.filetype == "dart" then
-              require("flutter-tools.lsp.rename").rename()
-            else
-              vim.lsp.buf.rename()
-            end
+            require("flutter-tools.lsp.rename").rename()
           end,
           "Rename",
         },

@@ -188,5 +188,7 @@
   ],
   "vim.useSystemClipboard": true,
   "workbench.layoutControl.enabled": false,
-  "debug.toolBarLocation": "commandCenter"
+  "debug.toolBarLocation": "commandCenter",
+  "prettier.singleQuote": true,
+  "yaml.format.singleQuote": true
 }
