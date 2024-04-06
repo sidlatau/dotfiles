@@ -424,11 +424,6 @@ return {
           "Word under cursor",
         },
       },
-      n = {
-        name = "Neorg",
-        i = { "<cmd>Neorg index<cr>", "Open index" },
-        q = { "<cmd>Neorg return<cr>", "Return" },
-      },
       R = {
         "<cmd>Telescope resume<cr>",
         "Telescope resume",
