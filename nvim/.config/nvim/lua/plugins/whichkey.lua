@@ -131,7 +131,13 @@ return {
       },
       ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
       ["C"] = { "<cmd>Bufonly<CR>", "Leave single Buffer" },
-      ["<leader>"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
+      ["<leader>"] = {
+        function()
+          vim.cmd "nohlsearch"
+          vim.lsp.inlay_hint.enable(0, not vim.lsp.inlay_hint.is_enabled())
+        end,
+        "No Highlight",
+      },
       ["F"] = {
         function()
           require("telescope.builtin").live_grep(
