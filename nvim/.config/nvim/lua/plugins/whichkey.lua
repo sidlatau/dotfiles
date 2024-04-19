@@ -128,7 +128,9 @@ return {
       ["<leader>"] = {
         function()
           vim.cmd "nohlsearch"
-          vim.lsp.inlay_hint.enable(0, not vim.lsp.inlay_hint.is_enabled())
+          if vim.lsp.get_clients()[0] then
+            vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+          end
         end,
         "No Highlight",
       },
