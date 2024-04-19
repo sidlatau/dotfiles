@@ -89,12 +89,6 @@ return {
     }
 
     local mappings = {
-      ["/"] = {
-        function()
-          require("Comment.api").toggle.linewise.current()
-        end,
-        "Comment",
-      },
       ["a"] = {
         function()
           -- vim.lsp.buf.code_action()
@@ -590,10 +584,6 @@ return {
       nowait = true, -- use `nowait` when creating keymaps
     }
     local vmappings = {
-      ["/"] = {
-        '<ESC><CMD>lua require("Comment.api").toggle.linewise(vim.fn.visualmode())<CR>',
-        "Comment",
-      },
       ["a"] = {
         "<esc><cmd>lua require('lsp-fastaction').range_code_action()<CR>",
         "Range code action",
