@@ -5,6 +5,7 @@ return {
   config = function()
     local flutter_tools = require "flutter-tools"
     flutter_tools.setup {
+      -- root_patterns = { ".fvmrc" },
       ui = {
         notification_style = "native",
       },
