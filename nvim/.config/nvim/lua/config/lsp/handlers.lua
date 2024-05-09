@@ -113,6 +113,9 @@ M.on_attach = function(client, bufnr)
     -- do not format by this LSP - conform will handle this is used for formatting
     client.server_capabilities.documentFormattingProvider = false
   end
+  if client.name == "jsonls" then
+    client.server_capabilities.codelens = false
+  end
   lsp_keymaps(bufnr)
   lsp_highlight_document(client, bufnr)
 end
