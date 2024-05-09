@@ -103,9 +103,7 @@ local function lsp_keymaps(bufnr)
       }
     )
   end, opts)
-  vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
   vim.keymap.set("n", "gl", vim.diagnostic.open_float, opts)
-  vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
 end
 
 M.on_attach = function(client, bufnr)
