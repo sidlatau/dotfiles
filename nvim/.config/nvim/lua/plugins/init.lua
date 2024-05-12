@@ -4,7 +4,13 @@ return {
   { "kyazdani42/nvim-web-devicons", event = "VeryLazy" },
   { "famiu/bufdelete.nvim", event = "VeryLazy" },
   { "JoosepAlviste/nvim-ts-context-commentstring", event = "VeryLazy" },
-  { "tpope/vim-surround", event = "VeryLazy" },
+  {
+    "echasnovski/mini.surround",
+    version = false,
+    config = function()
+      require("mini.surround").setup()
+    end,
+  },
   { "tpope/vim-repeat", event = "VeryLazy" },
   { "tpope/vim-projectionist", event = "VeryLazy" },
   { "sainnhe/gruvbox-material", event = "VeryLazy" }, -- color scheme
