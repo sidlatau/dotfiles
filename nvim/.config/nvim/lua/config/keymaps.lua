@@ -50,7 +50,7 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv")
 
 keymap("v", "p", '"_dP')
 
-vim.keymap.set("n", "<C-p>", function()
+vim.keymap.set("n", "<D-p>", function()
   local opts = {
     hidden = true,
   }
