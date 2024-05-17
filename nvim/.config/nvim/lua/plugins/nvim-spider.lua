@@ -1,11 +1,14 @@
 return {
   "chrisgrieser/nvim-spider",
   lazy = true,
+  opts = {
+    skipInsignificantPunctuation = false,
+  },
   init = function()
     vim.keymap.set(
       { "n", "o", "x" },
       "w",
-      "<cmd>lua require('spider').motion('w',{ skipInsignificantPunctuation = true })<CR>",
+      "<cmd>lua require('spider').motion('w')<CR>",
       { desc = "Spider-w" }
     )
     vim.keymap.set(
