@@ -164,7 +164,7 @@ function M.code_action_fix_all()
         if
           result
           and result.command
-          and result.command.command == "edit.fixAll"
+          and result.command.command == "dart.edit.fixAll"
         then
           lsp_execute_command(result)
         end

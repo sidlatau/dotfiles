@@ -58,6 +58,11 @@ vim.keymap.set("n", "<D-p>", function()
     require("telescope.themes").get_dropdown(opts)
   )
 end)
+vim.keymap.set("n", "<D-F>", function()
+  require("telescope.builtin").live_grep(
+    require("telescope.themes").get_dropdown()
+  )
+end)
 
 -- For easy navigation of wrapped lines
 vim.cmd [[
