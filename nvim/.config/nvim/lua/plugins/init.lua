@@ -64,4 +64,23 @@ return {
   {
     "wakatime/vim-wakatime",
   },
+  {
+    "m4xshen/hardtime.nvim",
+    dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
+    opts = {
+      disable_mouse = false,
+      max_count = 15,
+      restriction_mode = "hint",
+      restricted_keys = {
+        ["<C-N>"] = {},
+        ["<C-P>"] = {},
+      },
+      disabled_keys = {
+        ["<Up>"] = { "" },
+        ["<Down>"] = { "" },
+        ["<Left>"] = { "" },
+        ["<Right>"] = { "" },
+      },
+    },
+  },
 }

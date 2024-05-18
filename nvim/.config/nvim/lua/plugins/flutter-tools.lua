@@ -47,6 +47,10 @@ return {
         enabled = true,
         open_cmd = "15split", -- command to use to open the log buffer
       },
+      dev_tools = {
+        autostart = true, -- autostart devtools server if not detected
+        auto_open_browser = false, -- Automatically opens devtools in the browser
+      },
       decorations = {
         statusline = {
           project_config = true,

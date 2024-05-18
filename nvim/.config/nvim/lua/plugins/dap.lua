@@ -1,7 +1,9 @@
 return {
   "mfussenegger/nvim-dap",
+  dependencies = { "theHamsta/nvim-dap-virtual-text" },
   event = "VeryLazy",
   config = function()
+    require("nvim-dap-virtual-text").setup {}
     vim.fn.sign_define(
       "DapBreakpoint",
       { text = " ", texthl = "debugBreakpoint", linehl = "", numhl = "" }

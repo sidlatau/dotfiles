@@ -64,22 +64,22 @@ local function lsp_highlight_document(client, bufnr)
       end,
     })
   end
-  if client.server_capabilities.documentHighlightProvider then
-    local lsp_document_highlight =
-      vim.api.nvim_create_augroup("lsp_document_highlight", {})
-    vim.api.nvim_create_autocmd({ "CursorHold" }, {
-      group = lsp_document_highlight,
-      buffer = bufnr,
-      callback = function(args)
-        if
-          vim.b.lsp_hover_win and vim.api.nvim_win_is_valid(vim.b.lsp_hover_win)
-        then
-          return
-        end
-        vim.diagnostic.open_float(args.buf, { scope = "line", focus = false })
-      end,
-    })
-  end
+  -- if client.server_capabilities.documentHighlightProvider then
+  --   local lsp_document_highlight =
+  --     vim.api.nvim_create_augroup("lsp_document_highlight", {})
+  --   vim.api.nvim_create_autocmd({ "CursorHold" }, {
+  --     group = lsp_document_highlight,
+  --     buffer = bufnr,
+  --     callback = function(args)
+  --       if
+  --         vim.b.lsp_hover_win and vim.api.nvim_win_is_valid(vim.b.lsp_hover_win)
+  --       then
+  --         return
+  --       end
+  --       vim.diagnostic.open_float(args.buf, { scope = "line", focus = false })
+  --     end,
+  --   })
+  -- end
 end
 
 local function lsp_keymaps(bufnr)
