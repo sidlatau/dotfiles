@@ -31,6 +31,7 @@ return {
           },
           completeFunctionCalls = true,
           experimentalRefactors = true,
+          allowOpenUri = true,
         },
       },
       debugger = {

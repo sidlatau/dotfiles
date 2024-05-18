@@ -117,7 +117,7 @@ return {
         end,
         "Buffers",
       },
-      ["e"] = { "<cmd>Neotree float toggle reveal<cr>", "Explorer" },
+      ["e"] = { "<cmd>Neotree float toggle reveal_force_cwd<cr>", "Explorer" },
       ["u"] = { "<cmd>UndotreeToggle<cr>", "Undotree" },
       ["w"] = {
         "<cmd>wa<cr>",

@@ -70,6 +70,7 @@ return {
         },
       },
       filesystem = {
+        bind_to_cwd = false,
         filtered_items = { --These filters are applied to both browsing and searching
           visible = false,
           hide_dotfiles = false,
