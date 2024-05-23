@@ -1,7 +1,6 @@
 return {
   settings = {
     yaml = {
-      hover = true,
       completion = true,
       validate = true,
       schemaStore = {
