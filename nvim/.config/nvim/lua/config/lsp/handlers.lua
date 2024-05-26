@@ -43,20 +43,6 @@ M.setup = function()
     })
 end
 
-local function lsp_highlight_document(client, bufnr)
-  -- Set autocommands conditional on server_capabilities
-  if client and client.server_capabilities.codeLensProvider then
-    local codelens_highlight = vim.api.nvim_create_augroup("LspCodeLens", {})
-    vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "InsertLeave" }, {
-      group = codelens_highlight,
-      buffer = bufnr,
-      callback = function()
-        vim.lsp.codelens.refresh()
-      end,
-    })
-  end
-end
-
 local function lsp_keymaps(bufnr)
   -- Enable completion triggered by <c-x><c-o>
   vim.api.nvim_set_option_value(
@@ -86,11 +72,7 @@ M.on_attach = function(client, bufnr)
     -- do not format by this LSP - conform will handle this is used for formatting
     client.server_capabilities.documentFormattingProvider = false
   end
-  if client.name == "jsonls" then
-    client.server_capabilities.codelens = false
-  end
   lsp_keymaps(bufnr)
-  lsp_highlight_document(client, bufnr)
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -127,7 +109,7 @@ function M.code_action_fix_all()
       if err then
         vim.print(err)
         if err.message then
-          vim.notify(err.message, "error")
+          vim.notify(err.message, vim.log.levels.ERROR)
         end
         return
       end
