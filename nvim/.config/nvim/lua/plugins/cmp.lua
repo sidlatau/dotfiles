@@ -12,22 +12,6 @@ return {
       return
     end
 
-    local function tab(fallback)
-      if cmp.visible() then
-        cmp.select_next_item()
-      elseif vim.api.nvim_get_mode().mode == "c" then
-        fallback()
-      end
-    end
-
-    local function shift_tab(fallback)
-      if cmp.visible() then
-        cmp.select_prev_item()
-      elseif vim.api.nvim_get_mode().mode == "c" then
-        fallback()
-      end
-    end
-
     local kind_icons = {
       Text = "󰉿",
       Method = "󰆧",
@@ -62,20 +46,14 @@ return {
           luasnip.lsp_expand(args.body) -- For `luasnip` users.
         end,
       },
-      mapping = {
+      mapping = cmp.mapping.preset.insert {
         ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
         ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
         ["<C-Space>"] = cmp.mapping.complete(),
-        ["<C-e>"] = cmp.mapping {
-          i = cmp.mapping.abort(),
-          c = cmp.mapping.close(),
-        },
         ["<CR>"] = cmp.mapping.confirm {
           behavior = cmp.ConfirmBehavior.Replace,
-          select = false,
+          select = true,
         },
-        ["<C-N>"] = cmp.mapping(tab, { "i", "c" }),
-        ["<C-P>"] = cmp.mapping(shift_tab, { "i", "c" }),
       },
       formatting = {
         fields = { "kind", "abbr", "menu" },
@@ -108,15 +86,6 @@ return {
       experimental = { ghost_text = false, native_menu = false },
     }
 
-    local search_sources = {
-      sources = cmp.config.sources({
-        { name = "nvim_lsp_document_symbol" },
-      }, {
-        { name = "buffer" },
-      }),
-    }
-    cmp.setup.cmdline("/", search_sources)
-    cmp.setup.cmdline("?", search_sources)
     cmp.setup.cmdline(":", {
       sources = cmp.config.sources {
         { name = "cmdline" },
