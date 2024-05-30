@@ -190,5 +190,6 @@
   "workbench.layoutControl.enabled": false,
   "debug.toolBarLocation": "commandCenter",
   "prettier.singleQuote": true,
-  "yaml.format.singleQuote": true
+  "yaml.format.singleQuote": true,
+  "github.copilot.editor.enableAutoCompletions": true
 }

@@ -54,6 +54,12 @@ return {
           behavior = cmp.ConfirmBehavior.Replace,
           select = true,
         },
+        ["<C-n>"] = cmp.mapping.select_next_item {
+          behavior = cmp.SelectBehavior.Select,
+        },
+        ["<C-p>"] = cmp.mapping.select_prev_item {
+          behavior = cmp.SelectBehavior.Select,
+        },
       },
       formatting = {
         fields = { "kind", "abbr", "menu" },
@@ -83,10 +89,11 @@ return {
         { name = "path" },
       },
       confirm_opts = { behavior = cmp.ConfirmBehavior.Replace, select = false },
-      experimental = { ghost_text = false, native_menu = false },
+      preselect = cmp.PreselectMode.None,
     }
 
     cmp.setup.cmdline(":", {
+      mapping = cmp.mapping.preset.cmdline(),
       sources = cmp.config.sources {
         { name = "cmdline" },
       },
