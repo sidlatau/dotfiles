@@ -3,13 +3,6 @@ if not status_ok then
   return
 end
 
-local neodev_status_ok, neodev = pcall(require, "neodev")
-if neodev_status_ok then
-  neodev.setup {
-    library = { plugins = { "nvim-dap-ui" }, types = true },
-  }
-end
-
 mason.setup()
 local mason_status_ok, mason_lspconfig = pcall(require, "mason-lspconfig")
 if not mason_status_ok then
