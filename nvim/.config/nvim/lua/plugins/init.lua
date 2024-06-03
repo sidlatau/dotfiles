@@ -13,7 +13,6 @@ return {
   },
   { "tpope/vim-repeat", event = "VeryLazy" },
   { "tpope/vim-projectionist", event = "VeryLazy" },
-  { "sainnhe/gruvbox-material", event = "VeryLazy" }, -- color scheme
   { "tpope/vim-unimpaired", event = "VeryLazy" },
 
   { "hrsh7th/cmp-buffer", event = "VeryLazy" },

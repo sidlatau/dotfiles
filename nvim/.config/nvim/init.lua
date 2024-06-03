@@ -19,7 +19,6 @@ require("lazy").setup("plugins", {
     path = "~/Documents/github/personal",
   },
 })
-require "config.colorscheme"
 require "config.lsp"
 require "config.autocommands"
 require "config.winbar"
