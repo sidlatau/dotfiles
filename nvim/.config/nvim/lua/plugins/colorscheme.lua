@@ -12,7 +12,6 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 
 return {
   "sainnhe/gruvbox-material",
-  commit = "8f504421acd991b786ae6796176a1c5878221052",
   lazy = false,
   priority = 1000,
   config = function()
