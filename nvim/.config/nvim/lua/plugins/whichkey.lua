@@ -129,7 +129,7 @@ return {
         function()
           vim.cmd "nohlsearch"
           if vim.lsp.get_clients()[0] then
-            vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+            vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled {})
           end
         end,
         "No Highlight",
@@ -298,29 +298,11 @@ return {
           end,
           "Lazygit",
         },
-        j = {
-          function()
-            require("gitsigns").next_hunk()
-          end,
-          "Next Hunk",
-        },
-        k = {
-          function()
-            require("gitsigns").prev_hunk()
-          end,
-          "Prev Hunk",
-        },
         l = {
           function()
             require("gitsigns").blame_line()
           end,
           "Blame",
-        },
-        p = {
-          function()
-            require("gitsigns").preview_hunk()
-          end,
-          "Preview Hunk",
         },
         r = {
           function()
@@ -389,7 +371,7 @@ return {
         },
         h = {
           function()
-            vim.lsp.inlay_hint.enable(0, not vim.lsp.inlay_hint.is_enabled())
+            vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled {})
           end,
           "Inlay hints",
         },

@@ -2,11 +2,7 @@ local M = {}
 
 M.setup = function()
   local config = {
-    virtual_text = false and {
-      prefix = "●",
-      source = "always",
-    },
-    -- show signs
+    virtual_text = false,
     signs = {
       text = {
         [vim.diagnostic.severity.ERROR] = "",
@@ -16,10 +12,9 @@ M.setup = function()
       },
     },
     update_in_insert = true,
-    underline = true,
     severity_sort = true,
     float = {
-      focusable = false,
+      focusable = true,
       style = "minimal",
       border = "rounded",
       source = "always",
