@@ -76,5 +76,5 @@ vim.api.nvim_create_autocmd({ "VimResized" }, {
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
   group = augroup "generate_l10n_on_save",
   pattern = "*.arb",
-  command = [[!fvm flutter gen-l10n]],
+  command = [[!(arb_translate & fvm flutter gen-l10n)]],
 })
