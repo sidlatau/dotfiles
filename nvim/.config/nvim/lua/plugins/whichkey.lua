@@ -290,7 +290,7 @@ return {
         h = { "<cmd>DiffviewFileHistory --follow<cr>", "File history" },
         H = {
           "<cmd>Telescope advanced_git_search search_log_content_file<cr>",
-          "File history",
+          "Advanced git search",
         },
         g = {
           function()
@@ -298,23 +298,12 @@ return {
           end,
           "Lazygit",
         },
+        n = { "<cmd>Neogit<cr>", "Neogit" },
         l = {
           function()
             require("gitsigns").blame_line()
           end,
           "Blame",
-        },
-        r = {
-          function()
-            require("gitsigns").reset_hunk()
-          end,
-          "Reset Hunk",
-        },
-        R = {
-          function()
-            require("gitsigns").reset_buffer()
-          end,
-          "Reset Buffer",
         },
         o = {
 
@@ -543,6 +532,7 @@ return {
         name = "Telescope",
         m = { "<cmd>Noice history<CR>", "Messages" },
         h = { "<cmd>Telescope help_tags<CR>", "Help tags" },
+        c = { "<cmd>Telescope colorscheme<CR>", "Color Scheme" },
         k = { "<cmd>Telescope keymaps<CR>", "Keymaps" },
         o = {
           require("telescope").extensions.recent_files.pick,

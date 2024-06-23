@@ -82,4 +82,6 @@ return {
     },
   },
   { "b0o/schemastore.nvim" },
+  { "rebelot/kanagawa.nvim" },
+  { "rose-pine/neovim", name = "rose-pine" },
 }
