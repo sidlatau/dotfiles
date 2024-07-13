@@ -2,6 +2,7 @@ return {
   "folke/which-key.nvim",
   event = "VeryLazy",
   opts = {
+    preset = "modern",
     icons = { rules = false },
     plugins = {
       marks = false, -- shows a list of your marks on ' and `
