@@ -1,102 +1,38 @@
 return {
   "folke/which-key.nvim",
   event = "VeryLazy",
-  config = function()
-    local which_key = require "which-key"
-
-    local setup = {
-      plugins = {
-        marks = false, -- shows a list of your marks on ' and `
-        registers = false, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
-        spelling = {
-          enabled = true, -- enabling this will show WhichKey when pressing z= to select spelling suggestions
-          suggestions = 20, -- how many suggestions should be shown in the list?
-        },
-        -- the presets plugin, adds help for a bunch of default keybindings in Neovim
-        -- No actual key bindings are created
-        presets = {
-          operators = false, -- adds help for operators like d, y, ... and registers them for motion / text object completion
-          motions = false, -- adds help for motions
-          text_objects = false, -- help for text objects triggered after entering an operator
-          windows = true, -- default bindings on <c-w>
-          nav = true, -- misc bindings to work with windows
-          z = true, -- bindings for folds, spelling and others prefixed with z
-          g = true, -- bindings for prefixed with g
-        },
+  opts = {
+    icons = { rules = false },
+    plugins = {
+      marks = false, -- shows a list of your marks on ' and `
+      registers = false, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
+      -- the presets plugin, adds help for a bunch of default keybindings in Neovim
+      -- No actual key bindings are created
+      spelling = {
+        enabled = true, -- enabling this will show WhichKey when pressing z= to select spelling suggestions
+        suggestions = 20, -- how many suggestions should be shown in the list?
       },
-      -- add operators that will trigger motion and text object completion
-      -- to enable all native operators, set the preset / operators plugin above
-      -- operators = { gc = "Comments" },
-      key_labels = {
-        -- override the label used to display some keys. It doesn't effect WK in any other way.
-        -- For example:
-        -- ["<space>"] = "SPC",
-        -- ["<cr>"] = "RET",
-        -- ["<tab>"] = "TAB",
+      presets = {
+        operators = false, -- adds help for operators like d, y, ...
+        motions = false, -- adds help for motions
+        text_objects = false, -- help for text objects triggered after entering an operator
+        windows = false, -- default bindings on <c-w>
+        nav = false, -- misc bindings to work with windows
+        z = true, -- bindings for folds, spelling and others prefixed with z
+        g = true, -- bindings for prefixed with g
       },
-      icons = {
-        breadcrumb = "»", -- symbol used in the command line area that shows your active key combo
-        separator = "➜", -- symbol used between a key and it's label
-        group = "+", -- symbol prepended to a group
-      },
-      popup_mappings = {
-        scroll_down = "<c-d>", -- binding to scroll down inside the popup
-        scroll_up = "<c-u>", -- binding to scroll up inside the popup
-      },
-      window = {
-        border = "rounded", -- none, single, double, shadow
-        position = "bottom", -- bottom, top
-        margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
-        padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
-        winblend = 0,
-      },
-      layout = {
-        height = { min = 4, max = 25 }, -- min and max height of the columns
-        width = { min = 20, max = 50 }, -- min and max width of the columns
-        spacing = 3, -- spacing between columns
-        align = "left", -- align columns left, center or right
-      },
-      ignore_missing = true, -- enable this to hide mappings for which you didn't specify a label
-      hidden = {
-        "<silent>",
-        "<cmd>",
-        "<Cmd>",
-        "<CR>",
-        "call",
-        "lua",
-        "^:",
-        "^ ",
-      }, -- hide mapping boilerplate
-      show_help = true, -- show help message on the command line when the popup is visible
-      triggers = "auto", -- automatically setup triggers
-      -- triggers = {"<leader>"} -- or specify a list manually
-      triggers_blacklist = {
-        -- list of mode / prefixes that should never be hooked by WhichKey
-        -- this is mostly relevant for key maps that start with a native binding
-        -- most people should not need to change this
-        i = { "j", "k" },
-        v = { "j", "k" },
-      },
-    }
-
-    local opts = {
-      mode = "n", -- NORMAL mode
-      prefix = "<leader>",
-      buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
-      silent = true, -- use `silent` when creating keymaps
-      noremap = true, -- use `noremap` when creating keymaps
-      nowait = true, -- use `nowait` when creating keymaps
-    }
-
-    local mappings = {
-      ["a"] = {
+    },
+    spec = {
+      {
+        "<leader>a",
         function()
           -- vim.lsp.buf.code_action()
           require("lsp-fastaction").code_action()
         end,
-        "Code action",
+        desc = "Code action",
       },
-      ["b"] = {
+      {
+        "<leader>b",
         function()
           require("telescope.builtin").buffers(
             require("telescope.themes").get_dropdown {
@@ -115,265 +51,395 @@ return {
             }
           )
         end,
-        "Buffers",
+        desc = "Buffers",
       },
-      ["e"] = { "<cmd>Neotree float toggle reveal_force_cwd<cr>", "Explorer" },
-      ["u"] = { "<cmd>UndotreeToggle<cr>", "Undotree" },
-      ["w"] = {
-        "<cmd>wa<cr>",
-        "Save",
+      {
+        "<leader>e",
+        "<cmd>Neotree float toggle reveal_force_cwd<cr>",
+        desc = "Explorer",
       },
-      ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
-      ["C"] = { "<cmd>Bufonly<CR>", "Leave single Buffer" },
-      ["<leader>"] = {
+      { "<leader>c", "<cmd>Bdelete!<CR>", desc = "Close Buffer" },
+      { "<leader>C", "<cmd>Bufonly<CR>", desc = "Leave single Buffer" },
+      {
+        "<leader><leader>",
         function()
           vim.cmd "nohlsearch"
           if vim.lsp.get_clients()[0] then
             vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled {})
           end
         end,
-        "No Highlight",
+        desc = "No Highlight",
       },
-      ["F"] = {
+      {
+        "<leader>F",
         function()
           require("telescope.builtin").live_grep(
             require("telescope.themes").get_dropdown()
           )
         end,
-        "Find Text",
+        desc = "Find Text",
       },
-      ["1"] = { ':lua require("harpoon.ui").nav_file(1)<CR>', "Nav 1" },
-      ["2"] = { ':lua require("harpoon.ui").nav_file(2)<CR>', "Nav 2" },
-      ["3"] = { ':lua require("harpoon.ui").nav_file(3)<CR>', "Nav 3" },
-      ["4"] = { ':lua require("harpoon.ui").nav_file(4)<CR>', "Nav 4" },
-      h = {
-        name = "Harpoon",
-        a = {
+      {
+        "<leader>1",
+        ':lua require("harpoon.ui").nav_file(1)<CR>',
+        desc = "Nav 1",
+      },
+      {
+        "<leader>2",
+        ':lua require("harpoon.ui").nav_file(2)<CR>',
+        desc = "Nav 2",
+      },
+      {
+        "<leader>3",
+        ':lua require("harpoon.ui").nav_file(3)<CR>',
+        desc = "Nav 3",
+      },
+      {
+        "<leader>4",
+        ':lua require("harpoon.ui").nav_file(4)<CR>',
+        desc = "Nav 4",
+      },
+      {
+        "<leader>h",
+        group = "Harpoon",
+        {
+          "<leader>ha",
           function()
             require("harpoon.mark").add_file()
           end,
-          "Add",
+          desc = "Add",
         },
-        h = {
+        {
+          "<leader>hh",
           function()
             require("harpoon.ui").toggle_quick_menu()
           end,
-          "Edit",
+          desc = "Edit",
         },
       },
-      p = {
-        name = "ChatGPT",
-        c = { "<cmd>ChatGPT<CR>", "ChatGPT" },
-        e = {
+      {
+        "<leader>p",
+        group = "ChatGPT",
+        { "<leader>pc", "<cmd>ChatGPT<CR>", desc = "ChatGPT" },
+        {
+          "<leader>pe",
           "<cmd>ChatGPTEditWithInstruction<CR>",
-          "Edit with instruction",
+          desc = "Edit with instruction",
           mode = { "n", "v" },
         },
-        g = {
+        {
+          "<leader>pg",
           "<cmd>ChatGPTRun grammar_correction<CR>",
-          "Grammar Correction",
+          desc = "Grammar Correction",
           mode = { "n", "v" },
         },
-        t = {
-          name = "Translate",
-          n = {
-            "<cmd>ChatGPTRun translate nb<CR>",
-            "Norwegian",
-            mode = { "v" },
-          },
+        {
+          "<leader>ptn",
+          "<cmd>ChatGPTRun translate nb<CR>",
+          desc = "Translate Norwegian",
+          mode = { "v" },
         },
-        k = { "<cmd>ChatGPTRun keywords<CR>", "Keywords", mode = { "n", "v" } },
-        a = {
+        {
+          "<leader>pk",
+          "<cmd>ChatGPTRun keywords<CR>",
+          desc = "Keywords",
+          mode = { "n", "v" },
+        },
+        {
+          "<leader>pa",
           "<cmd>ChatGPTRun add_tests<CR>",
-          "Add Tests",
+          desc = "Add Tests",
           mode = { "n", "v" },
         },
-        o = {
+        {
+          "<leader>po",
           "<cmd>ChatGPTRun optimize_code<CR>",
-          "Optimize Code",
+          desc = "Optimize Code",
           mode = { "n", "v" },
         },
-        s = {
+        {
+          "<leader>ps",
           "<cmd>ChatGPTRun summarize<CR>",
-          "Summarize",
+          desc = "Summarize",
           mode = { "n", "v" },
         },
-        f = { "<cmd>ChatGPTRun fix_bugs<CR>", "Fix Bugs", mode = { "n", "v" } },
-        x = {
+        {
+          "<leader>pf",
+          "<cmd>ChatGPTRun fix_bugs<CR>",
+          desc = "Fix Bugs",
+          mode = { "n", "v" },
+        },
+        {
+          "<leader>px",
           "<cmd>ChatGPTRun explain_code<CR>",
-          "Explain Code",
+          desc = "Explain Code",
           mode = { "n", "v" },
         },
-        l = {
+        {
+          "<leader>pl",
           "<cmd>ChatGPTRun code_readability_analysis<CR>",
-          "Code Readability Analysis",
+          desc = "Code Readability Analysis",
           mode = { "n", "v" },
         },
       },
-      f = {
-        name = "Flutter",
-        c = { "<cmd>Telescope flutter commands<CR>", "Commands list" },
-        l = {
+      {
+        "<leader>f",
+        group = "Flutter",
+        {
+          "<leader>fc",
+          "<cmd>Telescope flutter commands<CR>",
+          desc = "Commands list",
+        },
+        {
+          "<leader>fl",
           function()
             require("config").toggle_flutter_log()
           end,
-          "Toggle log",
+          desc = "Toggle log",
         },
-        e = { "<cmd>FlutterEmulators<CR>", "Emulators" },
-        r = { "<cmd>FlutterRestart<CR>", "Restart" },
-        B = {
+        {
+          "<leader>fe",
+          "<cmd>FlutterEmulators<CR>",
+          desc = "Emulators",
+        },
+        {
+          "<leader>fr",
+          "<cmd>FlutterRestart<CR>",
+          desc = "Restart",
+        },
+        {
+          "<leader>fB",
           "<cmd>TermExec cmd='fvm dart run build_runner build --delete-conflicting-outputs'<CR>",
-          "Run code generation",
+          desc = "Run code generation",
         },
-        w = {
+        {
+          "<leader>fw",
           "<cmd>TermExec cmd='fvm dart run build_runner watch'<CR>",
-          "Watch code generation",
+          desc = "Watch code generation",
         },
-        b = {
+        {
+          "<leader>fb",
           function()
             require("config.toggleterm").regenerate_single_directory()
           end,
-          "Reneration single directory",
+          desc = "Reneration single directory",
         },
-        g = {
+        {
+          "<leader>fg",
           "<cmd>FlutterPubGet<CR>",
-          "Flutter pub get",
+          desc = "Flutter pub get",
         },
-        q = {
+        {
+          "<leader>fq",
           "<cmd>FlutterQuit<CR>",
-          "Flutter quit",
+          desc = "Flutter quit",
         },
-        f = {
+        {
+          "<leader>ff",
           "<cmd>FlutterRun<CR>",
-          "Flutter run",
+          desc = "Flutter run",
         },
-        z = {
+        {
+          "<leader>fz",
           "<cmd>FlutterLogClear<CR>",
-          "Flutter log clear",
+          desc = "Flutter log clear",
         },
-        v = {
+        {
+          "<leader>fv",
           "<cmd>FlutterVisualDebug<CR>",
-          "Flutter visual debug",
+          desc = "Flutter visual debug",
         },
-        D = {
+        {
+          "<leader>fD",
           "<cmd>FlutterDevices<CR>",
-          "Flutter devices",
+          desc = "Flutter devices",
         },
-        O = {
-          "<cmd>FlutterOutlineToggle<CR>",
-          "Flutter outline",
+        {
+          "<leader>ftb",
+          function()
+            require("config.dart_mason").list_bricks()
+          end,
+          desc = "List bricks",
         },
-        t = {
-          name = "Mason CLI",
-          b = {
-            function()
-              require("config.dart_mason").list_bricks()
-            end,
-            "List bricks",
-          },
+        {
+          "<leader>fd",
+          "<cmd>DBUIToggle<cr>",
+          desc = "DBUI",
         },
-        d = { "<cmd>DBUIToggle<cr>", "DBUI" },
-        o = {
+        {
+          "<leader>fo",
           function()
             require("config.pick_db").open_simulator_db_connection()
           end,
-          "Add simulator DB connection",
+          desc = "Add simulator DB connection",
         },
-        u = {
+        {
+          "<leader>fu",
           "<cmd>PubspecAssistPickVersion<cr>",
-          "Pubspec assist pick version",
+          desc = "Pubspec assist pick version",
         },
       },
-      g = {
-        name = "Git",
-        f = { "<cmd>!fork<cr><cr>", "Open Fork app" },
-        h = { "<cmd>DiffviewFileHistory --follow<cr>", "File history" },
-        H = {
-          "<cmd>Telescope advanced_git_search search_log_content_file<cr>",
-          "Advanced git search",
+      {
+        "<leader>g",
+        group = "Git",
+        {
+          "<leader>gf",
+          "<cmd>!fork<cr><cr>",
+          desc = "Open Fork app",
         },
-        g = {
+        {
+          "<leader>gh",
+          "<cmd>DiffviewFileHistory --follow<cr>",
+          desc = "File history",
+        },
+        {
+          "<leader>gH",
+          "<cmd>Telescope advanced_git_search search_log_content_file<cr>",
+          desc = "Advanced git search",
+        },
+        {
+          "<leader>gg",
           function()
             require("config.toggleterm").lazygit_toggle()
           end,
-          "Lazygit",
+          desc = "Lazygit",
         },
-        n = { "<cmd>Neogit<cr>", "Neogit" },
-        l = {
+        { "<leader>gn", "<cmd>Neogit<cr>", desc = "Neogit", group = "Git" },
+        {
+          "<leader>gl",
           function()
             require("gitsigns").blame_line()
           end,
-          "Blame",
+          desc = "Blame",
         },
-        o = {
-
+        {
+          "<leader>go",
           function()
             require("telescope.builtin").git_status(
               require("telescope.themes").get_dropdown {}
             )
           end,
-          "Open changed file",
+          desc = "Open changed file",
         },
-        b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
-        c = {
+        {
+          "<leader>gb",
+          "<cmd>Telescope git_branches<cr>",
+          desc = "Checkout branch",
+        },
+        {
+          "<leader>gc",
           "<cmd>Telescope advanced_git_search search_log_content<cr>",
-          "Git log",
+          desc = "Git log",
         },
-        t = { "<cmd>0Gclog<cr>", "File timeline" },
-        d = {
-          "<cmd>DiffviewOpen<cr>",
-          "Diff",
+        {
+          "<leader>gt",
+          "<cmd>0Gclog<cr>",
+          desc = "File timeline",
         },
-        s = { "<cmd>.GBrowse<cr>", "Show in GitHub" },
-        z = {
+        { "<leader>gd", "<cmd>DiffviewOpen<cr>", desc = "Diff", group = "Git" },
+        {
+          "<leader>gs",
+          "<cmd>.GBrowse<cr>",
+          desc = "Show in GitHub",
+        },
+        {
+          "<leader>gz",
           function()
             require("gitsigns").toggle_deleted()
           end,
-          "Toggle deleted",
+          desc = "Toggle deleted",
         },
       },
-      l = {
-        name = "LSP",
-        a = { vim.lsp.buf.code_action, "Code Action" },
-        d = {
+      {
+        "<leader>l",
+        group = "LSP",
+        {
+          "<leader>la",
+          vim.lsp.buf.code_action,
+          desc = "Code Action",
+        },
+        {
+          "<leader>ld",
           "<cmd>Telescope lsp_document_diagnostics<cr>",
-          "Document Diagnostics",
+          desc = "Document Diagnostics",
         },
-        w = {
+        {
+          "<leader>lw",
           "<cmd>Telescope diagnostics<cr>",
-          "Workspace Diagnostics",
+          desc = "Workspace Diagnostics",
         },
-        f = { vim.lsp.buf.formatting, "Format" },
-        i = { "<cmd>LspInfo<cr>", "Info" },
-        I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
-        l = { vim.lsp.codelens.run, "CodeLens Action" },
-        r = {
+        { "<leader>lf", vim.lsp.buf.formatting, desc = "Format" },
+        { "<leader>li", "<cmd>LspInfo<cr>", desc = "Info" },
+        {
+          "<leader>lI",
+          "<cmd>LspInstallInfo<cr>",
+          desc = "Installer Info",
+        },
+        {
+          "<leader>ll",
+          vim.lsp.codelens.run,
+          desc = "CodeLens Action",
+        },
+        {
+          "<leader>lr",
           function()
             require("flutter-tools.lsp.rename").rename()
           end,
-          "Rename",
+          desc = "Rename",
         },
-        s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
-        S = {
+        {
+          "<leader>ls",
+          "<cmd>Telescope lsp_document_symbols<cr>",
+          desc = "Document Symbols",
+        },
+        {
+          "<leader>lS",
           "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
-          "Workspace Symbols",
+          desc = "Workspace Symbols",
         },
-        h = {
+        {
+          "<leader>lh",
           function()
             vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled {})
           end,
-          "Inlay hints",
+          desc = "Inlay hints",
         },
       },
-      s = {
-        name = "Search",
-        c = { "<cmd>Telescope neoclip<cr>", "Clipboard" },
-        h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
-        M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
-        R = { "<cmd>Telescope registers<cr>", "Registers" },
-        k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
-        C = { "<cmd>Telescope commands<cr>", "Commands" },
-        s = {
+      {
+        "<leader>s",
+        group = "Search",
+        {
+          "<leader>sc",
+          "<cmd>Telescope neoclip<cr>",
+          desc = "Clipboard",
+        },
+        {
+          "<leader>sh",
+          "<cmd>Telescope help_tags<cr>",
+          desc = "Find Help",
+        },
+        {
+          "<leader>sM",
+          "<cmd>Telescope man_pages<cr>",
+          desc = "Man Pages",
+        },
+        {
+          "<leader>sR",
+          "<cmd>Telescope registers<cr>",
+          desc = "Registers",
+        },
+        {
+          "<leader>sk",
+          "<cmd>Telescope keymaps<cr>",
+          desc = "Keymaps",
+        },
+        {
+          "<leader>sC",
+          "<cmd>Telescope commands<cr>",
+          desc = "Commands",
+        },
+        {
+          "<leader>ss",
           function()
             require("telescope.builtin").grep_string(
               require("telescope.themes").get_dropdown {
@@ -383,185 +449,178 @@ return {
               }
             )
           end,
-          "Word under cursor",
+          desc = "Word under cursor",
         },
       },
-      R = {
+      {
+        "<leader>R",
         "<cmd>Telescope resume<cr>",
-        "Telescope resume",
+        desc = "Telescope resume",
       },
-      t = {
-        name = "Test / Terminal",
-        h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
-        v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
-        f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
-        t = {
+      {
+        "<leader>t",
+        group = "Test / Terminal",
+        {
+          "<leader>tf",
+          "<cmd>ToggleTerm direction=float<cr>",
+          desc = "Float",
+        },
+        {
+          "<leader>tt",
           function()
             ---@diagnostic disable-next-line: missing-parameter
             require("neotest").run.run(vim.fn.expand "%")
           end,
-          "Test file",
+          desc = "Test file",
         },
-        s = {
+        {
+          "<leader>ts",
           function()
             require("neotest").summary.toggle()
           end,
-          "Summary",
+          desc = "Summary",
         },
-        o = {
+        {
+          "<leader>to",
           function()
             require("neotest").output.open { enter = true }
           end,
-          "Output",
+          desc = "Output",
         },
-        n = {
+        {
+          "<leader>tn",
           function()
             require("neotest").run.run()
           end,
-          "Test nearest",
+          desc = "Test nearest",
         },
-        l = {
+        {
+          "<leader>tl",
           function()
             require("neotest").run.run_last()
           end,
-          "Test last",
+          desc = "Test last",
         },
-        d = {
+        {
+          "<leader>td",
           function()
             require("neotest").run.run { strategy = "dap" }
           end,
-          "Debug nearest",
+          desc = "Debug nearest",
         },
       },
-      q = {
-        function()
-          for _, win in pairs(vim.fn.getwininfo()) do
-            if win["quickfix"] == 1 then
-              vim.cmd "cclose"
-            end
-          end
-        end,
-        "Close quickfix",
-      },
-      d = {
-        name = "Debug",
-        t = {
+      {
+        "<leader>d",
+        group = "Debug",
+        {
+          "<leader>dt",
           function()
             require("dap").toggle_breakpoint()
           end,
-          "Toggle Breakpoint",
+          desc = "Toggle Breakpoint",
         },
-        c = {
-          function()
-            require("dap").run_to_cursor()
-          end,
-          "Run To Cursor",
-        },
-        r = {
+        {
+          "<leader>dr",
           function()
             require("dap").repl.toggle()
           end,
-          "Toggle Repl",
+          desc = "Toggle Repl",
         },
-        C = {
-          function()
-            require("dap").continue()
-          end,
-          "Start/Continue",
-        },
-        q = {
+        {
+          "<leader>dq",
           function()
             require("dap").close()
           end,
-          "Quit",
+          desc = "Quit",
         },
-        d = {
+        {
+          "<leader>dd",
           function()
             require("dap.ui.widgets").hover()
           end,
-          "Hover",
+          desc = "Hover",
         },
-        v = {
+        {
+          "<leader>dv",
           function()
             local widgets = require "dap.ui.widgets"
             widgets.centered_float(widgets.scopes)
           end,
-          "Variables",
+          desc = "Variables",
         },
-        f = {
+        {
+          "<leader>df",
           function()
             require("telescope").extensions.dap.frames()
           end,
-          "Frames",
+          desc = "Frames",
         },
-        b = {
+        {
+          "<leader>db",
           function()
             require("telescope").extensions.dap.list_breakpoints()
           end,
-          "Frames",
+          desc = "Frames",
         },
-        o = {
-          function()
-            require("dap").step_over()
-          end,
-          "Step Over",
-        },
-        i = {
-          function()
-            require("dap").step_into()
-          end,
-          "Step Into",
-        },
-        s = {
+        {
+          "<leader>ds",
           function()
             local widgets = require "dap.ui.widgets"
             widgets.centered_float(widgets.threads)
           end,
-          "Threads",
+          desc = "Threads",
         },
-        S = {
+        {
+          "<leader>dS",
           function()
             local widgets = require "dap.ui.widgets"
             local my_sidebar = widgets.sidebar(widgets.scopes)
             my_sidebar.open()
           end,
-          "Sidebar",
+          desc = "Sidebar",
         },
       },
-      o = {
-        name = "Telescope",
-        m = { "<cmd>Noice history<CR>", "Messages" },
-        h = { "<cmd>Telescope help_tags<CR>", "Help tags" },
-        c = { "<cmd>Telescope colorscheme<CR>", "Color Scheme" },
-        k = { "<cmd>Telescope keymaps<CR>", "Keymaps" },
-        o = {
+      {
+        "<leader>o",
+        group = "Telescope",
+        {
+          "<leader>om",
+          "<cmd>Noice history<CR>",
+          desc = "Messages",
+        },
+        {
+          "<leader>oh",
+          "<cmd>Telescope help_tags<CR>",
+          desc = "Help tags",
+        },
+        {
+          "<leader>oc",
+          "<cmd>Telescope colorscheme<CR>",
+          desc = "Color Scheme",
+        },
+        {
+          "<leader>ok",
+          "<cmd>Telescope keymaps<CR>",
+          desc = "Keymaps",
+        },
+        {
+          "<leader>oo",
           require("telescope").extensions.recent_files.pick,
-          "Recent files",
+          desc = "Recent files",
         },
       },
-    }
-
-    local vopts = {
-      mode = "v", -- VISUAL mode
-      prefix = "<leader>",
-      buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
-      silent = true, -- use `silent` when creating keymaps
-      noremap = true, -- use `noremap` when creating keymaps
-      nowait = true, -- use `nowait` when creating keymaps
-    }
-    local vmappings = {
-      ["a"] = {
+      {
+        "<leader>a",
         "<esc><cmd>lua require('lsp-fastaction').range_code_action()<CR>",
-        "Range code action",
+        desc = "Range code action",
+        mode = { "v" },
       },
-      ["e"] = {
+      {
+        "<leader>e",
         "<esc><cmd>lua require('dapui').eval()<CR>",
-        "Debug eval",
+        desc = "Debug eval",
+        mode = { "v" },
       },
-    }
-
-    which_key.setup(setup)
-    which_key.register(mappings, opts)
-    which_key.register(vmappings, vopts)
-  end,
+    },
+  },
 }
