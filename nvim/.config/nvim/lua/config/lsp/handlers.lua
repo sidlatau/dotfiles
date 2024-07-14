@@ -80,16 +80,16 @@ end
 M.capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
 
 local function lsp_execute_command(val)
-  if val.edit or type(val.command) == "table" then
-    if val.edit then
-      vim.lsp.util.apply_workspace_edit(val.edit, "utf-8")
-    end
-    if type(val.command) == "table" then
-      vim.lsp.buf.execute_command(val.command)
-    end
-  else
-    vim.lsp.buf.execute_command(val)
+  local client = vim.lsp.get_clients({ name = "dartls" })[1]
+  if not client then
+    print "No dartls client found"
+    return
   end
+  client.request("workspace/executeCommand", val.command, function(err)
+    if err then
+      print("Error executing command: " .. err.message)
+    end
+  end, 0)
 end
 
 function M.code_action_fix_all()
