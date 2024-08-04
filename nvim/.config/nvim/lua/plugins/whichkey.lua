@@ -7,12 +7,8 @@ return {
     delay = function(ctx)
       return 1500
     end,
-    modes = {
-      x = false, -- Visual mode
-      s = false, -- Select mode
-      o = false, -- Operator pending mode
-      t = false, -- Terminal mode
-      c = false, -- Command mode
+    triggers = {
+      { "<leader>", mode = { "n", "v" } },
     },
     plugins = {
       marks = false, -- shows a list of your marks on ' and `
