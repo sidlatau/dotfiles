@@ -14,10 +14,8 @@ local servers = {
   "jsonls",
   "lua_ls",
   "yamlls",
-  -- "gopls",
   "eslint",
-  "tsserver",
-  -- "pyright",
+  "ts_ls",
 }
 
 mason_lspconfig.setup {
