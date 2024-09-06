@@ -21,6 +21,7 @@ return {
         "c_sharp",
         "kotlin",
         "python",
+        "sql",
       },
       modules = {},
       auto_install = true,
