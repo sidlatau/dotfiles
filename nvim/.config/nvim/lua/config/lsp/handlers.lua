@@ -63,9 +63,15 @@ local function lsp_keymaps(bufnr)
 end
 
 M.on_attach = function(client, bufnr)
-  if client.name == "tsserver" or client.name == "lua_ls" then
+  if client.name == "ts_ls" or client.name == "lua_ls" then
     -- do not format by this LSP - conform will handle this is used for formatting
     client.server_capabilities.documentFormattingProvider = false
+  end
+  if client.name == "eslint" then
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      buffer = bufnr,
+      command = "EslintFixAll",
+    })
   end
   lsp_keymaps(bufnr)
 end
