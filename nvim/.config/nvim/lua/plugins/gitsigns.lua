@@ -72,28 +72,73 @@ return {
           end)
           return "<Ignore>"
         end, { expr = true })
-
-        map("n", "<leader>hs", gitsigns.stage_hunk)
-        map("n", "<leader>hr", gitsigns.reset_hunk)
-        map("v", "<leader>hs", function()
-          gitsigns.stage_hunk { vim.fn.line ".", vim.fn.line "v" }
-        end)
-        map("v", "<leader>hr", function()
-          gitsigns.reset_hunk { vim.fn.line ".", vim.fn.line "v" }
-        end)
-        map("n", "<leader>hS", gitsigns.stage_buffer)
-        map("n", "<leader>hu", gitsigns.undo_stage_hunk)
-        map("n", "<leader>hR", gitsigns.reset_buffer)
-        map("n", "<leader>hp", gitsigns.preview_hunk)
-        map("n", "<leader>hb", function()
-          gitsigns.blame_line { full = true }
-        end)
-        map("n", "<leader>tb", gitsigns.toggle_current_line_blame)
-        map("n", "<leader>hd", gitsigns.diffthis)
-        map("n", "<leader>hD", function()
-          gitsigns.diffthis "~"
-        end)
       end,
     }
   end,
+  keys = {
+    {
+      "<leader>hs",
+      "<cmd>lua require('gitsigns').stage_hunk()<cr>",
+      desc = "Stage hunk",
+    },
+    {
+      "<leader>hr",
+      "<cmd>lua require('gitsigns').reset_hunk()<cr>",
+      desc = "Reset hunk",
+    },
+    {
+      "<leader>hS",
+      "<cmd>lua require('gitsigns').stage_buffer()<cr>",
+      desc = "Stage buffer",
+    },
+    {
+      "<leader>hu",
+      "<cmd>lua require('gitsigns').undo_stage_hunk()<cr>",
+      desc = "Undo stage hunk",
+    },
+    {
+      "<leader>gR",
+      "<cmd>lua require('gitsigns').reset_buffer()<cr>",
+      desc = "Reset buffer",
+    },
+    {
+      "<leader>hp",
+      "<cmd>lua require('gitsigns').preview_hunk()<cr>",
+      desc = "Preview hunk",
+    },
+    {
+      "<leader>hb",
+      "<cmd>lua require('gitsigns').blame_line({full = true})<cr>",
+      desc = "Blame line",
+    },
+    {
+      "<leader>tb",
+      "<cmd>lua require('gitsigns').toggle_current_line_blame()<cr>",
+      desc = "Toggle blame line",
+    },
+    {
+      "<leader>hd",
+      "<cmd>lua require('gitsigns').diffthis()<cr>",
+      desc = "Diff this",
+    },
+    {
+      "<leader>hD",
+      "<cmd>lua require('gitsigns').diffthis('~')<cr>",
+      desc = "Diff this (cached)",
+    },
+    {
+      "<leader>gl",
+      function()
+        require("gitsigns").blame_line()
+      end,
+      desc = "Blame",
+    },
+    {
+      "<leader>gz",
+      function()
+        require("gitsigns").toggle_deleted()
+      end,
+      desc = "Toggle deleted",
+    },
+  },
 }

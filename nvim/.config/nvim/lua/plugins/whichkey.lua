@@ -313,13 +313,6 @@ return {
         },
         { "<leader>gn", "<cmd>Neogit<cr>", desc = "Neogit", group = "Git" },
         {
-          "<leader>gl",
-          function()
-            require("gitsigns").blame_line()
-          end,
-          desc = "Blame",
-        },
-        {
           "<leader>go",
           function()
             require("telescope.builtin").git_status(
@@ -344,18 +337,6 @@ return {
           desc = "File timeline",
         },
         { "<leader>gd", "<cmd>DiffviewOpen<cr>", desc = "Diff", group = "Git" },
-        {
-          "<leader>gs",
-          "<cmd>.GBrowse<cr>",
-          desc = "Show in GitHub",
-        },
-        {
-          "<leader>gz",
-          function()
-            require("gitsigns").toggle_deleted()
-          end,
-          desc = "Toggle deleted",
-        },
       },
       {
         "<leader>l",
