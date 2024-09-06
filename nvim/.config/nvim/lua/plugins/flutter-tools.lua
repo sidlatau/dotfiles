@@ -37,6 +37,10 @@ return {
         enabled = true,
         -- don't pause on exception in flutter
         exception_breakpoints = {},
+        -- register_configurations = function(_)
+        --   require("dap").configurations.dart = {}
+        --   require("dap.ext.vscode").load_launchjs()
+        -- end,
       },
       fvm = true,
       widget_guides = {
