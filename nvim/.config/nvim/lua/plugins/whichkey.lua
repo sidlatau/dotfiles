@@ -31,14 +31,6 @@ return {
     },
     spec = {
       {
-        "<leader>a",
-        function()
-          -- vim.lsp.buf.code_action()
-          require("lsp-fastaction").code_action()
-        end,
-        desc = "Code action",
-      },
-      {
         "<leader>b",
         function()
           require("telescope.builtin").buffers(
@@ -341,11 +333,6 @@ return {
       {
         "<leader>l",
         group = "LSP",
-        {
-          "<leader>la",
-          vim.lsp.buf.code_action,
-          desc = "Code Action",
-        },
         {
           "<leader>ld",
           "<cmd>Telescope lsp_document_diagnostics<cr>",
