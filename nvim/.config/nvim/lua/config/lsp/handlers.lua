@@ -1,3 +1,5 @@
+local utils = require "clear-action.utils"
+
 local M = {}
 
 M.setup = function()
@@ -99,7 +101,7 @@ local function lsp_execute_command(val)
 end
 
 function M.code_action_fix_all()
-  local context = { diagnostics = vim.lsp.diagnostic.get_line_diagnostics() }
+  local context = { diagnostics = utils.get_current_line_diagnostics() }
   local params = vim.lsp.util.make_range_params()
   params.context = context
   vim.lsp.buf_request(
