@@ -16,7 +16,7 @@ mason_lspconfig.setup {
     "lua_ls",
     "yamlls",
     "eslint",
-    "tsserver",
+    "ts_ls",
   },
 }
 -- automatically install ensure_installed servers
@@ -25,10 +25,6 @@ require("mason-lspconfig").setup_handlers {
   -- a dedicated handler.
   --
   function(server_name) -- default handler (optional)
-    -- https://github.com/neovim/nvim-lspconfig/pull/3232
-    if server_name == "tsserver" then
-      server_name = "ts_ls"
-    end
     local opts = {
       on_attach = require("config.lsp.handlers").on_attach,
       capabilities = require("config.lsp.handlers").capabilities,
