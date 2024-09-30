@@ -37,6 +37,7 @@ return {
           ["Wrap with Row"] = "r",
           ["Wrap with Center"] = "C",
           ["Remove this widget"] = "R",
+          ["Convert to block body"] = "c",
         },
       },
     }
