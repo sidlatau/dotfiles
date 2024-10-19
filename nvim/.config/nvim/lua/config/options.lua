@@ -63,6 +63,7 @@ vim.opt.laststatus = 3
 
 vim.opt.spelloptions:append { "camel", "noplainbuffer" }
 vim.opt.spellcapcheck = "" -- don't check for capital letters at start of sentence
+vim.opt.spelllang = { "en", "lt" }
 
 vim.cmd [[
 set fillchars+=diff:╱
