@@ -180,3 +180,7 @@ fi
 [[ -f /Users/ts/.dart-cli-completion/zsh-config.zsh ]] && . /Users/ts/.dart-cli-completion/zsh-config.zsh || true
 ## [/Completion]
 export PATH="/Users/ts/.vscode-dotnet-sdk/.dotnet:$PATH"
+
+. "$HOME/.atuin/bin/env"
+
+eval "$(atuin init zsh --disable-up-arrow)"
