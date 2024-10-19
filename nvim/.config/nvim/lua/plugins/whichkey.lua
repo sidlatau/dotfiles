@@ -296,13 +296,6 @@ return {
           "<cmd>Telescope advanced_git_search search_log_content_file<cr>",
           desc = "Advanced git search",
         },
-        {
-          "<leader>gg",
-          function()
-            require("config.toggleterm").lazygit_toggle()
-          end,
-          desc = "Lazygit",
-        },
         { "<leader>gn", "<cmd>Neogit<cr>", desc = "Neogit", group = "Git" },
         {
           "<leader>go",
