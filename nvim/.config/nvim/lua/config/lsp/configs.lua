@@ -17,6 +17,7 @@ mason_lspconfig.setup {
     "yamlls",
     "eslint",
     "ts_ls",
+    "omnisharp",
   },
 }
 -- automatically install ensure_installed servers
