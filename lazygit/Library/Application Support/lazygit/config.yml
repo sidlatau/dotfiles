@@ -6,6 +6,7 @@ gui:
   commitHashLength: 0
   expandFocusedSidePanel: true
   expandedSidePanelWeight: 3
+  enlargedSideViewLocation: top
   theme:
       selectedLineBgColor:
         - '#076678'
