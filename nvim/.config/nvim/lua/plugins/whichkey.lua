@@ -287,11 +287,6 @@ return {
           desc = "Open Fork app",
         },
         {
-          "<leader>gh",
-          "<cmd>DiffviewFileHistory --follow<cr>",
-          desc = "File history",
-        },
-        {
           "<leader>gH",
           "<cmd>Telescope advanced_git_search search_log_content_file<cr>",
           desc = "Advanced git search",
@@ -315,11 +310,6 @@ return {
           "<leader>gc",
           "<cmd>Telescope advanced_git_search search_log_content<cr>",
           desc = "Git log",
-        },
-        {
-          "<leader>gt",
-          "<cmd>0Gclog<cr>",
-          desc = "File timeline",
         },
         { "<leader>gd", "<cmd>DiffviewOpen<cr>", desc = "Diff", group = "Git" },
       },
