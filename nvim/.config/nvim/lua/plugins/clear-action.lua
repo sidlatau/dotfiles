@@ -21,7 +21,7 @@ return {
         enable = true,
         center = false,
         border = "rounded",
-        hide_cursor = true,
+        hide_cursor = false,
         hide_client = false, -- hide displaying name of LSP client
         highlights = {
           header = "CodeActionHeader",
