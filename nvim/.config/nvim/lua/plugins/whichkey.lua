@@ -317,6 +317,13 @@ return {
         "<leader>l",
         group = "LSP",
         {
+          "<leader>la",
+          function()
+            vim.lsp.buf.code_action()
+          end,
+          desc = "Lsp Code action",
+        },
+        {
           "<leader>ld",
           "<cmd>Telescope lsp_document_diagnostics<cr>",
           desc = "Document Diagnostics",
