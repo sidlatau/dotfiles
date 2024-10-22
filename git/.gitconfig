@@ -42,6 +42,8 @@
 	tool = vimdiff1
 [diff]
   colorMoved = default
+  colorWords = .
+  external = difft
 
 [delta]
   features = gruvmax-fang
