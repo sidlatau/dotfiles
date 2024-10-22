@@ -17,7 +17,7 @@ git:
   paging:
     # colorArg: always
     # pager: delta --dark --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
-    externalDiffCommand: difft --color=always
+    externalDiffCommand: difft --color=always --display inline
 notARepository: "skip"
 promptToReturnFromSubprocess: false
 customCommands:
