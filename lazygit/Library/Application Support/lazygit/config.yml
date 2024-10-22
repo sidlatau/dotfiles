@@ -15,8 +15,9 @@ git:
   branchLogCmd: "git log --graph --color=always --oneline --decorate --all --pretty=format:'%C(yellow)%d%Creset %s %C(bold blue)%<(3,trunc)%an%x08%x08%Creset'"
   parseEmoji: true
   paging:
-    colorArg: always
-    pager: delta --dark --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
+    # colorArg: always
+    # pager: delta --dark --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
+    externalDiffCommand: difft --color=always
 notARepository: "skip"
 promptToReturnFromSubprocess: false
 customCommands:
