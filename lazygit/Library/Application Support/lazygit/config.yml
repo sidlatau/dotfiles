@@ -21,9 +21,6 @@ git:
 notARepository: "skip"
 promptToReturnFromSubprocess: false
 customCommands:
-  - key: "<c-r>"
-    command: "git push -u && gh pr create --fill --web"
-    context: "global"
   - key: "n"
     description: "branch"
     command: "git checkout -b {{index .PromptResponses 0}}"
@@ -35,3 +32,7 @@ customCommands:
     description: "branch"
     command: "git commit --fixup=HEAD"
     context: "files"
+  - key: "D"
+    description: "Delete gone branches"
+    command: "git dd"
+    context: "localBranches"
