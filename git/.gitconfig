@@ -39,11 +39,12 @@
 	rebase = true
 [merge]
   conflictstyle = diff3
-	tool = vimdiff1
+  tool = diffconflicts
+[mergetool]
+  prompt = false
 [diff]
   colorMoved = default
   colorWords = .
-  external = difft
 
 [delta]
   features = gruvmax-fang
@@ -96,9 +97,6 @@
   merge-conflict-theirs-diff-header-decoration-style = ''
 
 
-[mergetool "diffconflicts"]
-  cmd = nvim -c DiffConflicts \"$MERGED\" \"$BASE\" \"$LOCAL\" \"$REMOTE\"
-  trustExitCode = true
 [mergetool]
 	keepBackup = false
   hideResolved = true
@@ -111,3 +109,6 @@
 [advice]
 	skippedCherryPicks = false
 
+[mergetool "diffconflicts"]
+  cmd = nvim -c "DiffConflictsWithHistory \"$MERGED\" \"$BASE\" \"$LOCAL\" \"$REMOTE\""
+  trustExitCode = true
