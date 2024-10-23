@@ -1,23 +1,23 @@
 gui:
   sidePanelWidth: 0.25
-  showCommandLog: false
   nerdFontsVersion: "3"
   commitAuthorLongLength: 2
   commitHashLength: 0
   expandFocusedSidePanel: true
   expandedSidePanelWeight: 3
   enlargedSideViewLocation: top
+  statusPanelView: allBranchesLog 
   theme:
       selectedLineBgColor:
         - '#076678'
 
 git:
-  branchLogCmd: "git log --graph --color=always --oneline --decorate --all --pretty=format:'%C(yellow)%d%Creset %s %C(bold blue)%<(3,trunc)%an%x08%x08%Creset'"
+  branchLogCmd: "git log --graph --color=always --oneline --decorate --all --pretty=format:'%C(yellow)%d%Creset %s %C(bold blue)%<(5,trunc)%an%x08%x08%Creset'"
   parseEmoji: true
   paging:
-    # colorArg: always
+    colorArg: always
     # pager: delta --dark --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
-    externalDiffCommand: difft --color=always --display inline
+    externalDiffCommand: difft --color=always
 notARepository: "skip"
 promptToReturnFromSubprocess: false
 customCommands:
