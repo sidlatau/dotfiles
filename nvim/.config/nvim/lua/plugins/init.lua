@@ -11,6 +11,15 @@ return {
       require("mini.surround").setup()
     end,
   },
+  {
+    "echasnovski/mini.pairs",
+    version = false,
+
+    config = function()
+      require("mini.pairs").setup()
+    end,
+  },
+  { "tpope/vim-sleuth", event = "VeryLazy" },
   { "tpope/vim-repeat", event = "VeryLazy" },
   { "tpope/vim-projectionist", event = "VeryLazy" },
   { "tpope/vim-unimpaired", event = "VeryLazy" },
@@ -45,7 +54,6 @@ return {
   { "smartpde/telescope-recent-files", event = "VeryLazy" },
   { "mbbill/undotree", event = "VeryLazy" },
   { "RRethy/vim-illuminate", event = "VeryLazy" },
-  { "inkarkat/vim-ReplaceWithRegister", event = "VeryLazy" },
   {
     "sidlatau/dart-lsp-refactorings.nvim",
     event = "VeryLazy",
@@ -82,6 +90,5 @@ return {
     },
   },
   { "b0o/schemastore.nvim" },
-  { "rebelot/kanagawa.nvim" },
   { "rose-pine/neovim", name = "rose-pine" },
 }

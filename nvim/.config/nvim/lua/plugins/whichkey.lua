@@ -59,10 +59,10 @@ return {
       },
       { "<leader>c", "<cmd>Bdelete!<CR>", desc = "Close Buffer" },
       { "<leader>C", "<cmd>Bufonly<CR>", desc = "Leave single Buffer" },
+      { "<esc>", "<cmd>nohlsearch<CR>", desc = "Clear search" },
       {
         "<leader><leader>",
         function()
-          vim.cmd "nohlsearch"
           if vim.lsp.get_clients()[0] then
             vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled {})
           end
@@ -291,7 +291,6 @@ return {
           "<cmd>Telescope advanced_git_search search_log_content_file<cr>",
           desc = "Advanced git search",
         },
-        { "<leader>gn", "<cmd>Neogit<cr>", desc = "Neogit", group = "Git" },
         {
           "<leader>go",
           function()
