@@ -5,33 +5,12 @@
 [user]
 	name = Tautvydas Šidlauskas
 	email = tautvydas.sidlauskas@gmail.com
-[alias]	
-  rmd = "!f() { \
-                  branchToMerge=$(git rev-parse --abbrev-ref HEAD); \
-                  destinationBranch=\"develop\"; \
-                  for i in \"$@\" ; do \
-                      destinationBranch=$i; \
-                  done; \
-        git up && \
-                  git checkout $destinationBranch && \
-                  git up && \
-                  git checkout $branchToMerge && \
-                  git fixup $destinationBranch && \
-                  git pf && \
-                  git checkout $destinationBranch && \
-                  git merge $branchToMerge && \
-                  git push && \
-                  git push origin --delete $branchToMerge && \
-                  git branch -d $branchToMerge; \
-                  if [ $? -ne 0 ]; then \
-                      git checkout $branchToMerge; \
-                  fi; \
-          }; f"
+[alias]
   fixup = !GIT_SEQUENCE_EDITOR=true git rebase -i --autosquash
   pf = push --force-with-lease
   up = pull --rebase --prune
   dd = "!f(){ git fetch -p && git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -D; };f"
-  logtree = log --graph --oneline --decorate --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+  logtree = log --graph --color=always --oneline --decorate --all --pretty=format:'%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%<(12,trunc)%an%Creset'
   last = "!git --no-pager log --graph --oneline --decorate --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' -n 10"
 [push]
 	default = current

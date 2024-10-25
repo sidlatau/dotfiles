@@ -12,8 +12,8 @@ gui:
         - '#076678'
 
 git:
-  branchLogCmd: "git log --graph --color=always --oneline --decorate --all --pretty=format:'%C(yellow)%d%Creset %s %C(bold blue)%<(5,trunc)%an%x08%x08%Creset'"
-  allBranchesLogCmd: "git log --graph --color=always --oneline --decorate --all --pretty=format:'%C(yellow)%d%Creset %s %C(bold blue)%<(5,trunc)%an%x08%x08%Creset'"
+  branchLogCmd: "git log --graph --color=always --oneline --decorate --pretty=format:'%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%<(12,trunc)%an%Creset'"
+  allBranchesLogCmd: "git logtree"
   parseEmoji: true
   disableForcePushing: true
   paging:
