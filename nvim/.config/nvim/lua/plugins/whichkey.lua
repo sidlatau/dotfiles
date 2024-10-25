@@ -310,7 +310,6 @@ return {
           "<cmd>Telescope advanced_git_search search_log_content<cr>",
           desc = "Git log",
         },
-        { "<leader>gd", "<cmd>DiffviewOpen<cr>", desc = "Diff", group = "Git" },
       },
       {
         "<leader>l",

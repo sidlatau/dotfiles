@@ -107,9 +107,7 @@ return {
         recent_files = {
           only_cwd = true,
         },
-        advanced_git_search = {
-          diff_plugin = "diffview",
-        },
+        advanced_git_search = {},
       },
     }
 
