@@ -180,6 +180,7 @@ fi
 [[ -f /Users/ts/.dart-cli-completion/zsh-config.zsh ]] && . /Users/ts/.dart-cli-completion/zsh-config.zsh || true
 ## [/Completion]
 export PATH="/Users/ts/.vscode-dotnet-sdk/.dotnet:$PATH"
+export PATH="/Users/ts/Developer/sqlite:$PATH"
 
 . "$HOME/.atuin/bin/env"
 
