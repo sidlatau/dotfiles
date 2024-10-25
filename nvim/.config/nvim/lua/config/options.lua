@@ -34,9 +34,12 @@ vim.opt.linebreak = true
 vim.opt.breakindent = true
 vim.opt.showbreak = "ͱ"
 
-vim.opt.scrolloff = 8 -- is one of my fav
+vim.opt.scrolloff = 10 -- is one of my fav
 vim.opt.sidescrolloff = 8
 vim.opt.splitkeep = "screen"
+vim.opt.list = true
+vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
+vim.opt.inccommand = "split" -- Preview substitutions live, as you type!
 
 vim.o.sessionoptions =
   "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
