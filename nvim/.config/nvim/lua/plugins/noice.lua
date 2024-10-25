@@ -3,7 +3,7 @@ local fn = vim.fn
 return {
   "folke/noice.nvim",
   event = "VeryLazy",
-  enabled = false,
+  enabled = true,
   version = "*",
   dependencies = { "MunifTanjim/nui.nvim" },
   opts = {
