@@ -11,14 +11,6 @@ return {
       require("mini.surround").setup()
     end,
   },
-  {
-    "echasnovski/mini.pairs",
-    version = false,
-
-    config = function()
-      require("mini.pairs").setup()
-    end,
-  },
   { "tpope/vim-sleuth", event = "VeryLazy" },
   { "tpope/vim-repeat", event = "VeryLazy" },
   { "tpope/vim-projectionist", event = "VeryLazy" },
