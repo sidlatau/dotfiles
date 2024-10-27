@@ -157,12 +157,6 @@ firebaseTokenAdminDev() {
   | jq -r '.idToken'
 }
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/ts/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/ts/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/ts/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/ts/google-cloud-sdk/completion.zsh.inc'; fi
-
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
@@ -182,6 +176,12 @@ fi
 export PATH="/Users/ts/.vscode-dotnet-sdk/.dotnet:$PATH"
 export PATH="/Users/ts/Developer/sqlite:$PATH"
 
-. "$HOME/.atuin/bin/env"
+# . "$HOME/.atuin/bin/env"
 
 eval "$(atuin init zsh --disable-up-arrow)"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/ts/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/ts/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/ts/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/ts/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
