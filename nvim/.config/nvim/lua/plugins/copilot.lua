@@ -16,7 +16,7 @@ return {
 
     vim.g.copilot_filetypes = {
       ["*"] = true,
-      gitcommit = false,
+      gitcommit = true,
       DressingInput = false,
       TelescopePrompt = false,
       ["neo-tree-popup"] = false,

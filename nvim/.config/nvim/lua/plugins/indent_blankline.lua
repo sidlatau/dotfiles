@@ -1,6 +1,6 @@
 return {
   "lukas-reineke/indent-blankline.nvim",
-  event = "UIEnter",
+  main = "ibl",
   opts = {
     exclude = {
       filetypes = {

@@ -22,6 +22,7 @@ return {
         "kotlin",
         "python",
         "sql",
+        "diff",
       },
       modules = {},
       auto_install = true,
