@@ -52,11 +52,6 @@ return {
         end,
         desc = "Buffers",
       },
-      {
-        "<leader>e",
-        "<cmd>Neotree float toggle reveal_force_cwd<cr>",
-        desc = "Explorer",
-      },
       { "<leader>C", "<cmd>Bufonly<CR>", desc = "Leave single Buffer" },
       { "<esc>", "<cmd>nohlsearch<CR>", desc = "Clear search" },
       {
