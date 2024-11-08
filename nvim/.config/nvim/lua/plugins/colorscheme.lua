@@ -23,7 +23,6 @@ return {
     vim.g.gruvbox_material_diagnostic_text_highlight = 1
     vim.g.gruvbox_material_diagnostic_virtual_text = 1
     vim.g.gruvbox_material_enable_italic = 1
-    vim.g.gruvbox_material_transparent_background = 2
     vim.cmd.colorscheme "gruvbox-material"
   end,
 }
