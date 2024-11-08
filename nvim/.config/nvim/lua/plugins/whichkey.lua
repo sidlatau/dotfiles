@@ -537,11 +537,6 @@ return {
         "<leader>o",
         group = "Telescope",
         {
-          "<leader>om",
-          "<cmd>Noice history<CR>",
-          desc = "Messages",
-        },
-        {
           "<leader>oh",
           "<cmd>Telescope help_tags<CR>",
           desc = "Help tags",

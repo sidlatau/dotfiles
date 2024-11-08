@@ -116,19 +116,6 @@ return {
       end,
       color = { fg = colors.green, gui = "bold" },
     }
-    local status = {
-      function()
-        return require("noice").api.status.mode.get()
-      end,
-      cond = function()
-        local status_ok, noice = pcall(require, "noice")
-        if not status_ok then
-          return false
-        end
-        return noice.api.status.mode.has()
-      end,
-      color = { fg = "#ff9e64" },
-    }
 
     local custom_gruvbox = require "lualine.themes.gruvbox-material"
     custom_gruvbox.normal.a.bg = "#e5c07b"
@@ -151,7 +138,6 @@ return {
           status_counts,
         },
         lualine_x = {
-          status,
           flutter_project_config,
           diff,
           filetype,
