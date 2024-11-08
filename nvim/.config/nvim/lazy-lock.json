@@ -60,7 +60,7 @@
   "pubspec-assist.nvim": { "branch": "main", "commit": "3b9d226aab7e295740e6afd945e1115a1e65fb77" },
   "rose-pine": { "branch": "main", "commit": "07a887a7bef4aacea8c7caebaf8cbf808cdc7a8e" },
   "schemastore.nvim": { "branch": "main", "commit": "5f0639d68cbea3ab8a9a24a51a5f984d86ea8438" },
-  "snacks.nvim": { "branch": "main", "commit": "5ccf72e6d057f79d94eb3f2ee2ebd5a36f430d7b" },
+  "snacks.nvim": { "branch": "main", "commit": "5dc749b045e62e30a156ca8522416a6d1ca9a959" },
   "statuscol.nvim": { "branch": "main", "commit": "8822f76e105549620ef9c0d96e7b95aedf14c490" },
   "telescope-dap.nvim": { "branch": "master", "commit": "783366bd6c1e7fa0a5c59c07db37f49c805a28df" },
   "telescope-fzf-native.nvim": { "branch": "main", "commit": "cf48d4dfce44e0b9a2e19a008d6ec6ea6f01a83b" },

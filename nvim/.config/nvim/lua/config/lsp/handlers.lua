@@ -26,18 +26,15 @@ M.setup = function()
   }
 
   vim.diagnostic.config(config)
+end
 
-  vim.lsp.handlers["textDocument/hover"] = function(...)
-    local hover_handler = vim.lsp.with(vim.lsp.handlers.hover, {
-      border = "rounded",
-    })
-    vim.b.lsp_hover_buf, vim.b.lsp_hover_win = hover_handler(...)
-  end
-
-  vim.lsp.handlers["textDocument/signatureHelp"] =
-    vim.lsp.with(vim.lsp.handlers.signature_help, {
-      border = "rounded",
-    })
+-- Add borders globally
+local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+---@diagnostic disable-next-line: duplicate-set-field
+function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+  opts = opts or {}
+  opts.border = "rounded"
+  return orig_util_open_floating_preview(contents, syntax, opts, ...)
 end
 
 local function lsp_keymaps(bufnr)
