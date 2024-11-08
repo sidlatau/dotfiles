@@ -82,4 +82,8 @@ return {
   },
   { "b0o/schemastore.nvim" },
   { "rose-pine/neovim", name = "rose-pine" },
+  {
+    "3rd/image.nvim",
+    opts = {},
+  },
 }
