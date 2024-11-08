@@ -84,6 +84,22 @@ return {
   { "rose-pine/neovim", name = "rose-pine" },
   {
     "3rd/image.nvim",
-    opts = {},
+    opts = {
+      integrations = {
+        markdown = {
+          resolve_image_path = function(document_path, image_path, fallback)
+            vim.print(document_path)
+            vim.print(image_path)
+            local working_dir = vim.fn.getcwd()
+            -- Format image path for Obsidian notes
+            if working_dir:find "github/personal/notes" then
+              vim.print "Found notes directory"
+              return working_dir .. "/attachments/" .. image_path
+            end
+            return fallback(document_path, image_path)
+          end,
+        },
+      },
+    },
   },
 }
