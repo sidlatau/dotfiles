@@ -282,11 +282,6 @@ return {
         "<leader>g",
         group = "Git",
         {
-          "<leader>gf",
-          "<cmd>!fork<cr><cr>",
-          desc = "Open Fork app",
-        },
-        {
           "<leader>gH",
           "<cmd>Telescope advanced_git_search search_log_content_file<cr>",
           desc = "Advanced git search",
@@ -298,12 +293,7 @@ return {
               require("telescope.themes").get_dropdown {}
             )
           end,
-          desc = "Open changed file",
-        },
-        {
-          "<leader>gb",
-          "<cmd>Telescope git_branches<cr>",
-          desc = "Checkout branch",
+          desc = "Open changed files",
         },
         {
           "<leader>gc",

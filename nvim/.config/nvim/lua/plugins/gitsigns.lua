@@ -107,7 +107,7 @@ return {
       desc = "Preview hunk",
     },
     {
-      "<leader>hb",
+      "<leader>gb",
       "<cmd>lua require('gitsigns').blame_line({full = true})<cr>",
       desc = "Blame line",
     },
@@ -125,13 +125,6 @@ return {
       "<leader>hD",
       "<cmd>lua require('gitsigns').diffthis('~')<cr>",
       desc = "Diff this (cached)",
-    },
-    {
-      "<leader>gl",
-      function()
-        require("gitsigns").blame_line()
-      end,
-      desc = "Blame",
     },
     {
       "<leader>gz",
