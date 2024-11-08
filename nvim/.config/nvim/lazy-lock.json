@@ -6,7 +6,6 @@
   "LuaSnip": { "branch": "master", "commit": "500981ff6cefc7343e3959ef0f939bd0bfd49ba9" },
   "advanced-git-search.nvim": { "branch": "main", "commit": "1c5a10f5c838cfad2c17d7464311d6fb416cb319" },
   "auto-session": { "branch": "main", "commit": "542d338ec5ee027638c8e076110b188a465b45d2" },
-  "bufdelete.nvim": { "branch": "master", "commit": "f6bcea78afb3060b198125256f897040538bcb81" },
   "clear-action.nvim": { "branch": "master", "commit": "8b9a3599a660e957089edcea21bd2022eafa9b3d" },
   "cmp-buffer": { "branch": "main", "commit": "3022dbc9166796b644a841a02de8dd1cc1d311fa" },
   "cmp-cmdline": { "branch": "main", "commit": "d250c63aa13ead745e3a40f61fdd3470efde3923" },
