@@ -185,3 +185,12 @@ if [ -f '/Users/ts/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/ts
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/ts/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/ts/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+
+function y() {
+  local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+  yazi "$@" --cwd-file="$tmp"
+  if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+    builtin cd -- "$cwd"
+  fi
+  rm -f -- "$tmp"
+}

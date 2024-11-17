@@ -84,6 +84,7 @@ return {
   { "rose-pine/neovim", name = "rose-pine" },
   {
     "3rd/image.nvim",
+    cond = vim.env.KITTY_SCROLLBACK_NVIM ~= "true",
     opts = {
       integrations = {
         markdown = {
@@ -103,10 +104,13 @@ return {
     },
   },
   {
-      'MeanderingProgrammer/render-markdown.nvim',
-      dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
-      ---@module 'render-markdown'
-      ---@type render.md.UserConfig
-      opts = {},
-  }
+    "MeanderingProgrammer/render-markdown.nvim",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-tree/nvim-web-devicons",
+    }, -- if you prefer nvim-web-devicons
+    ---@module 'render-markdown'
+    ---@type render.md.UserConfig
+    opts = {},
+  },
 }
