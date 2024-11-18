@@ -85,7 +85,6 @@ plugins=(
   gh 
   history 
   zsh-autosuggestions
-  z
   zsh-syntax-highlighting
 )
 
@@ -194,3 +193,4 @@ function y() {
   fi
   rm -f -- "$tmp"
 }
+eval "$(zoxide init zsh)"
