@@ -107,4 +107,9 @@ return {
     ---@type render.md.UserConfig
     opts = {},
   },
+  {
+    "seblj/roslyn.nvim",
+    ft = "cs",
+    opts = {},
+  },
 }
