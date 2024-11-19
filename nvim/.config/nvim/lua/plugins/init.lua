@@ -72,12 +72,6 @@ return {
         ["<C-N>"] = {},
         ["<C-P>"] = {},
       },
-      disabled_keys = {
-        ["<Up>"] = { "" },
-        ["<Down>"] = { "" },
-        ["<Left>"] = { "" },
-        ["<Right>"] = { "" },
-      },
     },
   },
   { "b0o/schemastore.nvim" },
