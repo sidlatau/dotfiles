@@ -536,7 +536,7 @@ return {
           desc = "Help tags",
         },
         {
-          "<leader>oc",
+          "<leader>ot",
           "<cmd>Telescope colorscheme<CR>",
           desc = "Color Scheme",
         },

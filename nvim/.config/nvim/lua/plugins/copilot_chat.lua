@@ -19,6 +19,11 @@ return {
         desc = "CopilotChat - Open",
       },
       {
+        "<leader>oc",
+        "<Cmd>CopilotChatCommit<CR>",
+        desc = "CopilotChat - Commit",
+      },
+      {
         "<leader>oq",
         function()
           local input = vim.fn.input "Quick Chat: "
