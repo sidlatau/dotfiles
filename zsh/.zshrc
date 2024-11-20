@@ -174,6 +174,7 @@ fi
 ## [/Completion]
 export PATH="/Users/ts/.vscode-dotnet-sdk/.dotnet:$PATH"
 export PATH="/Users/ts/Developer/sqlite:$PATH"
+export PATH=$PATH:~/Library/Android/sdk/emulator
 
 # . "$HOME/.atuin/bin/env"
 
