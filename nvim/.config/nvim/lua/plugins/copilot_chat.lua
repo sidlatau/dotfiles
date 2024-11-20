@@ -11,6 +11,13 @@ return {
       highlight_headers = false,
       separator = "---",
       error_header = "> [!ERROR] Error",
+      callback = function(result)
+        local lines = vim.split(result, "\n")
+        table.remove(lines, 1) -- Remove the first line
+        table.remove(lines) -- Remove the last line
+        local new_result = table.concat(lines, "\n")
+        vim.fn.setreg("+", new_result) -- Copy to system clipboard
+      end,
     },
     keys = {
       {
@@ -19,12 +26,12 @@ return {
         desc = "CopilotChat - Open",
       },
       {
-        "<leader>om",
+        "<leader>oc",
         "<Cmd>CopilotChatCommit<CR>",
         desc = "CopilotChat - Commit",
       },
       {
-        "<leader>oc",
+        "<leader>om",
         "<Cmd>CopilotChatModels<CR>",
         desc = "CopilotChat - Models",
       },
