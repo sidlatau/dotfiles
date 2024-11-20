@@ -97,10 +97,7 @@ return {
           return msg
         end
         for _, client in ipairs(clients) do
-          local filetypes = client.config.filetypes
-          if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
-            table.insert(names, client.name)
-          end
+          table.insert(names, client.name)
         end
         return table.concat(names, ", ")
       end,

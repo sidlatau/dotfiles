@@ -17,8 +17,7 @@ return {
           virtual_text = true, -- show the highlight using virtual text
           virtual_text_str = "■", -- the virtual text character to highlight
         },
-        on_attach = function(client, bufnr)
-          require("config.lsp.handlers").on_attach(client, bufnr)
+        on_attach = function()
           vim.cmd "highlight FlutterWidgetGuides ctermfg=9 guifg=grey"
         end,
         settings = {

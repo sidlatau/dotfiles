@@ -78,3 +78,16 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
   pattern = "*.arb",
   command = [[!(arb_translate & fvm flutter gen-l10n)]],
 })
+
+-- Set up LspAttach autocommand to define keymaps when LSP client attaches to a buffer
+vim.api.nvim_create_autocmd("LspAttach", {
+  desc = "LSP actions", -- Optional description
+  callback = function(args)
+    local client = args.data and vim.lsp.get_client_by_id(args.data.client_id)
+    if not client then
+      return
+    end
+    local bufnr = args.buf -- Get the buffer number for the attached client
+    require("config.lsp.handlers").on_attach(client, bufnr)
+  end,
+})
