@@ -19,22 +19,25 @@ return {
         desc = "CopilotChat - Open",
       },
       {
-        "<leader>oc",
+        "<leader>om",
         "<Cmd>CopilotChatCommit<CR>",
         desc = "CopilotChat - Commit",
       },
       {
-        "<leader>oq",
+        "<leader>oc",
+        "<Cmd>CopilotChatModels<CR>",
+        desc = "CopilotChat - Models",
+      },
+      {
+        "<leader>oa",
+        mode = { "n", "x" },
         function()
-          local input = vim.fn.input "Quick Chat: "
-          if input ~= "" then
-            require("CopilotChat").ask(
-              input,
-              { selection = require("CopilotChat.select").buffer }
-            )
-          end
+          local actions = require "CopilotChat.actions"
+          require("CopilotChat.integrations.telescope").pick(
+            actions.prompt_actions()
+          )
         end,
-        desc = "CopilotChat - Quick chat",
+        desc = "CopilotChat - Prompt actions",
       },
     },
   },
