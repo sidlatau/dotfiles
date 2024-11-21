@@ -21,17 +21,17 @@ return {
     },
     keys = {
       {
-        "<leader>op",
+        "<leader>pp",
         "<Cmd>CopilotChatOpen<CR>",
         desc = "CopilotChat - Open",
       },
       {
-        "<leader>oc",
+        "<leader>pc",
         "<Cmd>CopilotChatCommit<CR>",
         desc = "CopilotChat - Commit",
       },
       {
-        "<leader>om",
+        "<leader>pm",
         "<Cmd>CopilotChatModels<CR>",
         desc = "CopilotChat - Models",
       },
