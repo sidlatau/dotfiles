@@ -13,6 +13,7 @@ return {
           elements = { "findsOneWidget", "findsNothing" },
           word = true,
           cyclic = true,
+          match_before_cursor = true,
         },
       },
     }
