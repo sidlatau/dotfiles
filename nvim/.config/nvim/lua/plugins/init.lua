@@ -4,10 +4,13 @@ return {
   { "kyazdani42/nvim-web-devicons", event = "VeryLazy" },
   { "JoosepAlviste/nvim-ts-context-commentstring", event = "VeryLazy" },
   {
-    "echasnovski/mini.surround",
-    version = false,
+    "kylechui/nvim-surround",
+    version = "*",
+    event = "VeryLazy",
     config = function()
-      require("mini.surround").setup()
+      require("nvim-surround").setup {
+        -- Configuration here, or leave empty to use defaults
+      }
     end,
   },
   { "tpope/vim-sleuth", event = "VeryLazy" },
@@ -52,7 +55,7 @@ return {
   { "akinsho/git-conflict.nvim", version = "*", config = true },
   {
     "sidlatau/neotest-dart",
-    -- dir = "~/Documents/github/personal/neotest-dart",
+    dir = "~/Documents/github/personal/neotest-dart",
   },
   { "tpope/vim-dadbod" },
   {
