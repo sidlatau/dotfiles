@@ -120,9 +120,7 @@ return {
         },
         {
           "<leader>fl",
-          function()
-            require("config").toggle_flutter_log()
-          end,
+          "<cmd>FlutterLogToggle<CR>",
           desc = "Toggle log",
         },
         {

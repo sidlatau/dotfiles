@@ -48,6 +48,27 @@ return {
       dev_log = {
         enabled = true,
         open_cmd = "15split", -- command to use to open the log buffer
+        notify_errors = true,
+        focus_on_open = false,
+        filter = function(str)
+          local patterns = {
+            "^I/MESA",
+            "^W/o.handyhelp.app",
+            "^D/nativeloader",
+            "^W/pool",
+            "^D/CompatChangeReporter",
+            "^D/TrafficStats",
+            "^E/Surface",
+            "^D/ProfileInstaller",
+            "^W/WindowOnBackDispatcher",
+          }
+          for _, pattern in ipairs(patterns) do
+            if str:match(pattern) then
+              return false
+            end
+          end
+          return true
+        end,
       },
       dev_tools = {
         autostart = false, -- autostart devtools server if not detected
