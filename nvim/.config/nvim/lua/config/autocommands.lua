@@ -73,10 +73,31 @@ vim.api.nvim_create_autocmd({ "VimResized" }, {
   end,
 })
 
+local Job = require "plenary.job"
+
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
   group = augroup "generate_l10n_on_save",
   pattern = "*.arb",
-  command = [[!(arb_translate & fvm flutter gen-l10n)]],
+  callback = function()
+    Job:new({
+      command = "fvm",
+      args = { "flutter", "gen-l10n" },
+      on_exit = function(j, return_val)
+        if return_val ~= 0 then
+          vim.schedule(function()
+            vim.notify(
+              table.concat(j:stderr_result(), "\n"),
+              vim.log.levels.ERROR
+            )
+          end)
+        else
+          vim.schedule(function()
+            vim.notify(table.concat(j:result(), "\n", vim.log.levels.INFO))
+          end)
+        end
+      end,
+    }):start()
+  end,
 })
 
 -- Set up LspAttach autocommand to define keymaps when LSP client attaches to a buffer
