@@ -42,7 +42,7 @@ return {
         desc = "CopilotChat - Models",
       },
       {
-        "<leader>oa",
+        "<leader>pa",
         mode = { "n", "x" },
         function()
           local actions = require "CopilotChat.actions"
