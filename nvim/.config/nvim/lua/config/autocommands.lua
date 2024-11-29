@@ -6,8 +6,30 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   group = augroup "fix_all_on_save",
   pattern = "*.dart",
   callback = function()
-    require("config.lsp.handlers").code_action_fix_all()
-    vim.lsp.buf.format()
+    local ok, err = pcall(require("config.lsp.handlers").code_action_fix_all)
+    if not ok then
+      vim.notify("Fix All error: " .. err, vim.log.levels.ERROR)
+    else
+      local format_ok, format_err = pcall(vim.lsp.buf.format)
+      if not format_ok then
+        vim.notify("Format error: " .. format_err, vim.log.levels.ERROR)
+      end
+    end
+  end,
+})
+
+vim.api.nvim_create_autocmd({ "InsertLeave" }, {
+  pattern = "*.cs",
+  callback = function()
+    local clients = vim.lsp.get_clients { name = "roslyn" }
+    if not clients or #clients == 0 then
+      return
+    end
+
+    local buffers = vim.lsp.get_buffers_by_client_id(clients[1].id)
+    for _, buf in ipairs(buffers) do
+      vim.lsp.util._refresh("textDocument/diagnostic", { bufnr = buf })
+    end
   end,
 })
 
