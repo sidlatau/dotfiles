@@ -191,5 +191,7 @@
   "debug.toolBarLocation": "commandCenter",
   "prettier.singleQuote": true,
   "yaml.format.singleQuote": true,
-  "github.copilot.editor.enableAutoCompletions": true
+  "github.copilot.editor.enableAutoCompletions": true,
+  "mssql.enableRichExperiences": true,
+  "editor.stickyScroll.enabled": false
 }
