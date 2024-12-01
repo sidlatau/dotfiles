@@ -192,7 +192,7 @@ return {
   end,
   keys = {
     {
-      "<leader>E",
+      "<leader>e",
       "<cmd>Neotree float toggle reveal_force_cwd<cr>",
       desc = "Explorer",
     },
