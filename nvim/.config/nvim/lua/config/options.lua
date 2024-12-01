@@ -42,7 +42,7 @@ vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 vim.opt.inccommand = "split" -- Preview substitutions live, as you type!
 
 vim.o.sessionoptions =
-  "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+  "blank,buffers,curdir,help,tabpages,winsize,winpos,terminal,localoptions"
 
 vim.opt.shortmess:append "c"
 
@@ -75,8 +75,17 @@ vim.opt.report = 99999
 vim.opt.exrc = true
 vim.opt.autowriteall = true -- automatically :write before running commands and changing files
 
-vim.o.foldcolumn = "1" -- '0' is not bad
-vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+vim.o.foldcolumn = "0" -- do not show fold column
+vim.o.foldlevel = 99
 vim.o.foldlevelstart = 99
-vim.o.foldenable = true
-vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
+vim.o.foldexpr = "v:lua.vim.lsp.foldexpr()"
+vim.o.foldmethod = "expr"
+vim.o.fillchars = "eob: ,fold: ,foldopen:,foldsep: ,foldclose:"
+
+vim.api.nvim_create_autocmd("LspNotify", {
+  callback = function(args)
+    if args.data.method == "textDocument/didOpen" then
+      vim.lsp.foldclose("imports", vim.fn.bufwinid(args.buf))
+    end
+  end,
+})
