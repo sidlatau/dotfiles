@@ -210,4 +210,31 @@ return {
     require("telescope").load_extension "recent_files"
     require("telescope").load_extension "advanced_git_search"
   end,
+  keys = {
+    {
+      "<leader>R",
+      "<cmd>Telescope resume<cr>",
+      desc = "Telescope resume",
+    },
+    {
+      "<leader>oh",
+      "<cmd>Telescope help_tags<CR>",
+      desc = "Help tags",
+    },
+    {
+      "<leader>ot",
+      "<cmd>Telescope colorscheme<CR>",
+      desc = "Color Scheme",
+    },
+    {
+      "<leader>ok",
+      "<cmd>Telescope keymaps<CR>",
+      desc = "Keymaps",
+    },
+    {
+      "<leader>oo",
+      require("telescope").extensions.recent_files.pick,
+      desc = "Recent files",
+    },
+  },
 }

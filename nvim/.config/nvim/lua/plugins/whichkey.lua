@@ -289,11 +289,6 @@ return {
         "<leader>s",
         group = "Search",
         {
-          "<leader>sc",
-          "<cmd>Telescope neoclip<cr>",
-          desc = "Clipboard",
-        },
-        {
           "<leader>sh",
           "<cmd>Telescope help_tags<cr>",
           desc = "Find Help",
@@ -330,63 +325,6 @@ return {
             )
           end,
           desc = "Word under cursor",
-        },
-      },
-      {
-        "<leader>R",
-        "<cmd>Telescope resume<cr>",
-        desc = "Telescope resume",
-      },
-      {
-        "<leader>t",
-        group = "Test / Terminal",
-        {
-          "<leader>tf",
-          "<cmd>ToggleTerm direction=float<cr>",
-          desc = "Float",
-        },
-        {
-          "<leader>tt",
-          function()
-            ---@diagnostic disable-next-line: missing-parameter
-            require("neotest").run.run(vim.fn.expand "%")
-          end,
-          desc = "Test file",
-        },
-        {
-          "<leader>ts",
-          function()
-            require("neotest").summary.toggle()
-          end,
-          desc = "Summary",
-        },
-        {
-          "<leader>to",
-          function()
-            require("neotest").output.open { enter = true }
-          end,
-          desc = "Output",
-        },
-        {
-          "<leader>tn",
-          function()
-            require("neotest").run.run()
-          end,
-          desc = "Test nearest",
-        },
-        {
-          "<leader>tl",
-          function()
-            require("neotest").run.run_last()
-          end,
-          desc = "Test last",
-        },
-        {
-          "<leader>td",
-          function()
-            require("neotest").run.run { strategy = "dap" }
-          end,
-          desc = "Debug nearest",
         },
       },
       {
@@ -458,30 +396,6 @@ return {
             my_sidebar.open()
           end,
           desc = "Sidebar",
-        },
-      },
-      {
-        "<leader>o",
-        group = "Telescope",
-        {
-          "<leader>oh",
-          "<cmd>Telescope help_tags<CR>",
-          desc = "Help tags",
-        },
-        {
-          "<leader>ot",
-          "<cmd>Telescope colorscheme<CR>",
-          desc = "Color Scheme",
-        },
-        {
-          "<leader>ok",
-          "<cmd>Telescope keymaps<CR>",
-          desc = "Keymaps",
-        },
-        {
-          "<leader>oo",
-          require("telescope").extensions.recent_files.pick,
-          desc = "Recent files",
         },
       },
       {

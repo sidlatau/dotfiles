@@ -55,4 +55,56 @@ return {
     vim.keymap.set("n", "]t", neotest.jump.next, opts)
     vim.keymap.set("n", "[t", neotest.jump.prev, opts)
   end,
+  keys = {
+    {
+      "<leader>tf",
+      function()
+        ---@diagnostic disable-next-line: missing-parameter
+        require("neotest").run.run(vim.fn.expand "%")
+      end,
+      desc = "Test file",
+    },
+    {
+      "<leader>ts",
+      function()
+        require("neotest").summary.toggle()
+      end,
+      desc = "Summary",
+    },
+    {
+      "<leader>to",
+      function()
+        require("neotest").output.open { enter = true }
+      end,
+      desc = "Output",
+    },
+    {
+      "<leader>tn",
+      function()
+        require("neotest").run.run()
+      end,
+      desc = "Test nearest",
+    },
+    {
+      "<leader>tl",
+      function()
+        require("neotest").output_panel.toggle()
+      end,
+      desc = "Test panel",
+    },
+    {
+      "<leader>tt",
+      function()
+        require("neotest").run.run_last()
+      end,
+      desc = "Test last",
+    },
+    {
+      "<leader>td",
+      function()
+        require("neotest").run.run { strategy = "dap" }
+      end,
+      desc = "Debug nearest",
+    },
+  },
 }
