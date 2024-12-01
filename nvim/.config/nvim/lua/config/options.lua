@@ -81,11 +81,3 @@ vim.o.foldlevelstart = 99
 vim.o.foldexpr = "v:lua.vim.lsp.foldexpr()"
 vim.o.foldmethod = "expr"
 vim.o.fillchars = "eob: ,fold: ,foldopen:,foldsep: ,foldclose:"
-
-vim.api.nvim_create_autocmd("LspNotify", {
-  callback = function(args)
-    if args.data.method == "textDocument/didOpen" then
-      vim.lsp.foldclose("imports", vim.fn.bufwinid(args.buf))
-    end
-  end,
-})
