@@ -19,6 +19,10 @@ M.winbar_filetype_exclude = {
 }
 
 local get_filename = function()
+  local path = vim.fn.expand "%:p"
+  if string.find(path, "scratch") then
+    return nil
+  end
   local filename = vim.fn.expand "%:t"
   local extension = vim.fn.expand "%:e"
   local f = require "config.functions"
