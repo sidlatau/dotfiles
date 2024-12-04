@@ -1,7 +1,7 @@
 return {
   {
     "CopilotC-Nvim/CopilotChat.nvim",
-    branch = "canary",
+    branch = "main",
     dependencies = {
       { "github/copilot.vim" }, -- or zbirenbaum/copilot.lua
       { "nvim-lua/plenary.nvim" }, -- for curl, log wrapper
@@ -26,7 +26,7 @@ return {
       },
       prompts = {
         TranslateArb = {
-          prompt = "Translate to language, specified in file name, translation is used in Flutter app, arb file.",
+          prompt = "Translate to language, specified in file name, translation is used in Flutter app, arb file. Do not add any explanatory comments.",
           description = "Translate arb file",
         },
         Commit = {
