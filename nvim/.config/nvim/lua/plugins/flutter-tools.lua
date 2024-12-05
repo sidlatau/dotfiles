@@ -1,6 +1,6 @@
 return {
-  -- "akinsho/flutter-tools.nvim",
-  dir = "~/Documents/github/personal/flutter-tools.nvim",
+  "nvim-flutter/flutter-tools.nvim",
+  dev = true,
   dependencies = "nvim-lua/plenary.nvim",
   config = function()
     local flutter_tools = require "flutter-tools"

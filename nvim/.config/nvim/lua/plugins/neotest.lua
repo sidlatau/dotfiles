@@ -1,5 +1,6 @@
 return {
   "nvim-neotest/neotest",
+  dev = true,
   dependencies = {
     "nvim-neotest/neotest-plenary",
     "nvim-neotest/nvim-nio",
