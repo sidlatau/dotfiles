@@ -7,6 +7,9 @@ vim.api.nvim_create_autocmd("ColorScheme", {
     vim.cmd [[highlight  WinBar NONE]]
     vim.cmd [[hi NormalFloat guibg=#1d2021 | hi FloatBorder guibg=#1d2021]]
     vim.cmd [[hi BlinkCmpMenu guibg=#1d2021 | hi BlinkCmpMenuBorder guibg=#1d2021]]
+    vim.cmd [[hi DiagnosticWarn guibg=NONE]]
+    vim.cmd [[hi DiagnosticInfo guibg=NONE]]
+    vim.cmd [[hi DiagnosticError guibg=NONE]]
   end,
   -- floating popups for neo-tree
 })
