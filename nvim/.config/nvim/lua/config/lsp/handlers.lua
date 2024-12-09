@@ -76,12 +76,13 @@ end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 
-local cmp_status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
-if not cmp_status_ok then
-  return
-end
-
-M.capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
+-- local cmp_status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+-- if not cmp_status_ok then
+--   return
+-- end
+--
+-- M.capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
+M.capabilities = require("blink.cmp").get_lsp_capabilities(capabilities)
 
 local function lsp_execute_command(val)
   local client = vim.lsp.get_clients({ name = "dartls" })[1]

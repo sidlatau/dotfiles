@@ -1,5 +1,6 @@
 return {
   "hrsh7th/nvim-cmp",
+  enabled = false,
   event = { "InsertEnter", "CmdlineEnter" },
   config = function()
     local cmp_status_ok, cmp = pcall(require, "cmp")
