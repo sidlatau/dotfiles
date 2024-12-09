@@ -3,15 +3,10 @@ return {
   enabled = true,
   config = function()
     require("auto-session").setup {
-      log_level = "error",
+      bypass_save_filetypes = { "log", "copilot-chat" },
       lazy_support = true,
-      bypass_save_filetypes = { "log" },
-      auto_session_suppress_dirs = {
-        "~/",
-        "~/Documents/github",
-        "~/Downloads",
-        "/",
-      },
+      log_level = "error",
+      suppressed_dirs = { "~/", "~/Documents/github", "~/Downloads", "/" },
     }
   end,
 }
