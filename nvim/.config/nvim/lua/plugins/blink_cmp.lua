@@ -54,7 +54,7 @@ return {
 
     -- experimental auto-brackets support
     completion = {
-      accept = { auto_brackets = { enabled = true } },
+      accept = { auto_brackets = { enabled = false } },
       menu = {
         border = "rounded",
         scrollbar = false,

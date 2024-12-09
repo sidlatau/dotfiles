@@ -1,5 +1,3 @@
-local utils = require "clear-action.utils"
-
 local M = {}
 
 M.setup = function()
@@ -76,12 +74,6 @@ end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 
--- local cmp_status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
--- if not cmp_status_ok then
---   return
--- end
---
--- M.capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
 M.capabilities = require("blink.cmp").get_lsp_capabilities(capabilities)
 
 local function lsp_execute_command(val)
@@ -90,16 +82,51 @@ local function lsp_execute_command(val)
     print "No dartls client found"
     return
   end
-  client.request("workspace/executeCommand", val.command, function(err)
+  client:request("workspace/executeCommand", val.command, function(err)
     if err then
       print("Error executing command: " .. err.message)
     end
   end, 0)
 end
+local function get_current_line_diagnostics()
+  local bufnr = vim.api.nvim_get_current_buf()
+  local row = vim.api.nvim_win_get_cursor(0)[1]
+  local diagnostics = vim.diagnostic.get(bufnr, { lnum = row - 1 })
+  local lsp_diagnostics = vim.tbl_map(function(value)
+    local diagnostic = {
+      code = value.code,
+      message = value.message,
+      severity = value.severity,
+      source = value.source,
+      range = {
+        start = {
+          character = value.col,
+          line = value.lnum,
+        },
+        ["end"] = {
+          character = value.end_col,
+          line = value.end_lnum,
+        },
+      },
+    }
+    local lsp_data = vim.tbl_get(value, "user_data", "lsp")
+
+    if lsp_data then
+      diagnostic.codeDescription = lsp_data.codeDescription
+      diagnostic.tags = lsp_data.tags
+      diagnostic.relatedInformation = lsp_data.relatedInformation
+      diagnostic.data = lsp_data.data
+    end
+
+    return diagnostic
+  end, diagnostics)
+
+  return lsp_diagnostics
+end
 
 function M.code_action_fix_all()
-  local context = { diagnostics = utils.get_current_line_diagnostics() }
-  local params = vim.lsp.util.make_range_params()
+  local context = { diagnostics = get_current_line_diagnostics() }
+  local params = vim.lsp.util.make_range_params(0, "utf-8")
   params.context = context
   vim.lsp.buf_request(
     0,
