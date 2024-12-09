@@ -38,10 +38,10 @@ return {
         enabled_providers = {
           "lsp",
           "path",
-          "snippets",
           "buffer",
           "lazydev",
           "dadbod",
+          "luasnip",
         },
       },
       providers = {
