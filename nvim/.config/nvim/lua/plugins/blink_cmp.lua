@@ -54,14 +54,20 @@ return {
 
     -- experimental auto-brackets support
     completion = {
-      accept = { auto_brackets = { enabled = false } },
+      accept = { auto_brackets = { enabled = true } },
       menu = {
         border = "rounded",
         scrollbar = false,
+        draw = {
+          treesitter = true,
+        },
       },
       documentation = {
         auto_show = true,
         window = { border = "rounded", scrollbar = false },
+      },
+      list = {
+        selection = "auto_insert",
       },
     },
 
