@@ -48,6 +48,11 @@ return {
         lazydev = { name = "LazyDev", module = "lazydev.integrations.blink" },
         dadbod = { name = "Dadbod", module = "vim_dadbod_completion.blink" },
       },
+      -- Function to use when transforming the items before they're returned for all providers
+      -- The default will lower the score for snippets to sort them lower in the list
+      transform_items = function(_, items)
+        return items
+      end,
     },
 
     -- experimental auto-brackets support

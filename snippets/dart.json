@@ -391,13 +391,6 @@
     ],
     "description": "Dart private arrow function snippet"
   },
-  "Add material's package import statement": {
-    "prefix": "fimpmat",
-    "body": [
-      "import 'package:flutter/material.dart';"
-    ],
-    "description": "Add material's package import statement"
-  },
   "Flutter StreamBuilder widget snippet": {
     "prefix": "fstream",
     "body": [
@@ -425,8 +418,7 @@
       "  const ${1:name}({super.key});\n",
       "  @override",
       "  Widget build(BuildContext context) {",
-      "    return Container(",
-      "    );",
+      "    return $2;",
       "  }",
       "}"
     ],
@@ -755,21 +747,6 @@
       "debugPrint(${1:statement});"
     ],
     "description": "Prints a message to the console, which you can access using the flutter tool's `logs` command (flutter logs)."
-  },
-  "Material Package": {
-    "prefix": "importM",
-    "body": "import 'package:flutter/material.dart';",
-    "description": "Import flutter material package"
-  },
-  "Cupertino Package": {
-    "prefix": "importC",
-    "body": "import 'package:flutter/cupertino.dart';",
-    "description": "Import Flutter Cupertino package"
-  },
-  "flutter_test Package": {
-    "prefix": "importFT",
-    "body": "import 'package:flutter_test/flutter_test.dart';",
-    "description": "Import flutter_test package"
   },
   "Material App": {
     "prefix": "mateapp",
