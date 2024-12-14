@@ -2,6 +2,7 @@ vim.g.do_filetype_lua = 1
 
 vim.opt.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
 vim.opt.completeopt = { "menuone", "noselect", "popup" } -- mostly just for cmp
+vim.opt.messagesopt = "history:1000,wait:1000"
 vim.opt.conceallevel = 2
 vim.opt.fileencoding = "utf-8" -- the encoding written to a file
 vim.opt.hlsearch = true -- highlight all matches on previous search pattern
