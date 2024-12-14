@@ -10,8 +10,7 @@ return {
       timeout = 3000,
     },
     quickfile = { enabled = true },
-    statuscolumn = { enabled = true },
-    words = { enabled = true },
+    words = {},
     styles = {
       notification = {
         wo = { wrap = true }, -- Wrap notifications
@@ -97,6 +96,20 @@ return {
         Snacks.scratch.select()
       end,
       desc = "Select Scratch Buffer",
+    },
+    {
+      "<leader>z",
+      function()
+        Snacks.zen()
+      end,
+      desc = "Toggle Zen Mode",
+    },
+    {
+      "<leader>Z",
+      function()
+        Snacks.zen.zoom()
+      end,
+      desc = "Toggle Zoom",
     },
   },
 }

@@ -34,19 +34,17 @@ return {
     -- default list of enabled providers defined so that you can extend it
     -- elsewhere in your config, without redefining it, via `opts_extend`
     sources = {
-      completion = {
-        enabled_providers = {
-          "lsp",
-          "path",
-          "buffer",
-          "lazydev",
-          "dadbod",
-          "luasnip",
-        },
+      default = {
+        "lsp",
+        "path",
+        "buffer",
+        "lazydev",
+        "dadbod",
+        "luasnip",
       },
       providers = {
         -- dont show LuaLS require statements when lazydev has items
-        lsp = { fallback_for = { "lazydev" } },
+        lsp = { fallbacks = { "lazydev" } },
         lazydev = { name = "LazyDev", module = "lazydev.integrations.blink" },
         dadbod = { name = "Dadbod", module = "vim_dadbod_completion.blink" },
       },
@@ -90,5 +88,5 @@ return {
   },
   -- allows extending the enabled_providers array elsewhere in your config
   -- without having to redefine it
-  opts_extend = { "sources.completion.enabled_providers" },
+  opts_extend = { "sources.default" },
 }
