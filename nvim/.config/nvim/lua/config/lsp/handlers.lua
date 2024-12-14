@@ -76,7 +76,7 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 
 M.capabilities = require("blink.cmp").get_lsp_capabilities(capabilities)
 
-local function lsp_execute_command(val)
+local function lsp_execute_command(val, callback)
   local client = vim.lsp.get_clients({ name = "dartls" })[1]
   if not client then
     print "No dartls client found"
@@ -85,6 +85,10 @@ local function lsp_execute_command(val)
   client:request("workspace/executeCommand", val.command, function(err)
     if err then
       print("Error executing command: " .. err.message)
+    else
+      if callback then
+        callback()
+      end
     end
   end, 0)
 end
@@ -150,7 +154,9 @@ function M.code_action_fix_all()
           and result.command
           and result.command.command == "dart.edit.fixAll"
         then
-          lsp_execute_command(result)
+          lsp_execute_command(result, function()
+            vim.lsp.buf.format()
+          end)
         end
       end
     end
