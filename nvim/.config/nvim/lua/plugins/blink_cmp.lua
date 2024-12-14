@@ -56,9 +56,6 @@ return {
       menu = {
         border = "rounded",
         scrollbar = false,
-        draw = {
-          treesitter = true,
-        },
       },
       documentation = {
         auto_show = true,
