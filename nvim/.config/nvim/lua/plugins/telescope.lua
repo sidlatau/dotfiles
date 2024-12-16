@@ -184,6 +184,7 @@ return {
       },
       pickers = {
         find_files = {
+          theme = "dropdown",
           find_command = {
             "fd",
             "--type",
@@ -195,6 +196,9 @@ return {
             ".git",
             -- put your other patterns here
           },
+        },
+        help_tags = {
+          theme = "dropdown",
         },
       },
       extensions = {
@@ -258,7 +262,7 @@ return {
         require("telescope.builtin").grep_string(
           require("telescope.themes").get_dropdown {
             {
-              layout_config = { width = 0.8 },
+              layout_config = { width = 0.9 },
             },
           }
         )
@@ -268,9 +272,11 @@ return {
     {
       "<leader>sn",
       function()
-        require("telescope.builtin").find_files {
+        local opts = {
           cwd = vim.fn.stdpath "config",
         }
+
+        require("telescope.builtin").find_files(opts)
       end,
       desc = "Neovim config",
     },

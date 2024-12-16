@@ -50,9 +50,7 @@ vim.keymap.set("n", "<D-p>", function()
   local opts = {
     hidden = true,
   }
-  require("telescope.builtin").find_files(
-    require("telescope.themes").get_dropdown(opts)
-  )
+  require("telescope.builtin").find_files(opts)
 end)
 vim.keymap.set("n", "<D-F>", function()
   require("telescope.builtin").live_grep(
