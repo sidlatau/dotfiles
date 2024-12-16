@@ -286,48 +286,6 @@ return {
         },
       },
       {
-        "<leader>s",
-        group = "Search",
-        {
-          "<leader>sh",
-          "<cmd>Telescope help_tags<cr>",
-          desc = "Find Help",
-        },
-        {
-          "<leader>sM",
-          "<cmd>Telescope man_pages<cr>",
-          desc = "Man Pages",
-        },
-        {
-          "<leader>sR",
-          "<cmd>Telescope registers<cr>",
-          desc = "Registers",
-        },
-        {
-          "<leader>sk",
-          "<cmd>Telescope keymaps<cr>",
-          desc = "Keymaps",
-        },
-        {
-          "<leader>sC",
-          "<cmd>Telescope commands<cr>",
-          desc = "Commands",
-        },
-        {
-          "<leader>ss",
-          function()
-            require("telescope.builtin").grep_string(
-              require("telescope.themes").get_dropdown {
-                {
-                  layout_config = { width = 0.8 },
-                },
-              }
-            )
-          end,
-          desc = "Word under cursor",
-        },
-      },
-      {
         "<leader>d",
         group = "Debug",
         {
