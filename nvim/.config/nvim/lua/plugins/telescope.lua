@@ -265,5 +265,14 @@ return {
       end,
       desc = "Word under cursor",
     },
+    {
+      "<leader>sn",
+      function()
+        require("telescope.builtin").find_files {
+          cwd = vim.fn.stdpath "config",
+        }
+      end,
+      desc = "Neovim config",
+    },
   },
 }
