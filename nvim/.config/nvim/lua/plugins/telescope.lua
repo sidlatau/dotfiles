@@ -162,7 +162,14 @@ return {
     local image_preview = telescope_image_preview()
 
     telescope.setup {
-      defaults = {
+      defaults = require("telescope.themes").get_dropdown {
+        layout_config = {
+          preview_cutoff = 1, -- Preview should always show (unless previewer = false)
+
+          width = function(_, max_columns, _)
+            return math.min(max_columns, 100)
+          end,
+        },
         mappings = {
           i = {
             ["<C-k"] = require("telescope.actions").cycle_history_next,
@@ -184,7 +191,6 @@ return {
       },
       pickers = {
         find_files = {
-          theme = "dropdown",
           find_command = {
             "fd",
             "--type",
@@ -196,9 +202,6 @@ return {
             ".git",
             -- put your other patterns here
           },
-        },
-        help_tags = {
-          theme = "dropdown",
         },
       },
       extensions = {
@@ -279,6 +282,24 @@ return {
         require("telescope.builtin").find_files(opts)
       end,
       desc = "Neovim config",
+    },
+    {
+      "<leader>sp",
+      function()
+        local opts = {
+          cwd = vim.fs.joinpath(vim.fn.stdpath "data", "lazy"),
+        }
+
+        require("telescope.builtin").find_files(opts)
+      end,
+      desc = "Neovim config",
+    },
+    {
+      "<leader>F",
+      function()
+        require("config.telescope").live_multigrep()
+      end,
+      desc = "Find Text",
     },
   },
 }

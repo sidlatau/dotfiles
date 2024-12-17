@@ -64,15 +64,6 @@ return {
         desc = "No Highlight",
       },
       {
-        "<leader>F",
-        function()
-          require("telescope.builtin").live_grep(
-            require("telescope.themes").get_dropdown()
-          )
-        end,
-        desc = "Find Text",
-      },
-      {
         "<leader>1",
         ':lua require("harpoon.ui").nav_file(1)<CR>',
         desc = "Nav 1",
