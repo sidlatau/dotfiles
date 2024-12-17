@@ -45,7 +45,7 @@
   "nvim-scrollbar": { "branch": "main", "commit": "6994eb9f73d5fdc36ee2c8717940e8c853e51a49" },
   "nvim-spider": { "branch": "main", "commit": "d9c53d19b8c489c78bab710efd8b5545725ad9ba" },
   "nvim-surround": { "branch": "main", "commit": "9f0cb495f25bff32c936062d85046fbda0c43517" },
-  "nvim-treesitter": { "branch": "master", "commit": "d20db847aaa5c023a040e8453b4dd82b00f8dcfd" },
+  "nvim-treesitter": { "branch": "master", "commit": "c47d8d27d047634d00a07ca80a1b694624743b38" },
   "nvim-treesitter-textobjects": { "branch": "master", "commit": "ad8f0a472148c3e0ae9851e26a722ee4e29b1595" },
   "nvim-ts-context-commentstring": { "branch": "main", "commit": "1b212c2eee76d787bbea6aa5e92a2b534e7b4f8f" },
   "nvim-web-devicons": { "branch": "master", "commit": "0eb18da56e2ba6ba24de7130a12bcc4e31ad11cb" },
@@ -82,5 +82,5 @@
   "vim-unimpaired": { "branch": "master", "commit": "6d44a6dc2ec34607c41ec78acf81657248580bf1" },
   "vim-wakatime": { "branch": "master", "commit": "cf51327a9e08935569614d1cb24e779ee9f45519" },
   "which-key.nvim": { "branch": "main", "commit": "8ab96b38a2530eacba5be717f52e04601eb59326" },
-  "yazi.nvim": { "branch": "main", "commit": "e7e0a1d8de1466546efc8e5e8fa7b436d3088ba7" }
+  "yazi.nvim": { "branch": "main", "commit": "2d6e9b9e2bda2294a978f60367598b75ea5b59d0" }
 }

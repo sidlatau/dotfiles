@@ -12,25 +12,6 @@
     ],
     "description": "Built Value Header"
   },
-  "Built Value Updates Function": {
-    "prefix": "bvuf",
-    "body": [
-      "(b) => b\n  .."
-    ],
-    "description": "Built Value Updates Function"
-  },
-  "Built Value Type": {
-    "prefix": "bvt",
-    "body": [
-      "abstract class ${1:ClassName} implements Built<${1}, ${1}Builder> {",
-      "  ${2}",
-      "",
-      "  ${1}._();",
-      "  factory ${1}([void Function(${1}Builder) updates]) = _$${1};",
-      "}"
-    ],
-    "description": "Built Value Type"
-  },
   "Built Value Type File": {
     "prefix": "bvtf",
     "body": [
@@ -278,64 +259,5 @@
       "static const ${TM_FILENAME_BASE/(.*)$/${1:/pascalcase}/} ${1:constantName} = _$${1:constantName};"
     ],
     "description": "Built Value Enum Constant File whose type corresponds to the file name"
-  },
-  "Built Value Serializers": {
-    "prefix": "bvs",
-    "body": [
-      "import 'package:built_collection/built_collection.dart';",
-      "import 'package:built_value/serializer.dart';",
-      "import 'package:built_value/standard_json_plugin.dart';",
-      "",
-      "part '$TM_FILENAME_BASE.g.dart';",
-      "",
-      "@SerializersFor([",
-      "  ${1:// TODO: add the built values that require serialization}",
-      "])",
-      "final Serializers serializers = ",
-      "    (_\\$serializers.toBuilder()..addPlugin(StandardJsonPlugin())).build();"
-    ],
-    "description": "Built Value Serializers"
-  },
-  "@nullable:": {
-    "prefix": "@n",
-    "body": [
-      "@nullable"
-    ],
-    "description": "@nullable"
-  },
-  "@memoizes:": {
-    "prefix": "@m",
-    "body": [
-      "@memoized"
-    ],
-    "description": "@memoizes"
-  },
-  "@BuiltValue": {
-    "prefix": "@bv",
-    "body": [
-      "@BuiltValue(${1})"
-    ],
-    "description": "@BuiltValue"
-  },
-  "@BuiltValueField": {
-    "prefix": "@bvf",
-    "body": [
-      "@BuiltValueField(wireName: '${1}')"
-    ],
-    "description": "@BuiltValueField"
-  },
-  "@BuiltValueEnum": {
-    "prefix": "@bve",
-    "body": [
-      "@BuiltValueEnum(wireName: '${1}')"
-    ],
-    "description": "@BuiltValueEnum"
-  },
-  "@BuiltValueEnumConst": {
-    "prefix": "@bvec",
-    "body": [
-      "@BuiltValueEnumConst(wireName: '${1}')"
-    ],
-    "description": "@BuiltValueEnumConst"
   }
 }
