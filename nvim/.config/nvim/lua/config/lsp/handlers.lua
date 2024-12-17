@@ -46,14 +46,9 @@ local function lsp_keymaps(bufnr)
   local opts = { buffer = bufnr, silent = true }
   vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
   vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-  vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
   vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
-  vim.keymap.set("n", "gr", function()
-    require("telescope.builtin").lsp_references(
-      require("telescope.themes").get_dropdown {
-        layout_config = { width = 0.8 },
-      }
-    )
+  vim.keymap.set("n", "grr", function()
+    require("telescope.builtin").lsp_references()
   end, opts)
   vim.keymap.set("n", "gl", vim.diagnostic.open_float, opts)
 end
