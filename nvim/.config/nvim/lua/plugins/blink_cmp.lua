@@ -37,11 +37,12 @@ return {
       default = {
         "lsp",
         "path",
-        "buffer",
         "lazydev",
         "dadbod",
         "luasnip",
+        "buffer",
       },
+      cmdline = {},
       providers = {
         -- dont show LuaLS require statements when lazydev has items
         lsp = { fallbacks = { "lazydev" } },
@@ -51,6 +52,14 @@ return {
       -- Function to use when transforming the items before they're returned for all providers
       -- The default will lower the score for snippets to sort them lower in the list
       transform_items = function(_, items)
+        for _, item in ipairs(items) do
+          if
+            item.kind == require("blink.cmp.types").CompletionItemKind.Snippet
+            or item.kind == require("blink.cmp.types").CompletionItemKind.Text
+          then
+            item.score_offset = item.score_offset - 3
+          end
+        end
         return items
       end,
     },
