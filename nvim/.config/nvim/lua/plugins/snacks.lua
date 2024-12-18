@@ -11,6 +11,12 @@ return {
     },
     quickfile = { enabled = true },
     words = {},
+    scroll = {
+      animate = {
+        duration = { step = 15, total = 200 },
+        easing = "inOutQuart",
+      },
+    },
     styles = {
       notification = {
         wo = { wrap = true }, -- Wrap notifications
