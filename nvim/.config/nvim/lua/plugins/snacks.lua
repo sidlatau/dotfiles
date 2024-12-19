@@ -13,7 +13,7 @@ return {
     words = {},
     scroll = {
       animate = {
-        duration = { step = 15, total = 200 },
+        duration = { step = 15, total = 50 },
         easing = "inOutQuart",
       },
     },

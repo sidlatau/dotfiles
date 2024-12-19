@@ -24,13 +24,6 @@ return {
     }
     vim.keymap.set(
       "i",
-      "<C-/>",
-      "<Cmd>vertical Copilot panel<CR>",
-      { desc = "open copilot panel" }
-    )
-
-    vim.keymap.set(
-      "i",
       "<M-w>",
       accept_word,
       { expr = true, remap = false, desc = "accept word" }
