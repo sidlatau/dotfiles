@@ -176,10 +176,6 @@ export PATH="/Users/ts/.vscode-dotnet-sdk/.dotnet:$PATH"
 export PATH="/Users/ts/Developer/sqlite:$PATH"
 export PATH=$PATH:~/Library/Android/sdk/emulator
 
-# . "$HOME/.atuin/bin/env"
-
-eval "$(atuin init zsh --disable-up-arrow)"
-
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/ts/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/ts/Downloads/google-cloud-sdk/path.zsh.inc'; fi
 
@@ -195,3 +191,4 @@ function y() {
   rm -f -- "$tmp"
 }
 eval "$(zoxide init zsh)"
+source <(fzf --zsh)
