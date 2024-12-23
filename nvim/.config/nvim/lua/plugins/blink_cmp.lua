@@ -42,7 +42,6 @@ return {
         "luasnip",
         "buffer",
       },
-      cmdline = {},
       providers = {
         -- dont show LuaLS require statements when lazydev has items
         lsp = { fallbacks = { "lazydev" } },
