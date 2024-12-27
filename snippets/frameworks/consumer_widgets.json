@@ -1,21 +1,21 @@
 {
   "Consumer Stateless": {
     "scope": "dart",
-    "prefix": "stlessConsumer",
+    "prefix": "stlessc",
     "description": "Create a ConsumerStatelessWidget",
     "body": [
       "class $1 extends ConsumerWidget {",
       "\tconst $1({super.key});\n",
       "\t@override",
       "\tWidget build(BuildContext context, WidgetRef ref) {",
-      "\t\treturn Container();",
+      "\t\treturn ${0:SizedBox()};",
       "\t}",
       "}"
     ]
   },
   "Consumer Stateful": {
     "scope": "dart",
-    "prefix": "stfulConsumer",
+    "prefix": "stfulc",
     "description": "Create a ConsumerStatefulWidget",
     "body": [
       "class $1 extends ConsumerStatefulWidget {",
@@ -33,7 +33,7 @@
   },
   "Provider": {
     "scope": "dart",
-    "prefix": "provider",
+    "prefix": "pr",
     "description": "Create a simple Provider",
     "body": [
       "final $1Provider = Provider<$2>((ref) {",
@@ -41,9 +41,17 @@
       "});"
     ]
   },
+  "Provider": {
+    "scope": "dart",
+    "prefix": "prn",
+    "description": "Create a Notifier Provider",
+    "body": [
+      "final $1Provider = NotifierProvider<$2, $3>($2.new);"
+    ]
+  },
   "Provider with Family": {
     "scope": "dart",
-    "prefix": "providerFamily",
+    "prefix": "prf",
     "description": "Create a simple Provider with Family modifier",
     "body": [
       "final $1Provider = Provider.family<$2, $3>((ref, $4) {",

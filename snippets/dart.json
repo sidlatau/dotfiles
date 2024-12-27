@@ -4,8 +4,9 @@
     "description": "Insert a try/catch block.",
     "body": [
       "try {",
-      "  $0",
-      "} catch (${1:e}) {",
+      "  $1",
+      "} catch (e, s) {",
+      "  ${0:context.showError(e, s)}",
       "}"
     ]
   },
@@ -107,60 +108,33 @@
       "});"
     ]
   },
-  "print message": {
-    "prefix": "prm",
-    "body": [
-      "print('${1:message}');"
-    ],
-    "description": "Print message"
-  },
   "Scaffold widget snippet": {
-    "prefix": "fscaff",
+    "prefix": "scaff",
     "body": [
       "Scaffold(",
       "  appBar: AppBar(",
       "    title: Text('${1:Title}'),",
       "  ),",
-      "  body: ${2:Container()}${0},",
+      "  body: ${2:SizedBox()}${0},",
       ");"
     ],
     "description": "Scaffold widget snippet"
   },
   "Flutter Icon widget snippet": {
-    "prefix": "fic",
+    "prefix": "ic",
     "body": [
       "Icon(Icons.${1:clear})${0}"
     ],
     "description": "Flutter Icon widget snippet"
   },
-  "Flutter StreamBuilder widget snippet": {
-    "prefix": "fstream",
-    "body": [
-      "StreamBuilder<${1:dynamic}>(        ",
-      "  stream: ${2:yourStream},",
-      "  builder: (BuildContext context, AsyncSnapshot<${1:dynamic}> snapshot) {",
-      "      if (snapshot.hasData) {",
-      "       // TODO: do something with the data",
-      "       return ${3:Container()};",
-      "      } else if (snapshot.hasError) {",
-      "      // TODO: do something with the error",
-      "       return ${4:Text(snapshot.error.toString())};",
-      "      }",
-      "      // TODO: the data is not ready, show a loading indicator",
-      "      return ${5:Center(child: CircularProgressIndicator())};",
-      "   },",
-      ")"
-    ],
-    "description": "Flutter StreamBuilder widget snippet"
-  },
   "Stateless Widget": {
     "prefix": "stless",
     "body": [
       "class ${1:name} extends StatelessWidget {",
-      "  const ${1:name}({super.key});\n",
+      "  const ${1:name}({super.key});",
       "  @override",
       "  Widget build(BuildContext context) {",
-      "    return $2;",
+      "    return ${0:SizedBox()};",
       "  }",
       "}"
     ],
@@ -170,17 +144,15 @@
     "prefix": "stfull",
     "body": [
       "class ${1:name} extends StatefulWidget {",
-      "  ${1:name}({super.key});\n",
+      "  ${1:name}({super.key});",
       "  @override",
       "  _${1:WidgetName}State createState() => _${1:WidgetName}State();",
-      "}\n",
+      "}",
       "class _${1:index}State extends State<${1:index}> {",
       "  @override",
       "  Widget build(BuildContext context) {",
-      "    return Container(",
-      "       child: ${2:child},",
-      "    );",
-      "  }",
+      "    return ${0:SizedBox()};",
+      " }",
       "}"
     ],
     "description": "Create a Stateful widget"
@@ -234,17 +206,6 @@
       "}"
     ],
     "description": "Called when this object is removed from the tree permanently. The framework calls this method when this State object will never build again."
-  },
-  "Reassemble": {
-    "prefix": "reassemble",
-    "body": [
-      "@override",
-      "void reassemble(){",
-      "  super.reassemble();",
-      "  ${0:}",
-      "}"
-    ],
-    "description": "Called whenever the application is reassembled during debugging, for example during hot reload."
   },
   "didChangeDependencies": {
     "prefix": "didChangeD",
@@ -394,16 +355,6 @@
     ],
     "description": "Creates a Future Builder. This builds itself based on the latest snapshot of interaction with a Future."
   },
-  "No Such Method": {
-    "prefix": "nosm",
-    "body": [
-      "@override",
-      "dynamic noSuchMethod(Invocation invocation) {",
-      "  ${1:}",
-      "}"
-    ],
-    "description": "This method is invoked when a non-existent method or property is accessed."
-  },
   "Inherited Widget": {
     "prefix": "inheritedW",
     "body": [
@@ -448,16 +399,6 @@
       " ),"
     ],
     "description": "Given a ValueListenable<T> and a builder which builds widgets from concrete values of T, this class will automatically register itself as a listener of the ValueListenable and call the builder with updated values when the value changes."
-  },
-  "Test": {
-    "prefix": "f-test",
-    "body": [
-      "test(",
-      "   \"${1:test description}\",",
-      "   () {},",
-      ");"
-    ],
-    "description": "Create a test function"
   },
   "Test Widgets": {
     "prefix": "testWidget",
@@ -516,5 +457,22 @@
       "const SizedBox.shrink()"
     ],
     "description": "SizedBox shrink"
+  },
+  "Equatable": {
+    "prefix": "eq",
+    "body": [
+      "class ${1:ClassName} extends Equatable {",
+      "  const ${1:ClassName}({",
+      "    required this.${3:field},",
+      "  });",
+      "  final ${2:type} ${3:field};",
+      "",
+      "  @override",
+      "  List<Object> get props => [",
+      "   ${3:field},",
+      "];",
+      "}"
+    ],
+    "description": "Equatable class"
   }
 }

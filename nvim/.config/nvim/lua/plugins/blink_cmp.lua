@@ -25,7 +25,7 @@ return {
       -- Sets the fallback highlight groups to nvim-cmp's highlight groups
       -- Useful for when your theme doesn't support blink.cmp
       -- will be removed in a future release
-      use_nvim_cmp_as_default = true,
+      use_nvim_cmp_as_default = false,
       -- Set to 'mono' for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
       -- Adjusts spacing to ensure icons are aligned
       nerd_font_variant = "mono",
@@ -44,23 +44,21 @@ return {
       },
       providers = {
         -- dont show LuaLS require statements when lazydev has items
-        lsp = { fallbacks = { "lazydev" } },
+        lsp = {
+          fallbacks = { "lazydev" },
+          score_offset = 0, -- Boost/penalize the score of the items
+        },
         lazydev = { name = "LazyDev", module = "lazydev.integrations.blink" },
         dadbod = { name = "Dadbod", module = "vim_dadbod_completion.blink" },
+        buffer = {
+          min_keyword_length = 4,
+          max_items = 5,
+        },
+        luasnip = {
+          min_keyword_length = 3,
+          max_items = 5,
+        },
       },
-      -- Function to use when transforming the items before they're returned for all providers
-      -- The default will lower the score for snippets to sort them lower in the list
-      transform_items = function(_, items)
-        for _, item in ipairs(items) do
-          if
-            item.kind == require("blink.cmp.types").CompletionItemKind.Snippet
-            or item.kind == require("blink.cmp.types").CompletionItemKind.Text
-          then
-            item.score_offset = item.score_offset - 3
-          end
-        end
-        return items
-      end,
     },
 
     -- experimental auto-brackets support
