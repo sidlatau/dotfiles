@@ -1,8 +1,7 @@
 return {
-  -- "akinsho/pubspec-assist.nvim",
-  "sidlatau/pubspec-assist.nvim",
-  -- dir = "~/Documents/github/personal/pubspec-assist.nvim",
-  event = "VeryLazy",
+  "nvim-flutter/pubspec-assist.nvim",
+  dev = true,
+  -- event = "VeryLazy",
   dependencies = "plenary.nvim",
   config = function()
     require("pubspec-assist").setup {}

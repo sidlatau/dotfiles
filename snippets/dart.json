@@ -146,7 +146,7 @@
       "class ${1:name} extends StatefulWidget {",
       "  ${1:name}({super.key});",
       "  @override",
-      "  _${1:WidgetName}State createState() => _${1:WidgetName}State();",
+      "  State<${1:WidgetName}> createState() => _${1:WidgetName}State();",
       "}",
       "class _${1:index}State extends State<${1:index}> {",
       "  @override",

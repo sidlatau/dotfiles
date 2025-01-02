@@ -37,8 +37,30 @@ return {
         -- don't pause on exception in flutter
         exception_breakpoints = {},
         -- register_configurations = function(_)
-        --   require("dap").configurations.dart = {}
-        --   require("dap.ext.vscode").load_launchjs()
+        --   require("dap").configurations.dart = {
+        --     {
+        --       type = "dart",
+        --       request = "launch",
+        --       name = "Mobile",
+        --       cwd = "${workspaceFolder}",
+        --       program = "${workspaceFolder}/lib/main.dart",
+        --     },
+        --     {
+        --       type = "dart",
+        --       request = "launch",
+        --       name = "Web",
+        --       device = "chrome",
+        --       cwd = "${workspaceFolder}",
+        --       program = "${workspaceFolder}/lib/main.dart",
+        --       args = {
+        --         "--web-port",
+        --         "4200",
+        --         "-d",
+        --         "chrome",
+        --       },
+        --     },
+        --   }
+        --   -- require("dap.ext.vscode").load_launchjs()
         -- end,
       },
       fvm = true,

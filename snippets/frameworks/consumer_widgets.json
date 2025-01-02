@@ -41,7 +41,7 @@
       "});"
     ]
   },
-  "Provider": {
+  "NotifierProvider": {
     "scope": "dart",
     "prefix": "prn",
     "description": "Create a Notifier Provider",
