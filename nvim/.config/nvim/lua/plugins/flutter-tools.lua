@@ -107,4 +107,13 @@ return {
   cond = function()
     return not vim.g.vscode
   end,
+  keys = {
+    {
+      "<leader>fx",
+      function()
+        require("config.lsp.handlers").code_action_fix_all()
+      end,
+      desc = "Fix all",
+    },
+  },
 }

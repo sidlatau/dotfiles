@@ -1,6 +1,6 @@
 return {
   "sidlatau/clear-action.nvim",
-  -- dir = "~/Documents/github/personal/clear-action.nvim",
+  dev = false,
   config = function()
     require("clear-action").setup {
       signs = { enable = false },

@@ -3,10 +3,10 @@ local function augroup(name)
 end
 
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-  group = augroup "fix_all_on_save",
+  group = augroup "format_on_save",
   pattern = "*.dart",
   callback = function()
-    require("config.lsp.handlers").code_action_fix_all()
+    vim.lsp.buf.format()
   end,
 })
 
