@@ -19,7 +19,7 @@ return {
     -- 'enter' for mappings similar to 'super-tab' but with 'enter' to accept
     -- see the "default configuration" section below for full documentation on how to define
     -- your own keymap.
-    keymap = { preset = "default" },
+    keymap = { preset = "enter" },
 
     appearance = {
       -- Sets the fallback highlight groups to nvim-cmp's highlight groups
@@ -39,7 +39,7 @@ return {
         "path",
         "lazydev",
         "dadbod",
-        "luasnip",
+        "snippets",
         "buffer",
       },
       providers = {
@@ -54,11 +54,12 @@ return {
           min_keyword_length = 4,
           max_items = 5,
         },
-        luasnip = {
+        snippets = {
           min_keyword_length = 3,
           max_items = 5,
         },
       },
+      cmdline = {},
     },
 
     -- experimental auto-brackets support
@@ -73,26 +74,18 @@ return {
         window = { border = "rounded", scrollbar = false },
       },
       list = {
-        selection = "auto_insert",
+        selection = {
+          auto_insert = function(ctx)
+            return ctx.mode ~= "cmdline"
+          end,
+          preselect = false,
+        },
       },
     },
 
     -- experimental signature helghp support
     signature = { enabled = true, window = { border = "rounded" } },
-    snippets = {
-      expand = function(snippet)
-        require("luasnip").lsp_expand(snippet)
-      end,
-      active = function(filter)
-        if filter and filter.direction then
-          return require("luasnip").jumpable(filter.direction)
-        end
-        return require("luasnip").in_snippet()
-      end,
-      jump = function(direction)
-        require("luasnip").jump(direction)
-      end,
-    },
+    snippets = { preset = "luasnip" },
   },
   -- allows extending the enabled_providers array elsewhere in your config
   -- without having to redefine it
