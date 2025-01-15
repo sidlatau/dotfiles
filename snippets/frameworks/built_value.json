@@ -180,5 +180,29 @@
       "static const ${TM_FILENAME_BASE/(.*)$/${1:/pascalcase}/} ${1:constantName} = _$${1:constantName};"
     ],
     "description": "Built Value Enum Constant File whose type corresponds to the file name"
+  },
+  "Built Value Type": {
+    "prefix": "bvt",
+    "body": [
+      "abstract class ${1:ClassName} implements Built<${1}, ${1}Builder> {",
+      "  ${2}",
+      "",
+      "  ${1}._();",
+      "  factory ${1}([void Function(${1}Builder) updates]) = _$${1};",
+      "}"
+    ],
+    "description": "Built Value Type"
+  },
+  "Built Value Type Generic": {
+    "prefix": "bvtg",
+    "body": [
+      "abstract class ${1:ClassName}<${2:T}> implements Built<${1}<${2}>, ${1}Builder<${2}>> {",
+      "  ${3}",
+      "",
+      "  ${1}._();",
+      "  factory ${1}([void Function(${1}Builder<${2}>) updates]) = _$${1}<${2}>;",
+      "}"
+    ],
+    "description": "Built Value Type Generic"
   }
 }

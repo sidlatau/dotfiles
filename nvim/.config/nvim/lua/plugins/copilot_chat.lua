@@ -26,7 +26,7 @@ return {
       },
       prompts = {
         TranslateArb = {
-          prompt = "Translate to language, specified in file name, translation is used in Flutter app, arb file. Do not add any explanatory comments.",
+          prompt = "Translate to language, specified in file name, translation is used in Flutter app, arb file. Do not add any explanatory comments. Include lines that are already translated, for ability to safely replace output.",
           description = "Translate arb file",
         },
         Commit = {
