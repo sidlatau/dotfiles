@@ -126,10 +126,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
   end,
 })
 
-vim.api.nvim_create_autocmd("LspNotify", {
-  callback = function(args)
-    if args.data.method == "textDocument/didOpen" then
-      vim.lsp.foldclose("imports", vim.fn.bufwinid(args.buf))
-    end
-  end,
-})
+-- vim.api.nvim_create_autocmd("LspNotify", {
+--   callback = function(args)
+--     if args.data.method == "textDocument/didOpen" then
+--       vim.lsp.foldclose("imports", vim.fn.bufwinid(args.buf))
+--     end
+--   end,
+-- })
