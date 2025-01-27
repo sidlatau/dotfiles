@@ -2,7 +2,9 @@ local M = {}
 
 M.setup = function()
   local config = {
-    virtual_text = false,
+    virtual_text = {
+      virt_text_pos = "eol_right_align",
+    },
     signs = {
       text = {
         [vim.diagnostic.severity.ERROR] = "",
