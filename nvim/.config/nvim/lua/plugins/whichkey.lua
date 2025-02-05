@@ -200,6 +200,11 @@ return {
         "<leader>g",
         group = "Git",
         {
+          "<leader>gF",
+          "<cmd>!fork<cr>",
+          desc = "Open Fork",
+        },
+        {
           "<leader>gH",
           "<cmd>Telescope advanced_git_search search_log_content_file<cr>",
           desc = "Advanced git search",

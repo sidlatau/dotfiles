@@ -9,6 +9,41 @@ return {
       enabled = true,
       timeout = 3000,
     },
+    explorer = {},
+    picker = {
+      sources = {
+        explorer = {
+          hidden = true,
+          layout = {
+            layout = {
+              backdrop = true,
+              width = 60,
+              min_width = 60,
+              height = 0,
+              position = "float",
+              border = "rounded",
+              box = "vertical",
+              {
+                win = "input",
+                height = 1,
+                border = "rounded",
+                title = "{title} {live} {flags}",
+                title_pos = "center",
+              },
+              { win = "list", border = "none" },
+              {
+                win = "preview",
+                title = "{preview}",
+                height = 0.4,
+                border = "top",
+              },
+            },
+          },
+          auto_close = true,
+          jump = { close = true },
+        },
+      },
+    },
     quickfile = { enabled = true },
     words = {},
     scroll = {
@@ -116,6 +151,13 @@ return {
         Snacks.zen.zoom()
       end,
       desc = "Toggle Zoom",
+    },
+    {
+      "<leader>w",
+      function()
+        Snacks.explorer.open()
+      end,
+      desc = "Open explorer",
     },
   },
 }
