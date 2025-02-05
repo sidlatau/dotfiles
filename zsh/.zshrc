@@ -175,6 +175,7 @@ fi
 export PATH="/Users/ts/.vscode-dotnet-sdk/.dotnet:$PATH"
 export PATH="/Users/ts/Developer/sqlite:$PATH"
 export PATH=$PATH:~/Library/Android/sdk/emulator
+export PATH="/Users/ts/.local/bin:$PATH"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/ts/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/ts/Downloads/google-cloud-sdk/path.zsh.inc'; fi
