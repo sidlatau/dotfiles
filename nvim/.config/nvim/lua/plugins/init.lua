@@ -38,7 +38,11 @@ return {
   { "wsdjeg/vim-fetch", event = "VeryLazy" },
   { "smartpde/telescope-recent-files", event = "VeryLazy" },
   { "mbbill/undotree", event = "VeryLazy" },
-  { "RRethy/vim-illuminate", event = "VeryLazy" },
+  {
+    "RRethy/vim-illuminate",
+    commit = "5eeb7951fc630682c322e88a9bbdae5c224ff0aa",
+    event = "VeryLazy",
+  },
   {
     "sidlatau/dart-lsp-refactorings.nvim",
     event = "VeryLazy",
