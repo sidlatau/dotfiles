@@ -193,3 +193,4 @@ function y() {
 }
 eval "$(zoxide init zsh)"
 source <(fzf --zsh)
+export PATH="/Users/ts/.shorebird/bin:$PATH"
