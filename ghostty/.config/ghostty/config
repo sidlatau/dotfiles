@@ -1,3 +1,12 @@
+# NOTE:
+# docs:
+# ghostty +show-config --default --docs | nvim
+
 macos-titlebar-style = tabs
+macos-titlebar-proxy-icon = hidden
 background-opacity = 0.98
 theme = GruvboxDarkHard
+quit-after-last-window-closed=true
+mouse-hide-while-typing = true
+keybind = global:cmd+`=toggle_quick_terminal
+copy-on-select = clipboard
