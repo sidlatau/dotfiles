@@ -116,5 +116,10 @@ return {
       end,
       desc = "Fix all",
     },
+    {
+      "<leader>fs",
+      "<cmd>FlutterSuper<cr>",
+      desc = "Flutter super",
+    },
   },
 }
