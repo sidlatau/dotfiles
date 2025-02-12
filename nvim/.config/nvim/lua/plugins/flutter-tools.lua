@@ -121,5 +121,96 @@ return {
       "<cmd>FlutterSuper<cr>",
       desc = "Flutter super",
     },
+    {
+      "<leader>fc",
+      "<cmd>Telescope flutter commands<CR>",
+      desc = "Commands list",
+    },
+    {
+      "<leader>fl",
+      "<cmd>FlutterLogToggle<CR>",
+      desc = "Toggle log",
+    },
+    {
+      "<leader>fe",
+      "<cmd>FlutterEmulators<CR>",
+      desc = "Emulators",
+    },
+    {
+      "<leader>fr",
+      "<cmd>FlutterRestart<CR>",
+      desc = "Restart",
+    },
+    {
+      "<leader>fB",
+      "<cmd>TermExec cmd='fvm dart run build_runner build --delete-conflicting-outputs'<CR>",
+      desc = "Run code generation",
+    },
+    {
+      "<leader>fw",
+      "<cmd>TermExec cmd='fvm dart run build_runner watch'<CR>",
+      desc = "Watch code generation",
+    },
+    {
+      "<leader>fb",
+      function()
+        require("config.toggleterm").regenerate_single_directory()
+      end,
+      desc = "Reneration single directory",
+    },
+    {
+      "<leader>fg",
+      "<cmd>FlutterPubGet<CR>",
+      desc = "Flutter pub get",
+    },
+    {
+      "<leader>fq",
+      "<cmd>FlutterQuit<CR>",
+      desc = "Flutter quit",
+    },
+    {
+      "<leader>ff",
+      "<cmd>FlutterRun<CR>",
+      desc = "Flutter run",
+    },
+    {
+      "<leader>fz",
+      "<cmd>FlutterLogClear<CR>",
+      desc = "Flutter log clear",
+    },
+    {
+      "<leader>fv",
+      "<cmd>FlutterVisualDebug<CR>",
+      desc = "Flutter visual debug",
+    },
+    {
+      "<leader>fD",
+      "<cmd>FlutterDevices<CR>",
+      desc = "Flutter devices",
+    },
+    {
+      "<leader>ftb",
+      function()
+        require("config.dart_mason").list_bricks()
+      end,
+      desc = "List bricks",
+    },
+    {
+      "<leader>fd",
+      "<cmd>DBUIToggle<cr>",
+      desc = "DBUI",
+    },
+    {
+      "<leader>fo",
+      function()
+        require("config.pick_db").open_simulator_db_connection()
+      end,
+      desc = "Add simulator DB connection",
+    },
+    {
+      "<leader>fu",
+      "<cmd>PubspecAssistPickVersion<cr>",
+      desc = "Pubspec assist pick version",
+    },
   },
 }
