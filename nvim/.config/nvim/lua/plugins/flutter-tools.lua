@@ -34,7 +34,7 @@ return {
         },
       },
       debugger = {
-        enabled = true,
+        enabled = false,
         -- don't pause on exception in flutter
         exception_breakpoints = {},
         -- register_configurations = function(_)
@@ -86,7 +86,7 @@ return {
             "^W/WindowOnBackDispatcher",
           }
           for _, pattern in ipairs(patterns) do
-            if str:match(pattern) then
+            if str and str:match(pattern) then
               return false
             end
           end
@@ -170,7 +170,7 @@ return {
     },
     {
       "<leader>ff",
-      "<cmd>FlutterRun<CR>",
+      "<cmd>FlutterDebug<CR>",
       desc = "Flutter run",
     },
     {
@@ -211,6 +211,11 @@ return {
       "<leader>fu",
       "<cmd>PubspecAssistPickVersion<cr>",
       desc = "Pubspec assist pick version",
+    },
+    {
+      "<leader>fO",
+      "<cmd>FlutterOutlineToggle<cr>",
+      desc = "Toggle outline",
     },
   },
 }
