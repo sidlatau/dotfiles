@@ -33,6 +33,9 @@ return {
           allowOpenUri = true,
         },
       },
+      outline = {
+        auto_open = true,
+      },
       debugger = {
         enabled = false,
         -- don't pause on exception in flutter

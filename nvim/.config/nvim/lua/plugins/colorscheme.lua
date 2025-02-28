@@ -10,6 +10,7 @@ vim.api.nvim_create_autocmd("ColorScheme", {
     vim.cmd [[hi DiagnosticWarn guibg=NONE]]
     vim.cmd [[hi DiagnosticInfo guibg=NONE]]
     vim.cmd [[hi DiagnosticError guibg=NONE]]
+    vim.cmd [[ highlight NormalNC guibg=NONE]]
   end,
   -- floating popups for neo-tree
 })
@@ -21,7 +22,7 @@ return {
   config = function()
     vim.g.gruvbox_material_background = "hard"
     vim.g.gruvbox_material_better_performance = 1
-    vim.g.gruvbox_material_enable_bold = 0
+    vim.g.gruvbox_material_enable_bold = 1
     vim.g.gruvbox_material_visual = "green background"
     vim.g.gruvbox_material_show_eob = 0
     vim.g.gruvbox_material_diagnostic_text_highlight = 1
