@@ -34,7 +34,7 @@ return {
         },
       },
       outline = {
-        auto_open = true,
+        auto_open = false,
       },
       debugger = {
         enabled = false,

@@ -1,6 +1,6 @@
 return {
   "saghen/blink.cmp",
-  tag = "v0.11.0",
+  tag = "v0.13.1",
   lazy = false, -- lazy loading handled internally
   -- optional: provides snippets for the snippet source
   -- dependencies = "rafamadriz/friendly-snippets",
@@ -60,7 +60,6 @@ return {
           max_items = 5,
         },
       },
-      cmdline = {},
     },
 
     -- experimental auto-brackets support
