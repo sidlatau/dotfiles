@@ -79,6 +79,14 @@ return {
       desc = "Delete Buffer",
     },
     {
+      "<leader>C",
+      function()
+        Snacks.bufdelete.other()
+        vim.print "Deleted other buffers"
+      end,
+      desc = "Leave single Buffer",
+    },
+    {
       "<leader>gg",
       function()
         Snacks.lazygit()

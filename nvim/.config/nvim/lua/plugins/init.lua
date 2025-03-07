@@ -23,7 +23,6 @@ return {
   { "williamboman/mason-lspconfig.nvim", event = "VeryLazy" },
   { "nvim-treesitter/nvim-treesitter-textobjects", event = "VeryLazy" },
   { "nvim-telescope/telescope-dap.nvim", event = "VeryLazy" },
-  { "vim-scripts/BufOnly.vim", event = "VeryLazy" },
   { "milch/vim-fastlane", event = "VeryLazy" },
   { "delphinus/vim-firestore", event = "VeryLazy" },
   { "tpope/vim-rhubarb", event = "VeryLazy" },

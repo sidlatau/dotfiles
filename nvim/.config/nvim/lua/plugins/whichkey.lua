@@ -52,7 +52,6 @@ return {
         end,
         desc = "Buffers",
       },
-      { "<leader>C", "<cmd>Bufonly<CR>", desc = "Leave single Buffer" },
       { "<esc>", "<cmd>nohlsearch<CR>", desc = "Clear search" },
       {
         "<leader><leader>",
