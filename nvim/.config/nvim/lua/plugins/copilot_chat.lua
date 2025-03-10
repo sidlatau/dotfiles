@@ -12,16 +12,20 @@ return {
       highlight_headers = false,
       separator = "---",
       error_header = "> [!ERROR] Error",
-      callback = function(result)
-        local lines = vim.split(result, "\n")
-        table.remove(lines, 1) -- Remove the first line
-        table.remove(lines) -- Remove the last line
-        local new_result = table.concat(lines, "\n")
-        vim.fn.setreg("+", new_result) -- Copy to system clipboard
-      end,
+      -- callback = function(result)
+      --   local lines = vim.split(result, "\n")
+      --   table.remove(lines, 1) -- Remove the first line
+      --   table.remove(lines) -- Remove the last line
+      --   local new_result = table.concat(lines, "\n")
+      --   vim.fn.setreg("+", new_result) -- Copy to system clipboard
+      -- end,
       mappings = {
         complete = {
           insert = "<M-CR>",
+        },
+        show_diff = {
+          normal = "gsd",
+          full_diff = true, -- Show full diff instead of unified diff when showing diff window
         },
       },
       prompts = {
@@ -107,6 +111,9 @@ return {
         end,
         desc = "CopilotChat - Prompt actions",
       },
+    },
+    sticky = {
+      "#files",
     },
   },
 }

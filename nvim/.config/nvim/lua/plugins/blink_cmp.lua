@@ -1,6 +1,12 @@
 return {
   "saghen/blink.cmp",
   tag = "v0.13.1",
+  dependencies = {
+    {
+      "Kaiser-Yang/blink-cmp-git",
+      dependencies = { "nvim-lua/plenary.nvim" },
+    },
+  },
   lazy = false, -- lazy loading handled internally
   -- optional: provides snippets for the snippet source
   -- dependencies = "rafamadriz/friendly-snippets",
@@ -42,6 +48,7 @@ return {
         "dadbod",
         "snippets",
         "buffer",
+        "git",
       },
       providers = {
         -- dont show LuaLS require statements when lazydev has items
@@ -58,6 +65,13 @@ return {
         snippets = {
           min_keyword_length = 3,
           max_items = 5,
+        },
+        git = {
+          module = "blink-cmp-git",
+          name = "Git",
+          opts = {
+            -- options for the blink-cmp-git
+          },
         },
       },
     },
