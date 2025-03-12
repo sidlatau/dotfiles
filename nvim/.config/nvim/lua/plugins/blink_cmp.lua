@@ -69,9 +69,13 @@ return {
         git = {
           module = "blink-cmp-git",
           name = "Git",
-          opts = {
-            -- options for the blink-cmp-git
-          },
+          enabled = function()
+            return vim.tbl_contains(
+              { "octo", "gitcommit", "markdown" },
+              vim.bo.filetype
+            )
+          end,
+          opts = {},
         },
       },
     },
