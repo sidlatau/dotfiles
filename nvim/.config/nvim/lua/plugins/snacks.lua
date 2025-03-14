@@ -10,6 +10,7 @@ return {
       timeout = 3000,
     },
     explorer = {},
+    input = { enabled = true },
     picker = {
       sources = {
         explorer = {

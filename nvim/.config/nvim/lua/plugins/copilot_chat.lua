@@ -31,7 +31,7 @@ return {
           description = "Translate arb file",
         },
         Commit = {
-          prompt = "> #git:staged\n\nWrite commit message for the change with commitizen convention. Make sure the title has maximum 50 characters and message is wrapped at 72 characters. List message code as list - each sentence in new line. Be concise in explanation, do not explain obvious things, do not repeat same information as in message header. Less is better. Wrap the whole message in code block with language gitcommit. Use branch name as scope if branch name contains digits (i.e `ID-123`, `DNA-123`).",
+          prompt = "> #git:staged\n\nWrite commit message for the change with commitizen convention. Make sure the title has maximum 50 characters and message is wrapped at 72 characters. If change is not obvious or bigger than 3 files, shortly explain key changes as bullet list. Be concise in explanation, do not repeat same information as in message header. Empty description is also OK. Wrap the whole message in code block with language gitcommit. Use branch name as scope if branch name contains digits (i.e `ID-123`, `DNA-123`).",
         },
         ReviewStaged = {
           prompt = "> /COPILOT_REVIEW\n\n#git:staged\n\n Review the staged code. Show link to file and line number. If there are multiple lines, show the range. If there are multiple files, show the file name.",
@@ -100,11 +100,7 @@ return {
         "<leader>pa",
         mode = { "n", "x" },
         function()
-          local actions = require "CopilotChat.actions"
-          require("CopilotChat.integrations.telescope").pick(
-            actions.prompt_actions()
-          )
-          -- require("CopilotChat").select_prompt {}
+          require("CopilotChat").select_prompt {}
         end,
         desc = "CopilotChat - Prompt actions",
       },
