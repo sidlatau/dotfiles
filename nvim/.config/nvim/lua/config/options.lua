@@ -68,9 +68,6 @@ vim.opt.spelloptions:append { "camel", "noplainbuffer" }
 vim.opt.spellcapcheck = "" -- don't check for capital letters at start of sentence
 vim.opt.spelllang = { "en", "lt" }
 
-vim.cmd [[
-set fillchars+=diff:╱
-]]
 vim.opt.report = 99999
 vim.opt.exrc = true
 vim.opt.autowriteall = true -- automatically :write before running commands and changing files
@@ -81,3 +78,4 @@ vim.o.foldlevelstart = 99
 vim.o.foldexpr = "v:lua.vim.lsp.foldexpr()"
 vim.o.foldmethod = "expr"
 vim.o.fillchars = "eob: ,fold: ,foldopen:,foldsep: ,foldclose:"
+vim.opt.fillchars:append { diff = "╱" }

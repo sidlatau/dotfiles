@@ -95,13 +95,6 @@ return {
       desc = "Lazygit",
     },
     {
-      "<leader>gf",
-      function()
-        Snacks.lazygit.log_file()
-      end,
-      desc = "Lazygit Current File History",
-    },
-    {
       "<leader>gl",
       function()
         Snacks.lazygit.log()
@@ -162,7 +155,7 @@ return {
       desc = "Toggle Zoom",
     },
     {
-      "<leader>w",
+      "<leader>e",
       function()
         Snacks.explorer.open()
       end,
