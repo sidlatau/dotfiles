@@ -1,6 +1,5 @@
 return {
   "nvim-lualine/lualine.nvim",
-  event = "VeryLazy",
   config = function()
     local lualine = require "lualine"
 
@@ -139,6 +138,7 @@ return {
           diff,
           filetype,
           lsp_client,
+          require "config.codecompanion_lualine",
         },
         lualine_y = {
           {
