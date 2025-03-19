@@ -127,7 +127,7 @@ return {
           desc = "Open changed files",
         },
         {
-          "<leader>gc",
+          "<leader>gC",
           "<cmd>Telescope advanced_git_search search_log_content<cr>",
           desc = "Git log",
         },

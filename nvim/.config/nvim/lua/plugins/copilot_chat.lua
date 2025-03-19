@@ -9,7 +9,6 @@ return {
     build = "make tiktoken", -- Only on MacOS or Linux
     opts = {
       model = "claude-3.7-sonnet",
-      references_display = "write",
       highlight_headers = false,
       separator = "---",
       error_header = "> [!ERROR] Error",
@@ -103,6 +102,35 @@ return {
           require("CopilotChat").select_prompt {}
         end,
         desc = "CopilotChat - Prompt actions",
+      },
+      {
+        "<leader>§",
+        function()
+          Snacks.input.input({ prompt = "Quick Chat: " }, function(input)
+            if input ~= "" then
+              require("CopilotChat").ask(
+                input,
+                { selection = require("CopilotChat.select").buffer }
+              )
+            end
+          end)
+        end,
+        desc = "CopilotChat - Quick chat",
+      },
+      {
+        "<leader>§",
+        mode = { "x" },
+        function()
+          Snacks.input.input({ prompt = "Quick Chat: " }, function(input)
+            if input ~= "" then
+              require("CopilotChat").ask(
+                input,
+                { selection = require("CopilotChat.select").visual }
+              )
+            end
+          end)
+        end,
+        desc = "CopilotChat - Quick chat",
       },
     },
   },

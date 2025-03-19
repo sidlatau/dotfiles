@@ -9,7 +9,7 @@ return {
   end,
   keys = {
     {
-      "<leader>G",
+      "<leader>gr",
       "<cmd>GrugFar<CR>",
       desc = "Grug Far - search and replace",
     },
