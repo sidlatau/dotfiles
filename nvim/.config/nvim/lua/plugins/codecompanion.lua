@@ -5,21 +5,7 @@ return {
     "nvim-lua/plenary.nvim",
     "nvim-treesitter/nvim-treesitter",
   },
-  opts = {
-    strategies = {
-      chat = {
-        adapter = "openai",
-      },
-      inline = {
-        adapter = "openai",
-      },
-    },
-    display = {
-      chat = {
-        show_settings = true,
-      },
-    },
-  },
+  opts = {},
   keys = {
     {
       "<leader>pP",
