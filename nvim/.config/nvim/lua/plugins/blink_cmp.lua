@@ -1,6 +1,6 @@
 return {
   "saghen/blink.cmp",
-  tag = "v0.13.1",
+  tag = "v1.0.0",
   dependencies = {
     {
       "Kaiser-Yang/blink-cmp-git",

@@ -11,6 +11,7 @@ return {
   config = {
     graph_style = "kitty",
     process_spinner = true,
+    disable_insert_on_commit = true,
   },
   keys = {
     {
