@@ -1,3 +1,51 @@
+---@param picker snacks.Picker
+local function explorer_add_in_parent(picker)
+  local Tree = require "snacks.explorer.tree"
+  local uv = vim.uv or vim.loop
+  local default_dir = ""
+  local parent = picker:current().parent
+  if parent.dir == false then
+    default_dir = picker:cwd()
+  else
+    default_dir = parent.file
+  end
+  Snacks.input({
+    prompt = 'Add a new file or directory (directories end with a "/")',
+    default = default_dir .. "/",
+  }, function(value)
+    if not value or value:find "^%s$" then
+      return
+    end
+    local path = vim.fs.normalize(value)
+    local is_file = value:sub(-1) ~= "/"
+    local dir = is_file and vim.fs.dirname(path) or path
+    if is_file and uv.fs_stat(path) then
+      Snacks.notify.warn("File already exists:\n- `" .. path .. "`")
+      return
+    end
+    vim.fn.mkdir(dir, "p")
+    if is_file then
+      io.open(path, "w"):close()
+    end
+    Tree:open(dir)
+    Tree:refresh(dir)
+    picker.update(picker, { target = path })
+  end)
+end
+
+---@param picker snacks.Picker
+local function copy_path_full(picker)
+  local selected = picker:selected({ fallback = true })[1]
+  if not selected or selected == nil then
+    return
+  end
+  vim.schedule(function()
+    local full_path = vim.fn.fnamemodify(selected.file, ":p")
+    vim.fn.setreg(vim.v.register, full_path)
+    vim.notify(full_path, vim.log.levels.INFO, { title = "File Path Copied" })
+  end)
+end
+
 return {
   "folke/snacks.nvim",
   priority = 1000,
@@ -15,6 +63,18 @@ return {
       sources = {
         explorer = {
           hidden = true,
+          actions = {
+            explorer_add_in_parent = explorer_add_in_parent,
+            copy_path_full = copy_path_full,
+          },
+          win = {
+            list = {
+              keys = {
+                ["A"] = { "explorer_add_in_parent" },
+                ["Y"] = { "copy_path_full" },
+              },
+            },
+          },
           layout = {
             layout = {
               backdrop = true,

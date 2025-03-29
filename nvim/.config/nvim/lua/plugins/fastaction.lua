@@ -3,6 +3,8 @@ return {
   ---@type FastActionConfig
   opts = {
     dismiss_keys = { "j", "k", "<c-c>", "<esc>" },
+    keys = "qwertyuiopasdfghlzxcvbnmQWERTYUIOPASDFGHLZXCVBNM",
+    register_ui_select = false,
     priority = {
       dart = {
         { pattern = "wrap with widget", key = "w", order = 1 },
@@ -12,6 +14,7 @@ return {
         { pattern = "center", key = "C", order = 4 },
         { pattern = "remove this widget", key = "R", order = 5 },
         { pattern = "convert to block body", key = "c", order = 6 },
+        { pattern = "expression", key = "c", order = 7 },
       },
     },
   },
