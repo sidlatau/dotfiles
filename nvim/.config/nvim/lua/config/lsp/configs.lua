@@ -15,7 +15,7 @@ mason_lspconfig.setup {
     "jsonls",
     "lua_ls",
     "yamlls",
-    "eslint",
+    "eslint@4.8.0", -- for some reason newer version does not work
     "ts_ls",
   },
 }
