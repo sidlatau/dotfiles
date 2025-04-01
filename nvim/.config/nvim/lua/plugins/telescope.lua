@@ -186,8 +186,8 @@ return {
         file_ignore_patterns = { "%.g.dart", "%.freezed.dart" },
         -- `hidden = true` is not supported in text grep commands.
         vimgrep_arguments = vimgrep_arguments,
-        file_previewer = image_preview.file_previewer,
-        buffer_previewer_maker = image_preview.buffer_previewer_maker,
+        -- file_previewer = image_preview.file_previewer,
+        -- buffer_previewer_maker = image_preview.buffer_previewer_maker,
       },
       pickers = {
         find_files = {

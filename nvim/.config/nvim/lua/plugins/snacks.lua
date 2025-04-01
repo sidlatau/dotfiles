@@ -34,15 +34,21 @@ local function explorer_add_in_parent(picker)
 end
 
 ---@param picker snacks.Picker
-local function copy_path_full(picker)
+local function copy_path_relative(picker)
   local selected = picker:selected({ fallback = true })[1]
   if not selected or selected == nil then
     return
   end
   vim.schedule(function()
-    local full_path = vim.fn.fnamemodify(selected.file, ":p")
-    vim.fn.setreg(vim.v.register, full_path)
-    vim.notify(full_path, vim.log.levels.INFO, { title = "File Path Copied" })
+    local cwd = picker:cwd()
+    local relative_path =
+      vim.fn.fnamemodify(selected.file, ":p"):gsub(cwd .. "/", "")
+    vim.fn.setreg(vim.v.register, relative_path)
+    vim.notify(
+      relative_path,
+      vim.log.levels.INFO,
+      { title = "Relative Path Copied" }
+    )
   end)
 end
 
@@ -52,7 +58,7 @@ return {
   lazy = false,
   ---@type snacks.Config
   opts = {
-    bigfile = { enabled = true },
+    bigfile = { enabled = false },
     notifier = {
       enabled = true,
       timeout = 3000,
@@ -65,13 +71,13 @@ return {
           hidden = true,
           actions = {
             explorer_add_in_parent = explorer_add_in_parent,
-            copy_path_full = copy_path_full,
+            copy_path_relative = copy_path_relative,
           },
           win = {
             list = {
               keys = {
                 ["A"] = { "explorer_add_in_parent" },
-                ["Y"] = { "copy_path_full" },
+                ["Y"] = { "copy_path_relative" },
               },
             },
           },
@@ -155,13 +161,6 @@ return {
       desc = "Lazygit",
     },
     {
-      "<leader>gl",
-      function()
-        Snacks.lazygit.log()
-      end,
-      desc = "Lazygit Log (cwd)",
-    },
-    {
       "<leader>nh",
       function()
         Snacks.notifier.show_history()
@@ -220,6 +219,13 @@ return {
         Snacks.explorer.open()
       end,
       desc = "Open explorer",
+    },
+    {
+      "<leader>gl",
+      function()
+        Snacks.lazygit.log_file()
+      end,
+      desc = "Lazygit Current File History",
     },
   },
 }

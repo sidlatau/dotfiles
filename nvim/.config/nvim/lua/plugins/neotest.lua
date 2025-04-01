@@ -1,6 +1,6 @@
 return {
   "nvim-neotest/neotest",
-  dev = false,
+  dev = true,
   dependencies = {
     "nvim-neotest/neotest-plenary",
     "nvim-neotest/nvim-nio",
@@ -8,7 +8,6 @@ return {
     "antoinemadec/FixCursorHold.nvim",
     "nvim-treesitter/nvim-treesitter",
   },
-  event = "VeryLazy",
   config = function()
     local status_ok, neotest = pcall(require, "neotest")
     if not status_ok then
@@ -16,6 +15,7 @@ return {
     end
 
     neotest.setup {
+      -- log_level = vim.log.levels.DEBUG,
       adapters = {
         require "neotest-dart" {
           command = "fvm flutter",
@@ -43,6 +43,11 @@ return {
       },
       state = {
         enabled = true,
+      },
+      watch = {
+        symbol_queries = {
+          dart = "",
+        },
       },
     }
     local opts = { noremap = true, silent = true }
@@ -106,6 +111,13 @@ return {
         require("neotest").run.run { strategy = "dap" }
       end,
       desc = "Debug nearest",
+    },
+    {
+      "<leader>tw",
+      function()
+        require("neotest").watch.toggle()
+      end,
+      desc = "Watch",
     },
   },
 }

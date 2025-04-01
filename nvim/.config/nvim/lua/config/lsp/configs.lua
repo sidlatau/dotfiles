@@ -29,6 +29,12 @@ require("mason-lspconfig").setup_handlers {
       on_attach = require("config.lsp.handlers").on_attach,
       capabilities = require("config.lsp.handlers").capabilities,
     }
+    -- Special configuration for lua_ls to use cwd as root
+    if server_name == "lua_ls" then
+      opts.root_dir = function()
+        return vim.loop.cwd()
+      end
+    end
     local has_custom_opts, server_custom_opts =
       pcall(require, "config.lsp.settings." .. server_name)
     if has_custom_opts then
