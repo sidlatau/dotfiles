@@ -214,7 +214,7 @@ return {
       desc = "Toggle Zoom",
     },
     {
-      "<leader>e",
+      "<leader>w",
       function()
         Snacks.explorer.open()
       end,

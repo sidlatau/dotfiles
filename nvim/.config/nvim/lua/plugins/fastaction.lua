@@ -15,6 +15,7 @@ return {
         { pattern = "remove this widget", key = "R", order = 5 },
         { pattern = "convert to block body", key = "c", order = 6 },
         { pattern = "expression", key = "c", order = 7 },
+        { pattern = "unawaited", key = "w", order = 7 },
       },
     },
   },

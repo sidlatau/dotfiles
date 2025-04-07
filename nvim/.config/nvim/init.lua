@@ -13,6 +13,10 @@ vim.opt.rtp:prepend(lazypath)
 
 require "config.options"
 require "config.keymaps"
+
+if vim.g.vscode then
+  return
+end
 require("lazy").setup("plugins", {
   dev = {
     -- directory where you store your local plugin projects

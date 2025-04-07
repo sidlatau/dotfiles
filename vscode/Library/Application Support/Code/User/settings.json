@@ -7,7 +7,6 @@
     "*.arb": "json"
   },
   "workbench.iconTheme": "material-icon-theme",
-  "gitlens.hovers.currentLine.over": "line",
   "editor.formatOnType": true,
   "breadcrumbs.enabled": true,
   "editor.fontLigatures": true,
@@ -70,7 +69,6 @@
   },
   "diffEditor.renderSideBySide": false,
   "dart.openDevTools": "never",
-  "gitlens.blame.ignoreWhitespace": true,
   "typescript.updateImportsOnFileMove.enabled": "always",
   "javascript.updateImportsOnFileMove.enabled": "always",
   "workbench.editor.enablePreview": false,
@@ -91,10 +89,6 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "diffEditor.ignoreTrimWhitespace": true,
-  "gitlens.codeLens.recentChange.enabled": false,
-  "gitlens.hovers.currentLine.changes": false,
-  "gitlens.hovers.currentLine.enabled": false,
-  "gitlens.hovers.enabled": false,
   "githubPullRequests.defaultMergeMethod": "squash",
   "githubPullRequests.queries": [
     {
@@ -112,30 +106,6 @@
   ],
   "debug.inlineValues": true,
   "editor.gotoLocation.multipleDefinitions": "goto",
-  "gitlens.menus": {
-    "editor": false,
-    "editorGroup": false,
-    "editorTab": false,
-    "explorer": {
-      "clipboard": true,
-      "compare": true,
-      "history": true,
-      "remote": true
-    },
-    "scmGroup": {
-      "compare": true,
-      "openClose": true,
-      "stash": true,
-      "stashInline": true
-    },
-    "scmItem": {
-      "clipboard": true,
-      "compare": true,
-      "history": true,
-      "remote": true,
-      "stash": true
-    }
-  },
   "[yaml]": {
     "editor.defaultFormatter": "redhat.vscode-yaml"
   },
@@ -156,9 +126,6 @@
   },
   "editor.formatOnSave": true,
   "security.workspace.trust.untrustedFiles": "open",
-  "gitlens.advanced.messages": {
-    "suppressGitMissingWarning": true
-  },
   "editor.accessibilitySupport": "off",
   "explorer.confirmDelete": false,
   "cSpell.enabled": false,
@@ -173,9 +140,6 @@
     "./cli"
   ],
   "terminal.external.osxExec": "iTerm.app",
-  "gitlens.defaultDateFormat": null,
-  "gitlens.defaultDateLocale": null,
-  "gitlens.currentLine.enabled": false,
   "terminal.integrated.fontFamily": "Hack Nerd Font Mono",
   "editor.fontFamily": "JetBrains Mono",
   "[typescript]": {
@@ -186,12 +150,17 @@
     "ms-dotnettools.dotnet-interactive-vscode",
     "ms-dotnettools.vscode-dotnet-pack"
   ],
-  "vim.useSystemClipboard": true,
   "workbench.layoutControl.enabled": false,
   "debug.toolBarLocation": "commandCenter",
   "prettier.singleQuote": true,
   "yaml.format.singleQuote": true,
   "github.copilot.editor.enableAutoCompletions": true,
   "mssql.enableRichExperiences": true,
-  "editor.stickyScroll.enabled": false
+  "editor.stickyScroll.enabled": false,
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1
+  },
+  "github.copilot.chat.codesearch.enabled": true,
+  "chat.mcp.discovery.enabled": true,
+  "chat.agent.enabled": true,
 }
