@@ -110,9 +110,6 @@ vim.keymap.set("v", "<C-x>", function()
   return require("dial.map").dec_visual()
 end, { noremap = true, silent = true, expr = true })
 
-keymap("n", "<leader>r", "<Plug>ReplaceWithRegisterOperator")
-keymap("x", "<leader>r", "<Plug>ReplaceWithRegisterVisual")
-
 keymap("n", "<C-u>", "<C-u>zz")
 keymap("n", "<C-d>", "<C-d>zz")
 keymap("n", "n", "nzz")

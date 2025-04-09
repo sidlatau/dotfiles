@@ -9,8 +9,13 @@ return {
   end,
   keys = {
     {
-      "<leader>gr",
-      "<cmd>GrugFar<CR>",
+      "<leader>r",
+      function()
+        require("grug-far").toggle_instance {
+          instanceName = "far",
+          staticTitle = "Find and Replace",
+        }
+      end,
       desc = "Grug Far - search and replace",
     },
   },
