@@ -61,7 +61,7 @@ return {
         },
       },
       sticky = {
-        "#files",
+        "#buffer",
         "/my_instructions",
       },
       prompts = {
