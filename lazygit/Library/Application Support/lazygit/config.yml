@@ -38,3 +38,107 @@ customCommands:
     description: "Delete gone branches"
     command: "git dd"
     context: "localBranches"
+  - key: 'O' 
+    description: 'Create PR (AzDO/GitHub)'
+    context: 'files' # Trigger based on current repo state/branch
+    # No prompts needed as we try to automate everything
+    command: >
+      sh -c '
+        default_target_branch="main";
+
+        echo "Attempting to create PR...";
+
+        # 1. Get current branch name
+        current_branch=$(git branch --show-current);
+        if [ -z "$current_branch" ]; then
+          echo "Error: Could not determine current branch. Are you in a detached HEAD state?";
+          echo "Press enter to continue..."; read dummy_input;
+          exit 1;
+        fi
+        echo "Source branch: $current_branch";
+        echo "Default target branch: $default_target_branch";
+
+        # 2. Get the origin remote URL
+        remote_url=$(git config --get remote.origin.url);
+        if [ -z "$remote_url" ]; then
+          echo "Error: Could not get URL for remote '\''origin'\''. Is it configured?";
+          echo "Press enter to continue..."; read dummy_input;
+          exit 1;
+        fi
+        echo "Remote URL: $remote_url";
+
+        # 3. Push the current branch
+        echo "Pushing branch '\''$current_branch'\'' to origin...";
+        # Use -u to set upstream tracking if it doesn'\''t exist
+        if git push -u origin "$current_branch"; then
+          echo "Push successful.";
+        else
+          echo "Error: Failed to push branch '\''$current_branch'\'' to origin.";
+          echo "Please resolve push issues manually and try again.";
+          echo "Press enter to continue..."; read dummy_input;
+          exit 1;
+        fi
+
+        # 4. Detect platform and create PR
+        pr_title=$(git log -1 --pretty=%s); # Get title from last commit subject
+        pr_body=$(git log -1 --pretty=%b);  # Get body from last commit body (optional)
+
+        if echo "$remote_url" | grep -qE "dev\.azure\.com|visualstudio\.com"; then
+          # --- Azure DevOps ---
+          echo "Azure DevOps remote detected. Creating PR...";
+          cmd_args="az repos pr create --source-branch \"$current_branch\" --target-branch \"$default_target_branch\" --title \"$pr_title\" --auto-complete --open"
+          if [ -n "$pr_body" ]; then
+            # Pass body to description for Azure DevOps
+            # Escaping potential quotes within the body for the shell
+            escaped_pr_body=$(echo "$pr_body" | sed 's/"/\\"/g')
+            cmd_args="$cmd_args --description \"$escaped_pr_body\""
+          fi
+          echo "Running: $cmd_args";
+          if eval "$cmd_args"; then
+             echo "Azure DevOps PR creation initiated.";
+             # Optional: Add a pause here if needed, but --open usually suffices
+             # echo "Press enter to return to lazygit."; read dummy_input;
+          else
+             echo "Error: Azure DevOps PR creation failed. Check output above.";
+             echo "Press enter to continue..."; read dummy_input;
+             exit 1;
+          fi
+
+        elif echo "$remote_url" | grep -q "github\.com"; then
+          # --- GitHub ---
+          echo "GitHub remote detected. Creating PR...";
+          # Use gh pr create. It auto-detects source branch.
+          # -B: Base (target) branch
+          # -t: Title
+          # -b: Body
+          # -w: Open in web browser
+          # Use --assignee @me to assign it to yourself (optional)
+          cmd_args="gh pr create -B \"$default_target_branch\" -t \"$pr_title\""
+          if [ -n "$pr_body" ]; then
+            # gh handles multi-line body argument well
+            cmd_args="$cmd_args -b \"$pr_body\""
+          fi
+          cmd_args="$cmd_args -w" # Open in web
+          # Optional: Assign to self
+          # cmd_args="$cmd_args --assignee \"@me\""
+
+          echo "Running: $cmd_args";
+          if eval "$cmd_args"; then
+            echo "GitHub PR creation initiated.";
+            # Optional: Add a pause here if needed
+            # echo "Press enter to return to lazygit."; read dummy_input;
+          else
+            echo "Error: GitHub PR creation failed. Check output above.";
+            echo "Press enter to continue..."; read dummy_input;
+            exit 1;
+          fi
+
+        else
+          # --- Unknown Remote ---
+          echo "Error: Remote '\''origin'\'' is not recognized as Azure DevOps or GitHub.";
+          echo "URL: $remote_url";
+          echo "Press enter to continue..."; read dummy_input;
+          exit 1;
+        fi
+      '
+    closeOnSuccess: true   
