@@ -108,25 +108,20 @@ customCommands:
           # --- GitHub ---
           echo "GitHub remote detected. Creating PR...";
           # Use gh pr create. It auto-detects source branch.
-          # -B: Base (target) branch
           # -t: Title
           # -b: Body
           # -w: Open in web browser
           # Use --assignee @me to assign it to yourself (optional)
-          cmd_args="gh pr create -B \"$default_target_branch\" -t \"$pr_title\""
+          cmd_args="gh pr create -t \"$pr_title\""
           if [ -n "$pr_body" ]; then
-            # gh handles multi-line body argument well
             cmd_args="$cmd_args -b \"$pr_body\""
           fi
           cmd_args="$cmd_args -w" # Open in web
-          # Optional: Assign to self
-          # cmd_args="$cmd_args --assignee \"@me\""
 
           echo "Running: $cmd_args";
           if eval "$cmd_args"; then
             echo "GitHub PR creation initiated.";
-            # Optional: Add a pause here if needed
-            # echo "Press enter to return to lazygit."; read dummy_input;
+            gh pr merge --auto --squash
           else
             echo "Error: GitHub PR creation failed. Check output above.";
             echo "Press enter to continue..."; read dummy_input;
