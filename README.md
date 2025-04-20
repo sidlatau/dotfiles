@@ -9,6 +9,7 @@ To install the dotfiles, run the following command in the root of the repo:
 ```sh
 ./install.sh
 ```
+
 ### Adding New Files to Stow
 
 To add a new file, such as `.aider.conf.yml`, to be managed by `stow`, follow these steps:

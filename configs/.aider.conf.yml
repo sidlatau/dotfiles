@@ -1,0 +1,6 @@
+dark-mode: true
+chat-language: english
+analytics: false
+test-cmd: fvm flutter analyze
+auto-test: true
+code-theme: gruvbox-dark
