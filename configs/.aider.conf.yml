@@ -5,3 +5,4 @@ code-theme: gruvbox-dark
 attribute-author: false
 attribute-committer: false
 analytics-disable: true
+auto-commits: false
