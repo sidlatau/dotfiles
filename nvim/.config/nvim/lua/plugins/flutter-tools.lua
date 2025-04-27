@@ -10,14 +10,6 @@ return {
         notification_style = "native",
       },
       lsp = {
-        color = { -- show the derived colours for dart variables
-          enabled = true,
-          background = false, -- highlight the background
-          background_color = { r = 0, g = 0, b = 0 },
-          foreground = false, -- highlight the foreground
-          virtual_text = true, -- show the highlight using virtual text
-          virtual_text_str = "■", -- the virtual text character to highlight
-        },
         on_attach = function()
           vim.cmd "highlight FlutterWidgetGuides ctermfg=9 guifg=grey"
         end,

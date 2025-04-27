@@ -123,6 +123,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end
     local bufnr = args.buf -- Get the buffer number for the attached client
     require("config.lsp.handlers").on_attach(client, bufnr)
+
+    if client:supports_method "textDocument/documentColor" then
+      vim.lsp.document_color.enable(true, args.buf, { style = "virtual" })
+    end
   end,
 })
 

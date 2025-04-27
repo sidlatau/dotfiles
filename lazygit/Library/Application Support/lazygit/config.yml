@@ -121,7 +121,6 @@ customCommands:
           echo "Running: $cmd_args";
           if eval "$cmd_args"; then
             echo "GitHub PR creation initiated.";
-            gh pr merge --auto --squash
           else
             echo "Error: GitHub PR creation failed. Check output above.";
             echo "Press enter to continue..."; read dummy_input;
