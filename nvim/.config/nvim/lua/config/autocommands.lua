@@ -121,6 +121,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
     if not client then
       return
     end
+    if client.name == "GitHub Copilot" then
+      return
+    end
     local bufnr = args.buf -- Get the buffer number for the attached client
     require("config.lsp.handlers").on_attach(client, bufnr)
 

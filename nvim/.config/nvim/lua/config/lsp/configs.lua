@@ -15,7 +15,7 @@ mason_lspconfig.setup {
     "jsonls",
     "lua_ls",
     "yamlls",
-    "eslint@4.8.0", -- for some reason newer version does not work
+    "eslint",
     "ts_ls",
   },
 }
@@ -26,7 +26,6 @@ require("mason-lspconfig").setup_handlers {
   --
   function(server_name) -- default handler (optional)
     local opts = {
-      on_attach = require("config.lsp.handlers").on_attach,
       capabilities = require("config.lsp.handlers").capabilities,
     }
     -- Special configuration for lua_ls to use cwd as root
