@@ -138,7 +138,6 @@ return {
           diff,
           filetype,
           lsp_client,
-          require "config.codecompanion_lualine",
         },
         lualine_y = {
           {
