@@ -16,6 +16,18 @@ return {
         },
       },
     },
+    strategies = {
+      chat = {
+        keymaps = {
+          close = {
+            modes = { n = "q", i = "<C-c>" },
+          },
+          stop = {
+            modes = { n = "<C-l>" },
+          },
+        },
+      },
+    },
   },
   keys = {
     {
