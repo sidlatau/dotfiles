@@ -113,14 +113,9 @@ return {
       color = { fg = colors.green, gui = "bold" },
     }
 
-    local custom_gruvbox = require "lualine.themes.gruvbox-material"
-    custom_gruvbox.normal.a.bg = "#e5c07b"
-    custom_gruvbox.normal.c.bg = "#1E2021"
-
     lualine.setup {
       options = {
         icons_enabled = true,
-        theme = custom_gruvbox,
         section_separators = { left = "", right = "" },
         component_separators = { left = "", right = "" },
         disabled_filetypes = { "Outline" },

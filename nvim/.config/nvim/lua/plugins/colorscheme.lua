@@ -20,7 +20,17 @@ return {
   lazy = false,
   priority = 1000,
   config = function()
-    vim.g.gruvbox_material_background = "hard"
+    -- Check system dark/light mode on macOS
+    local handle = io.popen "defaults read -g AppleInterfaceStyle 2>/dev/null"
+    local result = handle and handle:read "*a" or ""
+    if handle then
+      handle:close()
+    end
+
+    local is_dark_mode = result:match "Dark" ~= nil
+
+    -- Set background based on system mode
+    vim.g.gruvbox_material_background = is_dark_mode and "hard" or "light"
     vim.g.gruvbox_material_better_performance = 1
     vim.g.gruvbox_material_enable_bold = 1
     vim.g.gruvbox_material_visual = "green background"
@@ -29,6 +39,9 @@ return {
     vim.g.gruvbox_material_diagnostic_virtual_text = 1
     vim.g.gruvbox_material_enable_italic = 1
     vim.cmd.colorscheme "gruvbox-material"
-    vim.cmd [[hi Normal guibg=NONE ctermbg=NONE]]
+
+    if not is_dark_mode then
+      vim.cmd [[hi Normal guibg=NONE ctermbg=NONE]]
+    end
   end,
 }
