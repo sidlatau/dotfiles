@@ -79,3 +79,5 @@ vim.o.foldexpr = "v:lua.vim.lsp.foldexpr()"
 vim.o.foldmethod = "expr"
 vim.o.fillchars = "eob: ,fold: ,foldopen:,foldsep: ,foldclose:"
 vim.opt.fillchars:append { diff = "╱" }
+
+require("vim._extui").enable {}
