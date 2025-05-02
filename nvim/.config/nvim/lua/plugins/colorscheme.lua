@@ -5,12 +5,27 @@ vim.api.nvim_create_autocmd("ColorScheme", {
   pattern = "gruvbox-material",
   callback = function()
     vim.cmd [[highlight  WinBar NONE]]
-    vim.cmd [[hi NormalFloat guibg=#1d2021 | hi FloatBorder guibg=#1d2021]]
-    vim.cmd [[hi BlinkCmpMenu guibg=#1d2021 | hi BlinkCmpMenuBorder guibg=#1d2021]]
+    -- Check system dark/light mode on macOS
+    local handle = io.popen "defaults read -g AppleInterfaceStyle 2>/dev/null"
+    local result = handle and handle:read "*a" or ""
+    if handle then
+      handle:close()
+    end
+
+    local is_dark_mode = result:match "Dark" ~= nil
+    vim.g.gruvbox_material_background = is_dark_mode and "hard" or "light"
+
+    if is_dark_mode then
+      vim.cmd [[hi BlinkCmpMenu guibg=#1d2021 | hi BlinkCmpMenuBorder guibg=#1d2021]]
+    else
+      vim.cmd [[hi BlinkCmpMenu guibg=NONE | hi BlinkCmpMenuBorder guibg=NONE]]
+    end
     vim.cmd [[hi DiagnosticWarn guibg=NONE]]
     vim.cmd [[hi DiagnosticInfo guibg=NONE]]
     vim.cmd [[hi DiagnosticError guibg=NONE]]
     vim.cmd [[ highlight NormalNC guibg=NONE]]
+    vim.cmd [[hi NormalFloat guibg=NONE | hi FloatBorder guibg=NONE]]
+    vim.cmd [[hi Normal guibg=NONE ctermbg=NONE]]
   end,
   -- floating popups for neo-tree
 })
@@ -20,17 +35,7 @@ return {
   lazy = false,
   priority = 1000,
   config = function()
-    -- Check system dark/light mode on macOS
-    local handle = io.popen "defaults read -g AppleInterfaceStyle 2>/dev/null"
-    local result = handle and handle:read "*a" or ""
-    if handle then
-      handle:close()
-    end
-
-    local is_dark_mode = result:match "Dark" ~= nil
-
-    -- Set background based on system mode
-    vim.g.gruvbox_material_background = is_dark_mode and "hard" or "light"
+    vim.g.gruvbox_material_background = "hard"
     vim.g.gruvbox_material_better_performance = 1
     vim.g.gruvbox_material_enable_bold = 1
     vim.g.gruvbox_material_visual = "green background"
@@ -39,9 +44,5 @@ return {
     vim.g.gruvbox_material_diagnostic_virtual_text = 1
     vim.g.gruvbox_material_enable_italic = 1
     vim.cmd.colorscheme "gruvbox-material"
-
-    if not is_dark_mode then
-      vim.cmd [[hi Normal guibg=NONE ctermbg=NONE]]
-    end
   end,
 }
