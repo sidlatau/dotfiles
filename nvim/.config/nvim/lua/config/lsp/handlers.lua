@@ -35,7 +35,7 @@ function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
   return orig_util_open_floating_preview(contents, syntax, opts, ...)
 end
 
-local function lsp_keymaps(bufnr)
+M.lsp_keymaps = function(bufnr)
   -- Enable completion triggered by <c-x><c-o>
   vim.api.nvim_set_option_value(
     "omnifunc",
@@ -51,20 +51,6 @@ local function lsp_keymaps(bufnr)
     require("telescope.builtin").lsp_references()
   end, opts)
   vim.keymap.set("n", "gl", vim.diagnostic.open_float, opts)
-end
-
-M.on_attach = function(client, bufnr)
-  if client.name == "ts_ls" or client.name == "lua_ls" then
-    -- do not format by this LSP - conform will handle this is used for formatting
-    client.server_capabilities.documentFormattingProvider = false
-  end
-  if client.name == "eslint" then
-    vim.api.nvim_create_autocmd("BufWritePre", {
-      buffer = bufnr,
-      command = "EslintFixAll",
-    })
-  end
-  lsp_keymaps(bufnr)
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()

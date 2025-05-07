@@ -1,4 +1,5 @@
 return {
+  capabilities = require("config.lsp.handlers").capabilities,
   settings = {
     yaml = {
       completion = true,

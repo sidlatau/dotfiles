@@ -16,6 +16,8 @@ return {
         { pattern = "convert to block body", key = "c", order = 6 },
         { pattern = "expression", key = "c", order = 7 },
         { pattern = "unawaited", key = "w", order = 7 },
+        { pattern = "with 'show'", key = "Z", order = 100 },
+        { pattern = "import library", key = "i", order = 1 },
       },
     },
   },

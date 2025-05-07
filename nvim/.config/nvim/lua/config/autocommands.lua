@@ -125,7 +125,17 @@ vim.api.nvim_create_autocmd("LspAttach", {
       return
     end
     local bufnr = args.buf -- Get the buffer number for the attached client
-    require("config.lsp.handlers").on_attach(client, bufnr)
+    if client.name == "ts_ls" or client.name == "lua_ls" then
+      -- do not format by this LSP - conform will handle this is used for formatting
+      client.server_capabilities.documentFormattingProvider = false
+    end
+    if client.name == "eslint" then
+      vim.api.nvim_create_autocmd("BufWritePre", {
+        buffer = bufnr,
+        command = "EslintFixAll",
+      })
+    end
+    require("config.lsp.handlers").lsp_keymaps(bufnr)
 
     if client:supports_method "textDocument/documentColor" then
       vim.lsp.document_color.enable(true, args.buf, { style = "virtual" })

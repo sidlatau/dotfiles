@@ -1,7 +1,8 @@
-local runtime_path = vim.split(package.path, ";")
-table.insert(runtime_path, "lua/?.lua")
-table.insert(runtime_path, "lua/?/init.lua")
 return {
+  capabilities = require("config.lsp.handlers").capabilities,
+  root_dir = function()
+    return vim.loop.cwd()
+  end,
   settings = {
     Lua = {
       codeLens = { enable = true },
