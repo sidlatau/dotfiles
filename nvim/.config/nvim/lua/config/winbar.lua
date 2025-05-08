@@ -16,6 +16,7 @@ M.winbar_filetype_exclude = {
   "neo-tree",
   "dap-float",
   "yazi",
+  "snacks_terminal",
 }
 
 local get_filename = function()
