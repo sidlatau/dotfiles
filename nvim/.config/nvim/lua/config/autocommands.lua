@@ -113,6 +113,14 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
   end,
 })
 
+-- Automatically check for file changes every few seconds
+vim.api.nvim_create_autocmd("CursorHold", {
+  pattern = "*",
+  callback = function()
+    vim.cmd "checktime"
+  end,
+})
+
 -- Set up LspAttach autocommand to define keymaps when LSP client attaches to a buffer
 vim.api.nvim_create_autocmd("LspAttach", {
   desc = "LSP actions", -- Optional description

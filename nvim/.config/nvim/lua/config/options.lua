@@ -71,6 +71,7 @@ vim.opt.spelllang = { "en", "lt" }
 vim.opt.report = 99999
 vim.opt.exrc = true
 vim.opt.autowriteall = true -- automatically :write before running commands and changing files
+vim.opt.autoread = true -- automatically read file changes from disk
 
 vim.o.foldcolumn = "0" -- do not show fold column
 vim.o.foldlevel = 99
