@@ -83,7 +83,6 @@ return {
           },
           layout = {
             layout = {
-              backdrop = true,
               width = 60,
               min_width = 60,
               height = 0,
@@ -123,10 +122,12 @@ return {
       notification = {
         wo = { wrap = true }, -- Wrap notifications
         reverse = true,
+        relative = "editor",
       },
       lazygit = {
         width = 0,
         height = 0,
+        relative = "editor",
       },
     },
   },
