@@ -5,5 +5,6 @@ attribute-author: false
 attribute-committer: false
 analytics-disable: true
 auto-commits: false
-model: openai/gemini-2.5-pro-preview-05-06
+model: openai/claude-3.7-sonnet
+# model: openai/gemini-2.5-pro-preview-05-06
 show-model-warnings: false
