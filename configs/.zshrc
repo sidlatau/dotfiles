@@ -121,6 +121,7 @@ alias neovide="/Applications/Neovide.app/Contents/MacOS/neovide --frame None --m
 alias vim=nvim
 alias lg=lazygit
 alias mc="mc --nosubshell"
+alias python=python3
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
