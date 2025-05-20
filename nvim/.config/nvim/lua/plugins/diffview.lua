@@ -30,6 +30,11 @@ return {
         { "n", "q", "<cmd>DiffviewClose<cr>", { desc = "Close help menu" } },
       },
     },
+    view = {
+      default = {
+        layout = "diff2_vertical",
+      },
+    },
     enhanced_diff_hl = true,
   },
   keys = {
