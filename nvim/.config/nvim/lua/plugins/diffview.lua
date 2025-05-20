@@ -7,6 +7,24 @@ return {
       },
       file_panel = {
         { "n", "q", "<cmd>DiffviewClose<cr>", { desc = "Close help menu" } },
+        {
+          "n",
+          "cc",
+          "<Cmd>Git commit <bar> wincmd J<CR>",
+          { desc = "Commit staged changes" },
+        },
+        {
+          "n",
+          "ca",
+          "<Cmd>Git commit --amend <bar> wincmd J<CR>",
+          { desc = "Amend the last commit" },
+        },
+        {
+          "n",
+          "c<space>",
+          ":Git commit ",
+          { desc = 'Populate command line with ":Git commit "' },
+        },
       },
       file_history_panel = {
         { "n", "q", "<cmd>DiffviewClose<cr>", { desc = "Close help menu" } },
