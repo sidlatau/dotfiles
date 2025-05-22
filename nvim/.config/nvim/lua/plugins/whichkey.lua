@@ -2,16 +2,13 @@ return {
   "folke/which-key.nvim",
   event = "VeryLazy",
   opts = {
-    preset = "modern",
-    icons = { rules = false },
-    delay = function(ctx)
-      return 1500
-    end,
+    preset = "helix",
+    -- icons = { rules = false },
+    delay = 300,
     triggers = {
       { "<leader>", mode = { "n", "v" } },
     },
     plugins = {
-      marks = false, -- shows a list of your marks on ' and `
       registers = false, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
       -- the presets plugin, adds help for a bunch of default keybindings in Neovim
       -- No actual key bindings are created
