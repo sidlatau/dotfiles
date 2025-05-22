@@ -33,7 +33,7 @@ return {
           end
         end)
       end,
-      desc = "Aider ask",
+      desc = "Ask",
     },
   },
   dependencies = {
