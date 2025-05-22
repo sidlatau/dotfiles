@@ -60,44 +60,6 @@ return {
         desc = "No Highlight",
       },
       {
-        "<leader>1",
-        ':lua require("harpoon.ui").nav_file(1)<CR>',
-        desc = "Nav 1",
-      },
-      {
-        "<leader>2",
-        ':lua require("harpoon.ui").nav_file(2)<CR>',
-        desc = "Nav 2",
-      },
-      {
-        "<leader>3",
-        ':lua require("harpoon.ui").nav_file(3)<CR>',
-        desc = "Nav 3",
-      },
-      {
-        "<leader>4",
-        ':lua require("harpoon.ui").nav_file(4)<CR>',
-        desc = "Nav 4",
-      },
-      {
-        "<leader>h",
-        group = "Harpoon",
-        {
-          "<leader>ha",
-          function()
-            require("harpoon.mark").add_file()
-          end,
-          desc = "Add",
-        },
-        {
-          "<leader>hh",
-          function()
-            require("harpoon.ui").toggle_quick_menu()
-          end,
-          desc = "Edit",
-        },
-      },
-      {
         "<leader>f",
         group = "Flutter",
       },

@@ -16,8 +16,6 @@ return {
   { "tpope/vim-projectionist", event = "VeryLazy" },
   { "tpope/vim-unimpaired", event = "VeryLazy" },
 
-  { "ThePrimeagen/harpoon", event = "VeryLazy" },
-
   { "neovim/nvim-lspconfig", event = "VeryLazy" },
   { "williamboman/mason.nvim", event = "VeryLazy" },
   { "williamboman/mason-lspconfig.nvim", event = "VeryLazy" },
