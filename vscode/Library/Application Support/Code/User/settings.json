@@ -163,4 +163,11 @@
   "github.copilot.chat.codesearch.enabled": true,
   "chat.mcp.discovery.enabled": true,
   "chat.agent.enabled": true,
+  "mssql.connectionGroups": [
+    {
+      "name": "ROOT",
+      "id": "5FC39580-5627-4AFE-A7AF-9F643E999C84"
+    }
+  ],
+  "mssql.connections": [],
 }
