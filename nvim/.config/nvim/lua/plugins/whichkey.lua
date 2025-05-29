@@ -4,7 +4,7 @@ return {
   opts = {
     preset = "helix",
     -- icons = { rules = false },
-    delay = 300,
+    delay = 600,
     triggers = {
       { "<leader>", mode = { "n", "v" } },
     },
