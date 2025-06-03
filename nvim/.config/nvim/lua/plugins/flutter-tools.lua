@@ -59,6 +59,7 @@ return {
         -- end,
       },
       fvm = true,
+      default_run_args = { flutter = "--no-pub" },
       widget_guides = {
         enabled = true,
       },
