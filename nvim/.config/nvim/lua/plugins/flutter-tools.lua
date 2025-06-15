@@ -1,5 +1,5 @@
 return {
-  "nvim-flutter/flutter-tools.nvim",
+  "kaerumm/flutter-tools.nvim",
   dev = false,
   event = "BufReadPre *.dart",
   dependencies = "nvim-lua/plenary.nvim",
