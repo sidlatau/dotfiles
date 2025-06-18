@@ -1,6 +1,6 @@
 return {
-  "kaerumm/flutter-tools.nvim",
-  dev = false,
+  "nvim-flutter/flutter-tools.nvim",
+  dev = true,
   event = "BufReadPre *.dart",
   dependencies = "nvim-lua/plenary.nvim",
   config = function()

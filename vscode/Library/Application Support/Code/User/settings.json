@@ -177,5 +177,44 @@
       "id": "5FC39580-5627-4AFE-A7AF-9F643E999C84"
     }
   ],
-  "mssql.connections": [],
+  "mssql.connections": [
+    {
+      "authenticationType": "SqlLogin",
+      "connectTimeout": 30,
+      "applicationName": "vscode-mssql",
+      "applicationIntent": "ReadWrite",
+      "profileName": "Local",
+      "server": "localhost",
+      "trustServerCertificate": true,
+      "user": "sa",
+      "password": "",
+      "savePassword": true,
+      "groupId": "5FC39580-5627-4AFE-A7AF-9F643E999C84",
+      "id": "45B57C7F-A058-4F00-BC13-FB2975C8547B",
+      "database": "",
+      "commandTimeout": 30
+    },
+    {
+      "authenticationType": "AzureMFA",
+      "connectTimeout": 30,
+      "applicationName": "vscode-mssql",
+      "applicationIntent": "ReadWrite",
+      "server": "handyhelp.database.windows.net",
+      "accountId": "00000000-0000-0000-e743-7a4ca252b550.9188040d-6c67-4c5b-b112-36a304b66dad",
+      "tenantId": "985f72fb-3c99-4480-a541-b1cd76c8bea5",
+      "encrypt": "Mandatory",
+      "profileName": "hh-stage",
+      "database": "hh-stage-db",
+      "email": "tautvydas.sidlauskas@gmail.com",
+      "azureAccountToken": "",
+      "expiresOn": 1750192777,
+      "groupId": "5FC39580-5627-4AFE-A7AF-9F643E999C84",
+      "id": "95CD7E04-8EC9-458A-835F-78114AA6B55C",
+      "commandTimeout": 30,
+      "user": "tautvydas.sidlauskas@gmail.com - tautvydas.sidlauskas@gmail.com",
+      "password": "",
+      "profileSource": 0
+    }
+  ],
+  "redoclyOpenAPI.user.anonymousId": "c6b81000-8403-4951-b537-a5cebc344e5f",
 }
