@@ -1,6 +1,13 @@
 return {
   "nvim-lualine/lualine.nvim",
   config = function()
+    local dmode_enabled = false
+    vim.api.nvim_create_autocmd("User", {
+      pattern = "DebugModeChanged",
+      callback = function(args)
+        dmode_enabled = args.data.enabled
+      end,
+    })
     local lualine = require "lualine"
 
     local colors = {
@@ -20,7 +27,10 @@ return {
     local mode = {
       "mode",
       fmt = function(str)
-        return " " .. str .. " "
+        return dmode_enabled and "DEBUG" or str
+      end,
+      color = function(tb)
+        return dmode_enabled and "dCursor" or tb
       end,
     }
 
@@ -31,7 +41,7 @@ return {
     local branch = {
       "branch",
       icon = "",
-      separator = { left = "", right = "" },
+      separator = { left = "", right = "" },
     }
     local status_counts = {
       function()
@@ -90,7 +100,6 @@ return {
       function()
         local names = {}
         local msg = "No Active Lsp"
-        local buf_ft = vim.api.nvim_get_option_value("filetype", { buf = 0 })
         local clients = vim.lsp.get_clients()
         if next(clients) == nil then
           return msg
@@ -116,14 +125,15 @@ return {
     lualine.setup {
       options = {
         icons_enabled = true,
-        section_separators = { left = "", right = "" },
         component_separators = { left = "", right = "" },
         disabled_filetypes = { "Outline" },
         always_divide_middle = true,
+        globalstatus = true,
+        section_separators = { left = "", right = "" },
       },
       sections = {
-        lualine_a = { branch },
-        lualine_b = { mode },
+        lualine_a = { mode },
+        lualine_b = { branch },
         lualine_c = {
           { "diagnostics", sources = { "nvim_workspace_diagnostic" } },
           status_counts,

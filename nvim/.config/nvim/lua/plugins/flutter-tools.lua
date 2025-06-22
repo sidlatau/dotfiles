@@ -1,6 +1,6 @@
 return {
   "nvim-flutter/flutter-tools.nvim",
-  dev = true,
+  dev = false,
   event = "BufReadPre *.dart",
   dependencies = "nvim-lua/plenary.nvim",
   config = function()

@@ -49,7 +49,17 @@ return {
         end,
         desc = "Buffers",
       },
-      { "<esc>", "<cmd>nohlsearch<CR>", desc = "Clear search" },
+      {
+        "<esc>",
+        function()
+          vim.cmd "nohlsearch"
+          local is_ok, dm = pcall(require, "debugmaster")
+          if is_ok then
+            dm.mode.disable()
+          end
+        end,
+        desc = "Clear search",
+      },
       {
         "<leader><leader>",
         function()
@@ -146,77 +156,6 @@ return {
             vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled {})
           end,
           desc = "Inlay hints",
-        },
-      },
-      {
-        "<leader>d",
-        group = "Debug",
-        {
-          "<leader>dt",
-          function()
-            require("dap").toggle_breakpoint()
-          end,
-          desc = "Toggle Breakpoint",
-        },
-        {
-          "<leader>dr",
-          function()
-            require("dap").repl.toggle()
-          end,
-          desc = "Toggle Repl",
-        },
-        {
-          "<leader>dq",
-          function()
-            require("dap").close()
-          end,
-          desc = "Quit",
-        },
-        {
-          "<leader>dd",
-          function()
-            require("dap.ui.widgets").hover()
-          end,
-          desc = "Hover",
-        },
-        {
-          "<leader>dv",
-          function()
-            local widgets = require "dap.ui.widgets"
-            widgets.centered_float(widgets.scopes)
-          end,
-          desc = "Variables",
-        },
-        {
-          "<leader>df",
-          function()
-            require("telescope").extensions.dap.frames()
-          end,
-          desc = "Frames",
-        },
-        {
-          "<leader>db",
-          function()
-            require("telescope").extensions.dap.list_breakpoints()
-          end,
-          desc = "Frames",
-        },
-        {
-          "<leader>ds",
-          function()
-            local widgets = require "dap.ui.widgets"
-            widgets.centered_float(widgets.threads)
-          end,
-          desc = "Threads",
-        },
-        {
-          "<leader>dS",
-          function()
-            local widgets = require "dap.ui.widgets"
-            local my_sidebar = widgets.sidebar(widgets.scopes)
-            my_sidebar.open()
-          end,
-          desc = "Sidebar",
         },
       },
       {
