@@ -149,7 +149,9 @@ local function set_database_paths(result)
   local db_path = path .. "/Documents/databases"
   local db_path_content =
     vim.split(vim.fn.glob(db_path .. "/*"), "\n", { trimempty = true })
-  vim.g.dbs = to_dbs(db_path_content)
+  local new_dbs = to_dbs(db_path_content)
+  -- Merge new databases with existing ones
+  vim.g.dbs = vim.tbl_extend("force", vim.g.dbs or {}, new_dbs)
 end
 
 local function build_database_connection(app_identifier)
