@@ -30,6 +30,7 @@ return {
       )
 
       dm.plugins.osv_integration.enabled = true -- needed if you want to debug neovim lua code
+      dm.plugins.ui_auto_toggle.enabled = false
     end,
   },
 }
