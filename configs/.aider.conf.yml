@@ -7,7 +7,7 @@ analytics-disable: true
 auto-commits: false
 # model: openai/gpt-4.
 # model: openai/gemini-2.5-pro-preview-05-06
-model: openai/claude-3.7-sonnet-thought
+model: openai/claude-sonnet-4
 weak-model: openai/gpt-4.1
 show-model-warnings: false
 edit-format: diff-fenced
