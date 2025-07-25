@@ -69,11 +69,14 @@ vim.api.nvim_create_autocmd({ "TextYankPost" }, {
 })
 
 vim.api.nvim_create_autocmd(
-  { "CursorMoved", "BufWinEnter", "BufFilePost", "InsertEnter", "BufWritePost" },
+  { "CursorMoved", "BufWinEnter", "BufFilePost", "BufWritePost", "InsertEnter" },
   {
     group = augroup "winbar",
     callback = function()
-      require("config.winbar").get_winbar()
+      if vim.api.nvim_win_get_config(0).relative ~= "" then
+        return
+      end
+      pcall(require("config.winbar").get_winbar)
     end,
   }
 )

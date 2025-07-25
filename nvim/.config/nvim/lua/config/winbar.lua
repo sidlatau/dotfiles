@@ -39,9 +39,16 @@ local get_filename = function()
 end
 
 M.get_winbar = function()
-  if vim.bo.buftype ~= "" then
+  -- Check the buffer type of the current window
+  if vim.bo[0].buftype ~= "" then
     return
   end
+
+  -- Check if the window is high enough for a winbar
+  if vim.api.nvim_win_get_height(0) < 2 then
+    return
+  end
+
   local f = require "config.functions"
   local value = get_filename()
 
@@ -54,11 +61,11 @@ M.get_winbar = function()
     return
   end
 
-  local status_ok, _ =
+  local status_ok, err =
     pcall(vim.api.nvim_set_option_value, "winbar", value, { scope = "local" })
   if not status_ok then
+    vim.print("Failed to set winbar: " .. tostring(err))
     return
   end
 end
-
 return M
