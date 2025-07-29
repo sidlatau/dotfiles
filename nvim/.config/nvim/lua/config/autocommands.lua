@@ -2,14 +2,6 @@ local function augroup(name)
   return vim.api.nvim_create_augroup("ts_" .. name, { clear = true })
 end
 
-vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-  group = augroup "format_on_save",
-  pattern = "*.dart",
-  callback = function()
-    vim.lsp.buf.format()
-  end,
-})
-
 vim.api.nvim_create_autocmd({ "InsertLeave" }, {
   pattern = "*.cs",
   callback = function()
