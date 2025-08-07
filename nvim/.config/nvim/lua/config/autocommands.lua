@@ -60,19 +60,6 @@ vim.api.nvim_create_autocmd({ "TextYankPost" }, {
   end,
 })
 
-vim.api.nvim_create_autocmd(
-  { "CursorMoved", "BufWinEnter", "BufFilePost", "BufWritePost", "InsertEnter" },
-  {
-    group = augroup "winbar",
-    callback = function()
-      if vim.api.nvim_win_get_config(0).relative ~= "" then
-        return
-      end
-      pcall(require("config.winbar").get_winbar)
-    end,
-  }
-)
-
 -- resize splits if window got resized
 vim.api.nvim_create_autocmd({ "VimResized" }, {
   group = augroup "resize_splits",
