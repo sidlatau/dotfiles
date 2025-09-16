@@ -6,7 +6,7 @@ macos-titlebar-style = tabs
 macos-titlebar-proxy-icon = hidden
 macos-option-as-alt=true
 background-opacity = 0.98
-theme = light:GruvboxLight,dark:GruvboxDarkHard
+theme = light:Gruvbox Light,dark:Gruvbox Dark Hard
 mouse-hide-while-typing = true
 keybind = global:cmd+§=toggle_quick_terminal
 copy-on-select = clipboard
