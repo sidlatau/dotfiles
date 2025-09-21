@@ -10,3 +10,4 @@ vscode/Library/Application Support/Code
 lvim/.config/lvim/plugin/packer_compiled.lua
 /.aider*
 !configs/.aider.model.settings.yml
+vscode/Library/Application Support/Code/User/settings.json
