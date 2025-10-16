@@ -215,13 +215,6 @@ return {
       desc = "Toggle Zoom",
     },
     {
-      "<leader>w",
-      function()
-        Snacks.explorer.open()
-      end,
-      desc = "Open explorer",
-    },
-    {
       "<leader>gl",
       function()
         Snacks.lazygit.log_file()
