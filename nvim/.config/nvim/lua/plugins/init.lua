@@ -89,4 +89,19 @@ return {
       require("tiny-inline-diagnostic").setup()
     end,
   },
+  {
+    "nvim-mini/mini.diff",
+    version = "*",
+    opts = {},
+    keys = {
+      {
+        "<leader>gt",
+        function()
+          require("mini.diff").enable(0)
+          require("mini.diff").toggle_overlay(0)
+        end,
+        desc = "Toggle mini.diff overlay",
+      },
+    },
+  },
 }
