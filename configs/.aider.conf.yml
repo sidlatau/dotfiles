@@ -7,7 +7,7 @@ analytics-disable: true
 auto-commits: false
 # model: openai/gpt-4.
 # model: openai/gemini-2.5-pro-preview-05-06
-model: openai/claude-sonnet-4
+model: openai/claude-sonnet-4.5
 weak-model: openai/gpt-4.1
 show-model-warnings: false
 edit-format: diff-fenced
@@ -20,12 +20,12 @@ commit-prompt: |
   Generate a one-line commit message for those changes.
   The commit message should be structured as follows: <type>(<scope>): <description>
   Use these for <type>: fix, feat, build, ci, chore, refactor
-  
+
   Ensure the commit message:
   - Starts with the appropriate prefix.
   - Is in the imperative mood (e.g., "add feature" not "added feature" or "adding feature").
   - Does not exceed 72 characters.
 
   Scope is optional, use branch name if branch starts with `DNA-` or `ID-` prefix (i.e. "feat(DNA-5444): change map style via dialog"
-  
+
   Reply only with the one-line commit message, without any additional text, explanations, or line breaks.
