@@ -8,7 +8,7 @@ if current_file == "pubspec.yaml" then
     local package_name = trim(line_string):match "([^:]+):"
     local url = "https://pub.dev/packages/" .. package_name
     if package_name and url then
-      vim.api.nvim_call_function("netrw#BrowseX", { url, 0 })
+      vim.api.nvim_call_function("netrw#BrowseX", { url })
     end
   end, { buffer = 0 })
 end
