@@ -54,6 +54,7 @@ end
 
 return {
   "folke/snacks.nvim",
+  commit = "39b14c400653f320133b3f8c65cdb612e42f9ca1",
   priority = 1000,
   lazy = false,
   ---@type snacks.Config
