@@ -14,10 +14,10 @@ git:
   branchLogCmd: "git log --graph --color=always --oneline --decorate --pretty=format:'%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%<(12,trunc)%an%Creset'"
   parseEmoji: true
   disableForcePushing: true
-  paging:
-    colorArg: always
-    # pager: delta --dark --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
-    externalDiffCommand: difft --color=always
+  pagers:
+    - colorArg: always
+      # pager: delta --dark --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
+      externalDiffCommand: difft --color=always
   allBranchesLogCmds:
     - git logtree
 notARepository: "skip"
@@ -44,6 +44,7 @@ customCommands:
     # No prompts needed as we try to automate everything
     command: >
       sh -c '
+
 
         default_target_branch="main";
 
