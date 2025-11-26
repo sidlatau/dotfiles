@@ -195,3 +195,6 @@ function y() {
 eval "$(zoxide init zsh)"
 source <(fzf --zsh)
 export PATH="/Users/ts/.shorebird/bin:$PATH"
+
+# Added by Antigravity
+export PATH="/Users/ts/.antigravity/antigravity/bin:$PATH"
