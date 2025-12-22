@@ -1,6 +1,6 @@
 return {
   "nvim-flutter/pubspec-assist.nvim",
-  dev = false,
+  dev = true,
   -- event = "VeryLazy",
   dependencies = "plenary.nvim",
   config = function()
