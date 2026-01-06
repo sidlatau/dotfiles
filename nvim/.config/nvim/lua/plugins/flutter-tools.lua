@@ -1,6 +1,6 @@
 return {
   "nvim-flutter/flutter-tools.nvim",
-  dev = false,
+  dev = true,
   event = "BufReadPre *.dart",
   dependencies = "nvim-lua/plenary.nvim",
   config = function()
@@ -182,6 +182,11 @@ return {
       "<leader>fD",
       "<cmd>FlutterDevices<CR>",
       desc = "Flutter devices",
+    },
+    {
+      "<leader>fi",
+      "<cmd>FlutterInspectWidget<CR>",
+      desc = "Inspect widget",
     },
     {
       "<leader>ftb",
