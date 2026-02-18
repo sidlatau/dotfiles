@@ -198,3 +198,6 @@ export PATH="/Users/ts/.shorebird/bin:$PATH"
 
 # Added by Antigravity
 export PATH="/Users/ts/.antigravity/antigravity/bin:$PATH"
+
+# Added by Antigravity
+export PATH="/Users/ts/.antigravity/antigravity/bin:$PATH"
