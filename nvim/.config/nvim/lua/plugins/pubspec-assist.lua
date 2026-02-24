@@ -1,5 +1,6 @@
 return {
-  "nvim-flutter/pubspec-assist.nvim",
+  "sidlatau/pubspec-assist.nvim",
+  branch = "sync-versions",
   dev = false,
   dependencies = "plenary.nvim",
   config = function()
